@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   Euclid Circular A — self-hosted in /public/fonts/
+   Download from: https://www.cufonfonts.com/font/euclid-circular-a
+   or use your licensed copy.
+   ───────────────────────────────────────────── */
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("/fonts/EuclidCircularA-Regular.woff2") format("woff2"),
+    url("/fonts/EuclidCircularA-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("/fonts/EuclidCircularA-Medium.woff2") format("woff2"),
+    url("/fonts/EuclidCircularA-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("/fonts/EuclidCircularA-SemiBold.woff2") format("woff2"),
+    url("/fonts/EuclidCircularA-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("/fonts/EuclidCircularA-Bold.woff2") format("woff2"),
+    url("/fonts/EuclidCircularA-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("/fonts/EuclidCircularA-Light.woff2") format("woff2"),
+    url("/fonts/EuclidCircularA-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Base ─────────────────────────────────── */
+@layer base {
+  :root {
+    --primary: #0a2824;
+    --teal: #61b1a4;
+    --mint: #aadcc3;
+    --accent: #ffd732;
+    --mint-bg: #def6eb;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-euclid text-primary-500 bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-euclid font-bold tracking-tight;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal;
+  }
+}
+
+/* ─── Components ───────────────────────────── */
+@layer components {
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-accent text-primary-500 font-semibold
+           px-6 py-3 rounded-xl
+           hover:bg-accent-dark active:scale-95
+           transition-all duration-200 ease-out
+           shadow-glow-accent;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white/10 text-white font-semibold
+           border border-white/20 backdrop-blur-sm
+           px-6 py-3 rounded-xl
+           hover:bg-white/20 active:scale-95
+           transition-all duration-200 ease-out;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-primary-500 font-semibold
+           border-2 border-primary-500
+           px-6 py-3 rounded-xl
+           hover:bg-primary-500 hover:text-white active:scale-95
+           transition-all duration-200 ease-out;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-card
+           hover:shadow-card-hover transition-shadow duration-300;
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2
+           bg-mint text-primary-500 font-semibold text-sm
+           px-4 py-1.5 rounded-full;
+  }
+
+  .section-heading {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-slate-500 leading-relaxed max-w-2xl;
+  }
+
+  .nav-link {
+    @apply text-slate-600 font-medium hover:text-primary-500
+           transition-colors duration-200 relative
+           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5
+           after:bg-accent after:transition-all after:duration-200
+           hover:after:w-full;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-teal to-accent bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+
+  /* Admin sidebar link */
+  .admin-nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl
+           text-slate-300 font-medium
+           hover:bg-white/10 hover:text-white
+           transition-all duration-200;
+  }
+  .admin-nav-link.active {
+    @apply bg-teal/20 text-teal border border-teal/30;
+  }
+}
+
+/* ─── Utilities ────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ─── Ticker tape ──────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-content {
+  display: inline-flex;
+  animation: ticker 40s linear infinite;
+}
+.ticker-content:hover {
+  animation-play-state: paused;
+}
