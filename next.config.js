@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
       { protocol: "https", hostname: "d3e54v103j8qbb.cloudfront.net" },
       { protocol: "https", hostname: "**.supabase.co" },
     ],
-    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [
