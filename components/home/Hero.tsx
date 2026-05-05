@@ -1,223 +1,164 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  ArrowRight,
-  PlayCircle,
-  Star,
-  Users,
-  BookOpen,
-  TrendingUp,
-  CheckCircle2,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, PlayCircle, Star, CheckCircle2, Zap } from "lucide-react";
+import MagneticButton from "@/components/ui/MagneticButton";
 
-const WA_LINK =
-  "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
-
-const EXAM_BADGES = [
-  "SSC CGL", "UPSC", "Banking", "Railway", "State PSC", "Defence",
+const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
+const BADGES = ["SSC CGL", "UPSC", "Banking", "Railway", "State PSC", "Defence"];
+const STATS = [
+  { value: "50K+", label: "Students" },
+  { value: "1,200+", label: "Tests" },
+  { value: "140K+", label: "MCQs" },
 ];
 
-const TRUST_ITEMS = [
-  { icon: Users, value: "50,000+", label: "Active Students" },
-  { icon: BookOpen, value: "1,200+", label: "Mock Tests" },
-  { icon: TrendingUp, value: "140K+", label: "MCQ Questions" },
-];
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.2 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+};
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("opacity-100");
-        });
-      },
-      { threshold: 0.1 }
-    );
-    const el = heroRef.current;
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden"
-      aria-label="Hero section"
-    >
-      {/* Background texture */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
+      {/* Static background decorations — no motion, no repaints */}
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('/images/GetVidya-home-bg.svg')] bg-center bg-cover opacity-10" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-        {/* Grid dot pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #fff 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
       </div>
 
-      <div className="container-xl relative z-10 pt-20 pb-16">
+      <div className="container-xl relative z-10 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
           {/* Left — Copy */}
-          <div className="animate-fade-up">
-            {/* Eyebrow tag */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-8">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse-soft" />
-              India&apos;s Smartest Govt. Exam Prep Platform
-            </div>
+          <motion.div variants={container} initial="hidden" animate="show">
+            <motion.div variants={item}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-8">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              India&apos;s Smartest Govt. Exam Prep
+            </motion.div>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance">
-              Crack Government Exams with
-              <span className="block mt-1">
-                <span className="text-accent">Expert MCQs</span> &amp; Mock
-                Tests
+            <motion.h1 variants={item} className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.12] mb-6">
+              Crack Government Exams with{" "}
+              <span className="relative inline-block">
+                <span className="text-accent">Expert MCQs</span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-accent/50 rounded-full"
+                  initial={{ width: 0 }} animate={{ width: "100%" }}
+                  transition={{ delay: 1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                />
               </span>
-            </h1>
+              {" "}&amp; Mock Tests
+            </motion.h1>
 
-            {/* Sub-headline */}
-            <p className="text-lg text-white/75 leading-relaxed mb-8 max-w-xl">
-              Over{" "}
-              <strong className="text-accent font-semibold">
-                140,000 practice questions
-              </strong>{" "}
-              across UPSC, SSC, Banking &amp; more. Start free — upgrade when
-              you&apos;re ready.
-            </p>
+            <motion.p variants={item} className="text-lg text-white/75 leading-relaxed mb-8 max-w-xl">
+              Over <strong className="text-accent font-semibold">140,000 practice questions</strong> across UPSC, SSC, Banking &amp; more.
+              Start free — upgrade when ready.
+            </motion.p>
 
-            {/* Exam pills */}
-            <div className="flex flex-wrap gap-2 mb-10">
-              {EXAM_BADGES.map((exam) => (
-                <span
-                  key={exam}
-                  className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white/80 text-sm font-medium hover:bg-white/20 transition-colors cursor-default"
-                >
-                  {exam}
+            <motion.div variants={item} className="flex flex-wrap gap-2 mb-10">
+              {BADGES.map((b) => (
+                <span key={b}
+                  className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white/80 text-sm font-medium backdrop-blur-sm">
+                  {b}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-base px-8 py-4 rounded-2xl group"
-              >
+            <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-10">
+              <MagneticButton href={WA} target="_blank" rel="noopener noreferrer"
+                className="btn-primary text-base px-8 py-4 rounded-2xl group flex items-center gap-2">
                 Start Free Mock Test
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </a>
-              <Link
-                href="/about"
-                className="btn-secondary text-base px-8 py-4 rounded-2xl group"
-              >
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </MagneticButton>
+              <MagneticButton href="https://app.getvidya.in/login" className="btn-secondary text-base px-8 py-4 rounded-2xl flex items-center gap-2">
                 <PlayCircle size={18} className="text-accent" />
-                See how it works
-              </Link>
-            </div>
+                Login to your account
+              </MagneticButton>
+            </motion.div>
 
-            {/* Trust badges */}
-            <div className="flex items-center gap-6 flex-wrap">
-              {TRUST_ITEMS.map(({ icon: Icon, value, label }) => (
+            <motion.div variants={item} className="flex items-center gap-6 flex-wrap">
+              {STATS.map(({ value, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-teal/20 flex items-center justify-center">
-                    <Icon size={16} className="text-teal-light" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-sm leading-none">
-                      {value}
-                    </div>
-                    <div className="text-white/50 text-xs">{label}</div>
-                  </div>
+                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="text-white font-bold text-sm">{value}</span>
+                  <span className="text-white/50 text-sm">{label}</span>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
-            {/* Price note */}
-            <div className="mt-6 flex items-center gap-2 text-white/60 text-sm">
-              <CheckCircle2 size={15} className="text-accent" />
-              Mock tests starting at just{" "}
-              <strong className="text-accent">₹149/month</strong> — cancel
-              anytime
-            </div>
-          </div>
+            <motion.div variants={item} className="mt-5 flex items-center gap-2 text-white/50 text-sm">
+              <CheckCircle2 size={14} className="text-accent" />
+              Starting at <strong className="text-accent">₹149/month</strong> — cancel anytime
+            </motion.div>
+          </motion.div>
 
           {/* Right — Visual */}
-          <div className="relative flex justify-center lg:justify-end animate-slide-left animation-delay-200">
-            {/* Floating rating card */}
-            <div className="absolute -top-4 -left-4 lg:-left-8 z-20 glass-card px-4 py-3 flex items-center gap-3 animate-float">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={14}
-                    className="text-accent fill-accent"
-                  />
-                ))}
-              </div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            {/* Floating rating */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+              className="absolute -top-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-4 py-3 flex items-center gap-3"
+            >
+              <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-accent fill-accent" />)}</div>
               <div>
                 <div className="text-white font-semibold text-sm">4.8 Rating</div>
-                <div className="text-white/60 text-xs">2,400+ reviews</div>
+                <div className="text-white/50 text-xs">2,400+ reviews</div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Floating question card */}
-            <div className="absolute -bottom-4 -left-4 lg:-left-8 z-20 glass-card p-4 max-w-[220px] animate-float animation-delay-300">
-              <div className="text-white/60 text-xs mb-2 font-medium">
-                Today&apos;s Free Question
+            <motion.div
+              animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 max-w-[220px]"
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                <Zap size={12} className="text-accent" />
+                <span className="text-white/60 text-xs font-medium">Today&apos;s Free MCQ</span>
               </div>
               <div className="text-white text-xs font-medium leading-relaxed">
-                &quot;Which article of the Indian Constitution deals with the
-                Right to Education?&quot;
+                &quot;Article 21A of the Indian Constitution deals with which right?&quot;
               </div>
               <div className="mt-3 flex gap-2">
-                {["Art. 21A", "Art. 45"].map((opt) => (
-                  <span
-                    key={opt}
-                    className="text-xs px-2 py-1 rounded-lg bg-white/10 text-white/70"
-                  >
-                    {opt}
-                  </span>
+                {["Right to Life", "Right to Education"].map((opt) => (
+                  <span key={opt} className="text-[10px] px-2 py-1 rounded-lg bg-white/10 text-white/70 border border-white/10">{opt}</span>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Main hero image */}
+            {/* Hero image */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-500/50 to-transparent rounded-3xl z-10" />
-              <Image
-                src="/images/home-banner.webp"
-                alt="Students preparing for government exams with GetVidya"
-                width={580}
-                height={520}
-                className="rounded-3xl object-cover shadow-2xl relative z-0"
-                priority
-                sizes="(max-width: 768px) 100vw, 580px"
-              />
+              <div className="absolute -inset-4 bg-teal/20 rounded-[2rem] blur-2xl opacity-50" />
+              <Image src="/images/home-banner.webp" alt="Students preparing with GetVidya"
+                width={540} height={480} className="rounded-3xl object-cover shadow-2xl relative z-10"
+                priority fetchPriority="high"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 540px" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary-500/40 to-transparent z-10" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <div className="w-5 h-8 rounded-full border-2 border-white/30 flex items-start justify-center pt-1">
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+      >
+        <div className="w-5 h-8 rounded-full border-2 border-white/30 flex items-start justify-center pt-1.5">
           <div className="w-1 h-2 rounded-full bg-white/60" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

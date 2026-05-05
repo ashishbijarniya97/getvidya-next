@@ -20,6 +20,7 @@ const sscLinks = [
 
 const quickLinks = [
   { label: "Home", href: "/" },
+  { label: "Login", href: "https://app.getvidya.in/login" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "FAQs", href: "/faqs" },
