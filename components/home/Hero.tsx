@@ -109,7 +109,7 @@ export default function Hero() {
             {/* Floating rating */}
             <motion.div
               animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-              className="absolute -top-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="hidden sm:flex absolute -top-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-4 py-3 items-center gap-3"
             >
               <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-accent fill-accent" />)}</div>
               <div>
@@ -121,7 +121,7 @@ export default function Hero() {
             {/* Floating question card */}
             <motion.div
               animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 max-w-[220px]"
+              className="hidden sm:block absolute -bottom-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 max-w-[220px]"
             >
               <div className="flex items-center gap-1.5 mb-2">
                 <Zap size={12} className="text-accent" />

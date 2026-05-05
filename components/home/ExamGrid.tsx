@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const exams = [
   { name: "SSC CGL", slug: "ssc-cgl", icon: "📋", tests: "240+", color: "bg-blue-50 text-blue-700 border-blue-200", desc: "Combined Graduate Level" },
@@ -14,51 +19,85 @@ export default function ExamGrid() {
   return (
     <section className="py-24 bg-white">
       <div className="container-xl">
-        <div className="text-center mb-14">
-          <span className="section-tag mb-4">Exam Coverage</span>
-          <h2 className="section-heading mb-4">
+        <StaggerContainer className="text-center mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="section-tag mb-4">Exam Coverage</span>
+          </motion.div>
+          <motion.h2
+            className="section-heading mb-4"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
             Which exam are you cracking?
-          </h2>
-          <p className="section-subheading mx-auto">
+          </motion.h2>
+          <motion.p
+            className="section-subheading mx-auto"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
             Targeted mock tests and question banks for every major government exam.
-          </p>
-        </div>
+          </motion.p>
+        </StaggerContainer>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-5">
           {exams.map((exam) => (
-            <Link
-              key={exam.slug}
-              href={`/exams/${exam.slug}`}
-              className="card p-6 flex flex-col gap-4 group hover:border-teal border border-transparent transition-all duration-300"
-            >
-              <div className="flex items-start justify-between">
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl border ${exam.color}`}
+            <StaggerItem key={exam.slug}>
+              <motion.div
+                whileHover={{ y: -5, boxShadow: "0 16px 40px rgba(10,40,36,0.12)" }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full"
+              >
+                <Link
+                  href={`/exams/${exam.slug}`}
+                  className="card p-3 sm:p-6 flex flex-col gap-3 sm:gap-4 group h-full hover:border-teal border border-transparent transition-colors duration-300"
                 >
-                  {exam.icon}
-                </div>
-                <span className="text-xs font-semibold text-teal bg-mint px-3 py-1 rounded-full">
-                  {exam.tests} tests
-                </span>
-              </div>
-              <div>
-                <h3 className="font-bold text-primary-500 text-lg group-hover:text-teal transition-colors">
-                  {exam.name}
-                </h3>
-                <p className="text-slate-500 text-sm mt-1">{exam.desc}</p>
-              </div>
-              <div className="flex items-center gap-1 text-teal text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                Explore tests <ArrowRight size={14} />
-              </div>
-            </Link>
+                  <div className="flex items-start justify-between">
+                    <motion.div
+                      className={`w-9 h-9 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-lg sm:text-2xl border ${exam.color}`}
+                      whileHover={{ rotate: [0, -8, 8, 0], scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {exam.icon}
+                    </motion.div>
+                    <span className="text-[10px] sm:text-xs font-semibold text-teal bg-mint px-2 sm:px-3 py-1 rounded-full">
+                      {exam.tests} tests
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-primary-500 text-sm sm:text-lg group-hover:text-teal transition-colors">
+                      {exam.name}
+                    </h3>
+                    <p className="text-slate-500 text-xs sm:text-sm mt-0.5 sm:mt-1 hidden sm:block">{exam.desc}</p>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1 text-teal text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity mt-auto">
+                    Explore tests <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="text-center mt-10">
-          <Link href="/exams" className="btn-outline">
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <MagneticButton href="/exams" className="btn-outline flex items-center gap-2 mx-auto">
             View All Exams <ArrowRight size={16} />
-          </Link>
-        </div>
+          </MagneticButton>
+        </motion.div>
       </div>
     </section>
   );
