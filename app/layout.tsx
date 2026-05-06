@@ -34,8 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased">
-        <AnnouncementBanner />
         <SmoothScroll>{children}</SmoothScroll>
+        <AnnouncementBanner />
 
         {/* GA — loaded after page is interactive, never blocks render */}
         {GA_ID && (
