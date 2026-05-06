@@ -5,7 +5,7 @@ import Hero from "@/components/home/Hero";
 import Ticker from "@/components/home/Ticker";
 import Stats from "@/components/home/Stats";
 import ExamGrid from "@/components/home/ExamGrid";
-import VidyaAI from "@/components/home/VidyaAI";
+import GetVidyaAI from "@/components/home/GetVidyaAI";
 import Features from "@/components/home/Features";
 import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
@@ -13,7 +13,7 @@ import CTA from "@/components/home/CTA";
 export const metadata = generateSEO({
   title: "GetVidya — India's AI-Powered Govt. Exam Prep",
   keywords: [
-    "VidyaAI adaptive practice",
+    "GetVidyaAI adaptive practice",
     "AI government exam preparation",
     "AI study plan exam preparation",
     "SSC CGL mock test 2025",
@@ -30,12 +30,12 @@ const homeFaqs = [
     answer: "GetVidya is India's first AI-powered government exam prep platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. It is built by Prepdot Solutions Pvt. Ltd. and available on Android and iOS.",
   },
   {
-    question: "What is VidyaAI?",
-    answer: "VidyaAI is GetVidya's AI-powered study engine. It adapts question difficulty based on your accuracy, generates a personalized 7-day study plan each week, and provides progress insights — all automatically, without any manual setup.",
+    question: "What is GetVidyaAI?",
+    answer: "GetVidyaAI is GetVidya's AI-powered study engine. It adapts question difficulty based on your accuracy, generates a personalized 7-day study plan each week, and provides progress insights — all automatically, without any manual setup.",
   },
   {
     question: "How does adaptive difficulty work in GetVidya?",
-    answer: "VidyaAI tracks your accuracy across practice sessions. If you consistently score above 70% over 3 sessions in a subject, the system automatically promotes you to a harder difficulty tier. This ensures you are always challenged at the right level.",
+    answer: "GetVidyaAI tracks your accuracy across practice sessions. If you consistently score above 70% over 3 sessions in a subject, the system automatically promotes you to a harder difficulty tier. This ensures you are always challenged at the right level.",
   },
   {
     question: "What is the Diagnostic Assessment in GetVidya?",
@@ -43,11 +43,11 @@ const homeFaqs = [
   },
   {
     question: "How does the AI Study Plan work?",
-    answer: "Every week, VidyaAI analyzes your weak subjects, current difficulty level, and target exam, then generates a personalized 7-day study plan. The plan specifies which subjects and topics to focus on each day, with a study tip for each session.",
+    answer: "Every week, GetVidyaAI analyzes your weak subjects, current difficulty level, and target exam, then generates a personalized 7-day study plan. The plan specifies which subjects and topics to focus on each day, with a study tip for each session.",
   },
   {
     question: "How much does GetVidya cost?",
-    answer: "GetVidya's Vidya Pass Pro starts at ₹149/month, giving unlimited access to all mock tests, AI practice sessions, and VidyaAI features. Free daily questions and a free diagnostic assessment are available without any payment.",
+    answer: "GetVidya's Vidya Pass Pro starts at ₹149/month, giving unlimited access to all mock tests, AI practice sessions, and GetVidyaAI features. Free daily questions and a free diagnostic assessment are available without any payment.",
   },
   {
     question: "Which exams does GetVidya cover?",
@@ -55,7 +55,7 @@ const homeFaqs = [
   },
   {
     question: "Is there a mobile app for GetVidya?",
-    answer: "Yes, GetVidya is available on both Android (Google Play) and iOS (App Store). The mobile app includes all VidyaAI features — adaptive practice, streaks, XP rewards, study plans, diagnostic assessment, and progress insights.",
+    answer: "Yes, GetVidya is available on both Android (Google Play) and iOS (App Store). The mobile app includes all GetVidyaAI features — adaptive practice, streaks, XP rewards, study plans, diagnostic assessment, and progress insights.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function HomePage() {
         <Ticker />
         <Stats />
         <ExamGrid />
-        <VidyaAI />
+        <GetVidyaAI />
         <Features />
         <Testimonials />
         <CTA />

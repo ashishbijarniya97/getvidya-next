@@ -1,5 +1,5 @@
 const items = [
-  "VidyaAI — AI-Powered Adaptive Practice 🤖",
+  "GetVidyaAI — AI-Powered Adaptive Practice 🤖",
   "SSC CGL 2025 Notification Out 🔔",
   "AI Study Plans Generated Weekly 🗺️",
   "1200+ Mock Tests Available 📝",

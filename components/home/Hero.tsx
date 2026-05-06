@@ -43,7 +43,7 @@ export default function Hero() {
             <motion.div variants={item}
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              VidyaAI — AI-Powered Exam Prep
+              GetVidyaAI — AI-Powered Exam Prep
             </motion.div>
 
             <motion.h1 variants={item} className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.12] mb-6">
@@ -60,7 +60,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p variants={item} className="text-lg text-white/75 leading-relaxed mb-8 max-w-xl">
-              <strong className="text-accent font-semibold">VidyaAI</strong> adapts to your accuracy, builds your weekly study plan with AI, and tracks your progress — so you always know exactly what to study next.
+              <strong className="text-accent font-semibold">GetVidyaAI</strong> adapts to your accuracy, builds your weekly study plan with AI, and tracks your progress — so you always know exactly what to study next.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-wrap gap-2 mb-10">
@@ -125,7 +125,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-1.5 mb-2">
                 <Zap size={12} className="text-orange-400" />
-                <span className="text-white/60 text-xs font-medium">VidyaAI — Study Streak</span>
+                <span className="text-white/60 text-xs font-medium">GetVidyaAI — Study Streak</span>
               </div>
               <div className="text-white text-xs font-medium leading-relaxed">
                 🔥 Day 7 Streak — +25 XP earned today!

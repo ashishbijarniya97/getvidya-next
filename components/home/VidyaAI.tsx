@@ -10,8 +10,8 @@ const features = [
     iconBg: "bg-violet-500",
     glowColor: "bg-violet-500/20",
     tag: "Adaptive AI",
-    title: "VidyaAI Adaptive Practice",
-    desc: "VidyaAI tracks your accuracy across every subject and automatically adjusts question difficulty. Score above 70% consistently over 3 sessions and the system promotes you to the next level. Always challenged. Never overwhelmed.",
+    title: "GetVidyaAI Adaptive Practice",
+    desc: "GetVidyaAI tracks your accuracy across every subject and automatically adjusts question difficulty. Score above 70% consistently over 3 sessions and the system promotes you to the next level. Always challenged. Never overwhelmed.",
     large: true,
   },
   {
@@ -29,7 +29,7 @@ const features = [
     glowColor: "bg-blue-500/20",
     tag: "AI-Powered",
     title: "AI Study Plan",
-    desc: "Each week, VidyaAI generates a personalized 7-day plan using your weak subjects, difficulty level, and target exam. No guessing what to study next.",
+    desc: "Each week, GetVidyaAI generates a personalized 7-day plan using your weak subjects, difficulty level, and target exam. No guessing what to study next.",
     large: false,
   },
   {
@@ -38,7 +38,7 @@ const features = [
     glowColor: "bg-emerald-500/20",
     tag: "Smart Start",
     title: "Diagnostic Assessment",
-    desc: "A 25-question diagnostic quiz maps your strengths and weaknesses in minutes. VidyaAI uses this to personalize everything from day one.",
+    desc: "A 25-question diagnostic quiz maps your strengths and weaknesses in minutes. GetVidyaAI uses this to personalize everything from day one.",
     large: false,
   },
   {
@@ -52,7 +52,7 @@ const features = [
   },
 ];
 
-export default function VidyaAI() {
+export default function GetVidyaAI() {
   return (
     <section className="py-24 bg-primary-500 relative overflow-hidden">
       {/* Background grid */}
@@ -72,13 +72,13 @@ export default function VidyaAI() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Sparkles size={14} className="fill-accent" />
-              VidyaAI — Your Smart Study Partner
+              GetVidyaAI — Your Smart Study Partner
             </motion.div>
           </StaggerItem>
           <StaggerItem>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               Introducing{" "}
-              <span className="text-accent">VidyaAI</span>
+              <span className="text-accent">GetVidyaAI</span>
             </h2>
           </StaggerItem>
           <StaggerItem>

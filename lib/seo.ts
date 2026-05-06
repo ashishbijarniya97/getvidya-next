@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "GetVidya",
   tagline: "India's AI-Powered Govt. Exam Prep Platform",
   description:
-    "GetVidya is India's first AI-powered government exam prep platform. VidyaAI delivers adaptive MCQ practice, personalized weekly study plans, and deep progress insights across 1,200+ mock tests and 140,000+ questions for UPSC, SSC CGL, Banking, Railway & more. Starting at ₹149/month.",
+    "GetVidya is India's first AI-powered government exam prep platform. GetVidyaAI delivers adaptive MCQ practice, personalized weekly study plans, and deep progress insights across 1,200+ mock tests and 140,000+ questions for UPSC, SSC CGL, Banking, Railway & more. Starting at ₹149/month.",
   url: BASE_URL,
   ogImage: DEFAULT_OG_IMAGE,
   twitter: "@GetVidya",
@@ -42,7 +42,7 @@ export function generateSEO({
     "government exam preparation India",
     "AI exam preparation app",
     "adaptive learning government exam",
-    "VidyaAI adaptive practice",
+    "GetVidyaAI adaptive practice",
     "AI study plan exam preparation",
     "mock tests online India",
     "SSC CGL mock test 2025",
@@ -98,7 +98,7 @@ export const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo-gv-full.png`,
   description:
-    "GetVidya is India's first AI-powered government exam preparation platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. Powered by VidyaAI.",
+    "GetVidya is India's first AI-powered government exam preparation platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. Powered by GetVidyaAI.",
   sameAs: [
     "https://t.me/GetVidyaofficial",
     "https://www.youtube.com/@Get_Vidya",
@@ -130,7 +130,7 @@ export const educationalAppSchema = {
   "@type": "MobileApplication",
   name: "GetVidya – AI-Powered Govt Exam Prep",
   description:
-    "GetVidya features VidyaAI — an adaptive AI engine that adjusts question difficulty based on performance, generates personalized weekly study plans, and delivers progress insights. Covers UPSC, SSC CGL, Banking, Railway, State PSC and Defence exams.",
+    "GetVidya features GetVidyaAI — an adaptive AI engine that adjusts question difficulty based on performance, generates personalized weekly study plans, and delivers progress insights. Covers UPSC, SSC CGL, Banking, Railway, State PSC and Defence exams.",
   applicationCategory: "EducationApplication",
   operatingSystem: "Android, iOS",
   offers: {
@@ -149,7 +149,7 @@ export const educationalAppSchema = {
     ratingCount: "2400",
   },
   featureList: [
-    "VidyaAI adaptive difficulty practice",
+    "GetVidyaAI adaptive difficulty practice",
     "Personalized weekly AI study plans",
     "25-question diagnostic assessment for subject mapping",
     "Daily XP and streak gamification system",

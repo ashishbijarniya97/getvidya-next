@@ -60,7 +60,7 @@ export default function AnnouncementBanner() {
                 </span>
 
                 <h2 className="text-2xl font-bold text-white mb-3 leading-tight">
-                  VidyaAI App is<br />launching soon! 🚀
+                  GetVidyaAI App is<br />launching soon! 🚀
                 </h2>
 
                 <p className="text-white/65 text-sm leading-relaxed mb-7">

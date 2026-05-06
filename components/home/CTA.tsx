@@ -34,7 +34,7 @@ export default function CTA() {
             whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}
           >
             <Zap size={14} className="fill-accent" />
-            VidyaAI is Live — Try It Free Today
+            GetVidyaAI is Live — Try It Free Today
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight">
@@ -45,7 +45,7 @@ export default function CTA() {
 
           <p className="text-white/70 text-xl mb-10 max-w-2xl mx-auto">
             Join <strong className="text-white">50,000+</strong> students already preparing with GetVidya.
-            VidyaAI adapts to you from day one — starting at just <strong className="text-white">₹149/month</strong>.
+            GetVidyaAI adapts to you from day one — starting at just <strong className="text-white">₹149/month</strong>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
