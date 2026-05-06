@@ -1,19 +1,20 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { generateSEO } from "@/lib/seo";
-import { Target, Heart, Zap, Users } from "lucide-react";
+import { Target, Heart, Zap, Users, Brain } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata = generateSEO({
   title: "About GetVidya",
-  description: "Learn about GetVidya — India's smartest government exam prep platform built by Prepdot Solutions Pvt. Ltd.",
+  description: "GetVidya is India's first AI-powered government exam prep platform, built by Prepdot Solutions Pvt. Ltd. Powered by VidyaAI and Google Gemini, it helps 50,000+ students crack UPSC, SSC, Banking, Railway & more.",
   canonical: "https://getvidya.in/about",
 });
 
 const values = [
   { icon: Target, title: "Mission-Driven", desc: "We exist to make government exam preparation accessible to every Indian student, regardless of their background or location." },
   { icon: Heart, title: "Student First", desc: "Every product decision starts with one question: does this help our students crack their exam faster and more confidently?" },
-  { icon: Zap, title: "Expert-Curated", desc: "Our question bank and mock tests are crafted by subject matter experts with deep knowledge of each exam's pattern." },
+  { icon: Brain, title: "AI-Powered", desc: "VidyaAI — built on Google Gemini — adapts to every student's performance, making personalized prep a reality at ₹149/month, not ₹1,49,000." },
+  { icon: Zap, title: "Expert-Curated", desc: "Our question bank and mock tests are crafted by subject matter experts with deep knowledge of each exam's pattern and syllabus." },
   { icon: Users, title: "Community", desc: "50,000+ students prepare together on GetVidya. We foster peer learning through Telegram and WhatsApp communities." },
 ];
 
@@ -27,13 +28,13 @@ export default function AboutPage() {
           <div className="container-xl text-center">
             <span className="section-tag mb-6 !bg-white/10 !text-white/90">About Us</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Simplifying exam prep
+              Making exam prep smarter
               <br />
-              <span className="text-accent">for every Indian student</span>
+              <span className="text-accent">with AI, for every Indian student</span>
             </h1>
             <p className="text-white/70 text-xl max-w-2xl mx-auto">
               GetVidya is built by Prepdot Solutions Pvt. Ltd. with a singular mission:
-              democratize access to quality government exam preparation.
+              give every aspiring government job candidate the power of AI-driven, personalized preparation.
             </p>
           </div>
         </section>
@@ -57,8 +58,14 @@ export default function AboutPage() {
                   deserves the same quality preparation as those attending expensive coaching institutes.
                 </p>
                 <p>
-                  Today, 50,000+ students trust GetVidya to prepare for their exams. And at ₹149/month,
-                  we&apos;re determined to keep it that way.
+                  Today, we&apos;ve gone further — introducing <strong>VidyaAI</strong>, India&apos;s first adaptive AI study engine built specifically
+                  for government exams. Powered by Google Gemini, VidyaAI adjusts question difficulty to your performance,
+                  generates your personalized weekly study plan, and tracks your progress in real-time. Coaching-institute-level
+                  personalization, at ₹149/month.
+                </p>
+                <p>
+                  50,000+ students trust GetVidya to prepare for their exams. We&apos;re determined to keep it affordable,
+                  powerful, and built around you.
                 </p>
               </div>
             </div>
@@ -72,7 +79,7 @@ export default function AboutPage() {
               <span className="section-tag mb-4">Our Values</span>
               <h2 className="section-heading">What drives us</h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {values.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="card p-6 text-center">
                   <div className="w-14 h-14 rounded-2xl bg-mint flex items-center justify-center mx-auto mb-5">
@@ -89,12 +96,13 @@ export default function AboutPage() {
         {/* Stats bar */}
         <section className="py-16 bg-primary-500">
           <div className="container-xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
               {[
                 { value: "50,000+", label: "Students" },
                 { value: "1,200+", label: "Mock Tests" },
                 { value: "140K+", label: "Questions" },
                 { value: "6", label: "Exams Covered" },
+                { value: "AI", label: "VidyaAI Powered" },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div className="text-4xl font-bold text-accent mb-1">{value}</div>

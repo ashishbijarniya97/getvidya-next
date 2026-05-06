@@ -11,6 +11,7 @@ const STATS = [
   { value: "50K+", label: "Students" },
   { value: "1,200+", label: "Tests" },
   { value: "140K+", label: "MCQs" },
+  { value: "AI", label: "Powered" },
 ];
 
 const container = {
@@ -42,25 +43,24 @@ export default function Hero() {
             <motion.div variants={item}
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              India&apos;s Smartest Govt. Exam Prep
+              VidyaAI — Gemini-Powered Exam Prep
             </motion.div>
 
             <motion.h1 variants={item} className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.12] mb-6">
-              Crack Government Exams with{" "}
+              India&apos;s First{" "}
               <span className="relative inline-block">
-                <span className="text-accent">Expert MCQs</span>
+                <span className="text-accent">AI-Powered</span>
                 <motion.span
                   className="absolute -bottom-1 left-0 h-0.5 bg-accent/50 rounded-full"
                   initial={{ width: 0 }} animate={{ width: "100%" }}
                   transition={{ delay: 1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
               </span>
-              {" "}&amp; Mock Tests
+              {" "}Govt. Exam Prep Platform
             </motion.h1>
 
             <motion.p variants={item} className="text-lg text-white/75 leading-relaxed mb-8 max-w-xl">
-              Over <strong className="text-accent font-semibold">140,000 practice questions</strong> across UPSC, SSC, Banking &amp; more.
-              Start free — upgrade when ready.
+              <strong className="text-accent font-semibold">VidyaAI</strong> adapts to your accuracy, builds your weekly study plan with Gemini, and tracks your progress — so you always know exactly what to study next.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-wrap gap-2 mb-10">
@@ -124,16 +124,20 @@ export default function Hero() {
               className="hidden sm:block absolute -bottom-4 -left-4 lg:-left-8 z-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 max-w-[220px]"
             >
               <div className="flex items-center gap-1.5 mb-2">
-                <Zap size={12} className="text-accent" />
-                <span className="text-white/60 text-xs font-medium">Today&apos;s Free MCQ</span>
+                <Zap size={12} className="text-orange-400" />
+                <span className="text-white/60 text-xs font-medium">VidyaAI — Study Streak</span>
               </div>
               <div className="text-white text-xs font-medium leading-relaxed">
-                &quot;Article 21A of the Indian Constitution deals with which right?&quot;
+                🔥 Day 7 Streak — +25 XP earned today!
               </div>
-              <div className="mt-3 flex gap-2">
-                {["Right to Life", "Right to Education"].map((opt) => (
-                  <span key={opt} className="text-[10px] px-2 py-1 rounded-lg bg-white/10 text-white/70 border border-white/10">{opt}</span>
-                ))}
+              <div className="mt-3">
+                <div className="flex justify-between text-[10px] text-white/50 mb-1">
+                  <span>Level 2 → Level 3</span>
+                  <span>75%</span>
+                </div>
+                <div className="w-full h-1.5 bg-white/10 rounded-full">
+                  <div className="h-full w-3/4 bg-orange-400 rounded-full" />
+                </div>
               </div>
             </motion.div>
 

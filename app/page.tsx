@@ -5,20 +5,58 @@ import Hero from "@/components/home/Hero";
 import Ticker from "@/components/home/Ticker";
 import Stats from "@/components/home/Stats";
 import ExamGrid from "@/components/home/ExamGrid";
+import VidyaAI from "@/components/home/VidyaAI";
 import Features from "@/components/home/Features";
 import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
 
 export const metadata = generateSEO({
-  title: "GetVidya — India's Smartest Govt. Exam Prep",
-  keywords: ["SSC CGL mock test 2025", "UPSC preparation online", "government exam app India", "free MCQ practice"],
+  title: "GetVidya — India's AI-Powered Govt. Exam Prep",
+  keywords: [
+    "VidyaAI adaptive practice",
+    "AI government exam preparation",
+    "Gemini AI study plan",
+    "SSC CGL mock test 2025",
+    "UPSC preparation online",
+    "adaptive difficulty MCQ",
+    "diagnostic test exam prep",
+    "daily streak study app",
+  ],
 });
 
 const homeFaqs = [
-  { question: "What is GetVidya?", answer: "GetVidya is an online platform offering 1,200+ mock tests and 140,000+ MCQs for government exams like UPSC, SSC CGL, Banking, Railway, State PSC, and Defence." },
-  { question: "How much does GetVidya cost?", answer: "GetVidya's Vidya Pass Pro starts at ₹149/month, giving you unlimited access to all mock tests. Free tests and daily questions are available without any payment." },
-  { question: "Which exams does GetVidya cover?", answer: "GetVidya covers SSC CGL, UPSC CSE, SBI PO/Clerk, Railway NTPC, State PSC, and NDA/CDS — with more exams being added regularly." },
-  { question: "Is there a mobile app?", answer: "Yes! GetVidya is available on both Android (Google Play) and iOS (App Store). You can study on-the-go with full offline support." },
+  {
+    question: "What is GetVidya?",
+    answer: "GetVidya is India's first AI-powered government exam prep platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. It is built by Prepdot Solutions Pvt. Ltd. and available on Android and iOS.",
+  },
+  {
+    question: "What is VidyaAI?",
+    answer: "VidyaAI is GetVidya's AI-powered study engine, built on Google Gemini. It adapts question difficulty based on your accuracy, generates a personalized 7-day study plan each week, and provides progress insights — all automatically, without any manual setup.",
+  },
+  {
+    question: "How does adaptive difficulty work in GetVidya?",
+    answer: "VidyaAI tracks your accuracy across practice sessions. If you consistently score above 70% over 3 sessions in a subject, the system automatically promotes you to a harder difficulty tier. This ensures you are always challenged at the right level.",
+  },
+  {
+    question: "What is the Diagnostic Assessment in GetVidya?",
+    answer: "The Diagnostic Assessment is a 25-question quiz that covers your enrolled exam's key subjects. GetVidya uses your answers to identify your strong and weak subjects, then uses that data to personalize your AI study plan and practice sessions from day one.",
+  },
+  {
+    question: "How does the AI Study Plan work?",
+    answer: "Every week, VidyaAI — powered by Google Gemini — analyzes your weak subjects, current difficulty level, and target exam, then generates a personalized 7-day study plan. The plan specifies which subjects and topics to focus on each day, with a study tip for each session.",
+  },
+  {
+    question: "How much does GetVidya cost?",
+    answer: "GetVidya's Vidya Pass Pro starts at ₹149/month, giving unlimited access to all mock tests, AI practice sessions, and VidyaAI features. Free daily questions and a free diagnostic assessment are available without any payment.",
+  },
+  {
+    question: "Which exams does GetVidya cover?",
+    answer: "GetVidya covers SSC CGL, UPSC CSE, SBI PO/Clerk, Railway NTPC, State PSC, and NDA/CDS — with more exams being added regularly. Each exam has dedicated mock tests, subject-wise MCQs, and AI-personalized study plans.",
+  },
+  {
+    question: "Is there a mobile app for GetVidya?",
+    answer: "Yes, GetVidya is available on both Android (Google Play) and iOS (App Store). The mobile app includes all VidyaAI features — adaptive practice, streaks, XP rewards, study plans, diagnostic assessment, and progress insights.",
+  },
 ];
 
 export default function HomePage() {
@@ -38,6 +76,7 @@ export default function HomePage() {
         <Ticker />
         <Stats />
         <ExamGrid />
+        <VidyaAI />
         <Features />
         <Testimonials />
         <CTA />

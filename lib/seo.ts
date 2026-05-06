@@ -5,9 +5,9 @@ const DEFAULT_OG_IMAGE = `${BASE_URL}/images/og-image.png`;
 
 export const SITE_CONFIG = {
   name: "GetVidya",
-  tagline: "India's Smartest Govt. Exam Prep Platform",
+  tagline: "India's AI-Powered Govt. Exam Prep Platform",
   description:
-    "GetVidya offers 1200+ mock tests, 140,000+ expertly crafted MCQs for UPSC, SSC CGL, Banking & 6 other government exams — starting at ₹149/month.",
+    "GetVidya is India's first AI-powered government exam prep platform. VidyaAI — built on Gemini — delivers adaptive MCQ practice, personalized weekly study plans, and deep progress insights across 1,200+ mock tests and 140,000+ questions for UPSC, SSC CGL, Banking, Railway & more. Starting at ₹149/month.",
   url: BASE_URL,
   ogImage: DEFAULT_OG_IMAGE,
   twitter: "@GetVidya",
@@ -39,15 +39,26 @@ export function generateSEO({
   const url = canonical || BASE_URL;
 
   const defaultKeywords = [
-    "government exam preparation",
-    "mock tests online",
-    "SSC CGL mock test",
-    "UPSC preparation",
-    "banking exam MCQ",
+    "government exam preparation India",
+    "AI exam preparation app",
+    "adaptive learning government exam",
+    "VidyaAI adaptive practice",
+    "Gemini AI study plan",
+    "mock tests online India",
+    "SSC CGL mock test 2025",
+    "UPSC preparation app",
+    "banking exam MCQ practice",
     "GetVidya",
-    "free question bank",
+    "free question bank India",
     "previous year question papers",
     "competitive exam app India",
+    "personalized study plan exam",
+    "diagnostic test government exam",
+    "XP streak study app",
+    "SSC CGL preparation 2025",
+    "UPSC CSE prelims practice",
+    "SBI PO mock test",
+    "Railway NTPC preparation",
   ];
 
   return {
@@ -86,6 +97,8 @@ export const organizationSchema = {
   legalName: "Prepdot Solutions Pvt. Ltd.",
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo-gv-full.png`,
+  description:
+    "GetVidya is India's first AI-powered government exam preparation platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. Powered by VidyaAI and Google Gemini AI.",
   sameAs: [
     "https://t.me/GetVidyaofficial",
     "https://www.youtube.com/@Get_Vidya",
@@ -115,7 +128,9 @@ export const websiteSchema = {
 export const educationalAppSchema = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  name: "GetVidya – Govt Exam Prep",
+  name: "GetVidya – AI-Powered Govt Exam Prep",
+  description:
+    "GetVidya features VidyaAI — an adaptive AI engine powered by Gemini that adjusts question difficulty based on performance, generates personalized weekly study plans, and delivers progress insights. Covers UPSC, SSC CGL, Banking, Railway, State PSC and Defence exams.",
   applicationCategory: "EducationApplication",
   operatingSystem: "Android, iOS",
   offers: {
@@ -133,6 +148,16 @@ export const educationalAppSchema = {
     ratingValue: "4.7",
     ratingCount: "2400",
   },
+  featureList: [
+    "VidyaAI adaptive difficulty practice powered by Gemini AI",
+    "Personalized weekly AI study plans",
+    "25-question diagnostic assessment for subject mapping",
+    "Daily XP and streak gamification system",
+    "Progress insights with activity calendar and accuracy charts",
+    "1,200+ full-length mock tests",
+    "140,000+ practice MCQs",
+    "6 government exam categories",
+  ],
 };
 
 export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
