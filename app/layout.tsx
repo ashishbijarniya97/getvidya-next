@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { generateSEO, organizationSchema, websiteSchema } from "@/lib/seo";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 
 export const metadata: Metadata = generateSEO();
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased">
+        <AnnouncementBanner />
         <SmoothScroll>{children}</SmoothScroll>
 
         {/* GA — loaded after page is interactive, never blocks render */}
