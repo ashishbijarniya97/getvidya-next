@@ -6,14 +6,14 @@ import CTA from "@/components/home/CTA";
 
 export const metadata = generateSEO({
   title: "About GetVidya",
-  description: "GetVidya is India's first AI-powered government exam prep platform, built by Prepdot Solutions Pvt. Ltd. Powered by VidyaAI and Google Gemini, it helps 50,000+ students crack UPSC, SSC, Banking, Railway & more.",
+  description: "GetVidya is India's first AI-powered government exam prep platform, built by Prepdot Solutions Pvt. Ltd. Powered by VidyaAI, it helps 50,000+ students crack UPSC, SSC, Banking, Railway & more.",
   canonical: "https://getvidya.in/about",
 });
 
 const values = [
   { icon: Target, title: "Mission-Driven", desc: "We exist to make government exam preparation accessible to every Indian student, regardless of their background or location." },
   { icon: Heart, title: "Student First", desc: "Every product decision starts with one question: does this help our students crack their exam faster and more confidently?" },
-  { icon: Brain, title: "AI-Powered", desc: "VidyaAI — built on Google Gemini — adapts to every student's performance, making personalized prep a reality at ₹149/month, not ₹1,49,000." },
+  { icon: Brain, title: "AI-Powered", desc: "VidyaAI adapts to every student's performance, making truly personalized exam prep a reality at ₹149/month, not ₹1,49,000." },
   { icon: Zap, title: "Expert-Curated", desc: "Our question bank and mock tests are crafted by subject matter experts with deep knowledge of each exam's pattern and syllabus." },
   { icon: Users, title: "Community", desc: "50,000+ students prepare together on GetVidya. We foster peer learning through Telegram and WhatsApp communities." },
 ];
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Today, we&apos;ve gone further — introducing <strong>VidyaAI</strong>, India&apos;s first adaptive AI study engine built specifically
-                  for government exams. Powered by Google Gemini, VidyaAI adjusts question difficulty to your performance,
+                  for government exams. VidyaAI adjusts question difficulty to your performance,
                   generates your personalized weekly study plan, and tracks your progress in real-time. Coaching-institute-level
                   personalization, at ₹149/month.
                 </p>

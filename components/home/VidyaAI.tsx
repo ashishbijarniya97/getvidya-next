@@ -11,7 +11,7 @@ const features = [
     glowColor: "bg-violet-500/20",
     tag: "Adaptive AI",
     title: "VidyaAI Adaptive Practice",
-    desc: "Our AI engine — powered by Gemini — tracks your accuracy across every subject. Score above 70% consistently over 3 sessions and VidyaAI automatically promotes you to the next difficulty level. Always challenged. Never overwhelmed.",
+    desc: "VidyaAI tracks your accuracy across every subject and automatically adjusts question difficulty. Score above 70% consistently over 3 sessions and the system promotes you to the next level. Always challenged. Never overwhelmed.",
     large: true,
   },
   {
@@ -27,7 +27,7 @@ const features = [
     icon: Map,
     iconBg: "bg-blue-500",
     glowColor: "bg-blue-500/20",
-    tag: "Gemini AI",
+    tag: "AI-Powered",
     title: "AI Study Plan",
     desc: "Each week, VidyaAI generates a personalized 7-day plan using your weak subjects, difficulty level, and target exam. No guessing what to study next.",
     large: false,
@@ -72,7 +72,7 @@ export default function VidyaAI() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Sparkles size={14} className="fill-accent" />
-              Powered by Google Gemini AI
+              VidyaAI — Your Smart Study Partner
             </motion.div>
           </StaggerItem>
           <StaggerItem>
@@ -84,7 +84,7 @@ export default function VidyaAI() {
           <StaggerItem>
             <p className="text-white/65 text-xl max-w-2xl mx-auto leading-relaxed">
               India&apos;s first AI study partner built specifically for government exams.
-              It learns how you think, adapts to your pace, and builds your path to success.
+              It learns from your performance, adapts to your pace, and builds your path to success.
             </p>
           </StaggerItem>
         </StaggerContainer>

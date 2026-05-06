@@ -15,7 +15,7 @@ export const metadata = generateSEO({
   keywords: [
     "VidyaAI adaptive practice",
     "AI government exam preparation",
-    "Gemini AI study plan",
+    "AI study plan exam preparation",
     "SSC CGL mock test 2025",
     "UPSC preparation online",
     "adaptive difficulty MCQ",
@@ -31,7 +31,7 @@ const homeFaqs = [
   },
   {
     question: "What is VidyaAI?",
-    answer: "VidyaAI is GetVidya's AI-powered study engine, built on Google Gemini. It adapts question difficulty based on your accuracy, generates a personalized 7-day study plan each week, and provides progress insights — all automatically, without any manual setup.",
+    answer: "VidyaAI is GetVidya's AI-powered study engine. It adapts question difficulty based on your accuracy, generates a personalized 7-day study plan each week, and provides progress insights — all automatically, without any manual setup.",
   },
   {
     question: "How does adaptive difficulty work in GetVidya?",
@@ -43,7 +43,7 @@ const homeFaqs = [
   },
   {
     question: "How does the AI Study Plan work?",
-    answer: "Every week, VidyaAI — powered by Google Gemini — analyzes your weak subjects, current difficulty level, and target exam, then generates a personalized 7-day study plan. The plan specifies which subjects and topics to focus on each day, with a study tip for each session.",
+    answer: "Every week, VidyaAI analyzes your weak subjects, current difficulty level, and target exam, then generates a personalized 7-day study plan. The plan specifies which subjects and topics to focus on each day, with a study tip for each session.",
   },
   {
     question: "How much does GetVidya cost?",

@@ -45,7 +45,7 @@ export default function CTA() {
 
           <p className="text-white/70 text-xl mb-10 max-w-2xl mx-auto">
             Join <strong className="text-white">50,000+</strong> students already preparing with GetVidya.
-            VidyaAI adapts to you from day one — powered by Gemini, starting at just <strong className="text-white">₹149/month</strong>.
+            VidyaAI adapts to you from day one — starting at just <strong className="text-white">₹149/month</strong>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

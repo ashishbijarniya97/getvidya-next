@@ -8,13 +8,7 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Redirect /admin login protection (belt-and-suspenders with middleware)
-[[redirects]]
-  from   = "/admin"
-  to     = "/admin"
-  status = 200
-
-# Force HTTPS
+# Force HTTPS — www + http → https apex
 [[redirects]]
   from   = "http://getvidya.in/*"
   to     = "https://getvidya.in/:splat"
@@ -32,12 +26,6 @@
   to     = "https://getvidya.in/:splat"
   status = 301
   force  = true
-
-# SPA fallback for dynamic routes
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
 
 [dev]
   command = "npm run dev"
