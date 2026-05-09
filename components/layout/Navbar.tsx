@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -122,9 +122,9 @@ export default function Navbar() {
               }`}>
               Login
             </Link>
-            <MagneticButton href={WA} target="_blank" rel="noopener noreferrer"
+            <MagneticButton href="/free-assessment"
               className="btn-primary text-sm group flex items-center gap-2">
-              Free Mock Test <ExternalLink size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              Free Diagnostic Test <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </MagneticButton>
           </div>
 
@@ -189,8 +189,8 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}>
                   Login to your account
                 </Link>
-                <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center text-sm">
-                  Attempt Free SSC CGL Mock <ExternalLink size={14} />
+                <a href="/free-assessment" className="btn-primary w-full justify-center text-sm">
+                  Start Free Diagnostic Test <ArrowRight size={14} />
                 </a>
               </div>
             </div>

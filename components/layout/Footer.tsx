@@ -5,11 +5,12 @@ import { MessageCircle } from "lucide-react";
 const WA_LINK = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20your%20AI%20exam%20prep%20platform.";
 
 const socials = [
-  { label: "Telegram",  href: "https://t.me/GetVidyaofficial",                                  icon: "/images/Telegram.svg" },
-  { label: "WhatsApp",  href: "https://whatsapp.com/channel/0029VahvzYy9mrGVgvn8Ys3q",          icon: "/images/Whatsapp_1.svg" },
-  { label: "YouTube",   href: "https://www.youtube.com/@Get_Vidya",                              icon: "/images/Youtube.svg" },
-  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61552776714971",          icon: "/images/Facebook.svg" },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/company/getvidya",                       icon: "/images/Linkedin.svg" },
+  { label: "Telegram",  href: "https://t.me/GetVidyaofficial",                          icon: "/images/Telegram.svg",    bg: "bg-[#2CA5E0]" },
+  { label: "WhatsApp",  href: "https://whatsapp.com/channel/0029VahvzYy9mrGVgvn8Ys3q", icon: "/images/Whatsapp_1.svg",  bg: "bg-[#25D366]" },
+  { label: "YouTube",   href: "https://www.youtube.com/@Get_Vidya",                     icon: "/images/Youtube.svg",     bg: "bg-[#FF0000]" },
+  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61552776714971", icon: "/images/Social-facebook.svg", bg: "bg-[#1877F2]" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/company/getvidya",              icon: "/images/Social-linkedin.svg", bg: "bg-[#0A66C2]" },
+  { label: "X",         href: "https://x.com/GetVidya",                                 icon: "/images/Social-x.svg",    bg: "bg-slate-800" },
 ];
 
 const examHubLinks = [
@@ -109,8 +110,8 @@ export default function Footer() {
               {socials.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-teal/30 transition-colors">
-                  <Image src={s.icon} alt={s.label} width={20} height={20} className="w-4 h-4 brightness-0 invert" />
+                  className={`w-9 h-9 rounded-lg ${s.bg} flex items-center justify-center hover:opacity-85 transition-opacity`}>
+                  <Image src={s.icon} alt={s.label} width={18} height={18} className="w-4 h-4 brightness-0 invert" />
                 </a>
               ))}
             </div>

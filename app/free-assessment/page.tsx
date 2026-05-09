@@ -148,34 +148,43 @@ export default function FreeAssessmentPage() {
             {/* Step 2: Lead Capture */}
             {step === "info" && (
               <div>
-                <h2 className="text-xl font-bold text-white mb-2">Where should we send your results?</h2>
-                <p className="text-slate-400 text-sm mb-6">Your personalized weak-subject report + AI study plan will be sent here.</p>
+                <h2 className="text-xl font-bold text-white mb-2">Enter your details to begin</h2>
+                <p className="text-slate-400 text-sm mb-6">Your personalized weak-subject report will be ready in 5 minutes.</p>
                 <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your full name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
-                  />
-                  <input
-                    type="tel"
-                    placeholder="WhatsApp number (10 digits)"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
-                  />
-                  <p className="text-slate-500 text-xs">We respect your privacy. No spam, just your report.</p>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Your full name *"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      placeholder="Mobile number (10 digits) *"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                      className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
+                    />
+                    {phone.length > 0 && phone.length < 10 && (
+                      <p className="text-red-400 text-xs mt-1 ml-1">{10 - phone.length} more digits needed</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Email address (optional — for your report)"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400"
+                    />
+                  </div>
+                  <p className="text-slate-500 text-xs">Your data is safe. We only use it to send your assessment report.</p>
                   <button
-                    onClick={() => { if (name && email && phone.length >= 10) setStep("quiz"); }}
-                    disabled={!name || !email || phone.length < 10}
+                    onClick={() => { if (name && phone.length === 10) setStep("quiz"); }}
+                    disabled={!name || phone.length < 10}
                     className="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2"
                   >
                     Start My Assessment <ArrowRight className="w-5 h-5" />
@@ -264,7 +273,7 @@ export default function FreeAssessmentPage() {
                     Get My AI Study Plan in the App →
                   </a>
                   <p className="text-slate-500 text-xs">
-                    Your detailed report has been sent to {email}. GetVidya Vidya Pass · ₹149/month · Cancel anytime.
+                    {email ? `Your report has been sent to ${email}.` : "Our team will reach out on your mobile number."} GetVidya Vidya Pass · ₹149/month · Cancel anytime.
                   </p>
                 </div>
               </div>
