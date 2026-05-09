@@ -1,18 +1,20 @@
 import { createClient } from "@/lib/supabase/server";
-import { Inbox, Users, FileText, TrendingUp, ArrowUpRight } from "lucide-react";
+import { Inbox, Users, FileText, TrendingUp, ArrowUpRight, Database } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
 const LeadChart = dynamic(() => import("@/components/admin/LeadChart"), { ssr: false, loading: () => <div className="h-[220px] animate-pulse bg-slate-100 rounded-xl" /> });
 
 async function getDashboardStats(supabase: ReturnType<typeof createClient>) {
-  const [leadsRes, newLeadsRes] = await Promise.all([
+  const [leadsRes, newLeadsRes, questionsRes] = await Promise.all([
     supabase.from("leads").select("*", { count: "exact", head: true }),
     supabase.from("leads").select("*", { count: "exact", head: true }).eq("status", "new"),
+    supabase.from("questions").select("*", { count: "exact", head: true }).eq("is_active", true),
   ]);
   return {
-    totalLeads: leadsRes.count ?? 0,
-    newLeads: newLeadsRes.count ?? 0,
+    totalLeads:     leadsRes.count ?? 0,
+    newLeads:       newLeadsRes.count ?? 0,
+    totalQuestions: questionsRes.count ?? 0,
   };
 }
 
@@ -59,10 +61,10 @@ export default async function AdminDashboard() {
   const chartData = await getLeadChartData(supabase);
 
   const cards = [
-    { label: "Total Leads", value: stats.totalLeads, icon: Users, color: "bg-blue-50 text-blue-600", change: "All time" },
-    { label: "New Leads", value: stats.newLeads, icon: Inbox, color: "bg-amber-50 text-amber-600", change: "Needs attention" },
-    { label: "Content Blocks", value: "24", icon: FileText, color: "bg-purple-50 text-purple-600", change: "All pages covered" },
-    { label: "Avg. Conversion", value: "3.2%", icon: TrendingUp, color: "bg-green-50 text-green-600", change: "+0.4% this month" },
+    { label: "Total Leads",    value: stats.totalLeads,                                          icon: Users,    color: "bg-blue-50 text-blue-600",   change: "All time",       href: "/admin/leads" },
+    { label: "New Leads",      value: stats.newLeads,                                            icon: Inbox,    color: "bg-amber-50 text-amber-600",  change: "Needs attention", href: "/admin/leads" },
+    { label: "Questions",      value: stats.totalQuestions.toLocaleString("en-IN"),              icon: Database, color: "bg-emerald-50 text-emerald-600", change: "In question bank", href: "/admin/questions" },
+    { label: "Avg. Conversion",value: "3.2%",                                                    icon: TrendingUp, color: "bg-green-50 text-green-600", change: "+0.4% this month", href: "/admin" },
   ];
 
   return (
