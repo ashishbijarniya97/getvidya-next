@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, PlayCircle, Star, CheckCircle2, Zap } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const BADGES = ["SSC CGL", "UPSC", "Banking", "Railway", "State PSC", "Defence"];
 const STATS = [
   { value: "50K+", label: "Students" },
@@ -73,9 +72,9 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-10">
-              <MagneticButton href={WA} target="_blank" rel="noopener noreferrer"
+              <MagneticButton href="/free-assessment"
                 className="btn-primary text-base px-8 py-4 rounded-2xl group flex items-center gap-2">
-                Start Free Mock Test
+                Free Diagnostic Test
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </MagneticButton>
               <MagneticButton href="https://app.getvidya.in/login" className="btn-secondary text-base px-8 py-4 rounded-2xl flex items-center gap-2">

@@ -6,23 +6,24 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { name, email, phone, exam, score, total, weakSubjects } = body;
 
-    if (!name || !email || !phone) {
-      return NextResponse.json({ error: "name, email, and phone are required" }, { status: 400 });
+    if (!name || !phone) {
+      return NextResponse.json({ error: "name and phone are required" }, { status: 400 });
     }
 
     const supabase = createServiceClient();
 
-    const message = exam
-      ? `Exam: ${exam} | Score: ${score}/${total} | Weak: ${(weakSubjects ?? []).join(", ")}`
+    // Store assessment data as structured JSON in the message field
+    const assessmentData = exam
+      ? JSON.stringify({ exam, score, total, weakSubjects: weakSubjects ?? [] })
       : undefined;
 
     const { error } = await supabase.from("leads").insert({
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      phone: phone.trim(),
-      source: "free-assessment",
-      status: "new",
-      ...(message && { message }),
+      name:    name.trim(),
+      email:   email ? email.trim().toLowerCase() : "",
+      phone:   phone.trim(),
+      source:  "free-assessment",
+      status:  "new",
+      ...(assessmentData && { message: assessmentData }),
     });
 
     if (error) {

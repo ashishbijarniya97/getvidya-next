@@ -5,9 +5,6 @@ import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 
-const WA_LINK =
-  "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
-
 const perks = ["No credit card required", "Free tests available", "Cancel anytime"];
 
 export default function CTA() {
@@ -50,10 +47,10 @@ export default function CTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <MagneticButton
-              href={WA_LINK} target="_blank" rel="noopener noreferrer"
+              href="/free-assessment"
               className="btn-primary text-lg px-10 py-4 rounded-2xl flex items-center gap-2"
             >
-              Start Free Mock Test
+              Start Free Diagnostic Test
               <ArrowRight size={20} />
             </MagneticButton>
             <MagneticButton
