@@ -51,8 +51,8 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-sm"
-          : "bg-transparent backdrop-blur-sm"
+          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
+          : "bg-gradient-to-b from-slate-900/60 to-transparent backdrop-blur-sm"
       }`}
     >
       <div className="container-xl">
@@ -60,7 +60,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image src="/images/logo-gv-full.png" alt="GetVidya" width={160} height={40}
-              className={`h-8 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} priority />
+              className={`h-8 w-auto transition-all duration-300 ${scrolled ? "brightness-0" : "brightness-0 invert"}`} priority />
           </Link>
 
           {/* Desktop links */}

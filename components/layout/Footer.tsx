@@ -1,36 +1,48 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MessageCircle } from "lucide-react";
+
+const WA_LINK = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20your%20AI%20exam%20prep%20platform.";
 
 const socials = [
-  { label: "Telegram", href: "https://t.me/GetVidyaofficial", icon: "/images/Telegram.svg" },
-  { label: "WhatsApp", href: "https://whatsapp.com/channel/0029VahvzYy9mrGVgvn8Ys3q", icon: "/images/Whatsapp_1.svg" },
-  { label: "YouTube", href: "https://www.youtube.com/@Get_Vidya", icon: "/images/Youtube.svg" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61552776714971", icon: "/images/Facebook.svg" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/getvidya", icon: "/images/Linkedin.svg" },
+  { label: "Telegram",  href: "https://t.me/GetVidyaofficial",                                  icon: "/images/Telegram.svg" },
+  { label: "WhatsApp",  href: "https://whatsapp.com/channel/0029VahvzYy9mrGVgvn8Ys3q",          icon: "/images/Whatsapp_1.svg" },
+  { label: "YouTube",   href: "https://www.youtube.com/@Get_Vidya",                              icon: "/images/Youtube.svg" },
+  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61552776714971",          icon: "/images/Facebook.svg" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/company/getvidya",                       icon: "/images/Linkedin.svg" },
 ];
 
-const sscLinks = [
-  { label: "SSC CGL Notification 2025", href: "/blog/ssc-cgl-notification-2025" },
-  { label: "SSC CGL Syllabus 2025", href: "https://www.getvidya.in/blog/ssc-cgl-syllabus" },
-  { label: "SSC CGL Salary 2025", href: "https://www.getvidya.in/blog/ssc-cgl-salary" },
-  { label: "SSC CGL Previous Year Papers", href: "https://www.getvidya.in/blog/ssc-cgl-previous-year-question-paper" },
-  { label: "SSC CGL Vacancy 2025", href: "https://www.getvidya.in/blog/ssc-cgl-vacancy-2025" },
-  { label: "SSC CGL Exam Pattern 2025", href: "https://www.getvidya.in/blog/ssc-cgl-exam-pattern" },
+const examHubLinks = [
+  { label: "SSC CGL Mock Tests",       href: "/exams/ssc-cgl/mock-tests" },
+  { label: "SSC CGL Syllabus 2026",    href: "/exams/ssc-cgl/syllabus" },
+  { label: "UPSC Prelims Strategy",    href: "/exams/upsc/prelims-strategy" },
+  { label: "SSC CGL Preparation",      href: "/exams/ssc-cgl" },
+  { label: "UPSC CSE Preparation",     href: "/exams/upsc" },
+  { label: "Banking Exam Prep",        href: "/exams/banking" },
 ];
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Login", href: "https://app.getvidya.in/login" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Blog", href: "/blog" },
+const resourceLinks = [
+  { label: "AI Study Plan",             href: "/ai-study-plan" },
+  { label: "Free Diagnostic Test",      href: "/free-assessment" },
+  { label: "GetVidya vs Coaching",      href: "/compare/getvidya-vs-coaching" },
+  { label: "GetVidya vs Testbook",      href: "/compare/getvidya-vs-testbook" },
+  { label: "Previous Year Questions",   href: "/previous-year-questions" },
+  { label: "Question Bank",             href: "/question-bank" },
+];
+
+const cityLinks = [
+  { label: "Exam Prep Jaipur",     href: "/city/jaipur" },
+  { label: "Exam Prep Delhi",      href: "/city/delhi" },
+  { label: "Exam Prep Lucknow",    href: "/city/lucknow" },
+  { label: "Exam Prep Pune",       href: "/city/pune" },
+  { label: "Exam Prep Hyderabad",  href: "/city/hyderabad" },
+  { label: "Exam Prep Bangalore",  href: "/city/bangalore" },
 ];
 
 const legalLinks = [
   { label: "Terms & Conditions", href: "/terms-of-service" },
-  { label: "Refund Policy", href: "/refund-policy" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Refund Policy",      href: "/refund-policy" },
+  { label: "Privacy Policy",     href: "/privacy-policy" },
 ];
 
 export default function Footer() {
@@ -50,122 +62,73 @@ export default function Footer() {
                 analysis & daily targets in your pocket.
               </p>
               <div className="flex items-center gap-4 flex-wrap">
-                <a
-                  href="https://play.google.com/store/apps/details?id=app.getvidya.prod&pcampaignid=web_share"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-90 transition-opacity"
-                >
-                  <Image
-                    src="/images/play-store-White.svg"
-                    alt="Download on Google Play"
-                    width={160}
-                    height={48}
-                    className="h-12 w-auto"
-                  />
+                <a href="https://play.google.com/store/apps/details?id=app.getvidya.prod&pcampaignid=web_share"
+                  target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+                  <Image src="/images/play-store-White.svg" alt="Download on Google Play" width={160} height={48} className="h-12 w-auto" />
                 </a>
-                <a
-                  href="https://apps.apple.com/in/app/getvidya/id6642687147"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-90 transition-opacity"
-                >
-                  <Image
-                    src="/images/app-store-White.svg"
-                    alt="Download on App Store"
-                    width={160}
-                    height={48}
-                    className="h-12 w-auto"
-                  />
+                <a href="https://apps.apple.com/in/app/getvidya/id6642687147"
+                  target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+                  <Image src="/images/app-store-White.svg" alt="Download on App Store" width={160} height={48} className="h-12 w-auto" />
                 </a>
               </div>
             </div>
             <div className="flex gap-8">
               <div className="text-center">
                 <div className="bg-white p-3 rounded-2xl mb-3 inline-block">
-                  <Image
-                    src="/images/GetVidya_Telegram_QR.png"
-                    alt="Join Telegram"
-                    width={100}
-                    height={100}
-                    className="w-24 h-24"
-                  />
+                  <Image src="/images/GetVidya_Telegram_QR.png" alt="Join Telegram" width={100} height={100} className="w-24 h-24" />
                 </div>
-                <p className="text-white/60 text-xs max-w-[100px]">
-                  Join us on Telegram
-                </p>
+                <p className="text-white/60 text-xs max-w-[100px]">Join us on Telegram</p>
               </div>
               <div className="text-center">
                 <div className="bg-white p-3 rounded-2xl mb-3 inline-block">
-                  <Image
-                    src="/images/GV-WA-QR.webp"
-                    alt="Join WhatsApp"
-                    width={100}
-                    height={100}
-                    className="w-24 h-24"
-                  />
+                  <Image src="/images/GV-WA-QR.webp" alt="Join WhatsApp" width={100} height={100} className="w-24 h-24" />
                 </div>
-                <p className="text-white/60 text-xs max-w-[100px]">
-                  Join us on WhatsApp
-                </p>
+                <p className="text-white/60 text-xs max-w-[100px]">Join us on WhatsApp</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Footer */}
+      {/* Main Footer Grid */}
       <div className="container-xl py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
+
+          {/* Col 1: Brand + Socials + WhatsApp CTA */}
           <div>
             <Link href="/">
-              <Image
-                src="/images/logo-gv-full.png"
-                alt="GetVidya Logo"
-                width={160}
-                height={40}
-                className="h-9 w-auto mb-5 brightness-0 invert"
-              />
+              <Image src="/images/logo-gv-full.png" alt="GetVidya Logo" width={160} height={40}
+                className="h-9 w-auto mb-4 brightness-0 invert" />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
-              Simplifying competitive exam preparation, so you can focus on
-              learning and reaching your goals.
+            <p className="text-white/60 text-sm leading-relaxed mb-5">
+              India&apos;s first AI-powered government exam prep platform. Adaptive practice,
+              personalized study plans, and 140,000+ MCQs.
             </p>
-            <div className="flex items-center gap-3">
+            {/* Social Icons */}
+            <div className="flex items-center gap-2.5 mb-6">
               {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-teal/30 transition-colors"
-                >
-                  <Image
-                    src={s.icon}
-                    alt={s.label}
-                    width={20}
-                    height={20}
-                    className="w-4 h-4 brightness-0 invert"
-                  />
+                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-teal/30 transition-colors">
+                  <Image src={s.icon} alt={s.label} width={20} height={20} className="w-4 h-4 brightness-0 invert" />
                 </a>
               ))}
             </div>
+            {/* WhatsApp CTA */}
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors">
+              <MessageCircle size={16} />
+              Chat on WhatsApp
+            </a>
           </div>
 
-          {/* SSC CGL */}
+          {/* Col 2: Exam Hub */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
-              SSC CGL 2025
-            </h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Exam Hub</h4>
             <ul className="space-y-3">
-              {sscLinks.map((l) => (
+              {examHubLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-white/60 text-sm hover:text-accent transition-colors"
-                  >
+                  <Link href={l.href} className="text-white/60 text-sm hover:text-accent transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -173,18 +136,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Col 3: Resources */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
-              Quick Links
-            </h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Resources</h4>
             <ul className="space-y-3">
-              {quickLinks.map((l) => (
+              {resourceLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-white/60 text-sm hover:text-accent transition-colors"
-                  >
+                  <Link href={l.href} className="text-white/60 text-sm hover:text-accent transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -192,50 +150,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* App Download QR */}
+          {/* Col 4: Locations */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
-              Download App
-            </h4>
-            <div className="bg-white p-3 rounded-2xl inline-block mb-3">
-              <Image
-                src="/images/GetVidya_QR_Code.png"
-                alt="Scan to download GetVidya"
-                width={120}
-                height={120}
-                className="w-28 h-28"
-              />
-            </div>
-            <p className="text-white/60 text-xs">Scan to download the app</p>
-            <div className="flex flex-col gap-2 mt-5">
-              <a
-                href="https://play.google.com/store/apps/details?id=app.getvidya.prod"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-90 transition-opacity"
-              >
-                <Image
-                  src="/images/play-store.webp"
-                  alt="Google Play"
-                  width={140}
-                  height={42}
-                  className="h-10 w-auto"
-                />
-              </a>
-              <a
-                href="https://apps.apple.com/in/app/getvidya/id6642687147"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-90 transition-opacity"
-              >
-                <Image
-                  src="/images/app-store.webp"
-                  alt="App Store"
-                  width={140}
-                  height={42}
-                  className="h-10 w-auto"
-                />
-              </a>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Locations</h4>
+            <ul className="space-y-3 mb-8">
+              {cityLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-white/60 text-sm hover:text-accent transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {/* App QR */}
+            <div>
+              <div className="bg-white p-2.5 rounded-xl inline-block mb-2">
+                <Image src="/images/GetVidya_QR_Code.png" alt="Scan to download GetVidya" width={96} height={96} className="w-24 h-24" />
+              </div>
+              <p className="text-white/50 text-xs">Scan to download the app</p>
             </div>
           </div>
         </div>
@@ -243,16 +175,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Prepdot Solutions Pvt. Ltd. All Rights
-            Reserved.
+            © {new Date().getFullYear()} Prepdot Solutions Pvt. Ltd. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 flex-wrap justify-center">
             {legalLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-white/40 text-sm hover:text-white/80 transition-colors"
-              >
+              <Link key={l.href} href={l.href}
+                className="text-white/40 text-sm hover:text-white/80 transition-colors">
                 {l.label}
               </Link>
             ))}
