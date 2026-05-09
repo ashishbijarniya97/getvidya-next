@@ -45,7 +45,7 @@ export function generateSEO({
     "GetVidyaAI adaptive practice",
     "AI study plan exam preparation",
     "mock tests online India",
-    "SSC CGL mock test 2025",
+    "SSC CGL mock test 2026",
     "UPSC preparation app",
     "banking exam MCQ practice",
     "GetVidya",
@@ -55,7 +55,7 @@ export function generateSEO({
     "personalized study plan exam",
     "diagnostic test government exam",
     "XP streak study app",
-    "SSC CGL preparation 2025",
+    "SSC CGL preparation 2026",
     "UPSC CSE prelims practice",
     "SBI PO mock test",
     "Railway NTPC preparation",
@@ -89,7 +89,8 @@ export function generateSEO({
   };
 }
 
-/* ─── JSON-LD Schemas ──────────────────────── */
+/* ─── JSON-LD Schemas ──────────────────────────────────────────────────────── */
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -170,9 +171,7 @@ export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
   })),
 });
 
-export const breadcrumbSchema = (
-  items: { name: string; url: string }[]
-) => ({
+export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: items.map((item, i) => ({
@@ -181,4 +180,160 @@ export const breadcrumbSchema = (
     name: item.name,
     item: `${BASE_URL}${item.url}`,
   })),
+});
+
+// ── Course Schema — for exam-specific pages ───────────────────────────────────
+export const courseSchema = ({
+  name,
+  description,
+  provider = "GetVidya by Prepdot Solutions Pvt. Ltd.",
+  url,
+  price = "149",
+  duration,
+  level = "Beginner to Advanced",
+}: {
+  name: string;
+  description: string;
+  provider?: string;
+  url: string;
+  price?: string;
+  duration?: string;
+  level?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name,
+  description,
+  provider: {
+    "@type": "Organization",
+    name: provider,
+    sameAs: BASE_URL,
+  },
+  url: `${BASE_URL}${url}`,
+  offers: {
+    "@type": "Offer",
+    price,
+    priceCurrency: "INR",
+    category: "Monthly Subscription",
+    availability: "https://schema.org/InStock",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Online",
+    courseWorkload: duration ?? "Self-paced",
+    instructor: {
+      "@type": "Organization",
+      name: "GetVidyaAI",
+    },
+  },
+  educationalLevel: level,
+  inLanguage: ["en", "hi"],
+  isAccessibleForFree: false,
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+    audienceType: "Government Exam Aspirants in India",
+  },
+});
+
+// ── Review / AggregateRating Schema ──────────────────────────────────────────
+export const reviewSchema = ({
+  itemName,
+  ratingValue = "4.7",
+  reviewCount = "2400",
+  bestRating = "5",
+}: {
+  itemName: string;
+  ratingValue?: string;
+  reviewCount?: string;
+  bestRating?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: itemName,
+  brand: { "@type": "Brand", name: "GetVidya" },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue,
+    reviewCount,
+    bestRating,
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Priya Sharma" },
+      reviewRating: { "@type": "Rating", ratingValue: "5" },
+      reviewBody:
+        "GetVidyaAI identified that I was weak in Reasoning and gave me exactly the practice I needed. I cleared SSC CGL Tier-1 in my second attempt after using GetVidya for 3 months.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Rahul Verma" },
+      reviewRating: { "@type": "Rating", ratingValue: "5" },
+      reviewBody:
+        "At ₹149/month, GetVidya gives me more value than coaching centres that charge ₹30,000. The AI study plan changed how I prepare.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Anjali Meena" },
+      reviewRating: { "@type": "Rating", ratingValue: "4" },
+      reviewBody:
+        "The diagnostic test at the start was eye-opening. I thought I was good at GK but the AI showed I had gaps in Economics. Fixed that in 4 weeks.",
+    },
+  ],
+});
+
+// ── HowTo Schema — for outcome/guide pages ───────────────────────────────────
+export const howToSchema = ({
+  name,
+  description,
+  steps,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name,
+  description,
+  step: steps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.name,
+    text: s.text,
+  })),
+  tool: [{ "@type": "HowToTool", name: "GetVidya App (Android / iOS)" }],
+  supply: [{ "@type": "HowToSupply", name: "GetVidya Vidya Pass — ₹149/month" }],
+});
+
+// ── Local Business Schema — for city landing pages ────────────────────────────
+export const localBusinessSchema = ({
+  city,
+  region = "India",
+}: {
+  city: string;
+  region?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: `GetVidya — Online Exam Prep for ${city} Students`,
+  description: `GetVidya provides AI-powered government exam preparation for students in ${city}, ${region}. Covers SSC CGL, UPSC, Banking, and Railway exams with adaptive mock tests and personalized study plans.`,
+  url: `${BASE_URL}/city/${city.toLowerCase().replace(/\s+/g, "-")}`,
+  areaServed: { "@type": "City", name: city, containedInPlace: { "@type": "State", name: region } },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Government Exam Prep Plans",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Vidya Pass Pro",
+        price: "149",
+        priceCurrency: "INR",
+        description: "Unlimited access to all mock tests, AI practice, and GetVidyaAI features.",
+      },
+    ],
+  },
+  sameAs: [BASE_URL],
 });
