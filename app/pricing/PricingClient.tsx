@@ -202,15 +202,11 @@ export default function PricingClient() {
   const [timeLeft, setTimeLeft] = useState<{ h: string; m: string; s: string } | null>(null);
 
   useEffect(() => {
-    const KEY = "gv_flash_end";
-    let end = Number(localStorage.getItem(KEY));
-    if (!end || end < Date.now()) {
-      end = Date.now() + 24 * 60 * 60 * 1000;
-      localStorage.setItem(KEY, String(end));
-    }
+    // Early Bird offer hard-expires 2026-05-29 — remove this block after that date
+    const END = new Date("2026-05-29T23:59:59+05:30").getTime();
 
     const tick = () => {
-      const diff = end - Date.now();
+      const diff = END - Date.now();
       if (diff <= 0) { setTimeLeft(null); return; }
       const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
       const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
@@ -224,16 +220,6 @@ export default function PricingClient() {
 
   return (
     <>
-      {/* ── FLASH SALE TIMER BANNER ──────────────────────────────────────── */}
-      {timeLeft && (
-        <div className="sticky top-0 z-50 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white text-center py-2.5 px-4 text-sm font-semibold shadow-md">
-          <span>⚡ Early Bird Offer — Day Zero pricing ends in: </span>
-          <span className="font-mono tracking-widest">
-            {timeLeft.h}:{timeLeft.m}:{timeLeft.s}
-          </span>
-        </div>
-      )}
-
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="bg-gradient-hero pt-28 pb-16 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -293,6 +279,20 @@ export default function PricingClient() {
               Annual plans save you up to{" "}
               <strong>₹390/year</strong> vs monthly billing
             </p>
+          )}
+
+          {/* ── EARLY BIRD CARD (auto-hides after 2026-05-29) ────────────── */}
+          {timeLeft && (
+            <div className="mt-8 inline-flex flex-col sm:flex-row items-center gap-3 bg-amber-500/20 border border-amber-400/40 backdrop-blur-md rounded-2xl px-6 py-4 text-white max-w-lg mx-auto">
+              <span className="text-2xl">⚡</span>
+              <div className="text-center sm:text-left">
+                <p className="text-sm font-bold text-amber-300 uppercase tracking-wide">Early Bird Offer</p>
+                <p className="text-xs text-white/70 mt-0.5">Day Zero pricing ends in</p>
+              </div>
+              <div className="font-mono text-xl font-bold text-amber-300 bg-black/20 px-4 py-2 rounded-xl tracking-widest ml-auto">
+                {timeLeft.h}:{timeLeft.m}:{timeLeft.s}
+              </div>
+            </div>
           )}
         </div>
       </section>
