@@ -27,6 +27,7 @@ const navLinks = [
     ],
   },
   { label: "Blog", href: "/blog" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -122,6 +123,13 @@ export default function Navbar() {
               }`}>
               Login
             </Link>
+            <Link
+              href="/pricing"
+              className={`relative px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-amber-500 hover:bg-amber-400 text-white shadow-sm`}
+            >
+              <span className="relative z-10">Get Vidya Pass</span>
+              <span className="absolute inset-0 rounded-xl animate-pulse bg-amber-400/40 pointer-events-none" />
+            </Link>
             <MagneticButton href="/free-assessment"
               className="btn-primary text-sm group flex items-center gap-2">
               Free Diagnostic Test <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -184,6 +192,14 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <Link
+                  href="/pricing"
+                  className="w-full flex items-center justify-center px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-white font-semibold text-sm relative overflow-hidden"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="relative z-10">Get Vidya Pass — ₹499/year</span>
+                  <span className="absolute inset-0 animate-pulse bg-amber-400/30 pointer-events-none" />
+                </Link>
                 <Link href="https://app.getvidya.in/login"
                   className="w-full flex items-center justify-center px-4 py-3 rounded-xl text-primary-500 font-medium border border-primary-500/20 hover:bg-slate-50 text-sm"
                   onClick={() => setMobileOpen(false)}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CheckCircle2,
   XCircle,
@@ -199,9 +199,41 @@ function CellValue({ val, dark = false }: { val: boolean | string; dark?: boolea
 
 export default function PricingClient() {
   const [annual, setAnnual] = useState(true);
+  const [timeLeft, setTimeLeft] = useState<{ h: string; m: string; s: string } | null>(null);
+
+  useEffect(() => {
+    const KEY = "gv_flash_end";
+    let end = Number(localStorage.getItem(KEY));
+    if (!end || end < Date.now()) {
+      end = Date.now() + 24 * 60 * 60 * 1000;
+      localStorage.setItem(KEY, String(end));
+    }
+
+    const tick = () => {
+      const diff = end - Date.now();
+      if (diff <= 0) { setTimeLeft(null); return; }
+      const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+      setTimeLeft({ h, m, s });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
+      {/* ── FLASH SALE TIMER BANNER ──────────────────────────────────────── */}
+      {timeLeft && (
+        <div className="sticky top-0 z-50 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white text-center py-2.5 px-4 text-sm font-semibold shadow-md">
+          <span>⚡ Early Bird Offer — Day Zero pricing ends in: </span>
+          <span className="font-mono tracking-widest">
+            {timeLeft.h}:{timeLeft.m}:{timeLeft.s}
+          </span>
+        </div>
+      )}
+
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="bg-gradient-hero pt-28 pb-16 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -553,6 +585,115 @@ export default function PricingClient() {
               Full comparison →
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── COMPETITOR COMPARISON MATRIX ─────────────────────────────────── */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="section-tag mb-4">
+              <Trophy size={14} />
+              Platform Comparison
+            </span>
+            <h2 className="section-heading mt-4 mb-2">
+              Why students switch from Testbook &amp; Adda247
+            </h2>
+            <p className="section-subheading mx-auto">
+              See exactly how GetVidya stacks up against the most popular alternatives
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-card">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th className="text-left px-5 py-4 text-slate-500 font-semibold w-2/5">Feature</th>
+                  <th className="text-center px-5 py-4 text-primary-500 font-bold bg-mint/30">
+                    GetVidya (Vidya Pass)
+                  </th>
+                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Testbook</th>
+                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Adda247</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Price row */}
+                <tr className="bg-white">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">Price</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10 font-semibold text-primary-500">₹499/year</td>
+                  <td className="px-5 py-3.5 text-center text-slate-600">₹399–₹2,000/year</td>
+                  <td className="px-5 py-3.5 text-center text-slate-600">₹499–₹1,999/year</td>
+                </tr>
+
+                {/* Adaptive AI Practice — highlighted exclusive row */}
+                <tr className="bg-emerald-50/60 border-l-4 border-l-emerald-400">
+                  <td className="px-5 py-3.5 font-medium text-slate-700 flex items-center gap-2">
+                    Adaptive AI Practice
+                    <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                      <Star className="w-2.5 h-2.5 fill-emerald-500 text-emerald-500" />
+                      Exclusive
+                    </span>
+                  </td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10">✅ Exclusive</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                </tr>
+
+                {/* AI Weak Subject Diagnosis */}
+                <tr className="bg-slate-50/50">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">AI Weak Subject Diagnosis</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10">✅ Day 1 diagnostic</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                </tr>
+
+                {/* Personalized Study Plan */}
+                <tr className="bg-white">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">Personalized Study Plan</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10">✅ Weekly AI plan</td>
+                  <td className="px-5 py-3.5 text-center text-slate-500">❌ Static syllabus</td>
+                  <td className="px-5 py-3.5 text-center text-slate-500">❌ Static syllabus</td>
+                </tr>
+
+                {/* Mock Tests */}
+                <tr className="bg-slate-50/50">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">Mock Tests</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10">✅ Adaptive difficulty</td>
+                  <td className="px-5 py-3.5 text-center">✅ 1.5L+ (static)</td>
+                  <td className="px-5 py-3.5 text-center">✅ 500+ (static)</td>
+                </tr>
+
+                {/* AI Chat Tutor */}
+                <tr className="bg-white">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">AI Chat Tutor</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10">✅ GetVidyaAI</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                  <td className="px-5 py-3.5 text-center">❌ None</td>
+                </tr>
+
+                {/* Offline Access */}
+                <tr className="bg-slate-50/50">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">Offline Access</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10 text-slate-500">❌ App only</td>
+                  <td className="px-5 py-3.5 text-center">✅ Full</td>
+                  <td className="px-5 py-3.5 text-center">✅ Full</td>
+                </tr>
+
+                {/* Video Lectures */}
+                <tr className="bg-white">
+                  <td className="px-5 py-3.5 font-medium text-slate-700">Video Lectures</td>
+                  <td className="px-5 py-3.5 text-center bg-mint/10 text-slate-500">❌</td>
+                  <td className="px-5 py-3.5 text-center">✅ Extensive</td>
+                  <td className="px-5 py-3.5 text-center">✅ Extensive</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-center text-slate-500 text-sm mt-5 italic max-w-2xl mx-auto">
+            Adaptive AI Practice is exclusive to GetVidya — no other platform personalises
+            difficulty in real time based on your accuracy.
+          </p>
         </div>
       </section>
 
