@@ -8,8 +8,8 @@ import {
   Brain,
   Briefcase,
   Building2,
+  BarChart3,
   Code2,
-  Database,
   ExternalLink,
   GraduationCap,
   Hotel,
@@ -21,7 +21,6 @@ import {
   MapPin,
   MessageCircle,
   Rocket,
-  Server,
   Smartphone,
   Sparkles,
   Star,
@@ -30,25 +29,24 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = generateSEO({
   title: "Ashish Bijarniya — Founder & CEO, GetVidya",
   description:
-    "Ashish Bijarniya is the Founder & CEO of GetVidya — India's AI-powered government exam prep platform. 7+ years across Microsoft, BYJU'S, zazzy. Acquired Clatmaxx. Startup Mentor at Manipal University Jaipur (AIC-MUJ). MBA, DY Patil University.",
-  canonical: "https://getvidya.in/founder",
+    "Ashish Bijarniya is the Founder & CEO of GetVidya — India's AI-powered government exam prep platform. 7+ years across Microsoft, BYJU'S, zazzy. Startup Mentor at Manipal University Jaipur (AIC-MUJ). MBA, DY Patil University.",
+  canonical: "https://getvidya.in/founder-ashish-bijarniya",
   keywords: [
     "Ashish Bijarniya",
     "GetVidya founder",
     "Prepdot Solutions founder",
     "EdTech founder India",
     "Startup mentor AIC-MUJ Manipal University Jaipur",
-    "Clatmaxx acquisition",
     "Microsoft BYJU's operator",
     "AI exam prep India founder",
     "Tier 2 EdTech startup India",
-    "MAARG mentor startup India",
-    "Vidya-1 AI model India",
+    "GetVidyaAI founder",
     "DY Patil MBA entrepreneur",
   ],
 });
@@ -59,7 +57,7 @@ const personSchema = {
   name: "Ashish Bijarniya",
   jobTitle: "Founder & CEO",
   description:
-    "Operator with 7+ years across Microsoft, BYJU'S, zazzy, and GetVidya. Acquired Clatmaxx. Startup Mentor at AIC-MUJ, Manipal University Jaipur. Building India's first AI model for government exam preparation.",
+    "Operator with 7+ years across Microsoft, BYJU'S, zazzy, and GetVidya. Startup Mentor at AIC-MUJ, Manipal University Jaipur. Building India's first AI model for government exam preparation.",
   worksFor: {
     "@type": "Organization",
     name: "GetVidya (Prepdot Solutions Pvt. Ltd.)",
@@ -76,7 +74,6 @@ const personSchema = {
     "Operational Excellence",
     "AI-powered exam preparation",
     "EdTech startup building",
-    "Startup mentorship",
     "Go-to-market strategy",
   ],
   homeLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
@@ -140,7 +137,7 @@ const timeline = [
     org: "GetVidya",
     title: "CEO & Co-Founder",
     location: "Pune, Maharashtra",
-    desc: "Built the entire platform from zero — Flutter app, Next.js API, Supabase DB, AI question pipeline. Acquired Clatmaxx under Prepdot Solutions. 50,000+ students. Represented GetVidya in the MAARG portal. Building Vidya-1: India's first exam-focused AI model.",
+    desc: "Built the entire platform from zero — mobile app, AI question pipeline, adaptive difficulty engine, and web platform. Serving students across Rajasthan and beyond. Building GetVidyaAI: India's first AI model trained exclusively for government exam preparation.",
     icon: Rocket,
     color: "bg-mint text-primary-500",
   },
@@ -158,7 +155,7 @@ const timeline = [
     org: "Manipal University Jaipur",
     title: "Startup Mentor · AIC-MUJ",
     location: "Jaipur, Rajasthan",
-    desc: "Mentors early-stage founders and student innovators via AIC-MUJ and the MAARG portal. Sessions cover product-market fit, lean startup methodology, startup law essentials, and investor storytelling. Also collaborates on demo days, pitch reviews, and startup competitions.",
+    desc: "Mentors early-stage founders and student innovators at AIC-MUJ. Sessions cover product-market fit, lean startup methodology, startup law essentials, and investor storytelling. Also collaborates on demo days, pitch reviews, and startup competitions.",
     icon: Users,
     color: "bg-teal-50 text-teal-600",
   },
@@ -195,52 +192,52 @@ const skills = [
 
 const techStack = [
   {
-    name: "Supabase",
-    role: "Database & Auth",
-    desc: "PostgreSQL with pgBouncer pooling. Stores 5,000+ AI-validated questions, student profiles, and adaptive difficulty state.",
-    icon: Database,
-  },
-  {
-    name: "Claude AI",
-    role: "AI Research & Reasoning",
-    desc: "Anthropic's Claude powers content strategy, platform intelligence, and forms the research backbone of Vidya-1 — India's first exam-focused AI model.",
-    icon: Brain,
-  },
-  {
-    name: "Groq + LLaMA 3.3",
-    role: "Question Generation",
-    desc: "300–400 fresh MCQs generated every night. Groq's inference speed makes real-time question generation viable at near-zero marginal cost.",
+    name: "GetVidyaAI Question Engine",
+    role: "Adaptive AI Core",
+    desc: "Generates 300–400 fresh, curriculum-validated MCQs every day. Adapts difficulty in real time based on each student's accuracy history across every session.",
     icon: Zap,
   },
   {
-    name: "Gemini Flash",
-    role: "AI Quality Gate",
-    desc: "Every Groq-generated question passes through Gemini's validation — checking curriculum alignment, answer correctness, and distractor quality before hitting the DB.",
-    icon: Sparkles,
+    name: "GetVidyaAI Doubt Solver",
+    role: "AI Reasoning",
+    desc: "Explains why each answer is correct, surfaces the exact concept being tested, and links it to the syllabus — so students learn, not just score.",
+    icon: Brain,
   },
   {
-    name: "Next.js 14",
-    role: "Platform & Website",
-    desc: "App Router with server components. Both getvidya.in and api.getvidya.in run on Next.js deployed on Vercel with Netlify as CDN backup.",
-    icon: Layers,
+    name: "Adaptive Difficulty Engine",
+    role: "Student Profiling",
+    desc: "5-level difficulty scale recomputed after every test. Question delivery shifts from beginner-heavy to advanced as the student's performance improves.",
+    icon: BarChart3,
   },
   {
-    name: "Flutter",
-    role: "Mobile App",
-    desc: "Single codebase for Android. Works on ₹6,000 devices. Under 15MB APK. Offline-capable question caching for students with spotty 4G connectivity.",
+    name: "Mobile App",
+    role: "Built for Bharat",
+    desc: "Works on ₹6,000 Android devices. Under 15MB download. Offline-capable question caching for students with spotty 4G connectivity in Tier-2 and Tier-3 districts.",
     icon: Smartphone,
   },
   {
-    name: "Vercel + Netlify",
-    role: "Deployment & CDN",
-    desc: "Zero-config deployments on every git push. Vercel Cron Jobs trigger nightly AI batch at 01:30 UTC. Global CDN for sub-100ms response across Rajasthan.",
-    icon: Server,
+    name: "AI Study Plans",
+    role: "Personalised Learning",
+    desc: "Weekly study plans generated from diagnostic results. Identifies weak subjects and recommends daily focus areas with time targets — no manual setup needed.",
+    icon: Layers,
   },
   {
-    name: "Prisma ORM",
-    role: "Data Layer",
-    desc: "Type-safe DB queries across 15+ models. Adaptive difficulty, referral tracking, AI practice logs — all schema-defined with full migration history.",
-    icon: Code2,
+    name: "GetVidyaAI Quality Gate",
+    role: "Content Validation",
+    desc: "Every AI-generated question is validated for curriculum alignment, answer accuracy, and distractor quality before it reaches any student.",
+    icon: Sparkles,
+  },
+  {
+    name: "Data Intelligence",
+    role: "Platform Health",
+    desc: "Real-time monitoring of student engagement, content quality, and platform performance. Enables fast product iterations based on actual usage patterns.",
+    icon: TrendingUp,
+  },
+  {
+    name: "Referral Engine",
+    role: "Growth Infrastructure",
+    desc: "Smart conversion triggers — Victory (≥75% score), Near Miss, Streak Protector — that turn high-performance moments into organic referral events.",
+    icon: Users,
   },
 ];
 
@@ -263,7 +260,7 @@ const roadmap = [
     period: "Month 7 → 12",
     items: [
       "Referral engine live (Victory, Near Miss, Streak triggers)",
-      "OneSignal exam countdown push notifications",
+      "Exam countdown push notifications",
       "3,000 MAU, 150 Pro subscribers",
       "₹3L cumulative revenue milestone",
     ],
@@ -271,10 +268,10 @@ const roadmap = [
   },
   {
     phase: "Phase 3",
-    title: "Vidya-1 & Scale",
+    title: "GetVidyaAI & Scale",
     period: "Month 13 → 24",
     items: [
-      "Vidya-1 v1.0 in production — India's first exam-focused AI",
+      "GetVidyaAI v1.0 — India's first exam-focused AI model in production",
       "50,000+ PYQ training dataset curated",
       "All 33 Rajasthan districts active",
       "Series A raise: ₹3–5 crore",
@@ -306,9 +303,9 @@ const socialProof = [
 
 const stats = [
   { value: "7+", label: "Years Operating" },
-  { value: "50,000+", label: "Students on GetVidya" },
+  { value: "Growing", label: "Student Base" },
   { value: "140K+", label: "MCQs in Bank" },
-  { value: "1", label: "Acquisition (Clatmaxx)" },
+  { value: "1", label: "Strategic Acquisition" },
   { value: "2", label: "Ventures Running Simultaneously" },
 ];
 
@@ -348,8 +345,9 @@ export default function FounderPage() {
                   across global tech (Microsoft), hyper-growth startups (BYJU'S, zazzy), and his own ventures.
                 </p>
                 <p className="text-white/60 text-lg mb-10 leading-relaxed">
-                  Acquired Clatmaxx. Built GetVidya to 50,000+ students. Mentors early-stage founders
-                  at AIC-MUJ via MAARG. Now building Vidya-1 — India's first AI model trained
+                  Built GetVidya from scratch. Mentors early-stage founders at{" "}
+                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">AIC-MUJ</a>,
+                  Manipal University Jaipur. Now building GetVidyaAI — India's first AI model trained
                   exclusively for government exam preparation.
                 </p>
 
@@ -393,8 +391,14 @@ export default function FounderPage() {
 
                   {/* avatar placeholder + name */}
                   <div className="flex items-center gap-4 mb-5 pb-5 border-b border-white/10">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal to-accent flex items-center justify-center text-primary-500 font-bold text-2xl flex-shrink-0">
-                      AB
+                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/20">
+                      <Image
+                        src="/images/ashish-bijarniya.png"
+                        alt="Ashish Bijarniya"
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
                     <div>
                       <div className="text-white font-bold text-lg leading-tight">Ashish Bijarniya</div>
@@ -504,15 +508,15 @@ export default function FounderPage() {
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
                   With over 7 years of experience across global tech giants (Microsoft),
-                  hyper-growth startups (BYJU'S), and building my own ventures (GetVidya,
-                  Mangalam Hotel), I specialise in turning complex operational challenges into
+                  hyper-growth startups (BYJU'S), and building my own ventures (GetVidya,{" "}
+                  <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Mangalam Hotel</a>), I specialise in turning complex operational challenges into
                   streamlined, profitable systems.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {[
                     {
                       title: "Founder's Grit",
-                      body: "Scaled products from zero to thousands of users on shoestring budgets and navigated the complexities of M&A — successfully integrating Clatmaxx under Prepdot Solutions.",
+                      body: "Scaled products from zero to thousands of users on shoestring budgets and navigated the complexities of M&A — successfully integrating a competitive exam platform under Prepdot Solutions.",
                     },
                     {
                       title: "Operational Systems",
@@ -524,7 +528,7 @@ export default function FounderPage() {
                     },
                     {
                       title: "Tech-Forward Execution",
-                      body: "I leverage AI and modern tooling (Supabase, Claude AI, Netlify) to build lean infrastructure that reduces burn and increases speed to market.",
+                      body: "I leverage AI-first infrastructure to build lean platforms that reduce burn and increase speed to market — making high-quality education accessible at ₹149/month.",
                     },
                   ].map(({ title, body }) => (
                     <div key={title} className="bg-slate-50 rounded-2xl p-5">
@@ -534,10 +538,10 @@ export default function FounderPage() {
                   ))}
                 </div>
                 <p className="text-slate-500">
-                  Currently mentoring early-stage founders via the{" "}
-                  <strong className="text-primary-500">MAARG portal</strong> and{" "}
-                  <strong className="text-primary-500">AIC-MUJ</strong>, while building GetVidya
-                  into India's definitive government exam prep platform.
+                  Currently mentoring early-stage founders at{" "}
+                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a>,
+                  Manipal University Jaipur, while building GetVidya into India's definitive
+                  government exam prep platform.
                 </p>
               </div>
             </div>
@@ -652,8 +656,8 @@ export default function FounderPage() {
                 How GetVidya is actually built
               </h2>
               <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                No agency. Lean infrastructure. AI-first execution. Every tool chosen to reduce
-                burn and increase speed to market — the operator's approach to product building.
+                No agency. Lean infrastructure. AI-first execution. Every capability chosen to
+                reduce burn and increase speed to market — the operator's approach to product building.
               </p>
             </div>
 
@@ -674,7 +678,7 @@ export default function FounderPage() {
           </div>
         </section>
 
-        {/* ── VIDYA-1 ──────────────────────────────────────────────────────── */}
+        {/* ── GETVIDYAAI MODEL ─────────────────────────────────────────────── */}
         <section className="py-24 bg-white">
           <div className="container-xl">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -684,20 +688,19 @@ export default function FounderPage() {
                   R&D Initiative
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-primary-500 mb-6 leading-tight">
-                  Vidya-1: India's first<br />exam-focused AI model
+                  GetVidyaAI: India's first<br />exam-focused AI model
                 </h2>
                 <p className="text-slate-600 text-lg leading-relaxed mb-5">
-                  Every AI model powering exam prep today — GPT-4, LLaMA, Gemini — is a
-                  general-purpose model. They were not trained on the RPSC RAS syllabus.
-                  They don't understand Rajasthani student error patterns in Quantitative
-                  Aptitude. They hallucinate exam dates.
+                  Every general-purpose AI model available today was not trained on the RPSC RAS
+                  syllabus. They don't understand the distractor patterns that trip up Rajasthani
+                  students in Quantitative Aptitude. They hallucinate exam dates and misquote
+                  government notification details.
                 </p>
                 <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                  Vidya-1 is a fine-tuned language model trained exclusively on 10+ years of
-                  SSC, Railway, UPSC, and RPSC Previous Year Questions — plus 5,000+
-                  validated questions from GetVidya's own growing database. Designed to
-                  generate questions, solve doubts, and explain concepts natively in the
-                  context of India's 2 crore government exam aspirants.
+                  GetVidyaAI is being trained exclusively on 10+ years of SSC, Railway, UPSC, and
+                  RPSC Previous Year Questions — plus 5,000+ validated questions from GetVidya's own
+                  growing database. Designed to generate questions, solve doubts, and explain concepts
+                  natively in the context of India's 2 crore government exam aspirants.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {["SSC CGL PYQ corpus", "RPSC RAS syllabus-aware", "Hinglish doubt resolution", "Zero hallucination guardrails", "Open academic license"].map((tag) => (
@@ -718,8 +721,8 @@ export default function FounderPage() {
                     {[
                       { label: "PYQ Dataset Target", value: "50,000+ questions" },
                       { label: "Sources", value: "SSC, Railway, UPSC, RPSC (public domain)" },
-                      { label: "Base Model", value: "LLaMA 3 / Mistral (open-weight)" },
-                      { label: "Compute", value: "Cloud GPU — Together AI / Lambda Labs" },
+                      { label: "Training Approach", value: "Domain-specific fine-tuning" },
+                      { label: "Infrastructure", value: "Cloud AI — proprietary pipeline" },
                       { label: "Phase 1 Budget", value: "₹2.4L (SISFS-funded)" },
                       { label: "License", value: "Academic open-license for other EdTechs" },
                     ].map(({ label, value }) => (
@@ -745,7 +748,7 @@ export default function FounderPage() {
               </span>
               <h2 className="section-heading mb-4">Three phases. One direction.</h2>
               <p className="section-subheading mx-auto">
-                The same playbook used at Mangalam Hotel — start with one hyper-local problem,
+                The same playbook used at <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Mangalam Hotel</a> — start with one hyper-local problem,
                 solve it completely, then scale the model across verticals.
               </p>
             </div>
@@ -822,21 +825,22 @@ export default function FounderPage() {
                 <div className="text-xs font-bold text-accent uppercase tracking-widest mb-3">
                   EdTech Leadership
                 </div>
-                <h3 className="text-white font-bold text-xl mb-4">GetVidya & Clatmaxx</h3>
+                <h3 className="text-white font-bold text-xl mb-4">GetVidya</h3>
                 <p className="text-white/60 leading-relaxed text-sm">
                   Building India's most affordable AI exam prep platform under Prepdot Solutions Pvt. Ltd.
-                  Acquired Clatmaxx to expand the exam portfolio. Represented GetVidya in the MAARG portal
-                  initiative, aligning with national mentorship and scalability standards.
-                  Mentoring the next generation at AIC-MUJ, Manipal University Jaipur.
+                  Executed a strategic acquisition to expand the exam portfolio into competitive law entrance.
+                  Mentoring the next generation of founders at <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">AIC-MUJ</a>, Manipal University Jaipur.
                 </p>
               </div>
               <div>
                 <div className="text-xs font-bold text-accent uppercase tracking-widest mb-3">
                   Hospitality & AI Operations
                 </div>
-                <h3 className="text-white font-bold text-xl mb-4">Mangalam Hotel, NH52</h3>
+                <h3 className="text-white font-bold text-xl mb-4">
+                  <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-300 underline underline-offset-2">Mangalam Hotel, NH52</a>
+                </h3>
                 <p className="text-white/60 leading-relaxed text-sm">
-                  Led full digital and operational transformation at Mangalam Hotel, Lachhmangarh —
+                  Led full digital and operational transformation at <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-primary-300 underline underline-offset-2">Mangalam Hotel, Lachhmangarh</a> —
                   AI inventory management, custom delivery app, POS integration, La Carimali equipment,
                   and hyper-local SEO targeting NH52 and Mody University traffic. Innovation that
                   honours heritage while serving guests more efficiently.
@@ -862,8 +866,8 @@ export default function FounderPage() {
               <p className="section-subheading mx-auto mb-10">
                 If you're a student preparing for SSC, Railway, UPSC, or RPSC — start your AI
                 study plan today. If you're an early-stage founder building in EdTech, consumer,
-                or SaaS — Ashish mentors via the <strong>MAARG portal at AIC-MUJ</strong>,
-                Manipal University Jaipur.
+                or SaaS — Ashish mentors at{" "}
+                <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-primary-500 underline underline-offset-2">AIC-MUJ, Manipal University Jaipur</a>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -918,9 +922,9 @@ export default function FounderPage() {
               </div>
 
               <p className="mt-6 text-slate-400 text-sm">
-                Mentorship for early-stage founders available through the{" "}
-                <strong className="text-primary-500">MAARG network</strong> —
-                AIC-MUJ, Manipal University Jaipur.
+                Startup mentorship available through{" "}
+                <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a> —
+                Manipal University Jaipur incubation cell.
               </p>
             </div>
           </div>

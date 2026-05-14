@@ -95,7 +95,7 @@ export default function Hero() {
 
             <motion.div variants={item} className="mt-5 flex items-center gap-2 text-white/50 text-sm">
               <CheckCircle2 size={14} className="text-accent" />
-              Starting at <strong className="text-accent">₹149/month</strong> — cancel anytime
+              Starting at <strong className="text-accent">₹499/year</strong> — free tier available, cancel anytime
             </motion.div>
           </motion.div>
 

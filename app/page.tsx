@@ -47,7 +47,7 @@ const homeFaqs = [
   },
   {
     question: "How much does GetVidya cost?",
-    answer: "GetVidya's Vidya Pass Pro starts at ₹149/month, giving unlimited access to all mock tests, AI practice sessions, and GetVidyaAI features. Free daily questions and a free diagnostic assessment are available without any payment.",
+    answer: "GetVidya offers a free tier with a 25-question diagnostic and 25 lifetime AI questions. Vidya Pass starts at ₹499/year (₹79/month) with 30 AI questions per day, 5 mock tests per month, and a weekly AI study plan. Personal Mentor at ₹999/year includes unlimited everything plus weekly AI profile analysis.",
   },
   {
     question: "Which exams does GetVidya cover?",
