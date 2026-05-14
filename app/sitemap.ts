@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://getvidya.in";
 
-const CITY_SLUGS = ["jaipur", "delhi", "lucknow", "pune", "hyderabad", "bangalore"];
+const CITY_SLUGS = ["sikar", "laxmangarh", "churu", "jhunjhunu", "jaipur", "delhi", "lucknow", "pune", "hyderabad", "bangalore"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -41,12 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/compare/getvidya-vs-testbook`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
   ];
 
-  // City landing pages
+  const RAJASTHAN_TIER2 = new Set(["sikar", "laxmangarh", "churu", "jhunjhunu"]);
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${BASE_URL}/city/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.75,
+    priority: RAJASTHAN_TIER2.has(slug) ? 0.88 : 0.75,
   }));
 
   return [...staticPages, ...cityPages];

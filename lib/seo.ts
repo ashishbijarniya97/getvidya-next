@@ -93,13 +93,33 @@ export function generateSEO({
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "EducationalOrganization",
   name: "GetVidya",
   legalName: "Prepdot Solutions Pvt. Ltd.",
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo-gv-full.png`,
   description:
     "GetVidya is India's first AI-powered government exam preparation platform, offering 1,200+ mock tests and 140,000+ MCQs for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams. Powered by GetVidyaAI.",
+  areaServed: [
+    { "@type": "City", name: "Sikar", containedInPlace: { "@type": "State", name: "Rajasthan" } },
+    { "@type": "City", name: "Laxmangarh", containedInPlace: { "@type": "State", name: "Rajasthan" } },
+    { "@type": "City", name: "Jaipur", containedInPlace: { "@type": "State", name: "Rajasthan" } },
+    { "@type": "City", name: "Jhunjhunu", containedInPlace: { "@type": "State", name: "Rajasthan" } },
+    { "@type": "City", name: "Churu", containedInPlace: { "@type": "State", name: "Rajasthan" } },
+    { "@type": "Country", name: "India" },
+  ],
+  knowsAbout: [
+    "SSC CGL Preparation",
+    "UPSC Civil Services Examination",
+    "Railway NTPC Preparation",
+    "Banking PO Exam Preparation",
+    "Rajasthan PSC (RPSC RAS)",
+    "Adaptive Learning for Government Exams",
+    "AI-Powered Mock Tests",
+    "Competitive Exam Coaching",
+    "Government Job Preparation India",
+  ],
+  availableLanguage: ["English", "Hindi"],
   sameAs: [
     "https://t.me/GetVidyaofficial",
     "https://www.youtube.com/@Get_Vidya",

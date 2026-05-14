@@ -15,6 +15,42 @@ const CITIES: Record<string, {
   examFocus: string[];
   aspirantCount: string;
 }> = {
+  sikar: {
+    city: "Sikar",
+    region: "Rajasthan",
+    slug: "sikar",
+    tagline: "Sikar's #1 AI-Powered Govt Exam Prep — No Coaching Needed",
+    coachingHubs: ["Fatehpur Road", "Station Road", "Subhash Nagar"],
+    examFocus: ["SSC CGL", "Railway NTPC", "Rajasthan PSC (RPSC RAS)", "Banking PO"],
+    aspirantCount: "25,000+",
+  },
+  laxmangarh: {
+    city: "Laxmangarh",
+    region: "Rajasthan",
+    slug: "laxmangarh",
+    tagline: "Laxmangarh's AI Exam Prep — Beat Coaching at 1/10th the Cost",
+    coachingHubs: ["Main Market", "Bus Stand Area", "Nehru Nagar"],
+    examFocus: ["SSC CGL", "Railway Group D", "UPSC CSE", "Rajasthan PSC (RPSC RAS)"],
+    aspirantCount: "8,000+",
+  },
+  churu: {
+    city: "Churu",
+    region: "Rajasthan",
+    slug: "churu",
+    tagline: "Churu Aspirants — AI-Powered SSC & Railway Prep at ₹149/month",
+    coachingHubs: ["Sujangarh Road", "Taranagar Chowk", "Salasar Road"],
+    examFocus: ["SSC CGL", "Railway NTPC", "Rajasthan Police", "Banking PO"],
+    aspirantCount: "15,000+",
+  },
+  jhunjhunu: {
+    city: "Jhunjhunu",
+    region: "Rajasthan",
+    slug: "jhunjhunu",
+    tagline: "Jhunjhunu's Smartest Way to Crack SSC & Government Exams",
+    coachingHubs: ["Nehru Bazaar", "Mandawa Road", "Pilani Chowk"],
+    examFocus: ["SSC CGL", "Railway NTPC", "UPSC CSE", "Rajasthan PSC (RPSC RAS)"],
+    aspirantCount: "18,000+",
+  },
   jaipur: {
     city: "Jaipur",
     region: "Rajasthan",
