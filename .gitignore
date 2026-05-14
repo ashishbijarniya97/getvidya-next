@@ -27,3 +27,6 @@ yarn-error.log*
 # vercel / netlify
 .vercel
 .netlify
+
+# supabase local temp
+supabase/.temp
