@@ -110,7 +110,7 @@ const timeline = [
   {
     year: "Apr – Sep 2021",
     org: "BYJU'S",
-    url: null,
+    url: "https://byjus.com/",
     title: "Business Development Manager",
     location: "Jaipur",
     desc: "Worked inside India's then-largest EdTech. Saw the gap from the inside: a ₹80,000 course optimised for metro parents with tablets and stable WiFi — fundamentally inaccessible to a student from Sikar, Jhunjhunu, or Churu.",
@@ -350,7 +350,7 @@ export default function FounderPage() {
                 <p className="text-white/70 text-xl mb-4 leading-relaxed">
                   <strong className="text-white">Ashish Bijarniya</strong> — Founder & CEO of GetVidya.
                   7+ years turning complex operational challenges into streamlined, profitable systems
-                  across global tech (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">Microsoft</a>), hyper-growth startups (BYJU&apos;S, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">zazzy</a>), and his own ventures.
+                  across global tech (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">Microsoft</a>), hyper-growth startups (<a href="https://byjus.com/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">BYJU&apos;S</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">zazzy</a>), and his own ventures.
                 </p>
                 <p className="text-white/60 text-lg mb-10 leading-relaxed">
                   Built GetVidya from scratch. Mentors early-stage founders at{" "}
@@ -516,7 +516,7 @@ export default function FounderPage() {
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
                   With over 7 years of experience across global tech giants (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Microsoft</a>),
-                  hyper-growth startups (BYJU&apos;S, <a href="https://biddano.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Biddano</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">zazzy</a>), and building my own ventures (GetVidya,{" "}
+                  hyper-growth startups (<a href="https://byjus.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">BYJU&apos;S</a>, <a href="https://biddano.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Biddano</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">zazzy</a>), and building my own ventures (GetVidya,{" "}
                   <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Mangalam Hotel</a>), I specialise in turning complex operational challenges into
                   streamlined, profitable systems.
                 </p>
