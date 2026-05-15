@@ -160,7 +160,7 @@ const timeline = [
   {
     year: "Sep 2025 – Present",
     org: "Manipal University Jaipur",
-    url: null,
+    url: "https://jaipur.manipal.edu/",
     title: "Startup Mentor · AIC-MUJ",
     location: "Jaipur, Rajasthan",
     desc: "Mentors early-stage founders and student innovators at AIC-MUJ. Sessions cover product-market fit, lean startup methodology, startup law essentials, and investor storytelling. Also collaborates on demo days, pitch reviews, and startup competitions.",
@@ -354,8 +354,8 @@ export default function FounderPage() {
                 </p>
                 <p className="text-white/60 text-lg mb-10 leading-relaxed">
                   Built GetVidya from scratch. Mentors early-stage founders at{" "}
-                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">AIC-MUJ</a>,
-                  Manipal University Jaipur. Now building GetVidyaAI — India's first AI model trained
+                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">AIC-MUJ</a>,{" "}
+                  <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">Manipal University Jaipur</a>. Now building GetVidyaAI — India&apos;s first AI model trained
                   exclusively for government exam preparation.
                 </p>
 
@@ -547,8 +547,8 @@ export default function FounderPage() {
                 </div>
                 <p className="text-slate-500">
                   Currently mentoring early-stage founders at{" "}
-                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a>,
-                  Manipal University Jaipur, while building GetVidya into India's definitive
+                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a>,{" "}
+                  <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">Manipal University Jaipur</a>, while building GetVidya into India&apos;s definitive
                   government exam prep platform.
                 </p>
               </div>
@@ -937,8 +937,8 @@ export default function FounderPage() {
 
               <p className="mt-6 text-slate-400 text-sm">
                 Startup mentorship available through{" "}
-                <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a> —
-                Manipal University Jaipur incubation cell.
+                <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">AIC-MUJ</a> —{" "}
+                <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 hover:text-primary-400 underline underline-offset-2">Manipal University Jaipur</a> incubation cell.
               </p>
             </div>
           </div>
