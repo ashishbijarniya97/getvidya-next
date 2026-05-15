@@ -1,7 +1,8 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { generateSEO } from "@/lib/seo";
-import { getPosts, formatDate, HashnodePost } from "@/lib/hashnode";
+import { getPublishedPosts, formatBlogDate, readingTime } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog";
 import { ArrowRight, Clock, BookOpen } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,12 +30,7 @@ function tagColor(tag: string) {
 }
 
 export default async function BlogPage() {
-  let posts: HashnodePost[] = [];
-  try {
-    posts = await getPosts(20);
-  } catch {
-    // show empty state if API fails
-  }
+  const posts: BlogPost[] = await getPublishedPosts(20);
 
   const featured = posts[0];
   const rest = posts.slice(1);
@@ -72,9 +68,9 @@ export default async function BlogPage() {
                   <div className="grid lg:grid-cols-2 gap-8 mb-12">
                     <Link href={`/blog/${featured.slug}`} className="card overflow-hidden group lg:col-span-1">
                       <div className="relative h-72 overflow-hidden bg-mint">
-                        {featured.coverImage?.url ? (
+                        {featured.featured_image_url ? (
                           <Image
-                            src={featured.coverImage.url}
+                            src={featured.featured_image_url}
                             alt={featured.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -87,20 +83,20 @@ export default async function BlogPage() {
                         )}
                         <div className="absolute inset-0 bg-gradient-card" />
                         {featured.tags[0] && (
-                          <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full ${tagColor(featured.tags[0].slug)}`}>
-                            {featured.tags[0].name}
+                          <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full ${tagColor(featured.tags[0])}`}>
+                            {featured.tags[0]}
                           </span>
                         )}
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
                           <Clock size={13} />
-                          {featured.readTimeInMinutes} min read · {formatDate(featured.publishedAt)}
+                          {readingTime(featured.content_html)} min read · {formatBlogDate(featured.published_at)}
                         </div>
                         <h2 className="text-xl font-bold text-primary-500 mb-2 group-hover:text-teal transition-colors leading-snug">
                           {featured.title}
                         </h2>
-                        <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">{featured.brief}</p>
+                        <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">{featured.excerpt}</p>
                         <div className="flex items-center gap-1 text-teal text-sm font-medium mt-4">
                           Read more <ArrowRight size={14} />
                         </div>
@@ -113,9 +109,9 @@ export default async function BlogPage() {
                         {rest.slice(0, 2).map((post) => (
                           <Link key={post.slug} href={`/blog/${post.slug}`} className="card overflow-hidden group flex gap-5 p-5">
                             <div className="w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-mint">
-                              {post.coverImage?.url ? (
+                              {post.featured_image_url ? (
                                 <Image
-                                  src={post.coverImage.url}
+                                  src={post.featured_image_url}
                                   alt={post.title}
                                   width={112}
                                   height={96}
@@ -129,15 +125,15 @@ export default async function BlogPage() {
                             </div>
                             <div className="flex-1 min-w-0">
                               {post.tags[0] && (
-                                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${tagColor(post.tags[0].slug)}`}>
-                                  {post.tags[0].name}
+                                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${tagColor(post.tags[0])}`}>
+                                  {post.tags[0]}
                                 </span>
                               )}
                               <h3 className="font-bold text-primary-500 text-sm mt-2 mb-1 line-clamp-2 group-hover:text-teal transition-colors">
                                 {post.title}
                               </h3>
                               <div className="flex items-center gap-2 text-xs text-slate-400">
-                                <Clock size={11} /> {post.readTimeInMinutes} min read
+                                <Clock size={11} /> {readingTime(post.content_html)} min read
                               </div>
                             </div>
                           </Link>
@@ -155,9 +151,9 @@ export default async function BlogPage() {
                       {rest.slice(2).map((post) => (
                         <Link key={post.slug} href={`/blog/${post.slug}`} className="card overflow-hidden group">
                           <div className="relative h-44 overflow-hidden bg-mint">
-                            {post.coverImage?.url ? (
+                            {post.featured_image_url ? (
                               <Image
-                                src={post.coverImage.url}
+                                src={post.featured_image_url}
                                 alt={post.title}
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -169,19 +165,19 @@ export default async function BlogPage() {
                               </div>
                             )}
                             {post.tags[0] && (
-                              <span className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${tagColor(post.tags[0].slug)}`}>
-                                {post.tags[0].name}
+                              <span className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${tagColor(post.tags[0])}`}>
+                                {post.tags[0]}
                               </span>
                             )}
                           </div>
                           <div className="p-5">
                             <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
-                              <Clock size={11} /> {post.readTimeInMinutes} min · {formatDate(post.publishedAt)}
+                              <Clock size={11} /> {readingTime(post.content_html)} min · {formatBlogDate(post.published_at)}
                             </div>
                             <h3 className="font-bold text-primary-500 text-base mb-1 line-clamp-2 group-hover:text-teal transition-colors">
                               {post.title}
                             </h3>
-                            <p className="text-slate-500 text-sm line-clamp-2">{post.brief}</p>
+                            <p className="text-slate-500 text-sm line-clamp-2">{post.excerpt}</p>
                           </div>
                         </Link>
                       ))}

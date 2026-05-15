@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
+import { getPublishedPosts } from "@/lib/blog";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://getvidya.in";
 
 const CITY_SLUGS = ["sikar", "laxmangarh", "churu", "jhunjhunu", "jaipur", "delhi", "lucknow", "pune", "hyderabad", "bangalore"];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -50,5 +51,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: RAJASTHAN_TIER2.has(slug) ? 0.88 : 0.75,
   }));
 
-  return [...staticPages, ...cityPages];
+  let blogPages: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await getPublishedPosts(200);
+    blogPages = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.updated_at),
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+    }));
+  } catch {
+    // don't break sitemap if DB is unreachable
+  }
+
+  return [...staticPages, ...cityPages, ...blogPages];
 }

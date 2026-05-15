@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { generateSEO, breadcrumbSchema } from "@/lib/seo";
-import { getPost, getAllSlugs, formatDate } from "@/lib/hashnode";
+import { getPublishedPost, getAllPublishedSlugs, formatBlogDate, readingTime } from "@/lib/blog";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { Clock, ArrowRight, User, Calendar, Tag } from "lucide-react";
@@ -15,7 +15,7 @@ const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%
 
 export async function generateStaticParams() {
   try {
-    const slugs = await getAllSlugs();
+    const slugs = await getAllPublishedSlugs();
     return slugs.map((slug) => ({ slug }));
   } catch {
     return [];
@@ -23,62 +23,55 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  try {
-    const post = await getPost(params.slug);
-    if (!post) return {};
-    return generateSEO({
-      title: post.seo?.title ?? post.title,
-      description: post.seo?.description ?? post.brief,
-      keywords: post.tags.map((t) => t.name),
-      ogImage: post.coverImage?.url,
-      canonical: `https://getvidya.in/blog/${params.slug}`,
-    });
-  } catch {
-    return {};
-  }
+  const post = await getPublishedPost(params.slug);
+  if (!post) return {};
+  return generateSEO({
+    title: post.seo_title ?? post.title,
+    description: post.seo_description ?? post.excerpt ?? "",
+    keywords: post.tags,
+    ogImage: post.og_image_url ?? post.featured_image_url ?? undefined,
+    canonical: `https://getvidya.in/blog/${params.slug}`,
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  let post;
-  try {
-    post = await getPost(params.slug);
-  } catch {
-    notFound();
-  }
+  const post = await getPublishedPost(params.slug);
   if (!post) notFound();
 
-  const firstTag = post.tags[0];
+  const firstTag = post.tags[0] ?? null;
+  const mins = readingTime(post.content_html);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.seo_title ?? post.title,
+    description: post.seo_description ?? post.excerpt ?? "",
+    author: { "@type": "Person", name: post.author_name ?? "GetVidya Team" },
+    datePublished: post.published_at ?? post.created_at,
+    dateModified: post.updated_at,
+    image: post.og_image_url ?? post.featured_image_url ?? "https://getvidya.in/images/og-image.png",
+    keywords: post.tags.join(", "),
+    publisher: {
+      "@type": "Organization",
+      name: "GetVidya",
+      logo: { "@type": "ImageObject", url: "https://getvidya.in/images/logo-gv-full.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://getvidya.in/blog/${params.slug}` },
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema([
-            { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-            { name: post.title, url: `/blog/${params.slug}` },
-          ])),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: post.title, url: `/blog/${params.slug}` },
+        ])) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            description: post.brief,
-            author: { "@type": "Person", name: post.author.name },
-            datePublished: post.publishedAt,
-            image: post.coverImage?.url ?? "https://getvidya.in/images/og-image.png",
-            publisher: {
-              "@type": "Organization",
-              name: "GetVidya",
-              logo: { "@type": "ImageObject", url: "https://getvidya.in/images/logo-gv-full.png" },
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
       <Navbar />
@@ -97,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {firstTag && (
                 <span className="inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-accent/20 text-accent border border-accent/30 mb-4">
-                  <Tag size={11} /> {firstTag.name}
+                  <Tag size={11} /> {firstTag}
                 </span>
               )}
 
@@ -106,9 +99,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </h1>
 
               <div className="flex flex-wrap items-center gap-5 text-white/60 text-sm">
-                <span className="flex items-center gap-1.5"><User size={14} />{post.author.name}</span>
-                <span className="flex items-center gap-1.5"><Calendar size={14} />{formatDate(post.publishedAt)}</span>
-                <span className="flex items-center gap-1.5"><Clock size={14} />{post.readTimeInMinutes} min read</span>
+                <span className="flex items-center gap-1.5"><User size={14} />{post.author_name ?? "GetVidya Team"}</span>
+                <span className="flex items-center gap-1.5"><Calendar size={14} />{formatBlogDate(post.published_at)}</span>
+                <span className="flex items-center gap-1.5"><Clock size={14} />{mins} min read</span>
               </div>
             </AnimateIn>
           </div>
@@ -121,11 +114,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {/* Article */}
               <article className="lg:col-span-2">
-                {post.coverImage?.url && (
+                {post.featured_image_url && (
                   <AnimateIn>
                     <div className="relative w-full h-72 rounded-2xl overflow-hidden mb-10 shadow-card">
                       <Image
-                        src={post.coverImage.url}
+                        src={post.featured_image_url}
                         alt={post.title}
                         fill
                         className="object-cover"
@@ -136,14 +129,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   </AnimateIn>
                 )}
 
-                {/* Excerpt */}
-                <AnimateIn>
-                  <p className="text-lg text-slate-600 leading-relaxed border-l-4 border-teal pl-5 mb-10 font-medium">
-                    {post.brief}
-                  </p>
-                </AnimateIn>
+                {post.excerpt && (
+                  <AnimateIn>
+                    <p className="text-lg text-slate-600 leading-relaxed border-l-4 border-teal pl-5 mb-10 font-medium">
+                      {post.excerpt}
+                    </p>
+                  </AnimateIn>
+                )}
 
-                {/* Hashnode HTML content */}
                 <AnimateIn>
                   <div
                     className="prose prose-lg max-w-none
@@ -157,16 +150,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       prose-img:rounded-2xl prose-img:shadow-card
                       prose-li:text-slate-600
                       prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3"
-                    dangerouslySetInnerHTML={{ __html: post.content.html }}
+                    dangerouslySetInnerHTML={{ __html: post.content_html ?? "" }}
                   />
                 </AnimateIn>
 
-                {/* Tags */}
                 {post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-slate-100">
                     {post.tags.map((tag) => (
-                      <span key={tag.slug} className="px-3 py-1 bg-mint text-primary-500 text-xs font-medium rounded-full">
-                        #{tag.name}
+                      <span key={tag} className="px-3 py-1 bg-mint text-primary-500 text-xs font-medium rounded-full">
+                        #{tag}
                       </span>
                     ))}
                   </div>
