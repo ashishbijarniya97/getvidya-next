@@ -350,12 +350,12 @@ export default function FounderPage() {
                 <p className="text-white/70 text-xl mb-4 leading-relaxed">
                   <strong className="text-white">Ashish Bijarniya</strong> — Founder & CEO of GetVidya.
                   7+ years turning complex operational challenges into streamlined, profitable systems
-                  across global tech (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">Microsoft</a>), hyper-growth startups (<a href="https://byjus.com/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">BYJU&apos;S</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">zazzy</a>), and his own ventures.
+                  across global tech (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-white font-semibold underline underline-offset-2 hover:text-accent transition-colors">Microsoft</a>), hyper-growth startups (<a href="https://byjus.com/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold underline underline-offset-2 hover:text-accent transition-colors">BYJU&apos;S</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold underline underline-offset-2 hover:text-accent transition-colors">zazzy</a>), and his own ventures.
                 </p>
                 <p className="text-white/60 text-lg mb-10 leading-relaxed">
                   Built GetVidya from scratch. Mentors early-stage founders at{" "}
-                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">AIC-MUJ</a>,{" "}
-                  <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">Manipal University Jaipur</a>. Now building GetVidyaAI — India&apos;s first AI model trained
+                  <a href="https://www.aicmuj.com/" target="_blank" rel="noopener noreferrer" className="text-white/90 font-semibold underline underline-offset-2 hover:text-accent transition-colors">AIC-MUJ</a>,{" "}
+                  <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener noreferrer" className="text-white/90 font-semibold underline underline-offset-2 hover:text-accent transition-colors">Manipal University Jaipur</a>. Now building GetVidyaAI — India&apos;s first AI model trained
                   exclusively for government exam preparation.
                 </p>
 
