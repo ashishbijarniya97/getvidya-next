@@ -90,6 +90,7 @@ const timeline = [
   {
     year: "Mar–May 2018",
     org: "OYO",
+    url: "https://www.oyorooms.com/",
     title: "Intern",
     location: "Jaipur, Rajasthan",
     desc: "First exposure to hospitality tech at scale — how OYO was using standardisation and data to disrupt an unorganised industry. The playbook that later shaped Mangalam Hotel's transformation.",
@@ -99,6 +100,7 @@ const timeline = [
   {
     year: "Jun 2019 – Jul 2020",
     org: "Microsoft",
+    url: "https://www.microsoft.com/en-in",
     title: "Technical Sales",
     location: "Delhi, India",
     desc: "Sold enterprise cloud solutions at Microsoft — working with decision-makers on complex, high-value technical deals. Learned how world-class technology is packaged and sold. Also noticed how little of it was built for India's non-metro majority.",
@@ -108,6 +110,7 @@ const timeline = [
   {
     year: "Apr – Sep 2021",
     org: "BYJU'S",
+    url: null,
     title: "Business Development Manager",
     location: "Jaipur",
     desc: "Worked inside India's then-largest EdTech. Saw the gap from the inside: a ₹80,000 course optimised for metro parents with tablets and stable WiFi — fundamentally inaccessible to a student from Sikar, Jhunjhunu, or Churu.",
@@ -117,6 +120,7 @@ const timeline = [
   {
     year: "Sep 2021 – Sep 2022",
     org: "Biddano",
+    url: "https://biddano.com/",
     title: "Marketing",
     location: "Maharashtra, India",
     desc: "Built and executed marketing systems for a consumer startup. Developed the precision-marketing muscle — KPIs, funnel optimisation, and performance tracking — that now runs GetVidya's district growth engine.",
@@ -126,6 +130,7 @@ const timeline = [
   {
     year: "Sep 2022 – Sep 2024",
     org: "zazzy",
+    url: "https://www.zazzy.studio/",
     title: "Head of Growth & Portfolio Expansion",
     location: "Pune, Maharashtra",
     desc: "Led business development, strategic planning, and client relationship management across zazzy's portfolio. Ran full-cycle growth operations: market research, competitive analysis, GTM strategy, and cross-functional execution. Built the operator instinct that GetVidya runs on.",
@@ -135,6 +140,7 @@ const timeline = [
   {
     year: "Sep 2024 – Present",
     org: "GetVidya",
+    url: "https://getvidya.in",
     title: "CEO & Co-Founder",
     location: "Pune, Maharashtra",
     desc: "Built the entire platform from zero — mobile app, AI question pipeline, adaptive difficulty engine, and web platform. Serving students across Rajasthan and beyond. Building GetVidyaAI: India's first AI model trained exclusively for government exam preparation.",
@@ -144,6 +150,7 @@ const timeline = [
   {
     year: "Aug 2025 – Present",
     org: "Mangalam Hotel & Restaurant",
+    url: "https://www.mangalamhotel.com/",
     title: "Managing Director",
     location: "Lachhmangarh, Sikar, Rajasthan",
     desc: "Led full digital and operational transformation: AI-driven inventory management, real-time business intelligence, custom delivery app, POS-AI integration, and hyper-local SEO targeting NH52 and Mody University traffic. Premium pure-vegetarian fine-dining — run like a tech company.",
@@ -153,6 +160,7 @@ const timeline = [
   {
     year: "Sep 2025 – Present",
     org: "Manipal University Jaipur",
+    url: null,
     title: "Startup Mentor · AIC-MUJ",
     location: "Jaipur, Rajasthan",
     desc: "Mentors early-stage founders and student innovators at AIC-MUJ. Sessions cover product-market fit, lean startup methodology, startup law essentials, and investor storytelling. Also collaborates on demo days, pitch reviews, and startup competitions.",
@@ -342,7 +350,7 @@ export default function FounderPage() {
                 <p className="text-white/70 text-xl mb-4 leading-relaxed">
                   <strong className="text-white">Ashish Bijarniya</strong> — Founder & CEO of GetVidya.
                   7+ years turning complex operational challenges into streamlined, profitable systems
-                  across global tech (Microsoft), hyper-growth startups (BYJU'S, zazzy), and his own ventures.
+                  across global tech (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">Microsoft</a>), hyper-growth startups (BYJU&apos;S, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white underline underline-offset-2">zazzy</a>), and his own ventures.
                 </p>
                 <p className="text-white/60 text-lg mb-10 leading-relaxed">
                   Built GetVidya from scratch. Mentors early-stage founders at{" "}
@@ -507,8 +515,8 @@ export default function FounderPage() {
               </h2>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  With over 7 years of experience across global tech giants (Microsoft),
-                  hyper-growth startups (BYJU'S), and building my own ventures (GetVidya,{" "}
+                  With over 7 years of experience across global tech giants (<a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Microsoft</a>),
+                  hyper-growth startups (BYJU&apos;S, <a href="https://biddano.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Biddano</a>, <a href="https://www.zazzy.studio/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">zazzy</a>), and building my own ventures (GetVidya,{" "}
                   <a href="https://www.mangalamhotel.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Mangalam Hotel</a>), I specialise in turning complex operational challenges into
                   streamlined, profitable systems.
                 </p>
@@ -555,8 +563,8 @@ export default function FounderPage() {
               <span className="section-tag mb-4">Career Timeline</span>
               <h2 className="section-heading mb-4">A track record built in the field</h2>
               <p className="section-subheading mx-auto">
-                Every role — from OYO intern to Microsoft technical sales to GetVidya CEO —
-                built a specific muscle. Here's how they stack.
+                Every role — from <a href="https://www.oyorooms.com/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">OYO</a> intern to <a href="https://www.microsoft.com/en-in" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 underline underline-offset-2">Microsoft</a> technical sales to GetVidya CEO —
+                built a specific muscle. Here&apos;s how they stack.
               </p>
             </div>
 
@@ -566,7 +574,7 @@ export default function FounderPage() {
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-mint-dark" />
 
                 <div className="space-y-8">
-                  {timeline.map(({ year, org, title, location, desc, icon: Icon, color }) => (
+                  {timeline.map(({ year, org, url, title, location, desc, icon: Icon, color }) => (
                     <div key={`${org}-${title}`} className="flex gap-6 items-start">
                       {/* icon dot */}
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-card ${color}`}>
@@ -577,7 +585,13 @@ export default function FounderPage() {
                       <div className="card p-5 flex-1">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                           <div>
-                            <div className="font-bold text-primary-500 text-lg leading-tight">{org}</div>
+                            {url ? (
+                              <a href={url} target="_blank" rel="noopener noreferrer" className="font-bold text-primary-500 text-lg leading-tight hover:text-teal transition-colors inline-flex items-center gap-1">
+                                {org} <ExternalLink size={13} className="opacity-50" />
+                              </a>
+                            ) : (
+                              <div className="font-bold text-primary-500 text-lg leading-tight">{org}</div>
+                            )}
                             <div className="text-teal font-semibold text-sm">{title}</div>
                           </div>
                           <div className="text-right">
