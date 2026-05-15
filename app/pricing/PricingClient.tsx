@@ -495,7 +495,7 @@ export default function PricingClient() {
         </div>
       </section>
 
-      {/* ── WHY WE WIN (vs Testbook) ─────────────────────────────────────── */}
+      {/* ── WHY WE WIN ───────────────────────────────────────────────────── */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
@@ -503,27 +503,27 @@ export default function PricingClient() {
               <Brain size={14} />
               Why GetVidya Wins
             </span>
-            <h2 className="section-heading mt-4 mb-2">GetVidya vs Testbook</h2>
-            <p className="section-subheading mx-auto">₹100 more per year. Infinitely more value.</p>
+            <h2 className="section-heading mt-4 mb-2">GetVidya vs Other Platforms</h2>
+            <p className="section-subheading mx-auto">Same price range. Fundamentally different approach.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Testbook */}
+            {/* Other platforms */}
             <div className="bg-white border-2 border-slate-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
                   <BookOpen className="w-5 h-5 text-blue-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-800">Testbook Pass</h3>
-                  <p className="text-slate-400 text-sm">₹399/year (basic) · ₹700–₹2,000/month (full)</p>
+                  <h3 className="font-bold text-slate-800">Most Other Platforms</h3>
+                  <p className="text-slate-400 text-sm">₹399–₹2,000/year</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 {[
                   "Static PDFs and fixed-difficulty tests",
                   "Zero AI personalization",
-                  "1.5 lakh tests — mostly irrelevant to your exam",
+                  "Thousands of tests — mostly irrelevant to your exam",
                   "No diagnostic that maps your actual weak topics",
                   "Same fixed study schedule for everyone",
                   "No adaptive difficulty progression",
@@ -565,25 +565,19 @@ export default function PricingClient() {
             </div>
           </div>
 
-          {/* Price difference callout */}
+          {/* Value callout */}
           <div className="mt-6 bg-accent/10 border border-accent/30 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <div className="text-3xl font-bold text-primary-500 flex-shrink-0">₹100</div>
+            <div className="text-3xl font-bold text-primary-500 flex-shrink-0">₹499</div>
             <div className="flex-1">
               <p className="font-semibold text-primary-500">
-                The price difference between Testbook and Vidya Pass
+                The most AI-powered exam prep plan at this price point
               </p>
               <p className="text-slate-500 text-sm mt-0.5">
-                ₹100/year more = ₹8.33/month = the cost of one chai.
+                ₹499/year = ₹41/month = the cost of one chai every few days.
                 GetVidya gives you AI-adaptive practice, a weekly personalized study plan, and
-                diagnostics that map your weak topics. Testbook gives you static PDFs.
+                diagnostics that map your weak topics — features other platforms simply don&apos;t offer.
               </p>
             </div>
-            <a
-              href="/compare/getvidya-vs-testbook"
-              className="flex-shrink-0 text-sm font-semibold text-teal-dark hover:text-primary-500 underline underline-offset-2 transition-colors"
-            >
-              Full comparison →
-            </a>
           </div>
         </div>
       </section>
@@ -597,10 +591,10 @@ export default function PricingClient() {
               Platform Comparison
             </span>
             <h2 className="section-heading mt-4 mb-2">
-              Why students switch from Testbook &amp; Adda247
+              Why students are switching to GetVidya
             </h2>
             <p className="section-subheading mx-auto">
-              See exactly how GetVidya stacks up against the most popular alternatives
+              See how GetVidya stacks up against the typical features of popular exam prep platforms
             </p>
           </div>
 
@@ -612,8 +606,8 @@ export default function PricingClient() {
                   <th className="text-center px-5 py-4 text-primary-500 font-bold bg-mint/30">
                     GetVidya (Vidya Pass)
                   </th>
-                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Testbook</th>
-                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Adda247</th>
+                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Platform A</th>
+                  <th className="text-center px-5 py-4 text-slate-600 font-bold">Platform B</th>
                 </tr>
               </thead>
               <tbody>
@@ -659,7 +653,7 @@ export default function PricingClient() {
                 <tr className="bg-slate-50/50">
                   <td className="px-5 py-3.5 font-medium text-slate-700">Mock Tests</td>
                   <td className="px-5 py-3.5 text-center bg-mint/10">✅ Adaptive difficulty</td>
-                  <td className="px-5 py-3.5 text-center">✅ 1.5L+ (static)</td>
+                  <td className="px-5 py-3.5 text-center">✅ Large library (static)</td>
                   <td className="px-5 py-3.5 text-center">✅ 500+ (static)</td>
                 </tr>
 
