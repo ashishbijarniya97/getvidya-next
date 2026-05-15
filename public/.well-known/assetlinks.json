@@ -1,0 +1,9 @@
+[{
+  "_comment": "Replace PLACEHOLDER_SHA256_FINGERPRINT with the actual SHA256 from: keytool -list -v -keystore android/upload-keystore.p12 — look for the SHA256 line under Certificate fingerprints",
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.getvidya.prod",
+    "sha256_cert_fingerprints": ["4F:C2:36:43:C6:7F:FA:0E:7D:65:F6:0B:B1:8E:A3:1F:0B:5C:8C:D5:DB:D8:31:8A:CF:04:CF:8D:87:71:1A:FB"]
+  }
+}]
