@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { createClient } from "@/lib/supabase/client";
 import { Search, Download, Inbox, RefreshCw, ChevronDown, Brain, Trophy, AlertTriangle } from "lucide-react";
 import type { Lead } from "@/types";
 
@@ -42,17 +41,15 @@ export default function LeadsPage() {
   const [sourceFilter, setSourceFilter] = useState<"all" | "free-assessment" | "other">("all");
   const [updating, setUpdating]   = useState<string | null>(null);
 
-  const supabase = createClient();
-
   const fetchLeads = useCallback(async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("leads")
-      .select("*")
-      .order("created_at", { ascending: false });
-    setLeads(data ?? []);
-    setLoading(false);
-  }, [supabase]);
+    try {
+      const res = await fetch("/api/admin/leads");
+      if (res.ok) setLeads(await res.json());
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => { fetchLeads(); }, [fetchLeads]);
 
@@ -75,7 +72,11 @@ export default function LeadsPage() {
 
   const updateStatus = async (id: string, status: Lead["status"]) => {
     setUpdating(id);
-    await supabase.from("leads").update({ status }).eq("id", id);
+    await fetch("/api/admin/leads", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, status }),
+    });
     setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, status } : l)));
     setUpdating(null);
   };
@@ -100,7 +101,6 @@ export default function LeadsPage() {
     a.href = url; a.download = "getvidya-leads.csv"; a.click();
   };
 
-  // Stats
   const assessmentLeads = leads.filter((l) => l.source === "free-assessment");
   const avgScore = assessmentLeads.length
     ? Math.round(
@@ -129,13 +129,13 @@ export default function LeadsPage() {
         </div>
       </div>
 
-      {/* Stats bar */}
+      {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {[
-          { label: "Total Leads",       value: leads.length,             icon: "👥", color: "bg-blue-50 text-blue-700" },
-          { label: "Assessments Taken", value: assessmentLeads.length,   icon: "🧠", color: "bg-emerald-50 text-emerald-700" },
-          { label: "Avg Score",         value: `${avgScore}%`,           icon: "📊", color: "bg-amber-50 text-amber-700" },
-          { label: "New (Uncontacted)", value: leads.filter((l) => l.status === "new").length, icon: "🔔", color: "bg-red-50 text-red-700" },
+          { label: "Total Leads",       value: leads.length,                                       icon: "👥", color: "bg-blue-50 text-blue-700" },
+          { label: "Assessments Taken", value: assessmentLeads.length,                             icon: "🧠", color: "bg-emerald-50 text-emerald-700" },
+          { label: "Avg Score",         value: `${avgScore}%`,                                     icon: "📊", color: "bg-amber-50 text-amber-700" },
+          { label: "New (Uncontacted)", value: leads.filter((l) => l.status === "new").length,     icon: "🔔", color: "bg-red-50 text-red-700" },
         ].map(({ label, value, icon, color }) => (
           <div key={label} className={`rounded-2xl p-4 ${color}`}>
             <p className="text-2xl font-bold">{icon} {value}</p>
@@ -183,7 +183,7 @@ export default function LeadsPage() {
         ) : filtered.length === 0 ? (
           <div className="py-20 text-center text-slate-400">
             <Inbox size={40} className="mx-auto mb-3 opacity-40" />
-            <p>No leads match your filters.</p>
+            <p>No leads yet.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -200,7 +200,6 @@ export default function LeadsPage() {
                   const assessment = parseAssessment(lead.message);
                   return (
                     <tr key={lead.id} className="hover:bg-slate-50 transition-colors">
-                      {/* Student */}
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xs shrink-0">
@@ -212,11 +211,9 @@ export default function LeadsPage() {
                           </div>
                         </div>
                       </td>
-                      {/* Phone */}
                       <td className="px-5 py-4">
                         <a href={`tel:${lead.phone}`} className="text-slate-700 font-medium hover:text-teal transition-colors">{lead.phone}</a>
                       </td>
-                      {/* Exam */}
                       <td className="px-5 py-4">
                         {assessment ? (
                           <span className="inline-flex items-center gap-1.5 text-slate-700 font-medium">
@@ -227,7 +224,6 @@ export default function LeadsPage() {
                           <span className="text-slate-300 text-xs">—</span>
                         )}
                       </td>
-                      {/* Score */}
                       <td className="px-5 py-4">
                         {assessment ? (
                           <ScoreBadge score={assessment.score} total={assessment.total} />
@@ -235,7 +231,6 @@ export default function LeadsPage() {
                           <span className="text-slate-300 text-xs">—</span>
                         )}
                       </td>
-                      {/* Weak Subjects */}
                       <td className="px-5 py-4 max-w-[220px]">
                         {assessment?.weakSubjects?.length ? (
                           <div className="flex flex-wrap gap-1">
@@ -249,7 +244,6 @@ export default function LeadsPage() {
                           <span className="text-slate-300 text-xs">—</span>
                         )}
                       </td>
-                      {/* Status */}
                       <td className="px-5 py-4">
                         <div className="relative">
                           <select value={lead.status}
@@ -263,7 +257,6 @@ export default function LeadsPage() {
                           <ChevronDown size={12} className="absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                         </div>
                       </td>
-                      {/* Date */}
                       <td className="px-5 py-4 text-slate-400 text-xs whitespace-nowrap">
                         {new Date(lead.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
                       </td>
