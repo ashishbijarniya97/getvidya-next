@@ -2,25 +2,16 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { generateSEO, breadcrumbSchema } from "@/lib/seo";
-import { getPublishedPost, getAllPublishedSlugs, formatBlogDate, readingTime } from "@/lib/blog";
+import { getPublishedPost, formatBlogDate, readingTime } from "@/lib/blog";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { Clock, ArrowRight, User, Calendar, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
-
-export async function generateStaticParams() {
-  try {
-    const slugs = await getAllPublishedSlugs();
-    return slugs.map((slug) => ({ slug }));
-  } catch {
-    return [];
-  }
-}
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = await getPublishedPost(params.slug);
