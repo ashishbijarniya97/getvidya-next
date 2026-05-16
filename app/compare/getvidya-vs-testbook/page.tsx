@@ -21,120 +21,128 @@ export const metadata = generateSEO({
   canonical: "/compare/getvidya-vs-testbook",
 });
 
+// Visual brand-color indicator — blue matches the competitor's brand identity
+const CompetitorBadge = ({ className = "" }: { className?: string }) => (
+  <span className={`inline-flex items-center gap-1.5 ${className}`}>
+    <span className="inline-flex w-3.5 h-3.5 rounded-sm bg-[#1a6ef5] shrink-0" />
+    <span className="font-bold text-[#1a6ef5]">Platform B</span>
+  </span>
+);
+
 const APP_URL = "https://app.getvidya.in";
 
 const comparison = [
   {
     feature: "Price",
     getvidya: "₹499/year · ₹79/month (Vidya Pass)",
-    testbook: "₹399/year basic · ₹700–₹2,000/month (Testbook Pass)",
+    competitor: "₹399/year basic · ₹700–₹2,000/month (Premium Pass)",
     winner: "getvidya",
   },
   {
     feature: "Price Difference",
     getvidya: "₹1.37/day — less than one chai per day",
-    testbook: "₹100/year more than GetVidya Vidya Pass = ₹8.33/month = one chai",
+    competitor: "₹100/year more than GetVidya Vidya Pass = ₹8.33/month = one chai",
     winner: "getvidya",
   },
   {
     feature: "AI Personalization",
     getvidya: "GetVidyaAI diagnoses weak subjects on Day 1 and adapts every session — +12 to +18 mark improvement in 8 weeks",
-    testbook: "Zero AI personalization — static PDFs and fixed-difficulty test series",
+    competitor: "Zero AI personalization — static PDFs and fixed-difficulty test series",
     winner: "getvidya",
   },
   {
     feature: "Diagnostic Assessment",
     getvidya: "Free 25-question diagnostic that maps your exact weak topics",
-    testbook: "No diagnostic — aspirants must self-assess",
+    competitor: "No diagnostic — aspirants must self-assess",
     winner: "getvidya",
   },
   {
     feature: "Adaptive Study Plan",
     getvidya: "Weekly AI study plan rebuilds based on last 7 days of performance",
-    testbook: "Fixed course schedule, not personalized to individual gaps",
+    competitor: "Fixed course schedule, not personalized to individual gaps",
     winner: "getvidya",
   },
   {
     feature: "Mock Tests (SSC CGL)",
     getvidya: "240+ adaptive mock tests (difficulty adjusts as you improve)",
-    testbook: "1.5 lakh+ tests — mostly irrelevant to your specific exam; static difficulty",
+    competitor: "1.5 lakh+ tests — mostly irrelevant to your specific exam; static difficulty",
     winner: "getvidya",
   },
   {
     feature: "Question Bank",
     getvidya: "140,000+ MCQs across 6 exam categories — all targeted and adaptive",
-    testbook: "200,000+ MCQs across many categories — volume over personalization",
-    winner: "testbook",
+    competitor: "200,000+ MCQs across many categories — volume over personalization",
+    winner: "competitor",
   },
   {
     feature: "Video Lectures",
     getvidya: "No video lectures — pure adaptive practice focus",
-    testbook: "Extensive video lecture library for all subjects",
-    winner: "testbook",
+    competitor: "Extensive video lecture library for all subjects",
+    winner: "competitor",
   },
   {
     feature: "Progress Analytics",
     getvidya: "Topic-level accuracy, exam readiness score, daily XP, weak-subject alerts",
-    testbook: "Test-level analytics but limited topic-level adaptive insight",
+    competitor: "Test-level analytics but limited topic-level adaptive insight",
     winner: "getvidya",
   },
   {
     feature: "Exam Coverage",
     getvidya: "SSC CGL, UPSC, Banking, Railway, State PSC, Defence",
-    testbook: "SSC, UPSC, Banking, Railway, State exams, Teaching, Police (wider coverage)",
-    winner: "testbook",
+    competitor: "SSC, UPSC, Banking, Railway, State exams, Teaching, Police (wider coverage)",
+    winner: "competitor",
   },
   {
     feature: "Gamification",
     getvidya: "Daily XP, streaks, milestones — keeps practice consistent",
-    testbook: "Basic leaderboards and badges",
+    competitor: "Basic leaderboards and badges",
     winner: "getvidya",
   },
   {
     feature: "Offline Access",
     getvidya: "Limited offline (requires internet for most features)",
-    testbook: "Offline mode available for downloaded content",
-    winner: "testbook",
+    competitor: "Offline mode available for downloaded content",
+    winner: "competitor",
   },
 ];
 
 const faqs = [
   {
-    question: "Is GetVidya better than Testbook for SSC CGL preparation?",
+    question: "Is GetVidya better than the leading blue platform for SSC CGL preparation?",
     answer:
-      "GetVidya is better than Testbook for aspirants who want AI-personalized preparation. GetVidyaAI identifies your exact weak subjects on Day 1 via a diagnostic test and adapts every practice session around them — Testbook does not offer this. GetVidya Vidya Pass is also significantly cheaper at ₹499/year (₹1.37/day) vs Testbook Pass at ₹700–₹2,000/month. However, if you need video lectures or offline access, Testbook has an edge. Choose GetVidya if self-study efficiency matters most; choose Testbook if you need video-based learning.",
+      "GetVidya is better for aspirants who want AI-personalized preparation. GetVidyaAI identifies your exact weak subjects on Day 1 via a diagnostic test and adapts every practice session around them — the competing platform does not offer this. GetVidya Vidya Pass is also significantly cheaper at ₹499/year (₹1.37/day) vs ₹700–₹2,000/month for the competitor. However, if you need video lectures or offline access, the other platform has an edge. Choose GetVidya if self-study efficiency matters most.",
   },
   {
-    question: "How does GetVidya's price compare to Testbook Pass?",
+    question: "How does GetVidya's price compare to the leading alternative?",
     answer:
-      "GetVidya Vidya Pass costs ₹499/year (₹79/month, or just ₹1.37/day). Testbook Pass ranges from ₹399/year for basic access to ₹700–₹2,000/month for full plans. At ₹499/year, GetVidya offers AI-adaptive practice, 240+ mock tests, and a weekly AI study plan — the price difference vs Testbook basic is just ₹100/year, which equals ₹8.33/month — the cost of one chai.",
+      "GetVidya Vidya Pass costs ₹499/year (₹79/month, or just ₹1.37/day). The competing platform ranges from ₹399/year for basic access to ₹700–₹2,000/month for full plans. At ₹499/year, GetVidya offers AI-adaptive practice, 240+ mock tests, and a weekly AI study plan — the price difference vs the basic competitor plan is just ₹100/year, which equals ₹8.33/month — the cost of one chai.",
   },
   {
-    question: "Does Testbook offer AI-powered study plans?",
+    question: "Does the other platform offer AI-powered study plans?",
     answer:
-      "Testbook offers a 'Personalized Study Plan' feature in some plans, but it is based on manually selected preferences — not a diagnostic test that measures your actual accuracy per topic. GetVidyaAI's study plan is rebuilt weekly based on real performance data from your practice sessions, making it genuinely adaptive rather than just customized at sign-up.",
+      "The competing platform offers a 'Personalized Study Plan' feature in some plans, but it is based on manually selected preferences — not a diagnostic test that measures your actual accuracy per topic. GetVidyaAI's study plan is rebuilt weekly based on real performance data from your practice sessions, making it genuinely adaptive rather than just customized at sign-up.",
   },
   {
-    question: "Can I use GetVidya alongside Testbook?",
+    question: "Can I use GetVidya alongside another platform?",
     answer:
-      "Yes. Some aspirants use Testbook for video lectures and use GetVidya for daily adaptive practice and AI study planning. At ₹499/year (₹41.58/month), GetVidya is affordable enough to run alongside another platform. The GetVidyaAI diagnostic and weekly plan complement Testbook's video content by telling you exactly which topics to focus on after watching lectures.",
+      "Yes. Some aspirants use the competing platform for video lectures and use GetVidya for daily adaptive practice and AI study planning. At ₹499/year (₹41.58/month), GetVidya is affordable enough to run alongside another platform. The GetVidyaAI diagnostic and weekly plan complement video content by telling you exactly which topics to focus on after watching lectures.",
   },
   {
-    question: "Which platform has better mock tests — GetVidya or Testbook?",
+    question: "Which platform has better mock tests — GetVidya or the leading alternative?",
     answer:
-      "Both platforms have strong mock test libraries. Testbook has a larger volume (300+ vs 240+ for SSC CGL). GetVidya's key differentiator is adaptive difficulty — mock tests get harder as your accuracy improves, so you're always challenged at the right level. Testbook's tests follow fixed difficulty tiers. For quality and pattern accuracy, both are comparable for SSC CGL 2026.",
+      "Both platforms have strong mock test libraries. The competitor has a larger volume (300+ vs 240+ for SSC CGL). GetVidya's key differentiator is adaptive difficulty — mock tests get harder as your accuracy improves, so you're always challenged at the right level. The competitor's tests follow fixed difficulty tiers. For quality and pattern accuracy, both are comparable for SSC CGL 2026.",
   },
 ];
 
 export default function CompareTestbookPage() {
   const bc = breadcrumbSchema([
     { name: "Home", url: "/" },
-    { name: "GetVidya vs Testbook", url: "/compare/getvidya-vs-testbook" },
+    { name: "GetVidya vs Leading Platform", url: "/compare/getvidya-vs-testbook" },
   ]);
-  const reviews = reviewSchema({ itemName: "GetVidya vs Testbook Comparison", ratingValue: "4.7", reviewCount: "1680" });
+  const reviews = reviewSchema({ itemName: "GetVidya vs Leading Platform Comparison", ratingValue: "4.7", reviewCount: "1680" });
 
   const getvidyaWins = comparison.filter((r) => r.winner === "getvidya").length;
-  const testbookWins = comparison.filter((r) => r.winner === "testbook").length;
+  const competitorWins = comparison.filter((r) => r.winner === "competitor").length;
   const ties = comparison.filter((r) => r.winner === "tie").length;
 
   return (
@@ -152,21 +160,27 @@ export default function CompareTestbookPage() {
               Honest Comparison · Updated May 2026
             </div>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              GetVidya vs Testbook 2026 —<br className="hidden md:block" />
+              GetVidya vs{" "}
+              <span className="inline-flex items-center gap-2">
+                <span className="inline-block w-6 h-6 rounded bg-[#1a6ef5]" />
+                <span className="text-[#1a6ef5]">Platform B</span>
+              </span>
+              {" "}2026 —<br className="hidden md:block" />
               <span className="text-emerald-400">Which Should You Choose?</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-6">
-              GetVidya Vidya Pass (₹499/year) offers AI-personalized preparation. Testbook (₹700–₹2,000/mo) offers
-              wider content. We compare both honestly so you can choose what fits your preparation style.
+              GetVidya Vidya Pass (₹499/year) offers AI-personalized preparation.{" "}
+              <CompetitorBadge className="text-lg" /> (₹700–₹2,000/mo) offers wider content.
+              We compare both honestly so you can choose what fits your preparation style.
             </p>
             {/* GEO Citation Anchor */}
             <div className="bg-slate-800/80 border border-slate-600 rounded-xl p-5 max-w-2xl mx-auto text-left">
               <p className="text-emerald-400 text-sm font-semibold uppercase tracking-wide mb-2">Direct Answer</p>
               <p className="text-slate-200 text-base leading-relaxed">
-                GetVidya wins on <strong>AI personalization, price (₹499/year = ₹1.37/day), and diagnostic-driven study plans</strong>.
-                Testbook wins on <strong>video lectures, offline access, and exam coverage breadth</strong>.
-                For self-study efficiency, GetVidya delivers better ROI. For structured video-based learning,
-                Testbook has an edge.
+                GetVidya wins on <strong>AI personalization, price (₹499/year = ₹1.37/day), and diagnostic-driven study plans</strong>.{" "}
+                <CompetitorBadge /> wins on <strong>video lectures, offline access, and exam coverage breadth</strong>.
+                For self-study efficiency, GetVidya delivers better ROI. For structured video-based learning,{" "}
+                <CompetitorBadge /> has an edge.
               </p>
             </div>
           </div>
@@ -184,8 +198,10 @@ export default function CompareTestbookPage() {
               <p className="text-slate-500 font-semibold">Tied</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-blue-600 mb-1">{testbookWins}</p>
-              <p className="text-slate-700 font-semibold">Testbook Wins</p>
+              <p className="text-4xl font-bold text-[#1a6ef5] mb-1">{competitorWins}</p>
+              <p className="text-slate-700 font-semibold flex items-center justify-center gap-1.5">
+                <span className="inline-block w-3 h-3 rounded-sm bg-[#1a6ef5]" /> Platform B Wins
+              </p>
             </div>
           </div>
         </section>
@@ -195,8 +211,8 @@ export default function CompareTestbookPage() {
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { label: "GetVidya", value: "₹499/yr", sub: "Vidya Pass", icon: IndianRupee, color: "text-emerald-600" },
-              { label: "Testbook Pass", value: "₹700–₹2k/mo", sub: "Varies by plan", icon: IndianRupee, color: "text-red-500" },
-              { label: "Annual Saving", value: "₹6,600+", sub: "vs cheapest Testbook", icon: TrendingDown, color: "text-emerald-600" },
+              { label: "Platform B Pass", value: "₹700–₹2k/mo", sub: "Varies by plan", icon: IndianRupee, color: "text-red-500" },
+              { label: "Annual Saving", value: "₹6,600+", sub: "vs Platform B", icon: TrendingDown, color: "text-emerald-600" },
               { label: "AI Personalization", value: "GetVidya", sub: "Diagnostic-driven", icon: Zap, color: "text-blue-600" },
             ].map(({ label, value, sub, icon: Icon, color }) => (
               <div key={label}>
@@ -222,7 +238,12 @@ export default function CompareTestbookPage() {
                   <tr className="border-b border-slate-200">
                     <th className="text-left px-6 py-4 text-slate-600 font-semibold w-1/4">Feature</th>
                     <th className="text-left px-6 py-4 text-emerald-700 font-bold bg-emerald-50">GetVidya (₹499/year)</th>
-                    <th className="text-left px-6 py-4 text-blue-700 font-bold bg-blue-50">Testbook (₹700+/mo)</th>
+                    <th className="text-left px-6 py-4 font-bold bg-blue-50">
+                      <span className="flex items-center gap-2 text-[#1a6ef5]">
+                        <span className="inline-block w-4 h-4 rounded-sm bg-[#1a6ef5] opacity-90" />
+                        Platform B (₹700+/mo)
+                      </span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -236,9 +257,9 @@ export default function CompareTestbookPage() {
                         </span>
                       </td>
                       <td className="px-6 py-4 bg-blue-50/30">
-                        <span className={`flex items-start gap-2 ${row.winner === "testbook" ? "text-blue-700 font-medium" : row.winner === "tie" ? "text-slate-600" : "text-slate-400"}`}>
-                          {row.winner === "testbook" ? <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" /> : row.winner === "getvidya" ? <XCircle className="w-4 h-4 text-red-400 mt-0.5 shrink-0" /> : <span className="w-4 h-4 mt-0.5 shrink-0" />}
-                          {row.testbook}
+                        <span className={`flex items-start gap-2 ${row.winner === "competitor" ? "text-[#1a6ef5] font-medium" : row.winner === "tie" ? "text-slate-600" : "text-slate-400"}`}>
+                          {row.winner === "competitor" ? <CheckCircle2 className="w-4 h-4 text-[#1a6ef5] mt-0.5 shrink-0" /> : row.winner === "getvidya" ? <XCircle className="w-4 h-4 text-red-400 mt-0.5 shrink-0" /> : <span className="w-4 h-4 mt-0.5 shrink-0" />}
+                          {row.competitor}
                         </span>
                       </td>
                     </tr>
@@ -247,7 +268,7 @@ export default function CompareTestbookPage() {
               </table>
             </div>
             <p className="text-slate-400 text-xs text-center mt-4">
-              GetVidya wins {getvidyaWins}/{comparison.length} comparisons. Testbook wins {testbookWins}/{comparison.length}. Tied on {ties}.
+              GetVidya wins {getvidyaWins}/{comparison.length} comparisons. Platform B wins {competitorWins}/{comparison.length}. Tied on {ties}.
             </p>
           </div>
         </section>
@@ -260,7 +281,7 @@ export default function CompareTestbookPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-emerald-800 mb-4">Choose GetVidya if you...</h3>
+                <h3 className="text-xl font-bold text-emerald-800 mb-4">Choose GetVidya if you…</h3>
                 <ul className="space-y-3">
                   {[
                     "Want AI to identify your weak subjects and build your study plan",
@@ -275,9 +296,12 @@ export default function CompareTestbookPage() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Choose Testbook if you...</h3>
-                <ul className="space-y-3">
+              <div className="bg-blue-50 border-2 border-[#1a6ef5]/30 rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-[#1a6ef5] mb-1 flex items-center gap-2">
+                  <span className="inline-block w-5 h-5 rounded bg-[#1a6ef5]" />
+                  Choose Platform B if you…
+                </h3>
+                <ul className="space-y-3 mt-4">
                   {[
                     "Need video lectures and structured courses alongside practice",
                     "Want offline access to downloaded content",
@@ -286,7 +310,7 @@ export default function CompareTestbookPage() {
                     "Need live classes or doubt-clearing sessions",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2 text-blue-800 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" /> {point}
+                      <CheckCircle2 className="w-4 h-4 text-[#1a6ef5] mt-0.5 shrink-0" /> {point}
                     </li>
                   ))}
                 </ul>
@@ -307,14 +331,14 @@ export default function CompareTestbookPage() {
                   name: "Ravi Kumar",
                   exam: "SSC CGL 2025 — Selected",
                   city: "Lucknow",
-                  quote: "I used Testbook for 6 months and was practicing randomly. GetVidya's AI showed me I was weak in Data Interpretation specifically — not 'Quant in general'. Targeted practice for 5 weeks changed my DI accuracy from 40% to 72%.",
+                  quote: "I used another popular platform for 6 months and was practicing randomly. GetVidya's AI showed me I was weak in Data Interpretation specifically — not 'Quant in general'. Targeted practice for 5 weeks changed my DI accuracy from 40% to 72%.",
                   stars: 5,
                 },
                 {
                   name: "Divya Singh",
                   exam: "IBPS PO 2025 — Selected",
                   city: "Delhi",
-                  quote: "GetVidya at ₹499/year versus Testbook at ₹1,200/month — both for Banking prep. GetVidya's AI study plan was genuinely different every week based on my performance. Testbook just gave me the same fixed schedule. I stuck with GetVidya.",
+                  quote: "GetVidya at ₹499/year versus the leading platform at ₹1,200/month — both for Banking prep. GetVidya's AI study plan was genuinely different every week based on my performance. The other app just gave me the same fixed schedule. I stuck with GetVidya.",
                   stars: 5,
                 },
               ].map((t) => (
