@@ -1,5 +1,4 @@
-import { createServiceClient } from "@/lib/supabase/server";
-import { createClient } from "@/lib/supabase/server";
+import { createServiceClient, createPublicClient } from "@/lib/supabase/server";
 
 export interface BlogPost {
   id: string;
@@ -23,7 +22,7 @@ export interface BlogPost {
 
 // Public: fetch published posts (anon key, RLS filters to published)
 export async function getPublishedPosts(limit = 20): Promise<BlogPost[]> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("blogs")
     .select("*")
@@ -31,12 +30,16 @@ export async function getPublishedPosts(limit = 20): Promise<BlogPost[]> {
     .order("published_at", { ascending: false })
     .limit(limit);
   if (error) { console.error("[blog] getPublishedPosts:", error.message); return []; }
-  return (data ?? []) as BlogPost[];
+  return (data ?? []).map((p: BlogPost) => ({
+    ...p,
+    tags: Array.isArray(p.tags) ? p.tags : [],
+    content_html: p.content_html ?? "",
+  })) as BlogPost[];
 }
 
 // Public: fetch single published post by slug
 export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("blogs")
     .select("*")
@@ -44,12 +47,15 @@ export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
     .eq("slug", slug)
     .single();
   if (error) return null;
-  return data as BlogPost;
+  const post = data as BlogPost;
+  post.tags = Array.isArray(post.tags) ? post.tags : [];
+  post.content_html = post.content_html ?? "";
+  return post;
 }
 
 // Public: get all published slugs (for generateStaticParams)
 export async function getAllPublishedSlugs(): Promise<string[]> {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data } = await supabase
     .from("blogs")
     .select("slug")
@@ -65,7 +71,11 @@ export async function getAllPostsAdmin(): Promise<BlogPost[]> {
     .select("*")
     .order("updated_at", { ascending: false });
   if (error) { console.error("[blog] getAllPostsAdmin:", error.message); return []; }
-  return (data ?? []) as BlogPost[];
+  return (data ?? []).map((p: BlogPost) => ({
+    ...p,
+    tags: Array.isArray(p.tags) ? p.tags : [],
+    content_html: p.content_html ?? "",
+  })) as BlogPost[];
 }
 
 // Admin: fetch single post by id (service role)

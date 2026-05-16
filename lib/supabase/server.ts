@@ -33,3 +33,12 @@ export function createServiceClient() {
     { cookies: { getAll: () => [], setAll: () => {} } }
   );
 }
+
+// Cookie-free anon client — safe in build context, generateStaticParams, and ISR background revalidation
+export function createPublicClient() {
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { cookies: { getAll: () => [], setAll: () => {} } }
+  );
+}
