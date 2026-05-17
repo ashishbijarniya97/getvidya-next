@@ -3,7 +3,7 @@ import { getPublishedPosts } from "@/lib/blog";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://getvidya.in";
 
-const CITY_SLUGS = ["sikar", "laxmangarh", "churu", "jhunjhunu", "jaipur", "delhi", "lucknow", "pune", "hyderabad", "bangalore"];
+const CITY_SLUGS = ["sikar", "laxmangarh", "churu", "jhunjhunu", "jaipur", "jodhpur", "kota", "ajmer", "bikaner", "delhi", "lucknow", "pune", "hyderabad", "bangalore"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -39,11 +39,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/free-assessment`,              lastModified: now, changeFrequency: "monthly", priority: 0.95 },
 
     // ── Comparison Pages ──────────────────────────────────────────────────────
-    { url: `${BASE_URL}/compare/getvidya-vs-coaching`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE_URL}/compare/getvidya-vs-testbook`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE_URL}/compare/getvidya-vs-coaching`,  lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE_URL}/compare/getvidya-vs-testbook`,  lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE_URL}/compare/getvidya-vs-other-apps`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+
+    // ── Exam Sub-pages ───────────────────────────────────────────────────────
+    { url: `${BASE_URL}/exams/rpsc-ras`,               lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${BASE_URL}/exams/rajasthan-police`,       lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
+
+    // ── Rajasthan Hub ────────────────────────────────────────────────────────
+    { url: `${BASE_URL}/rajasthan`,                    lastModified: now, changeFrequency: "weekly",  priority: 0.92 },
   ];
 
-  const RAJASTHAN_TIER2 = new Set(["sikar", "laxmangarh", "churu", "jhunjhunu"]);
+  const RAJASTHAN_TIER2 = new Set(["sikar", "laxmangarh", "churu", "jhunjhunu", "jodhpur", "kota", "ajmer", "bikaner"]);
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${BASE_URL}/city/${slug}`,
     lastModified: now,

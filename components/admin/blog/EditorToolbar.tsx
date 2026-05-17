@@ -7,7 +7,7 @@ import {
   List, ListOrdered, Quote,
   AlignLeft, AlignCenter, AlignRight,
   Code, Link2, Image as ImageIcon, Highlighter,
-  Undo, Redo,
+  Undo, Redo, Table, Trash2, Plus,
 } from "lucide-react";
 import clsx from "clsx";
 
@@ -86,6 +86,36 @@ export default function EditorToolbar({ editor, onImageUpload }: Props) {
       {/* Link & Image */}
       <Btn onClick={addLink} active={editor.isActive("link")} title="Add link"><Link2 size={14} /></Btn>
       <Btn onClick={onImageUpload} title="Upload image"><ImageIcon size={14} /></Btn>
+      <Divider />
+
+      {/* Table */}
+      <Btn
+        onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+        title="Insert table"
+      >
+        <Table size={14} />
+      </Btn>
+      <Btn
+        onClick={() => editor.chain().focus().addColumnAfter().run()}
+        disabled={!editor.can().addColumnAfter()}
+        title="Add column"
+      >
+        <Plus size={14} />
+      </Btn>
+      <Btn
+        onClick={() => editor.chain().focus().addRowAfter().run()}
+        disabled={!editor.can().addRowAfter()}
+        title="Add row"
+      >
+        <span className="text-xs font-bold leading-none">+R</span>
+      </Btn>
+      <Btn
+        onClick={() => editor.chain().focus().deleteTable().run()}
+        disabled={!editor.can().deleteTable()}
+        title="Delete table"
+      >
+        <Trash2 size={14} />
+      </Btn>
     </div>
   );
 }

@@ -105,6 +105,42 @@ const CITIES: Record<string, {
     examFocus: ["KPSC KAS", "SSC CGL", "UPSC CSE", "SBI PO"],
     aspirantCount: "22,000+",
   },
+  jodhpur: {
+    city: "Jodhpur",
+    region: "Rajasthan",
+    slug: "jodhpur",
+    tagline: "Jodhpur Aspirants — AI-Powered SSC, RPSC & Railway Prep at ₹499/year",
+    coachingHubs: ["Paota Circle", "Chopasni Road", "Shastri Nagar"],
+    examFocus: ["SSC CGL", "RPSC RAS", "Railway NTPC", "Rajasthan Police"],
+    aspirantCount: "20,000+",
+  },
+  kota: {
+    city: "Kota",
+    region: "Rajasthan",
+    slug: "kota",
+    tagline: "Kota's AI-Powered Govt Exam Prep — Beyond JEE, Crack SSC & UPSC Too",
+    coachingHubs: ["Vigyan Nagar", "Talwandi", "Mahaveer Nagar"],
+    examFocus: ["SSC CGL", "UPSC CSE", "RPSC RAS", "Railway NTPC"],
+    aspirantCount: "15,000+",
+  },
+  ajmer: {
+    city: "Ajmer",
+    region: "Rajasthan",
+    slug: "ajmer",
+    tagline: "Ajmer's Smartest Way to Crack Government Exams — AI-Powered",
+    coachingHubs: ["Vaishali Nagar", "Station Road", "Nala Bazar"],
+    examFocus: ["SSC CGL", "RPSC RAS", "Rajasthan Police", "Banking PO"],
+    aspirantCount: "12,000+",
+  },
+  bikaner: {
+    city: "Bikaner",
+    region: "Rajasthan",
+    slug: "bikaner",
+    tagline: "Bikaner Aspirants — Beat Coaching with AI Exam Prep at ₹499/year",
+    coachingHubs: ["Rani Bazar", "Station Road", "PBM Road"],
+    examFocus: ["SSC CGL", "Railway NTPC", "RPSC RAS", "Rajasthan Police"],
+    aspirantCount: "10,000+",
+  },
 };
 
 export async function generateStaticParams() {

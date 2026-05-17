@@ -11,6 +11,10 @@ import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import CharacterCount from "@tiptap/extension-character-count";
+import { Table } from "@tiptap/extension-table";
+import { TableRow } from "@tiptap/extension-table-row";
+import { TableHeader } from "@tiptap/extension-table-header";
+import { TableCell } from "@tiptap/extension-table-cell";
 import slugify from "slugify";
 import { Eye, EyeOff, Clock } from "lucide-react";
 import EditorToolbar from "./EditorToolbar";
@@ -67,6 +71,10 @@ export default function BlogEditor({ initialPost }: Props) {
       Image.configure({ inline: false, allowBase64: false }),
       Placeholder.configure({ placeholder: "Start writing your post…" }),
       CharacterCount,
+      Table.configure({ resizable: true }),
+      TableRow,
+      TableHeader,
+      TableCell,
     ],
     content: initialPost?.content ?? "",
     editorProps: {

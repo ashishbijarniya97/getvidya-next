@@ -203,3 +203,59 @@
 .ticker-content:hover {
   animation-play-state: paused;
 }
+
+/* ─── Tiptap table styles (editor + blog prose) ─── */
+.ProseMirror table,
+.prose table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+.ProseMirror table td,
+.ProseMirror table th,
+.prose table td,
+.prose table th {
+  min-width: 1em;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.ProseMirror table th,
+.prose table th {
+  font-weight: 600;
+  background-color: #f8fafc;
+  color: #0f172a;
+  text-align: left;
+}
+.ProseMirror table tr:nth-child(even) td,
+.prose table tr:nth-child(even) td {
+  background-color: #f8fafc;
+}
+.ProseMirror table .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(97, 177, 164, 0.15);
+  pointer-events: none;
+}
+.ProseMirror table .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0; bottom: -2px;
+  width: 4px;
+  background-color: #61b1a4;
+  pointer-events: none;
+  cursor: col-resize;
+}
+.ProseMirror.resize-cursor {
+  cursor: col-resize;
+}
