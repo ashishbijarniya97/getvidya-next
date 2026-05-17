@@ -20,47 +20,132 @@ export interface BlogPost {
   updated_at: string;
 }
 
-// Public: fetch published posts (anon key, RLS filters to published)
+function normalizeSeoContent(row: Record<string, unknown>): BlogPost {
+  const slug = String(row.slug ?? "").replace(/^\//, "");
+  return {
+    id:                String(row.id ?? ""),
+    title:             String(row.title ?? ""),
+    slug,
+    content:           null,
+    content_html:      String(row.content_html ?? ""),
+    excerpt:           String(row.meta_description ?? ""),
+    featured_image_url: null,
+    author_id:         null,
+    author_name:       "GetVidyaAI",
+    status:            "published",
+    seo_title:         String(row.title ?? ""),
+    seo_description:   String(row.meta_description ?? ""),
+    og_image_url:      null,
+    tags:              row.opportunity_type ? [String(row.opportunity_type).replace(/_/g, " ")] : [],
+    published_at:      String(row.generated_at ?? row.created_at ?? new Date().toISOString()),
+    created_at:        String(row.generated_at ?? new Date().toISOString()),
+    updated_at:        String(row.generated_at ?? new Date().toISOString()),
+  };
+}
+
+// Public: fetch published posts from both blogs + seo_content tables
 export async function getPublishedPosts(limit = 20): Promise<BlogPost[]> {
   const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("blogs")
-    .select("*")
-    .eq("status", "published")
-    .order("published_at", { ascending: false })
-    .limit(limit);
-  if (error) { console.error("[blog] getPublishedPosts:", error.message); return []; }
-  return (data ?? []).map((p: BlogPost) => ({
+  const serviceSupabase = createServiceClient();
+
+  const [blogsRes, seoRes] = await Promise.all([
+    supabase
+      .from("blogs")
+      .select("*")
+      .eq("status", "published")
+      .order("published_at", { ascending: false })
+      .limit(limit),
+    serviceSupabase
+      .from("seo_content")
+      .select("id, title, slug, meta_description, content_html, opportunity_type, generated_at, status")
+      .eq("status", "published")
+      .not("content_html", "is", null)
+      .neq("content_html", "")
+      .order("generated_at", { ascending: false })
+      .limit(limit),
+  ]);
+
+  const blogs: BlogPost[] = (blogsRes.data ?? []).map((p: BlogPost) => ({
     ...p,
     tags: Array.isArray(p.tags) ? p.tags : [],
     content_html: p.content_html ?? "",
-  })) as BlogPost[];
+  }));
+
+  const seoBlogs: BlogPost[] = (seoRes.data ?? []).map(normalizeSeoContent);
+
+  // Merge: manual blogs first (higher quality), then AI-generated
+  const allSlugs = new Set(blogs.map((b) => b.slug));
+  const merged = [
+    ...blogs,
+    ...seoBlogs.filter((b) => !allSlugs.has(b.slug)),
+  ];
+
+  merged.sort((a, b) =>
+    new Date(b.published_at ?? b.created_at).getTime() -
+    new Date(a.published_at ?? a.created_at).getTime()
+  );
+
+  return merged.slice(0, limit);
 }
 
-// Public: fetch single published post by slug
+// Public: fetch single published post by slug (checks both tables)
 export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
   const supabase = createPublicClient();
-  const { data, error } = await supabase
+  const serviceSupabase = createServiceClient();
+
+  const { data: blogData } = await supabase
     .from("blogs")
     .select("*")
     .eq("status", "published")
     .eq("slug", slug)
-    .single();
-  if (error) return null;
-  const post = data as BlogPost;
-  post.tags = Array.isArray(post.tags) ? post.tags : [];
-  post.content_html = post.content_html ?? "";
+    .maybeSingle();
+
+  if (blogData) {
+    const post = blogData as BlogPost;
+    post.tags = Array.isArray(post.tags) ? post.tags : [];
+    post.content_html = post.content_html ?? "";
+    return post;
+  }
+
+  // Fall back to seo_content (service role bypasses RLS)
+  const { data: seoData } = await serviceSupabase
+    .from("seo_content")
+    .select("id, title, slug, meta_description, content_html, opportunity_type, generated_at, faq")
+    .eq("status", "published")
+    .eq("slug", slug)
+    .maybeSingle();
+
+  if (!seoData) return null;
+
+  const post = normalizeSeoContent(seoData as Record<string, unknown>);
+
+  // Append FAQ as HTML if present
+  const faq = Array.isArray((seoData as Record<string, unknown>).faq)
+    ? ((seoData as Record<string, unknown>).faq as Array<{ q: string; a: string }>)
+    : [];
+  if (faq.length > 0) {
+    const faqHtml = `<h2>Frequently Asked Questions</h2>` +
+      faq.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join("");
+    post.content_html = (post.content_html ?? "") + faqHtml;
+  }
+
   return post;
 }
 
 // Public: get all published slugs (for generateStaticParams)
 export async function getAllPublishedSlugs(): Promise<string[]> {
   const supabase = createPublicClient();
-  const { data } = await supabase
-    .from("blogs")
-    .select("slug")
-    .eq("status", "published");
-  return (data ?? []).map((r) => r.slug);
+  const serviceSupabase = createServiceClient();
+
+  const [blogsRes, seoRes] = await Promise.all([
+    supabase.from("blogs").select("slug").eq("status", "published"),
+    serviceSupabase.from("seo_content").select("slug").eq("status", "published").not("content_html", "is", null),
+  ]);
+
+  const blogSlugs = (blogsRes.data ?? []).map((r: { slug: string }) => r.slug);
+  const seoSlugs = (seoRes.data ?? []).map((r: { slug: string }) => String(r.slug).replace(/^\//, ""));
+
+  return [...new Set([...blogSlugs, ...seoSlugs])];
 }
 
 // Admin: fetch all posts including drafts (service role)
