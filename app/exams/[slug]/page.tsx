@@ -7,9 +7,15 @@ import { CheckCircle2, ArrowRight, Layers, Target, Zap, Clock, BookOpen } from "
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
 
-const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
+const WA  = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const APP = "https://app.getvidya.in";
 const HUB_API = "https://getvidya-platform-three.vercel.app/api/public/exams/hub";
+
+// Builds a deep link into the web app for a specific SubCategory
+function appExamUrl(subCategoryId: string | undefined) {
+  if (!subCategoryId) return APP;
+  return `${APP}/tests/exam-details/${subCategoryId}`;
+}
 
 const EXAMS: Record<string, {
   name: string; fullForm: string; emoji: string;
@@ -128,12 +134,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   });
 }
 
+type TestEntry = { id: string; name: string; duration: number; totalScore: number; subCatId?: string };
+
 function TestTierSection({
-  icon, label, badge, color, bgColor, tests, duration, questions, emptyMsg,
+  icon, label, badge, color, bgColor, tests, duration, questions, emptyMsg, fallbackHref,
 }: {
   icon: React.ReactNode; label: string; badge: string; color: string; bgColor: string;
-  tests: Array<{ id: string; name: string; duration: number; totalScore: number }>;
-  duration: string; questions: string; emptyMsg: string;
+  tests: TestEntry[];
+  duration: string; questions: string; emptyMsg: string; fallbackHref: string;
 }) {
   return (
     <div>
@@ -152,20 +160,24 @@ function TestTierSection({
 
       {tests.length > 0 ? (
         <div className="space-y-2">
-          {tests.slice(0, 5).map((test) => (
-            <a key={test.id} href={APP}
-              className="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors group cursor-pointer">
-              <div>
-                <div className="text-sm font-medium text-primary-500 group-hover:text-teal transition-colors line-clamp-1">
-                  {test.name}
+          {tests.slice(0, 5).map((test) => {
+            const testHref = test.subCatId ? appExamUrl(test.subCatId) : fallbackHref;
+            return (
+              <a key={test.id} href={testHref} target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors group cursor-pointer">
+                <div>
+                  <div className="text-sm font-medium text-primary-500 group-hover:text-teal transition-colors line-clamp-1">
+                    {test.name}
+                  </div>
+                  <div className="text-xs text-slate-400 mt-0.5">{test.duration} min · {test.totalScore} marks</div>
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">{test.duration} min · {test.totalScore} marks</div>
-              </div>
-              <ArrowRight size={14} className="text-slate-300 group-hover:text-teal transition-colors flex-shrink-0" />
-            </a>
-          ))}
+                <ArrowRight size={14} className="text-slate-300 group-hover:text-teal transition-colors flex-shrink-0" />
+              </a>
+            );
+          })}
           {tests.length > 5 && (
-            <a href={APP} className={`block text-center text-xs font-semibold ${color} py-2.5 rounded-xl ${bgColor} hover:opacity-80 transition-opacity`}>
+            <a href={fallbackHref} target="_blank" rel="noopener noreferrer"
+              className={`block text-center text-xs font-semibold ${color} py-2.5 rounded-xl ${bgColor} hover:opacity-80 transition-opacity`}>
               +{tests.length - 5} more tests — View all
             </a>
           )}
@@ -186,10 +198,13 @@ export default async function ExamPage({ params }: { params: { slug: string } })
   if (!exam) notFound();
 
   const hub = await fetchHubEntry(params.slug);
+  const primarySubCatId = hub?.sub_categories?.[0]?.id;
+  const deepLink = appExamUrl(primarySubCatId);
+
   const allTests = hub?.sub_categories?.flatMap((sc) => [...sc.full_mocks, ...sc.subject_drills, ...sc.topic_sprints]) ?? [];
-  const fullMocks    = hub?.sub_categories?.flatMap((sc) => sc.full_mocks)    ?? [];
-  const subjectDrills = hub?.sub_categories?.flatMap((sc) => sc.subject_drills) ?? [];
-  const topicSprints  = hub?.sub_categories?.flatMap((sc) => sc.topic_sprints)  ?? [];
+  const fullMocks     = hub?.sub_categories?.flatMap((sc) => sc.full_mocks.map((t) => ({ ...t, subCatId: sc.id })))    ?? [];
+  const subjectDrills = hub?.sub_categories?.flatMap((sc) => sc.subject_drills.map((t) => ({ ...t, subCatId: sc.id }))) ?? [];
+  const topicSprints  = hub?.sub_categories?.flatMap((sc) => sc.topic_sprints.map((t) => ({ ...t, subCatId: sc.id })))  ?? [];
 
   const totalTests     = allTests.length;
   const totalQuestions = hub?.total_questions ?? 0;
@@ -243,7 +258,7 @@ export default async function ExamPage({ params }: { params: { slug: string } })
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <MagneticButton href={APP} target="_blank" rel="noopener noreferrer"
+                  <MagneticButton href={deepLink} target="_blank" rel="noopener noreferrer"
                     className="btn-primary flex items-center gap-2">
                     Start Free Mock <ArrowRight size={16} />
                   </MagneticButton>
@@ -279,6 +294,7 @@ export default async function ExamPage({ params }: { params: { slug: string } })
                     duration="60 min"
                     questions="100 questions"
                     emptyMsg="Full mocks generate once 100 questions per segment are ready"
+                    fallbackHref={deepLink}
                   />
                 </div>
               </AnimateIn>
@@ -296,6 +312,7 @@ export default async function ExamPage({ params }: { params: { slug: string } })
                     duration="30 min"
                     questions="30 questions"
                     emptyMsg="Subject drills generate once 30 questions per subject are ready"
+                    fallbackHref={deepLink}
                   />
                 </div>
               </AnimateIn>
@@ -313,6 +330,7 @@ export default async function ExamPage({ params }: { params: { slug: string } })
                     duration="20 min"
                     questions="15 questions"
                     emptyMsg="Topic sprints generate once 15 questions per chapter are ready"
+                    fallbackHref={deepLink}
                   />
                 </div>
               </AnimateIn>
