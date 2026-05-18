@@ -10,39 +10,54 @@ const APP_URL = "https://app.getvidya.in";
 const EXAMS = ["SSC CGL", "UPSC CSE", "SBI PO / Clerk", "Railway NTPC", "State PSC", "NDA / CDS"];
 
 type Step = "exam" | "info" | "quiz" | "result";
+type Q = { q: string; opts: string[]; correct: number; subject: string };
 
-const QUIZ: { q: string; opts: string[]; correct: number; subject: string }[] = [
-  {
-    subject: "Quantitative Aptitude",
-    q: "The LCM of two numbers is 120 and their HCF is 4. If one number is 24, what is the other?",
-    opts: ["16", "20", "24", "18"],
-    correct: 1,
-  },
-  {
-    subject: "General Intelligence",
-    q: "In a certain code, PENCIL is written as QFODJM. How is ERASER written?",
-    opts: ["FSBTFS", "FSBSFS", "FRTBSF", "FQBUFS"],
-    correct: 0,
-  },
-  {
-    subject: "General Awareness",
-    q: "Which article of the Indian Constitution deals with the Right to Education?",
-    opts: ["Article 21A", "Article 19", "Article 24", "Article 32"],
-    correct: 0,
-  },
-  {
-    subject: "English Language",
-    q: "Choose the word most nearly opposite in meaning to GREGARIOUS.",
-    opts: ["Unsociable", "Outgoing", "Friendly", "Cheerful"],
-    correct: 0,
-  },
-  {
-    subject: "Current Affairs",
-    q: "GetVidya's AI Study Plan updates every __ days based on your performance.",
-    opts: ["3", "7", "14", "30"],
-    correct: 1,
-  },
-];
+const QUIZ_BY_EXAM: Record<string, Q[]> = {
+  "SSC CGL": [
+    { subject: "Quantitative Aptitude", q: "The LCM of two numbers is 120 and their HCF is 4. If one number is 24, what is the other?", opts: ["16", "20", "24", "18"], correct: 1 },
+    { subject: "General Intelligence",  q: "In a certain code, PENCIL is written as QFODJM. How is ERASER written?", opts: ["FSBTFS", "FSBSFS", "FRTBSF", "FQBUFS"], correct: 0 },
+    { subject: "General Awareness",     q: "Which article of the Indian Constitution deals with the Right to Education?", opts: ["Article 21A", "Article 19", "Article 24", "Article 32"], correct: 0 },
+    { subject: "English Language",      q: "Choose the word most nearly OPPOSITE in meaning to GREGARIOUS.", opts: ["Unsociable", "Outgoing", "Friendly", "Cheerful"], correct: 0 },
+    { subject: "General Awareness",     q: "The Headquarters of the Staff Selection Commission (SSC) is located in:", opts: ["Mumbai", "Chennai", "New Delhi", "Kolkata"], correct: 2 },
+  ],
+  "UPSC CSE": [
+    { subject: "Indian Polity",   q: "Which Schedule of the Constitution contains provisions related to the allocation of seats in the Council of States?", opts: ["Third Schedule", "Fourth Schedule", "Fifth Schedule", "Sixth Schedule"], correct: 1 },
+    { subject: "Indian History",  q: "The 'Doctrine of Lapse' was introduced by which Governor-General?", opts: ["Lord Dalhousie", "Lord Canning", "Lord Cornwallis", "Lord Wellesley"], correct: 0 },
+    { subject: "Indian Geography",q: "Which river forms the boundary between Telangana and Chhattisgarh?", opts: ["Godavari", "Indravati", "Mahanadi", "Wainganga"], correct: 1 },
+    { subject: "Indian Economy",  q: "Which Five-Year Plan introduced the concept of 'Indicative Planning' in India?", opts: ["7th Plan", "8th Plan", "9th Plan", "10th Plan"], correct: 1 },
+    { subject: "CSAT Reasoning",  q: "A is the brother of B. B is the sister of C. C is the son of D. How is A related to D?", opts: ["Son", "Nephew", "Brother", "Cannot be determined"], correct: 3 },
+  ],
+  "SBI PO / Clerk": [
+    { subject: "Banking Awareness",     q: "The Reserve Bank of India was established in:", opts: ["1935", "1947", "1949", "1955"], correct: 0 },
+    { subject: "Quantitative Aptitude", q: "Simple interest on ₹6,000 at 8% per annum for 3 years is:", opts: ["₹1,440", "₹1,540", "₹1,640", "₹1,340"], correct: 0 },
+    { subject: "General Intelligence",  q: "If DESK is coded as 9472 and RIDE is coded as 5392, what is the code for DISK?", opts: ["9472", "9372", "3972", "9572"], correct: 2 },
+    { subject: "English Language",      q: "Select the correctly spelt word:", opts: ["Accomodation", "Accommodation", "Acommodation", "Accomodattion"], correct: 1 },
+    { subject: "Banking Awareness",     q: "Which bank is known as the 'Banker's Bank' in India?", opts: ["State Bank of India", "NABARD", "Reserve Bank of India", "SIDBI"], correct: 2 },
+  ],
+  "Railway NTPC": [
+    { subject: "Quantitative Aptitude", q: "A train 150 m long passes a telegraph post in 12 seconds. Its speed is:", opts: ["12.5 m/s", "45 km/h", "40 km/h", "50 km/h"], correct: 0 },
+    { subject: "General Intelligence",  q: "Pointing to a photograph, Ravi said 'His mother is the only daughter of my mother.' How is Ravi related to the person in the photograph?", opts: ["Maternal Uncle", "Father", "Brother", "Grandfather"], correct: 0 },
+    { subject: "General Science",       q: "Which gas is used in electric bulbs to prevent the filament from oxidising?", opts: ["Nitrogen", "Oxygen", "Carbon dioxide", "Hydrogen"], correct: 0 },
+    { subject: "General Awareness",     q: "Indian Railways was established in:", opts: ["1947", "1853", "1869", "1905"], correct: 1 },
+    { subject: "English Language",      q: "Choose the synonym of DILIGENT:", opts: ["Lazy", "Hardworking", "Careless", "Ignorant"], correct: 1 },
+  ],
+  "State PSC": [
+    { subject: "Indian Polity",   q: "Which Constitutional Amendment lowered the voting age from 21 to 18 years?", opts: ["42nd Amendment", "44th Amendment", "61st Amendment", "73rd Amendment"], correct: 2 },
+    { subject: "General Intelligence", q: "If 6 × 4 = 46 and 8 × 3 = 83 (in a special code), what is 5 × 7?", opts: ["57", "75", "12", "35"], correct: 1 },
+    { subject: "Indian Geography",q: "The Tropic of Cancer passes through how many Indian states?", opts: ["6", "7", "8", "9"], correct: 2 },
+    { subject: "Current Affairs", q: "Which article of the Constitution deals with the abolition of untouchability?", opts: ["Article 14", "Article 17", "Article 19", "Article 21"], correct: 1 },
+    { subject: "English Language",q: "Choose the antonym of EPHEMERAL:", opts: ["Permanent", "Temporary", "Fleeting", "Short-lived"], correct: 0 },
+  ],
+  "NDA / CDS": [
+    { subject: "Quantitative Aptitude", q: "The value of sin²30° + cos²60° + tan²45° is:", opts: ["1.5", "2", "2.5", "1"], correct: 0 },
+    { subject: "General Science",       q: "Newton's first law of motion is also known as:", opts: ["Law of Acceleration", "Law of Inertia", "Law of Gravitation", "Law of Action-Reaction"], correct: 1 },
+    { subject: "General Knowledge",     q: "The National Defence Academy (NDA) is located at:", opts: ["Pune", "Dehradun", "Delhi", "Bengaluru"], correct: 0 },
+    { subject: "English Language",      q: "Fill in the blank: The soldier showed great __ in the face of danger.", opts: ["cowardice", "valour", "negligence", "hesitation"], correct: 1 },
+    { subject: "General Knowledge",     q: "The first woman to become the Chief of Staff of the Indian Army is:", opts: ["No woman has held this post yet", "Priya Jhingan", "Punita Arora", "Mitali Madhumita"], correct: 0 },
+  ],
+};
+
+const DEFAULT_QUIZ: Q[] = QUIZ_BY_EXAM["SSC CGL"];
 
 const SUBJECT_MAP: Record<string, string> = {
   "Quantitative Aptitude": "Math / Quant",
@@ -58,9 +73,11 @@ export default function FreeAssessmentClient() {
   const [name, setName]           = useState("");
   const [email, setEmail]         = useState("");
   const [phone, setPhone]         = useState("");
-  const [answers, setAnswers]     = useState<number[]>(Array(QUIZ.length).fill(-1));
+  const [answers, setAnswers]     = useState<number[]>(Array(DEFAULT_QUIZ.length).fill(-1));
   const [current, setCurrent]     = useState(0);
   const [submitting, setSubmitting] = useState(false);
+
+  const QUIZ = QUIZ_BY_EXAM[exam] ?? DEFAULT_QUIZ;
 
   const score     = answers.filter((a, i) => a === QUIZ[i].correct).length;
   const weakSubs  = QUIZ.filter((q, i) => answers[i] !== q.correct).map((q) => SUBJECT_MAP[q.subject]);
@@ -126,12 +143,12 @@ export default function FreeAssessmentClient() {
             {step === "exam" && (
               <div>
                 <h2 className="text-xl font-bold text-white mb-2">Which exam are you preparing for?</h2>
-                <p className="text-slate-400 text-sm mb-6">We&apos;ll customize your 5-question assessment to match your target exam.</p>
+                <p className="text-slate-400 text-sm mb-6">5 questions tailored to your target exam — identifies your exact weak subjects.</p>
                 <div className="grid grid-cols-2 gap-3">
                   {EXAMS.map((e) => (
                     <button
                       key={e}
-                      onClick={() => { setExam(e); setStep("info"); }}
+                      onClick={() => { setExam(e); setAnswers(Array((QUIZ_BY_EXAM[e] ?? DEFAULT_QUIZ).length).fill(-1)); setStep("info"); }}
                       className={`p-4 rounded-xl border text-left transition-all ${
                         exam === e
                           ? "border-emerald-400 bg-emerald-500/20 text-white"
@@ -273,7 +290,7 @@ export default function FreeAssessmentClient() {
                     Get My AI Study Plan in the App →
                   </a>
                   <p className="text-slate-500 text-xs">
-                    {email ? `Your report has been sent to ${email}.` : "Our team will reach out on your mobile number."} GetVidya Vidya Pass · ₹149/month · Cancel anytime.
+                    {email ? `Your report has been sent to ${email}.` : "Our team will reach out on your mobile number."} GetVidyaAI Vidya Pass · from ₹79/month · Cancel anytime.
                   </p>
                 </div>
               </div>
