@@ -4,6 +4,7 @@ import { generateSEO } from "@/lib/seo";
 import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, CheckCircle2, Layers, Target, Zap } from "lucide-react";
 
 export const revalidate = 3600;
@@ -15,42 +16,50 @@ export const metadata = generateSEO({
   canonical: "https://getvidya.in/exams",
 });
 
+const SUPABASE_STORAGE = "https://bzlqlohvbraclvvmbfdt.supabase.co/storage/v1/object/public/Getvidya%20App/category-thumbnail";
+
 const EXAMS_STATIC = [
   {
-    slug: "ssc-cgl", name: "SSC CGL", fullForm: "Combined Graduate Level", emoji: "📋",
+    slug: "ssc-cgl", name: "SSC CGL", fullForm: "Combined Graduate Level",
+    logo: `${SUPABASE_STORAGE}/cmosslhlx0000kf6sbbj96vs4-1779120796174`,
     cardBg: "from-blue-600 to-blue-800",
-    tagBg: "bg-blue-50 text-blue-700 border-blue-200",
     highlights: ["Tier 1 & Tier 2 Mocks", "10 Years PYQs", "Chapter-wise MCQs"],
   },
   {
-    slug: "upsc", name: "UPSC CSE", fullForm: "Civil Services Examination", emoji: "🏛️",
+    slug: "upsc", name: "UPSC CSE", fullForm: "Civil Services Examination",
+    logo: `${SUPABASE_STORAGE}/cat_upsc_cse_001-1779119998135`,
     cardBg: "from-purple-600 to-purple-800",
-    tagBg: "bg-purple-50 text-purple-700 border-purple-200",
     highlights: ["Prelims Full Mocks", "GS Paper 1–4", "Current Affairs MCQs"],
   },
   {
-    slug: "banking", name: "Banking Exams", fullForm: "SBI PO / Clerk / RBI Grade B", emoji: "🏦",
+    slug: "banking", name: "Banking Exams", fullForm: "SBI PO / Clerk / RBI Grade B",
+    logo: `${SUPABASE_STORAGE}/cat_banking_sbi_001-1779120317458`,
     cardBg: "from-emerald-600 to-emerald-800",
-    tagBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
     highlights: ["SBI PO & Clerk Mocks", "IBPS Full Tests", "Banking Awareness"],
   },
   {
-    slug: "railway", name: "Railway NTPC", fullForm: "Non-Technical Popular Categories", emoji: "🚂",
+    slug: "railway", name: "Railway NTPC", fullForm: "Non-Technical Popular Categories",
+    logo: `${SUPABASE_STORAGE}/cat_railway_ntpc_001-1779120083285`,
     cardBg: "from-orange-600 to-orange-800",
-    tagBg: "bg-orange-50 text-orange-700 border-orange-200",
     highlights: ["CBT 1 & CBT 2 Mocks", "General Awareness", "Mathematics Practice"],
   },
   {
-    slug: "state-psc", name: "State PSC", fullForm: "State Public Service Commission", emoji: "📜",
-    cardBg: "from-rose-600 to-rose-800",
-    tagBg: "bg-rose-50 text-rose-700 border-rose-200",
-    highlights: ["State-specific Mocks", "GS Paper Practice", "State History MCQs"],
+    slug: "defence", name: "NDA / CDS", fullForm: "Defence Services Examinations",
+    logo: `${SUPABASE_STORAGE}/cat_nda_cds_001-1779120498246`,
+    cardBg: "from-indigo-600 to-indigo-800",
+    highlights: ["NDA & CDS Full Mocks", "Mathematics Practice", "GAT Tests"],
   },
   {
-    slug: "defence", name: "NDA / CDS", fullForm: "Defence Services Examinations", emoji: "🎖️",
-    cardBg: "from-indigo-600 to-indigo-800",
-    tagBg: "bg-indigo-50 text-indigo-700 border-indigo-200",
-    highlights: ["NDA & CDS Full Mocks", "Mathematics Practice", "GAT Tests"],
+    slug: "ib-acio", name: "IB ACIO", fullForm: "Intelligence Bureau ACIO Grade-II/Executive",
+    logo: `${SUPABASE_STORAGE}/cde494a14a286443c800c0464-1779120551557`,
+    cardBg: "from-slate-600 to-slate-800",
+    highlights: ["Tier 1 & Tier 2 Mocks", "English & Reasoning", "General Awareness MCQs"],
+  },
+  {
+    slug: "rjs", name: "RJS", fullForm: "Rajasthan Judicial Service",
+    logo: `${SUPABASE_STORAGE}/c920e2a48ed164c10a930d876-1779120727582`,
+    cardBg: "from-rose-600 to-rose-800",
+    highlights: ["Prelims Full Mocks", "Law Subject Drills", "Chapter-wise Tests"],
   },
 ];
 
@@ -165,7 +174,9 @@ export default async function ExamsPage() {
                     className="group block card overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
                     {/* Gradient band */}
                     <div className={`h-28 bg-gradient-to-br ${exam.cardBg} relative flex items-center px-6`}>
-                      <div className="text-5xl">{exam.emoji}</div>
+                      <div className="w-14 h-14 rounded-full bg-white/15 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <Image src={exam.logo} alt={exam.name} width={56} height={56} className="rounded-full object-cover" />
+                      </div>
                       <div className="ml-auto text-right">
                         <div className="text-white/90 text-2xl font-bold">
                           {exam.tests != null ? `${exam.tests}+` : "—"}

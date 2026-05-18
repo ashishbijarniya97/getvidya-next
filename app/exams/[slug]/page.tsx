@@ -6,6 +6,7 @@ import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/Animat
 import { CheckCircle2, ArrowRight, Layers, Target, Zap, Clock, BookOpen } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
+import Image from "next/image";
 
 const WA  = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const APP = "https://app.getvidya.in";
@@ -17,13 +18,16 @@ function appExamUrl(subCategoryId: string | undefined) {
   return `${APP}/tests/exam-details/${subCategoryId}`;
 }
 
+const S = "https://bzlqlohvbraclvvmbfdt.supabase.co/storage/v1/object/public/Getvidya%20App/category-thumbnail";
+
 const EXAMS: Record<string, {
-  name: string; fullForm: string; emoji: string;
+  name: string; fullForm: string; logo: string;
   gradient: string; about: string;
   features: string[]; syllabus: string[]; eligibility: string;
 }> = {
   "ssc-cgl": {
-    name: "SSC CGL", fullForm: "Combined Graduate Level", emoji: "📋",
+    name: "SSC CGL", fullForm: "Combined Graduate Level",
+    logo: `${S}/cmosslhlx0000kf6sbbj96vs4-1779120796174`,
     gradient: "from-blue-600 to-blue-800",
     about: "SSC CGL is conducted by the Staff Selection Commission to recruit candidates for Group B and Group C posts in various Ministries, Departments, and Offices of the Government of India.",
     features: ["Tier 1 & Tier 2 Full Mocks", "Chapter-wise MCQs", "Previous Year Papers (10 Years)", "Subject-wise Tests", "Performance Analysis", "Daily Practice Questions"],
@@ -31,7 +35,8 @@ const EXAMS: Record<string, {
     eligibility: "Any graduate from a recognized university. Age: 18–32 years (relaxation for reserved categories).",
   },
   "upsc": {
-    name: "UPSC CSE", fullForm: "Civil Services Examination", emoji: "🏛️",
+    name: "UPSC CSE", fullForm: "Civil Services Examination",
+    logo: `${S}/cat_upsc_cse_001-1779119998135`,
     gradient: "from-purple-600 to-purple-800",
     about: "UPSC CSE is India's most prestigious examination conducted by the Union Public Service Commission for recruitment to IAS, IPS, IFS, and other Group A & B central services.",
     features: ["Prelims Full Mocks", "GS Paper 1–4 Practice", "CSAT Preparation", "Current Affairs MCQs", "PYQ Analysis (5 Years)", "Subject Deep Dives"],
@@ -39,7 +44,8 @@ const EXAMS: Record<string, {
     eligibility: "Graduate from any recognized university. Age: 21–32 years (relaxation for OBC/SC/ST).",
   },
   "banking": {
-    name: "Banking", fullForm: "SBI PO / Clerk / RBI Grade B", emoji: "🏦",
+    name: "Banking", fullForm: "SBI PO / Clerk / RBI Grade B",
+    logo: `${S}/cat_banking_sbi_001-1779120317458`,
     gradient: "from-emerald-600 to-emerald-800",
     about: "Banking exams include SBI PO, SBI Clerk, IBPS PO, IBPS Clerk, and RBI Grade B — competitive exams for officer and clerical cadre posts in public sector banks.",
     features: ["SBI PO & Clerk Mocks", "IBPS Full Tests", "Reasoning Ability Practice", "Quantitative Aptitude", "English Language Tests", "Banking Awareness MCQs"],
@@ -47,7 +53,8 @@ const EXAMS: Record<string, {
     eligibility: "Graduate in any discipline. Age: 20–30 years. Specific criteria vary by bank and post.",
   },
   "railway": {
-    name: "Railway NTPC", fullForm: "Non-Technical Popular Categories", emoji: "🚂",
+    name: "Railway NTPC", fullForm: "Non-Technical Popular Categories",
+    logo: `${S}/cat_railway_ntpc_001-1779120083285`,
     gradient: "from-orange-600 to-orange-800",
     about: "RRB NTPC is conducted by Railway Recruitment Boards for recruitment to various non-technical posts in Indian Railways — one of the largest employers in India.",
     features: ["CBT 1 & CBT 2 Mocks", "General Awareness Questions", "Mathematics Practice", "General Intelligence Tests", "Previous Year MCQs", "Daily Free Questions"],
@@ -55,7 +62,8 @@ const EXAMS: Record<string, {
     eligibility: "10+2 / Graduate depending on the post. Age: 18–33 years.",
   },
   "state-psc": {
-    name: "State PSC", fullForm: "State Public Service Commission", emoji: "📜",
+    name: "State PSC", fullForm: "State Public Service Commission",
+    logo: `${S}/c920e2a48ed164c10a930d876-1779120727582`,
     gradient: "from-rose-600 to-rose-800",
     about: "State PSC exams are conducted by state-level commissions (UPPSC, MPPSC, RPSC, etc.) for recruitment to Group A & B state government services.",
     features: ["State-specific Mocks", "GS Paper Practice", "State History & Culture MCQs", "Polity & Governance Questions", "Economy Practice Tests", "Current Affairs"],
@@ -63,7 +71,8 @@ const EXAMS: Record<string, {
     eligibility: "Varies by state and post. Generally graduate-level with age between 21–40 years.",
   },
   "defence": {
-    name: "NDA / CDS", fullForm: "Defence Services Examinations", emoji: "🎖️",
+    name: "NDA / CDS", fullForm: "Defence Services Examinations",
+    logo: `${S}/cat_nda_cds_001-1779120498246`,
     gradient: "from-indigo-600 to-indigo-800",
     about: "NDA and CDS are UPSC-conducted exams for entry into the Indian Army, Navy, and Air Force as officers.",
     features: ["NDA & CDS Full Mocks", "Mathematics Practice", "GAT (General Ability Test)", "English Grammar Tests", "Science & GK Questions", "PYQ Analysis"],
@@ -71,7 +80,8 @@ const EXAMS: Record<string, {
     eligibility: "NDA: 10+2. CDS: Graduate. Age varies: NDA 16.5–19.5, CDS 20–25 years.",
   },
   "rpsc-ras": {
-    name: "RPSC RAS", fullForm: "Rajasthan Administrative Services", emoji: "📜",
+    name: "RPSC RAS", fullForm: "Rajasthan Administrative Services",
+    logo: `${S}/c920e2a48ed164c10a930d876-1779120727582`,
     gradient: "from-rose-600 to-rose-800",
     about: "RPSC RAS is conducted by the Rajasthan Public Service Commission for recruitment to Group A administrative services in Rajasthan.",
     features: ["RAS Prelims Full Mocks", "Rajasthan GK & Culture MCQs", "Rajasthan Current Affairs", "History of Rajasthan Practice", "PYQ Analysis (5 Years)"],
@@ -79,12 +89,31 @@ const EXAMS: Record<string, {
     eligibility: "Graduate from any recognized university. Age: 21–40 years. Rajasthan domicile required.",
   },
   "rajasthan-police": {
-    name: "Rajasthan Police", fullForm: "Rajasthan Police Constable & SI", emoji: "🚔",
+    name: "Rajasthan Police", fullForm: "Rajasthan Police Constable & SI",
+    logo: `${S}/c920e2a48ed164c10a930d876-1779120727582`,
     gradient: "from-blue-700 to-blue-900",
     about: "Rajasthan Police Constable and Sub-Inspector exams are conducted by the Rajasthan Police Recruitment Board for law enforcement posts across the state.",
     features: ["Constable & SI Full Mocks", "Rajasthan GK Practice Tests", "Reasoning & Mental Ability Tests", "Current Affairs MCQs", "Physical Science Questions"],
     syllabus: ["General Knowledge (Rajasthan Focus)", "Reasoning & Mental Ability", "General Science", "Current Affairs & GK", "Basic Computer Knowledge"],
     eligibility: "Constable: 10+2 pass. SI: Graduate. Age: 18–26 years for Constable, 20–25 years for SI.",
+  },
+  "ib-acio": {
+    name: "IB ACIO", fullForm: "Intelligence Bureau ACIO Grade-II/Executive",
+    logo: `${S}/cde494a14a286443c800c0464-1779120551557`,
+    gradient: "from-slate-600 to-slate-800",
+    about: "IB ACIO is conducted by the Intelligence Bureau, Ministry of Home Affairs, to recruit Assistant Central Intelligence Officers. It is one of India's most competitive central intelligence exams with a two-tier selection process.",
+    features: ["Tier 1 & Tier 2 Full Mocks", "English Language Practice", "Reasoning & Aptitude Tests", "General Awareness MCQs", "Descriptive Paper Practice", "Previous Year Papers"],
+    syllabus: ["General Awareness & Current Affairs", "Quantitative Aptitude", "Logical/Analytical Ability", "English Language", "Descriptive Paper (Essay & Précis)"],
+    eligibility: "Graduate from a recognized university. Age: 18–27 years (relaxation for OBC/SC/ST/Ex-Servicemen).",
+  },
+  "rjs": {
+    name: "RJS", fullForm: "Rajasthan Judicial Service",
+    logo: `${S}/c920e2a48ed164c10a930d876-1779120727582`,
+    gradient: "from-rose-600 to-rose-800",
+    about: "RJS is conducted by the Rajasthan High Court for recruitment to the post of Civil Judge & Judicial Magistrate in the Rajasthan Judicial Service. It is the gateway to the subordinate judiciary in Rajasthan.",
+    features: ["Prelims Full Mocks", "Law Subject Drills", "Chapter-wise MCQs", "Constitutional Law Practice", "IPC & CrPC Tests", "Civil & Criminal Procedure Tests"],
+    syllabus: ["Constitutional Law & Fundamental Rights", "Code of Civil Procedure (CPC)", "Code of Criminal Procedure (CrPC)", "Indian Penal Code (IPC)", "Law of Torts & Contract Law", "Evidence Act & Transfer of Property Act"],
+    eligibility: "Law graduate (LLB) from a recognized university. Age: 23–35 years. Rajasthan domicile required.",
   },
 };
 
@@ -237,7 +266,9 @@ export default async function ExamPage({ params }: { params: { slug: string } })
               </div>
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div>
-                  <div className="text-5xl md:text-6xl mb-4">{exam.emoji}</div>
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/15 flex items-center justify-center overflow-hidden mb-4">
+                    <Image src={exam.logo} alt={exam.name} width={80} height={80} className="rounded-2xl object-cover" />
+                  </div>
                   <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{exam.name}</h1>
                   <p className="text-white/70 text-base md:text-lg mb-6">{exam.fullForm}</p>
                   <div className="flex flex-wrap gap-3 md:gap-4">
