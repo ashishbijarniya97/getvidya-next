@@ -132,7 +132,7 @@ interface ExamHubEntry {
 
 async function fetchHubEntry(slug: string): Promise<ExamHubEntry | null> {
   try {
-    const res = await fetch(HUB_API, { next: { revalidate: 3600 } });
+    const res = await fetch(HUB_API, { next: { revalidate: 300 } });
     if (!res.ok) return null;
     const data = await res.json();
     return data[slug] ?? null;
