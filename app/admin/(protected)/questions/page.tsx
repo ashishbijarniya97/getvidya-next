@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
   Search, Download, RefreshCw, ChevronDown, ChevronUp,
-  CheckCircle2, XCircle, BookOpen, Filter, Inbox,
+  CheckCircle2, BookOpen, Filter, Inbox, Upload,
 } from "lucide-react";
 
 type Question = {
@@ -24,7 +24,7 @@ type Question = {
   created_at: string;
 };
 
-const CATEGORIES  = ["SSC CGL", "IB ACIO", "RJS", "Mixed"];
+const CATEGORIES  = ["SSC CGL", "IB ACIO", "RJS", "UPSC CSE", "Railway NTPC", "SBI PO", "NDA/CDS", "Mixed"];
 const SUBJECTS    = ["Math", "Reasoning", "English", "GK", "Law"];
 const SOURCE_TYPES = ["PRACTICE", "EXAM_VAULT"] as const;
 
@@ -162,6 +162,9 @@ export default function QuestionsPage() {
   const [sourceType, setSourceType] = useState("all");
   const [activeFilter, setActive]   = useState<"all" | "active" | "inactive">("all");
   const [page, setPage]             = useState(0);
+  const [importing, setImporting]   = useState(false);
+  const [importMsg, setImportMsg]   = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const fileInputRef                = useRef<HTMLInputElement>(null);
 
   const supabase = createClient();
 
@@ -195,6 +198,34 @@ export default function QuestionsPage() {
   const toggleActive = async (id: string, val: boolean) => {
     await supabase.from("questions").update({ is_active: val }).eq("id", id);
     setQuestions((prev) => prev.map((q) => q.id === id ? { ...q, is_active: val } : q));
+  };
+
+  const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImporting(true);
+    setImportMsg(null);
+    try {
+      const text = await file.text();
+      const res = await fetch("/api/admin/questions/import", {
+        method: "POST",
+        headers: { "content-type": "text/csv" },
+        body: text,
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        const detail = data.details?.length ? `\n${data.details.slice(0, 3).join("\n")}` : "";
+        setImportMsg({ type: "error", text: (data.error ?? "Import failed") + detail });
+      } else {
+        setImportMsg({ type: "success", text: `Imported ${data.inserted} questions successfully.` });
+        fetchQuestions();
+      }
+    } catch (err) {
+      setImportMsg({ type: "error", text: err instanceof Error ? err.message : "Unexpected error" });
+    } finally {
+      setImporting(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   };
 
   const exportCSV = () => {
@@ -232,7 +263,34 @@ export default function QuestionsPage() {
           <button onClick={exportCSV} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 text-sm font-medium transition-colors">
             <Download size={15} /> Export CSV
           </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv"
+            className="hidden"
+            onChange={handleImport}
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            disabled={importing}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 disabled:opacity-50 transition-colors"
+          >
+            {importing ? (
+              <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Importing…</>
+            ) : (
+              <><Upload size={15} /> Import CSV</>
+            )}
+          </button>
         </div>
+        {importMsg && (
+          <div className={`mt-3 px-4 py-3 rounded-xl text-sm font-medium whitespace-pre-line ${
+            importMsg.type === "success"
+              ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+              : "bg-red-50 text-red-700 border border-red-200"
+          }`}>
+            {importMsg.text}
+          </div>
+        )}
       </div>
 
       {/* Stats bar */}

@@ -46,6 +46,7 @@ export default function BlogEditor({ initialPost }: Props) {
   const [saving, setSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [preview, setPreview] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [postId, setPostId] = useState(initialPost?.id ?? "");
 
   const [seo, setSeo] = useState({
@@ -160,14 +161,23 @@ export default function BlogEditor({ initialPost }: Props) {
   const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !editor) return;
-    const fd = new FormData();
-    fd.append("file", file);
-    const res = await fetch("/api/admin/blog/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
-      editor.chain().focus().setImage({ src: url }).run();
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/admin/blog/upload", { method: "POST", body: fd });
+      const data = await res.json();
+      if (res.ok) {
+        editor.chain().focus().setImage({ src: data.url }).run();
+      } else {
+        alert(`Image upload failed: ${data.error ?? res.statusText}`);
+      }
+    } catch (err) {
+      alert(`Image upload error: ${err instanceof Error ? err.message : "Unknown error"}`);
+    } finally {
+      setUploading(false);
+      e.target.value = "";
     }
-    e.target.value = "";
   };
 
   const wordCount = editor?.storage.characterCount.words() ?? 0;
@@ -226,7 +236,7 @@ export default function BlogEditor({ initialPost }: Props) {
         {/* Editor / Preview */}
         <div className="border border-slate-200 rounded-xl bg-white shadow-sm overflow-hidden">
           {!preview && editor && (
-            <EditorToolbar editor={editor} onImageUpload={handleImageUpload} />
+            <EditorToolbar editor={editor} onImageUpload={handleImageUpload} uploading={uploading} />
           )}
           {preview ? (
             <div

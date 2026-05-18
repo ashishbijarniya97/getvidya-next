@@ -14,6 +14,7 @@ import clsx from "clsx";
 interface Props {
   editor: Editor;
   onImageUpload: () => void;
+  uploading?: boolean;
 }
 
 function Btn({
@@ -41,7 +42,7 @@ function Btn({
 
 const Divider = () => <div className="w-px h-5 bg-slate-200 mx-1" />;
 
-export default function EditorToolbar({ editor, onImageUpload }: Props) {
+export default function EditorToolbar({ editor, onImageUpload, uploading }: Props) {
   const addLink = () => {
     const url = window.prompt("URL");
     if (!url) return;
@@ -85,7 +86,7 @@ export default function EditorToolbar({ editor, onImageUpload }: Props) {
 
       {/* Link & Image */}
       <Btn onClick={addLink} active={editor.isActive("link")} title="Add link"><Link2 size={14} /></Btn>
-      <Btn onClick={onImageUpload} title="Upload image"><ImageIcon size={14} /></Btn>
+      <Btn onClick={onImageUpload} disabled={uploading} title={uploading ? "Uploading…" : "Upload image"}>{uploading ? <span className="text-xs">…</span> : <ImageIcon size={14} />}</Btn>
       <Divider />
 
       {/* Table */}
