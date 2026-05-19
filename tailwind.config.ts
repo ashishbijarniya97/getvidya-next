@@ -53,19 +53,24 @@ const config: Config = {
           "linear-gradient(90deg, #ffd732 0%, #ffb800 100%)",
       },
       animation: {
-        "fade-up": "fadeUp 0.6s ease-out forwards",
-        "fade-in": "fadeIn 0.4s ease-out forwards",
-        "slide-left": "slideLeft 0.5s ease-out forwards",
-        "slide-right": "slideRight 0.5s ease-out forwards",
+        "fade-up": "fadeUp 0.6s ease-out both",
+        "fade-in": "fadeIn 0.4s ease-out both",
+        "slide-left": "slideLeft 0.5s ease-out both",
+        "slide-right": "slideRight 0.5s ease-out both",
         "ticker": "ticker 30s linear infinite",
         "float": "float 3s ease-in-out infinite",
         "pulse-soft": "pulseSoft 2s ease-in-out infinite",
         "count-up": "countUp 2s ease-out forwards",
+        "expand-width": "expandWidth 0.7s cubic-bezier(0.22,1,0.36,1) both",
       },
       keyframes: {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        expandWidth: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
         },
         fadeIn: {
           "0%": { opacity: "0" },

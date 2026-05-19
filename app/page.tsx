@@ -1,14 +1,17 @@
+import dynamic from "next/dynamic";
 import { generateSEO, educationalAppSchema, faqSchema } from "@/lib/seo";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import Ticker from "@/components/home/Ticker";
-import Stats from "@/components/home/Stats";
-import ExamGrid from "@/components/home/ExamGrid";
-import GetVidyaAI from "@/components/home/GetVidyaAI";
-import Features from "@/components/home/Features";
-import Testimonials from "@/components/home/Testimonials";
-import CTA from "@/components/home/CTA";
+
+// Below-fold components: lazy-loaded so framer-motion stays off the critical path
+const Stats       = dynamic(() => import("@/components/home/Stats"),       { ssr: false });
+const ExamGrid    = dynamic(() => import("@/components/home/ExamGrid"),    { ssr: false });
+const GetVidyaAI  = dynamic(() => import("@/components/home/GetVidyaAI"), { ssr: false });
+const Features    = dynamic(() => import("@/components/home/Features"),    { ssr: false });
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: false });
+const CTA         = dynamic(() => import("@/components/home/CTA"),         { ssr: false });
 
 export const metadata = generateSEO({
   title: "GetVidyaAI — Free SSC CGL UPSC Mock Test | AI-Powered Govt Exam Prep",
