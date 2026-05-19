@@ -1,4 +1,4 @@
-import { generateSEO, breadcrumbSchema, courseSchema, faqSchema } from "@/lib/seo";
+import { generateSEO, breadcrumbSchema, courseSchema, howToSchema, faqSchema } from "@/lib/seo";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { CheckCircle2, ArrowRight, BookOpen, Target } from "lucide-react";
@@ -185,10 +185,23 @@ export default function SSCCGLSyllabusPage() {
     price: "149",
     level: "Beginner to Advanced",
   });
+  const howTo = howToSchema({
+    name: "How to Prepare for SSC CGL 2026 — Step-by-Step Syllabus Strategy",
+    description:
+      "A complete SSC CGL 2026 preparation guide covering how to study Tier 1 and Tier 2 syllabus using GetVidyaAI's diagnostic test, adaptive practice, and weekly study plans.",
+    steps: [
+      { name: "Take the free GetVidyaAI diagnostic test", text: "Attempt the 25-question SSC CGL diagnostic on GetVidyaAI to identify your weakest Tier 1 subjects. The AI maps your accuracy across all four sections in under 20 minutes — no registration needed." },
+      { name: "Study Tier 1 GK & Reasoning first", text: "General Awareness and General Intelligence together account for 100 marks in Tier 1. Start with high-weight GA topics: Modern History, Indian Polity, and Current Affairs from the last 6 months." },
+      { name: "Build Quantitative Aptitude basics", text: "Revise NCERT Class 8–10 Maths chapters (Percentage, Ratio, Algebra, Geometry). Practice 30 Quant questions daily on GetVidyaAI. The AI increases difficulty as your accuracy improves past 70%." },
+      { name: "Strengthen English with daily vocabulary", text: "Read 5 editorial words daily. Practice Reading Comprehension, Error Detection, and Cloze Test on GetVidyaAI — these three sub-topics have consistently high Tier 1 weightage." },
+      { name: "Attempt Tier 1 mock tests monthly", text: "Take one full-length Tier 1 mock test every 2 weeks on GetVidyaAI. Analyse your score section-wise. Use the weak-topic report to reprioritise your next week's study plan." },
+    ],
+  });
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bc) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(course) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
       <Navbar />
