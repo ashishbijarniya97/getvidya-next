@@ -60,12 +60,21 @@ const examHubLinks = [
 ];
 
 const resourceLinks = [
+  { label: "What is GetVidyaAI?",       href: "/what-is-getvidyaai" },
   { label: "AI Study Plan",             href: "/ai-study-plan" },
   { label: "Free Diagnostic Test",      href: "/free-assessment" },
-  { label: "GetVidya vs Coaching",      href: "/compare/getvidya-vs-coaching" },
-  { label: "GetVidya vs Testbook",      href: "/compare/getvidya-vs-testbook" },
+  { label: "Current Affairs 2026",      href: "/current-affairs" },
+  { label: "Student Reviews",           href: "/reviews" },
   { label: "Previous Year Questions",   href: "/previous-year-questions" },
-  { label: "Question Bank",             href: "/question-bank" },
+];
+
+const compareLinks = [
+  { label: "All Comparisons",           href: "/compare" },
+  { label: "vs Platform A",             href: "/compare/getvidya-vs-platform-a" },
+  { label: "vs Platform B",             href: "/compare/getvidya-vs-platform-b" },
+  { label: "vs Testbook",               href: "/compare/getvidya-vs-testbook" },
+  { label: "vs Offline Coaching",       href: "/compare/getvidya-vs-coaching" },
+  { label: "vs Other Apps",             href: "/compare/getvidya-vs-other-apps" },
 ];
 
 const cityLinks = [
@@ -130,7 +139,7 @@ export default function Footer() {
 
       {/* Main Footer Grid */}
       <div className="container-xl py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* Col 1: Brand + Socials + WhatsApp CTA */}
           <div>
@@ -188,7 +197,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Locations */}
+          {/* Col 4: Compare */}
+          <div>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Compare</h4>
+            <ul className="space-y-3">
+              {compareLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-white/60 text-sm hover:text-accent transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Locations */}
           <div>
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Locations</h4>
             <ul className="space-y-3 mb-8">
