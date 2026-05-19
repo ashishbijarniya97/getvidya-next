@@ -19,6 +19,7 @@ const navLinks = [
       { label: "Defence", href: "/exams/defence", icon: "🎖️", desc: "NDA / CDS" },
     ],
   },
+  { label: "Current Affairs", href: "/current-affairs" },
   { label: "Blog", href: "/blog" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },

@@ -10,6 +10,7 @@ const Stats       = dynamic(() => import("@/components/home/Stats"),       { ssr
 const ExamGrid    = dynamic(() => import("@/components/home/ExamGrid"),    { ssr: false });
 const GetVidyaAI  = dynamic(() => import("@/components/home/GetVidyaAI"), { ssr: false });
 const Features    = dynamic(() => import("@/components/home/Features"),    { ssr: false });
+const CurrentAffairs = dynamic(() => import("@/components/home/CurrentAffairs"), { ssr: false });
 const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: false });
 const CTA         = dynamic(() => import("@/components/home/CTA"),         { ssr: false });
 
@@ -89,6 +90,7 @@ export default function HomePage() {
         <ExamGrid />
         <GetVidyaAI />
         <Features />
+        <CurrentAffairs />
         <Testimonials />
         <CTA />
       </main>
