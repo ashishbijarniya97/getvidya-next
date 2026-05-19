@@ -19,20 +19,12 @@ const navLinks = [
       { label: "Defence", href: "/exams/defence", icon: "🎖️", desc: "NDA / CDS" },
     ],
   },
-  {
-    label: "Free Resources", href: "#",
-    dropdown: [
-      { label: "PYQ Sets", href: "/previous-year-questions", icon: "📅", desc: "Past 10 years question papers" },
-      { label: "Question Bank", href: "/question-bank", icon: "📊", desc: "1.2 lakh+ free MCQs" },
-    ],
-  },
   { label: "Blog", href: "/blog" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
-const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
