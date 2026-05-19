@@ -44,10 +44,49 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     keywords: post.tags.join(", "),
     publisher: {
       "@type": "Organization",
-      name: "GetVidya",
+      name: "GetVidyaAI",
       logo: { "@type": "ImageObject", url: "https://getvidya.in/images/logo-gv-full.png" },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `https://getvidya.in/blog/${params.slug}` },
+  };
+
+  const brandFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is GetVidyaAI?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "GetVidyaAI is India's first AI-powered government exam prep platform by Prepdot Solutions Pvt. Ltd. It offers 1,200+ mock tests and 140,000+ MCQs for SSC CGL, UPSC, Banking, Railway, and State PSC exams, with an AI engine that adapts question difficulty based on your accuracy and builds a personalized weekly study plan.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is GetVidyaAI free to use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. GetVidyaAI offers a free 25-question diagnostic assessment, 25 lifetime free AI practice questions, and select free mock tests — no credit card required. The Vidya Pass unlocks unlimited access at ₹499/year (less than ₹1.40/day).",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which government exams does GetVidyaAI cover?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "GetVidyaAI covers SSC CGL, SSC CHSL, SSC MTS, UPSC CSE, SBI PO, SBI Clerk, IBPS PO, Railway RRB NTPC, Railway Group D, RPSC RAS, UPPSC, MPPSC, and NDA/CDS — with adaptive mock tests and AI study plans for each exam.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How is GetVidyaAI different from Testbook or Adda247?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "GetVidyaAI uses AI to identify your exact weak topics on Day 1 via a diagnostic test, then rebuilds your study plan weekly based on real accuracy data — not a fixed schedule. Testbook and Adda247 follow preset video courses. GetVidyaAI is priced at ₹499/year vs Testbook Pass at ₹700–₹2,000/month.",
+        },
+      },
+    ],
   };
 
   return (
@@ -63,6 +102,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(brandFaqSchema) }}
       />
 
       <Navbar />
