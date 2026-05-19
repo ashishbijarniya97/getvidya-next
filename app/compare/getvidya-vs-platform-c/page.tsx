@@ -16,7 +16,7 @@ export const metadata = generateSEO({
     "SSC CGL mock test app comparison 2026",
     "UPSC test series comparison India",
   ],
-  canonical: "/compare/getvidya-vs-testbook",
+  canonical: "/compare/getvidya-vs-platform-c",
 });
 
 const comparison = [
@@ -126,7 +126,7 @@ export default function CompareTestbookPage() {
   const bc = breadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Compare", url: "/compare" },
-    { name: "GetVidyaAI vs Platform C", url: "/compare/getvidya-vs-testbook" },
+    { name: "GetVidyaAI vs Platform C", url: "/compare/getvidya-vs-platform-c" },
   ]);
   const reviews = reviewSchema({ itemName: "GetVidyaAI vs Platform C Comparison", ratingValue: "4.7", reviewCount: "1680" });
 

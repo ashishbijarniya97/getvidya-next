@@ -72,7 +72,7 @@ const compareLinks = [
   { label: "All Comparisons",           href: "/compare" },
   { label: "vs Platform A",             href: "/compare/getvidya-vs-platform-a" },
   { label: "vs Platform B",             href: "/compare/getvidya-vs-platform-b" },
-  { label: "vs Platform C",              href: "/compare/getvidya-vs-testbook" },
+  { label: "vs Platform C",              href: "/compare/getvidya-vs-platform-c" },
   { label: "vs Offline Coaching",       href: "/compare/getvidya-vs-coaching" },
   { label: "vs Other Apps",             href: "/compare/getvidya-vs-other-apps" },
 ];

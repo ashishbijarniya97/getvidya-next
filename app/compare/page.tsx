@@ -39,7 +39,7 @@ const COMPARISONS = [
     verdict: "GetVidyaAI wins on price (17–48×), personalisation, and study plan. Platform B wins on raw volume.",
   },
   {
-    slug: "getvidya-vs-testbook",
+    slug: "getvidya-vs-platform-c",
     title: "GetVidyaAI vs Platform C",
     subtitle: "AI Study Plan vs Pass Subscription Model",
     desc: "Platform C is a popular test series platform with a subscription model. GetVidyaAI's AI diagnoses your weak subjects on Day 1 and rebuilds your study plan weekly — at ₹499/year with no paywalled content.",
