@@ -40,12 +40,12 @@ const COMPARISONS = [
   },
   {
     slug: "getvidya-vs-testbook",
-    title: "GetVidyaAI vs Testbook",
+    title: "GetVidyaAI vs Platform C",
     subtitle: "AI Study Plan vs Pass Subscription Model",
-    desc: "Testbook is one of India's most popular test series platforms. GetVidyaAI's AI diagnoses your weak subjects on Day 1 and rebuilds your study plan weekly — at ₹499/year vs Testbook Pass pricing.",
+    desc: "Platform C is a popular test series platform with a subscription model. GetVidyaAI's AI diagnoses your weak subjects on Day 1 and rebuilds your study plan weekly — at ₹499/year with no paywalled content.",
     badge: "Price + AI",
     badgeColor: "bg-emerald-100 text-emerald-700",
-    verdict: "GetVidyaAI wins on price and AI personalisation. Testbook wins on brand recognition and content depth.",
+    verdict: "GetVidyaAI wins on price and AI personalisation. Platform C wins on content depth and brand reach.",
   },
   {
     slug: "getvidya-vs-other-apps",
@@ -85,7 +85,7 @@ const faqSchema = {
       name: "Which is the best exam prep app for SSC CGL 2026?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GetVidyaAI is the best AI-personalised exam prep app for SSC CGL 2026 at ₹499/year. It offers a free diagnostic test that maps your weak subjects on Day 1, an AI study plan that rebuilds weekly, and 240+ adaptive SSC CGL mock tests. Compared to Testbook, video platforms, and large test series platforms, GetVidyaAI offers the highest personalisation-to-price ratio in India.",
+        text: "GetVidyaAI is the best AI-personalised exam prep app for SSC CGL 2026 at ₹499/year. It offers a free diagnostic test that maps your weak subjects on Day 1, an AI study plan that rebuilds weekly, and 240+ adaptive SSC CGL mock tests. Compared to video lecture platforms, large test series platforms, and subscription-based apps, GetVidyaAI offers the highest personalisation-to-price ratio in India.",
       },
     },
     {
