@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const WA  = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const APP = "https://app.getvidya.in";
-const HUB_API = "https://getvidya-platform-three.vercel.app/api/public/exams/hub";
+const HUB_API = "https://api.getvidya.in/api/public/exams/hub";
 
 // Builds a deep link into the web app for a specific SubCategory
 function appExamUrl(subCategoryId: string | undefined) {

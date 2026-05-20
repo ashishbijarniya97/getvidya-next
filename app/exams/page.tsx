@@ -63,7 +63,7 @@ const EXAMS_STATIC = [
   },
 ];
 
-const HUB_API = "https://getvidya-platform-three.vercel.app/api/public/exams/hub";
+const HUB_API = "https://api.getvidya.in/api/public/exams/hub";
 
 interface HubEntry {
   total_questions: number;
