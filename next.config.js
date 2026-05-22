@@ -11,15 +11,6 @@ const nextConfig = {
       { protocol: "https", hostname: "**.supabase.co" },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/compare/getvidya-vs-testbook",
-        destination: "/compare/getvidya-vs-platform-c",
-        permanent: true,
-      },
-    ];
-  },
   async headers() {
     return [
       {
