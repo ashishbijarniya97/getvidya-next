@@ -4,6 +4,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ArrowRight, Calendar, Brain, Target, BookOpen, Zap } from "lucide-react";
 
+export const revalidate = 3600; // ISR — rebuild at most once per hour
+
 export const metadata = generateSEO({
   title: "Current Affairs for SSC CGL UPSC 2026 — Weekly Updates by GetVidyaAI",
   description:
@@ -20,32 +22,57 @@ export const metadata = generateSEO({
   ],
 });
 
-const WEEKS = [
-  {
-    label: "Week 3 — May 2026",
-    date: "May 12–18, 2026",
-    href: "/current-affairs/may-2026-week-3",
-    topics: ["India-UAE digital payment corridor", "ISRO PSLV-C61 launch", "RBI MPC rate decision", "ICC Women's T20 WC"],
-    badge: "Latest",
-    badgeColor: "bg-accent text-primary-500",
-  },
-  {
-    label: "Week 2 — May 2026",
-    date: "May 5–11, 2026",
-    href: "/current-affairs/may-2026-week-3",
-    topics: ["Operation Sindoor outcomes", "India GDP Q4 data release", "WHO Global TB Report", "New Education Policy update"],
-    badge: "Popular",
-    badgeColor: "bg-blue-100 text-blue-700",
-  },
-  {
-    label: "Week 1 — May 2026",
-    date: "Apr 28 – May 4, 2026",
-    href: "/current-affairs/may-2026-week-3",
-    topics: ["India-Pakistan ceasefire agreement", "Chandrayaan-4 mission approved", "RBI FY27 growth forecast", "IPL 2026 season opens"],
-    badge: "",
-    badgeColor: "",
-  },
+const MONTH_NAMES = [
+  "january","february","march","april","may","june",
+  "july","august","september","october","november","december",
 ];
+
+const DISPLAY_MONTHS = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December",
+];
+
+function weekSlug(weekStart: string) {
+  const d = new Date(weekStart + "T00:00:00Z");
+  const month = MONTH_NAMES[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  const weekNum = Math.ceil(d.getUTCDate() / 7);
+  return `${month}-${year}-week-${weekNum}`;
+}
+
+function weekLabel(weekStart: string) {
+  const d = new Date(weekStart + "T00:00:00Z");
+  const month = DISPLAY_MONTHS[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  const weekNum = Math.ceil(d.getUTCDate() / 7);
+  // End of week = Sunday = start + 6 days
+  const end = new Date(d);
+  end.setUTCDate(d.getUTCDate() + 6);
+  const endDay = end.getUTCDate();
+  return {
+    label: `Week ${weekNum} — ${month} ${year}`,
+    date: `${month} ${d.getUTCDate()}–${endDay}, ${year}`,
+  };
+}
+
+interface WeekRow {
+  week_start: string;
+  status: string;
+}
+
+async function fetchWeeks(): Promise<WeekRow[]> {
+  try {
+    const res = await fetch(
+      "https://api.getvidya.in/api/current-affairs-weeks",
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) return [];
+    const json = await res.json();
+    return (json.weeks ?? []) as WeekRow[];
+  } catch {
+    return [];
+  }
+}
 
 const CATEGORIES = [
   { icon: Target, label: "National Affairs", desc: "Parliament, government schemes, awards, appointments" },
@@ -63,7 +90,12 @@ const steps = [
   { name: "Attempt previous year CA-heavy mock sections", text: "SSC CGL and IBPS PO include 4–8 current affairs questions per paper. Attempt GetVidyaAI's GK section mock tests filtered by 'current affairs' tag to track improvement over time." },
 ];
 
-export default function CurrentAffairsPage() {
+export default async function CurrentAffairsPage() {
+  const weeks = await fetchWeeks();
+
+  // Latest published week for hero CTA
+  const latestSlug = weeks.length > 0 ? weekSlug(weeks[0].week_start) : "may-2026-week-3";
+
   const bc = breadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Current Affairs", url: "/current-affairs" },
@@ -124,7 +156,7 @@ export default function CurrentAffairsPage() {
               AI-curated weekly current affairs covering national, international, economy, science, and sports — aligned to SSC CGL, UPSC CSE, IBPS PO, and Railway exam patterns.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/current-affairs/may-2026-week-3" className="btn-primary px-7 py-3.5 rounded-2xl flex items-center gap-2 w-fit">
+              <Link href={`/current-affairs/${latestSlug}`} className="btn-primary px-7 py-3.5 rounded-2xl flex items-center gap-2 w-fit">
                 Read This Week <ArrowRight size={16} />
               </Link>
               <Link href="https://app.getvidya.in" className="btn-secondary px-7 py-3.5 rounded-2xl w-fit">
@@ -138,29 +170,42 @@ export default function CurrentAffairsPage() {
         <section className="py-16 bg-white">
           <div className="container-xl max-w-4xl">
             <h2 className="text-2xl font-bold text-primary-500 mb-8">Recent Editions</h2>
-            <div className="space-y-4">
-              {WEEKS.map(({ label, date, href, topics, badge, badgeColor }) => (
-                <Link key={label} href={href} className="block p-5 rounded-2xl border border-slate-200 hover:border-teal hover:shadow-card transition-all group">
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-bold text-slate-800">{label}</span>
-                        {badge && <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${badgeColor}`}>{badge}</span>}
+            {weeks.length === 0 ? (
+              <p className="text-slate-500">Weekly editions will appear here every Monday.</p>
+            ) : (
+              <div className="space-y-4">
+                {weeks.map((w, i) => {
+                  const { label, date } = weekLabel(w.week_start);
+                  const slug = weekSlug(w.week_start);
+                  const badge = i === 0 ? "Latest" : "";
+                  const badgeColor = i === 0 ? "bg-accent text-primary-500" : "";
+                  return (
+                    <Link
+                      key={w.week_start}
+                      href={`/current-affairs/${slug}`}
+                      className="block p-5 rounded-2xl border border-slate-200 hover:border-teal hover:shadow-card transition-all group"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span className="font-bold text-slate-800">{label}</span>
+                            {badge && (
+                              <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${badgeColor}`}>
+                                {badge}
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-slate-400 text-sm flex items-center gap-1.5">
+                            <Calendar size={12} /> {date}
+                          </div>
+                        </div>
+                        <ArrowRight size={18} className="text-slate-300 group-hover:text-teal transition-colors shrink-0 mt-1" />
                       </div>
-                      <div className="text-slate-400 text-sm flex items-center gap-1.5">
-                        <Calendar size={12} /> {date}
-                      </div>
-                    </div>
-                    <ArrowRight size={18} className="text-slate-300 group-hover:text-teal transition-colors shrink-0 mt-1" />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {topics.map(t => (
-                      <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">{t}</span>
-                    ))}
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </section>
 
@@ -185,7 +230,7 @@ export default function CurrentAffairsPage() {
           </div>
         </section>
 
-        {/* How to prepare — schema target */}
+        {/* How to prepare */}
         <section className="py-16 bg-white">
           <div className="container-xl max-w-3xl">
             <h2 className="text-2xl font-bold text-primary-500 mb-2">How to Prepare Current Affairs for Govt Exams</h2>
