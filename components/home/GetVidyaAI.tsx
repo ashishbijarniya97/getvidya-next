@@ -95,7 +95,7 @@ export default function GetVidyaAI() {
               href="/ai-tutor"
               className="inline-flex items-center gap-2 bg-accent text-primary-500 font-semibold px-6 py-3 rounded-2xl mt-4 hover:bg-accent/90 transition-colors"
             >
-              Try GetVidyaAI Free <ArrowRight size={16} />
+              Know More <ArrowRight size={16} />
             </Link>
           </StaggerItem>
         </StaggerContainer>
