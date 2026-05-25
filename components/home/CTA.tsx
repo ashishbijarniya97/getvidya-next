@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 const perks = ["No credit card required", "Free tests available", "Cancel anytime"];
 
 export default function CTA() {
   return (
     <section className="py-24 bg-gradient-primary relative overflow-hidden">
+      <AuroraBackground className="opacity-35" />
       <div className="absolute inset-0 opacity-[0.05]"
         style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
       />

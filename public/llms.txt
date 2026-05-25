@@ -101,7 +101,7 @@ A: GetVidyaAI recommends: 2 full mock tests per week in the last 8 weeks before 
 - GetVidya vs Other Apps: https://getvidya.in/compare/getvidya-vs-other-apps
 - Rajasthan Aspirants: https://getvidya.in/rajasthan
 - Founder: https://getvidya.in/founder-ashish-bijarniya
-- Android App: https://play.google.com/store/apps/details?id=in.getvidya.app
+- Android App: https://play.google.com/store/apps/details?id=app.getvidya.prod
 - Contact: https://getvidya.in/contact
 
 ## Social Profiles

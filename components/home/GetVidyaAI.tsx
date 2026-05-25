@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Brain, Flame, Map, Crosshair, BarChart3, Sparkles } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 const features = [
   {
@@ -55,6 +56,7 @@ const features = [
 export default function GetVidyaAI() {
   return (
     <section className="py-24 bg-primary-500 relative overflow-hidden">
+      <AuroraBackground className="opacity-40" />
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

@@ -15,9 +15,9 @@ const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { s
 const CTA         = dynamic(() => import("@/components/home/CTA"),         { ssr: false });
 
 export const metadata = generateSEO({
-  title: "GetVidyaAI — Free SSC CGL UPSC Mock Test | AI-Powered Govt Exam Prep",
+  title: "GetVidyaAI — Free AI Mock Tests for Govt Exams",
   description:
-    "GetVidyaAI is India's first AI-powered government exam prep platform. Free diagnostic test identifies your weak subjects instantly. 1,200+ mock tests, 140,000+ MCQs for SSC CGL, UPSC, Railway, Banking. Start free — no card needed.",
+    "India's first AI-powered govt exam prep. Free diagnostic finds weak subjects in 20 min. 1,200+ mocks, 140K+ MCQs — SSC CGL, UPSC, Railway, Banking.",
   keywords: [
     "ssc cgl mock test free",
     "upsc prelims mock test free",

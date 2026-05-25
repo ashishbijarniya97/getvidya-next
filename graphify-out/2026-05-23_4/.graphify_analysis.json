@@ -1,0 +1,1001 @@
+{
+  "communities": {
+    "0": [
+      "app_admin_protected_blog_id_edit_page_tsx",
+      "app_admin_protected_blog_new_page_tsx",
+      "app_admin_protected_blog_page_tsx",
+      "app_admin_protected_layout_tsx",
+      "app_api_admin_auto_questions_route_ts",
+      "app_api_admin_auto_questions_route_ts_auto_questions_route_get",
+      "app_api_admin_blog_id_route_ts",
+      "app_api_admin_blog_route_ts",
+      "app_api_admin_blog_upload_route_ts",
+      "app_api_admin_leads_route_ts",
+      "app_api_admin_questions_import_route_ts",
+      "app_api_leads_route_ts",
+      "auto_questions_route_buildprompt",
+      "auto_questions_route_gemini",
+      "auto_questions_route_generatewithgemini",
+      "auto_questions_route_generatewithgroq",
+      "auto_questions_route_generatewithopenai",
+      "auto_questions_route_groq",
+      "auto_questions_route_openai",
+      "auto_questions_route_parsecsvtorecords",
+      "auto_questions_route_post",
+      "auto_questions_route_rowstorecords",
+      "auto_questions_route_targets",
+      "blog_blogeditor_blogeditor",
+      "blog_blogeditor_extractexcerpt",
+      "blog_blogeditor_props",
+      "blog_page_blogadminpage",
+      "blog_page_statusbadge",
+      "blog_route_get",
+      "blog_route_post",
+      "blog_route_triggerrevalidate",
+      "components_admin_blog_blogeditor_tsx",
+      "edit_page_editblogpostpage",
+      "edit_page_props",
+      "id_route_delete",
+      "id_route_get",
+      "id_route_params",
+      "id_route_put",
+      "id_route_triggerrevalidate",
+      "import_route_parsecsv",
+      "import_route_post",
+      "import_route_rawrow",
+      "import_route_valid_categories",
+      "import_route_valid_options",
+      "import_route_valid_source_types",
+      "import_route_valid_subjects",
+      "import_route_validaterow",
+      "leads_route_get",
+      "leads_route_patch",
+      "leads_route_post",
+      "leads_route_requireadmin",
+      "lib_blog_blogpost",
+      "lib_blog_getallpostsadmin",
+      "lib_blog_getallpublishedslugs",
+      "lib_blog_getpostadmin",
+      "lib_blog_ts",
+      "lib_supabase_server_ts",
+      "protected_layout_adminlayout",
+      "protected_layout_metadata",
+      "supabase_server_createclient",
+      "supabase_server_createpublicclient",
+      "supabase_server_createserviceclient",
+      "upload_route_post"
+    ],
+    "1": [
+      "admin_adminsidebar_nav",
+      "app_admin_login_adminloginclient_tsx",
+      "app_admin_login_page_tsx",
+      "app_admin_protected_content_page_tsx",
+      "app_admin_protected_leads_page_tsx",
+      "app_admin_protected_questions_page_tsx",
+      "app_contact_contactclient_tsx",
+      "app_contact_page_tsx",
+      "components_admin_adminsidebar_tsx",
+      "contact_contactclient_formdata",
+      "contact_contactclient_loading_steps",
+      "contact_contactclient_loadingoverlay",
+      "contact_contactclient_phase",
+      "contact_contactclient_schema",
+      "contact_contactclient_successstate",
+      "contact_page_contactpage",
+      "contact_page_metadata",
+      "content_page_contentpage",
+      "content_page_sections",
+      "leads_page_leadspage",
+      "leads_page_parseassessment",
+      "leads_page_scorebadge",
+      "leads_page_status_colors",
+      "leads_page_status_options",
+      "lib_supabase_client_ts",
+      "login_page_adminloginpage",
+      "login_page_metadata",
+      "questions_page_categories",
+      "questions_page_category_colors",
+      "questions_page_optionbadge",
+      "questions_page_question",
+      "questions_page_questionrow",
+      "questions_page_questionspage",
+      "questions_page_source_types",
+      "questions_page_subject_colors",
+      "questions_page_subjects",
+      "supabase_client_createclient",
+      "types_index_blogpost",
+      "types_index_exam",
+      "types_index_lead",
+      "types_index_sitecontent",
+      "types_index_ts"
+    ],
+    "2": [
+      "admin_adminsidebar_adminsidebar",
+      "blog_blogeditor_generateslug",
+      "blog_editortoolbar_btn",
+      "blog_editortoolbar_divider",
+      "blog_editortoolbar_editortoolbar",
+      "blog_editortoolbar_props",
+      "components_admin_blog_editortoolbar_tsx",
+      "getvidya_next_package_dependencies",
+      "getvidya_next_package_dependencies_clsx",
+      "getvidya_next_package_dependencies_framer_motion",
+      "getvidya_next_package_dependencies_google_generative_ai",
+      "getvidya_next_package_dependencies_hookform_resolvers",
+      "getvidya_next_package_dependencies_lenis",
+      "getvidya_next_package_dependencies_lowlight",
+      "getvidya_next_package_dependencies_lucide_react",
+      "getvidya_next_package_dependencies_next",
+      "getvidya_next_package_dependencies_openai",
+      "getvidya_next_package_dependencies_react",
+      "getvidya_next_package_dependencies_react_dom",
+      "getvidya_next_package_dependencies_react_hook_form",
+      "getvidya_next_package_dependencies_recharts",
+      "getvidya_next_package_dependencies_sharp",
+      "getvidya_next_package_dependencies_slugify",
+      "getvidya_next_package_dependencies_studio_freight_react_lenis",
+      "getvidya_next_package_dependencies_supabase_ssr",
+      "getvidya_next_package_dependencies_supabase_supabase_js",
+      "getvidya_next_package_dependencies_tailwind_merge",
+      "getvidya_next_package_dependencies_tailwindcss_typography",
+      "getvidya_next_package_dependencies_tiptap_extension_character_count",
+      "getvidya_next_package_dependencies_tiptap_extension_code_block_lowlight",
+      "getvidya_next_package_dependencies_tiptap_extension_highlight",
+      "getvidya_next_package_dependencies_tiptap_extension_image",
+      "getvidya_next_package_dependencies_tiptap_extension_link",
+      "getvidya_next_package_dependencies_tiptap_extension_placeholder",
+      "getvidya_next_package_dependencies_tiptap_extension_table",
+      "getvidya_next_package_dependencies_tiptap_extension_table_header",
+      "getvidya_next_package_dependencies_tiptap_extension_text_align",
+      "getvidya_next_package_dependencies_tiptap_extension_underline",
+      "getvidya_next_package_dependencies_tiptap_pm",
+      "getvidya_next_package_dependencies_tiptap_react",
+      "getvidya_next_package_dependencies_tiptap_starter_kit",
+      "getvidya_next_package_dependencies_zod"
+    ],
+    "3": [
+      "app_exams_page_tsx",
+      "app_exams_slug_page_tsx",
+      "app_exams_slug_page_tsx_slug_page_generatemetadata",
+      "app_not_found_container",
+      "app_not_found_item",
+      "app_not_found_quicklinks",
+      "app_not_found_tsx",
+      "app_page_getvidyaai",
+      "app_page_testimonials",
+      "components_home_examgrid_tsx",
+      "components_home_features_tsx",
+      "components_ui_magneticbutton_tsx",
+      "exams_page_exams_static",
+      "exams_page_examspage",
+      "exams_page_fetchhub",
+      "exams_page_hubentry",
+      "exams_page_metadata",
+      "home_examgrid_examgrid",
+      "home_examgrid_exams",
+      "home_features_feature",
+      "home_features_features",
+      "home_getvidyaai_features",
+      "home_getvidyaai_getvidyaai",
+      "home_testimonials_slidevariants",
+      "home_testimonials_testimonials",
+      "slug_page_appexamurl",
+      "slug_page_examhubentry",
+      "slug_page_exampage",
+      "slug_page_exams",
+      "slug_page_generatestaticparams",
+      "slug_page_testentry",
+      "slug_page_testtiersection",
+      "ui_animatein_animatein",
+      "ui_animatein_animateinprops",
+      "ui_animatein_fadeinleft",
+      "ui_animatein_fadeinright",
+      "ui_animatein_scalein",
+      "ui_animatein_staggercontainer",
+      "ui_animatein_staggeritem",
+      "ui_animatein_variants",
+      "ui_magneticbutton_magneticbuttonprops"
+    ],
+    "4": [
+      "app_page_cta",
+      "app_page_currentaffairs",
+      "app_page_examgrid",
+      "app_page_features",
+      "app_page_homefaqs",
+      "app_page_homepage",
+      "app_page_metadata",
+      "app_page_stats",
+      "app_page_tsx",
+      "components_home_hero_tsx",
+      "components_home_ticker_tsx",
+      "home_currentaffairs_categories",
+      "home_currentaffairs_currentaffairs",
+      "home_currentaffairs_weeks",
+      "home_hero_badges",
+      "home_hero_hero",
+      "home_hero_stats",
+      "home_ticker_items",
+      "home_ticker_ticker",
+      "lib_seo_educationalappschema"
+    ],
+    "5": [
+      "getvidya_next_tsconfig_compileroptions",
+      "getvidya_next_tsconfig_compileroptions_allowjs",
+      "getvidya_next_tsconfig_compileroptions_esmoduleinterop",
+      "getvidya_next_tsconfig_compileroptions_incremental",
+      "getvidya_next_tsconfig_compileroptions_isolatedmodules",
+      "getvidya_next_tsconfig_compileroptions_jsx",
+      "getvidya_next_tsconfig_compileroptions_lib",
+      "getvidya_next_tsconfig_compileroptions_module",
+      "getvidya_next_tsconfig_compileroptions_moduleresolution",
+      "getvidya_next_tsconfig_compileroptions_noemit",
+      "getvidya_next_tsconfig_compileroptions_paths",
+      "getvidya_next_tsconfig_compileroptions_plugins",
+      "getvidya_next_tsconfig_compileroptions_resolvejsonmodule",
+      "getvidya_next_tsconfig_compileroptions_skiplibcheck",
+      "getvidya_next_tsconfig_compileroptions_strict",
+      "getvidya_next_tsconfig_compileroptions_target",
+      "getvidya_next_tsconfig_exclude",
+      "getvidya_next_tsconfig_include",
+      "getvidya_next_tsconfig_paths",
+      "tsconfig_json"
+    ],
+    "6": [
+      "getvidya_next_package_devdependencies",
+      "getvidya_next_package_devdependencies_autoprefixer",
+      "getvidya_next_package_devdependencies_eslint",
+      "getvidya_next_package_devdependencies_eslint_config_next",
+      "getvidya_next_package_devdependencies_netlify_plugin_nextjs",
+      "getvidya_next_package_devdependencies_postcss",
+      "getvidya_next_package_devdependencies_tailwindcss",
+      "getvidya_next_package_devdependencies_types_node",
+      "getvidya_next_package_devdependencies_types_react",
+      "getvidya_next_package_devdependencies_typescript",
+      "getvidya_next_package_name",
+      "getvidya_next_package_private",
+      "getvidya_next_package_scripts",
+      "getvidya_next_package_scripts_build",
+      "getvidya_next_package_scripts_dev",
+      "getvidya_next_package_scripts_lint",
+      "getvidya_next_package_scripts_start",
+      "getvidya_next_package_version",
+      "package_json"
+    ],
+    "7": [
+      "about_page_aboutpage",
+      "about_page_metadata",
+      "about_page_values",
+      "app_about_page_tsx",
+      "app_founder_ashish_bijarniya_page_tsx",
+      "components_home_cta_tsx",
+      "founder_ashish_bijarniya_page_education",
+      "founder_ashish_bijarniya_page_founderpage",
+      "founder_ashish_bijarniya_page_metadata",
+      "founder_ashish_bijarniya_page_personschema",
+      "founder_ashish_bijarniya_page_roadmap",
+      "founder_ashish_bijarniya_page_skills",
+      "founder_ashish_bijarniya_page_socialproof",
+      "founder_ashish_bijarniya_page_stats",
+      "founder_ashish_bijarniya_page_techstack",
+      "founder_ashish_bijarniya_page_timeline",
+      "home_cta_cta",
+      "home_cta_perks"
+    ],
+    "8": [
+      "app_city_city_page_tsx",
+      "app_not_found_notfound",
+      "app_rajasthan_page_tsx",
+      "city_page_cities",
+      "city_page_cityfaqs",
+      "city_page_citypage",
+      "city_page_generatemetadata",
+      "city_page_generatestaticparams",
+      "lib_seo_generateseo",
+      "lib_seo_localbusinessschema",
+      "rajasthan_page_metadata",
+      "rajasthan_page_rajasthan_cities",
+      "rajasthan_page_rajasthan_exams",
+      "rajasthan_page_rajasthanfaqs",
+      "rajasthan_page_rajasthanpage"
+    ],
+    "9": [
+      "app_compare_getvidya_vs_coaching_page_tsx",
+      "app_compare_getvidya_vs_platform_c_page_tsx",
+      "app_compare_getvidya_vs_testbook_page_tsx",
+      "getvidya_vs_coaching_page_comparecoachingpage",
+      "getvidya_vs_coaching_page_comparison",
+      "getvidya_vs_coaching_page_faqs",
+      "getvidya_vs_coaching_page_metadata",
+      "getvidya_vs_platform_c_page_comparetestbookpage",
+      "getvidya_vs_platform_c_page_comparison",
+      "getvidya_vs_platform_c_page_faqs",
+      "getvidya_vs_platform_c_page_metadata",
+      "getvidya_vs_testbook_page_comparetestbookpage",
+      "getvidya_vs_testbook_page_faqs",
+      "getvidya_vs_testbook_page_metadata",
+      "lib_seo_reviewschema"
+    ],
+    "10": [
+      "app_exams_ssc_cgl_mock_tests_page_tsx",
+      "app_exams_upsc_prelims_strategy_page_tsx",
+      "lib_seo_courseschema",
+      "mock_tests_page_faqs",
+      "mock_tests_page_highlights",
+      "mock_tests_page_metadata",
+      "mock_tests_page_sectionweightage",
+      "mock_tests_page_sscmocktestspage",
+      "mock_tests_page_testtypes",
+      "prelims_strategy_page_csat_topics",
+      "prelims_strategy_page_faqs",
+      "prelims_strategy_page_gs1_topics",
+      "prelims_strategy_page_metadata",
+      "prelims_strategy_page_strategy_steps",
+      "prelims_strategy_page_upscprelimsstrategypage"
+    ],
+    "11": [
+      "app_blog_page_tsx",
+      "app_blog_slug_page_tsx",
+      "app_blog_slug_page_tsx_slug_page_generatemetadata",
+      "app_sitemap_city_slugs",
+      "app_sitemap_sitemap",
+      "app_sitemap_ts",
+      "blog_page_blogpage",
+      "blog_page_metadata",
+      "blog_page_tagcolor",
+      "lib_blog_formatblogdate",
+      "lib_blog_getpublishedpost",
+      "lib_blog_normalizeseocontent",
+      "lib_blog_readingtime",
+      "slug_page_blogpostpage"
+    ],
+    "12": [
+      "components_layout_footer_tsx",
+      "layout_footer_citylinks",
+      "layout_footer_comparelinks",
+      "layout_footer_examhublinks",
+      "layout_footer_facebookicon",
+      "layout_footer_footer",
+      "layout_footer_legallinks",
+      "layout_footer_resourcelinks",
+      "layout_footer_socials",
+      "layout_footer_telegramicon",
+      "layout_footer_whatsappicon",
+      "layout_footer_xicon",
+      "layout_footer_youtubeicon",
+      "linkedin_svg"
+    ],
+    "13": [
+      "app_compare_getvidya_vs_platform_a_page_tsx",
+      "app_pricing_pricingclient_tsx",
+      "getvidya_vs_platform_a_page_bc",
+      "getvidya_vs_platform_a_page_comparisonschema",
+      "getvidya_vs_platform_a_page_faqs",
+      "getvidya_vs_platform_a_page_metadata",
+      "getvidya_vs_platform_a_page_testimonials",
+      "getvidya_vs_platform_a_page_vsplatformapage",
+      "getvidya_vs_testbook_page_comparison",
+      "pricing_pricingclient_cellvalue",
+      "pricing_pricingclient_faqs",
+      "pricing_pricingclient_plans"
+    ],
+    "14": [
+      "ai_study_plan_page_aistudyplanpage",
+      "ai_study_plan_page_faqs",
+      "ai_study_plan_page_how_it_works_steps",
+      "ai_study_plan_page_metadata",
+      "app_ai_study_plan_page_tsx",
+      "app_exams_ssc_cgl_syllabus_page_tsx",
+      "lib_seo_howtoschema",
+      "syllabus_page_faqs",
+      "syllabus_page_metadata",
+      "syllabus_page_ssccglsyllabuspage",
+      "syllabus_page_tier1_sections",
+      "syllabus_page_tier2_sections"
+    ],
+    "15": [
+      "app_current_affairs_page_tsx",
+      "current_affairs_page_categories",
+      "current_affairs_page_currentaffairspage",
+      "current_affairs_page_display_months",
+      "current_affairs_page_fetchweeks",
+      "current_affairs_page_metadata",
+      "current_affairs_page_month_names",
+      "current_affairs_page_steps",
+      "current_affairs_page_weeklabel",
+      "current_affairs_page_weekrow",
+      "current_affairs_page_weekslug"
+    ],
+    "16": [
+      "app_compare_getvidya_vs_other_apps_page_tsx",
+      "app_pricing_page_tsx",
+      "getvidya_vs_other_apps_page_compareotherappspage",
+      "getvidya_vs_other_apps_page_comparison",
+      "getvidya_vs_other_apps_page_faqs",
+      "getvidya_vs_other_apps_page_metadata",
+      "lib_seo_breadcrumbschema",
+      "pricing_page_metadata",
+      "pricing_page_pricingfaqs",
+      "pricing_page_pricingpage"
+    ],
+    "17": [
+      "scripts_migrate_hashnode_to_supabase_db",
+      "scripts_migrate_hashnode_to_supabase_extractexcerpt",
+      "scripts_migrate_hashnode_to_supabase_fetchallslugs",
+      "scripts_migrate_hashnode_to_supabase_fetchfullpost",
+      "scripts_migrate_hashnode_to_supabase_hnpostfull",
+      "scripts_migrate_hashnode_to_supabase_hnpostnode",
+      "scripts_migrate_hashnode_to_supabase_hnquery",
+      "scripts_migrate_hashnode_to_supabase_hntag",
+      "scripts_migrate_hashnode_to_supabase_main",
+      "scripts_migrate_hashnode_to_supabase_ts"
+    ],
+    "18": [
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_layout_tsx",
+      "lib_seo_organizationschema",
+      "lib_seo_seoprops",
+      "lib_seo_site_config",
+      "lib_seo_ts",
+      "lib_seo_websiteschema",
+      "providers_smoothscroll_smoothscroll"
+    ],
+    "19": [
+      "app_free_assessment_freeassessmentclient_tsx",
+      "app_free_assessment_page_tsx",
+      "free_assessment_freeassessmentclient_exams",
+      "free_assessment_freeassessmentclient_q",
+      "free_assessment_freeassessmentclient_quiz_by_exam",
+      "free_assessment_freeassessmentclient_step",
+      "free_assessment_freeassessmentclient_subject_map",
+      "free_assessment_page_freeassessmentpage",
+      "free_assessment_page_metadata"
+    ],
+    "20": [
+      "app_practice_exam_topic_page_tsx",
+      "topic_page_buildquizschema",
+      "topic_page_dbquestion",
+      "topic_page_exam_slug_map",
+      "topic_page_fetchquestions",
+      "topic_page_generatemetadata",
+      "topic_page_practicetopicpage",
+      "topic_page_slugtolabel",
+      "topic_page_topic_slug_map"
+    ],
+    "21": [
+      "app_privacy_policy_page_tsx",
+      "app_terms_of_service_page_tsx",
+      "components_layout_navbar_tsx",
+      "layout_navbar_navbar",
+      "layout_navbar_navlinks",
+      "privacy_policy_page_metadata",
+      "privacy_policy_page_privacypolicypage",
+      "terms_of_service_page_metadata",
+      "terms_of_service_page_termspage"
+    ],
+    "22": [
+      "admin_leadchart_customtooltip",
+      "admin_leadchart_datapoint",
+      "admin_leadchart_leadchart",
+      "app_admin_protected_page_tsx",
+      "protected_page_admindashboard",
+      "protected_page_getdashboardstats",
+      "protected_page_getleadchartdata",
+      "protected_page_getrecentleads",
+      "protected_page_leadchart"
+    ],
+    "23": [
+      "app_compare_getvidya_vs_platform_b_page_tsx",
+      "getvidya_vs_platform_b_page_bc",
+      "getvidya_vs_platform_b_page_comparison",
+      "getvidya_vs_platform_b_page_faqs",
+      "getvidya_vs_platform_b_page_metadata",
+      "getvidya_vs_platform_b_page_testimonials",
+      "getvidya_vs_platform_b_page_vsplatformbpage"
+    ],
+    "24": [
+      "app_ugc_net_2026_page_tsx",
+      "ugc_net_2026_page_features",
+      "ugc_net_2026_page_metadata",
+      "ugc_net_2026_page_stats",
+      "ugc_net_2026_page_subjects",
+      "ugc_net_2026_page_timeline",
+      "ugc_net_2026_page_ugcnetpage"
+    ],
+    "25": [
+      "app_what_is_getvidyaai_page_tsx",
+      "what_is_getvidyaai_page_faqs",
+      "what_is_getvidyaai_page_faqschema",
+      "what_is_getvidyaai_page_metadata",
+      "what_is_getvidyaai_page_organizationschema",
+      "what_is_getvidyaai_page_webpageschema",
+      "what_is_getvidyaai_page_whatisgetvidyaaipage"
+    ],
+    "26": [
+      "app_reviews_page_tsx",
+      "reviews_page_aggregateratingschema",
+      "reviews_page_faqschema",
+      "reviews_page_metadata",
+      "reviews_page_platforms",
+      "reviews_page_reviews",
+      "reviews_page_reviewspage"
+    ],
+    "27": [
+      "lib_hashnode_formatdate",
+      "lib_hashnode_getallslugs",
+      "lib_hashnode_getpost",
+      "lib_hashnode_getposts",
+      "lib_hashnode_hashnodepost",
+      "lib_hashnode_hashnodequery",
+      "lib_hashnode_ts"
+    ],
+    "28": [
+      "app_current_affairs_may_2026_week_3_page_tsx",
+      "may_2026_week_3_page_articleschema",
+      "may_2026_week_3_page_currentaffairsmay2026week3",
+      "may_2026_week_3_page_faqschema",
+      "may_2026_week_3_page_metadata",
+      "may_2026_week_3_page_sections"
+    ],
+    "29": [
+      "app_compare_page_tsx",
+      "compare_page_comparepage",
+      "compare_page_comparisons",
+      "compare_page_faqschema",
+      "compare_page_getvidya_advantages",
+      "compare_page_metadata"
+    ],
+    "30": [
+      "app_faqs_page_tsx",
+      "faqs_page_faq_data",
+      "faqs_page_faqspage",
+      "faqs_page_metadata",
+      "lib_seo_faqschema"
+    ],
+    "31": [
+      "app_admin_protected_auto_questions_page_tsx",
+      "auto_questions_page_autoquestionspage",
+      "auto_questions_page_stat",
+      "auto_questions_page_statusmsg"
+    ],
+    "32": [
+      "blog_seosidebar_props",
+      "blog_seosidebar_seodata",
+      "blog_seosidebar_seosidebar",
+      "components_admin_blog_seosidebar_tsx"
+    ],
+    "33": [
+      "components_home_stats_tsx",
+      "home_stats_statcard",
+      "home_stats_stats",
+      "home_stats_usecountup"
+    ],
+    "34": [
+      "facebook_svg",
+      "social_linkedin_svg",
+      "social_x_svg",
+      "youtube_svg"
+    ],
+    "35": [
+      "account_delete_page_accountdeletepage",
+      "account_delete_page_metadata",
+      "app_account_delete_page_tsx"
+    ],
+    "36": [
+      "app_faqs_faqsclient_tsx",
+      "faqs_faqsclient_faqitem",
+      "faqs_faqsclient_faqs"
+    ],
+    "37": [
+      "app_refund_policy_page_tsx",
+      "refund_policy_page_metadata",
+      "refund_policy_page_refundpolicypage"
+    ],
+    "38": [
+      "app_api_cron_auto_questions_route_ts",
+      "app_api_cron_auto_questions_route_ts_auto_questions_route_get"
+    ],
+    "39": [
+      "app_robots_robots",
+      "app_robots_ts"
+    ],
+    "40": [
+      "app_store_webp",
+      "play_store_webp"
+    ],
+    "41": [
+      "app_store_white_svg",
+      "apple_inc"
+    ],
+    "42": [
+      "daily_study_target_webp",
+      "know_your_weakness_webp"
+    ],
+    "43": [
+      "detailed_analysis_p_500_webp",
+      "weekly_prep_report_p_500_webp"
+    ],
+    "44": [
+      "facebook_meta",
+      "social_facebook_svg"
+    ],
+    "45": [
+      "getvidya13_svg",
+      "getvidya9_svg"
+    ],
+    "46": [
+      "getvidya_next_middleware_config",
+      "middleware_ts"
+    ],
+    "47": [
+      "getvidya_next_tailwind_config_config",
+      "tailwind_config_ts"
+    ],
+    "48": [
+      "getvidya_telegram_qr_png",
+      "telegram_messenger"
+    ],
+    "49": [
+      "app_mobile_p_800_webp",
+      "home_banner_p_500_webp"
+    ],
+    "50": [
+      "getvidya3_svg",
+      "logo_gv_full_png"
+    ],
+    "51": [
+      "app_api_og_route_tsx",
+      "og_route_get"
+    ],
+    "52": [
+      "app_api_admin_blog_revalidate_route_ts",
+      "revalidate_route_post"
+    ],
+    "53": [
+      "structured_mock_tests_p_500_image",
+      "structured_mock_tests_webp"
+    ],
+    "54": [
+      "getvidya_next_vercel_crons",
+      "vercel_json"
+    ],
+    "55": [
+      "next_config_js"
+    ],
+    "56": [
+      "next_env_d_ts"
+    ],
+    "57": [
+      "postcss_config_js"
+    ],
+    "58": [
+      "components_layout_announcementbanner_tsx"
+    ],
+    "59": [
+      "public_well_known_assetlinks_json"
+    ],
+    "60": [
+      "hooks_usemagnetic_ts"
+    ],
+    "61": [
+      "start_free_upgrade_when_ready_webp"
+    ],
+    "62": [
+      "mobile_app_store_badge_1_svg"
+    ],
+    "63": [
+      "question_bank_svg"
+    ],
+    "64": [
+      "getvidya_featured_icon1_svg"
+    ],
+    "65": [
+      "minus_circle_svg"
+    ],
+    "66": [
+      "arrow_right_svgrepo_com_svg"
+    ],
+    "67": [
+      "office_svg"
+    ],
+    "68": [
+      "promo_banner_p_500_webp"
+    ],
+    "69": [
+      "9d2863c045217547799721becf0cf6a5_website_img_p_800_webp"
+    ],
+    "70": [
+      "li_file_spreadsheet_svg"
+    ],
+    "71": [
+      "whatsapp_svg"
+    ],
+    "72": [
+      "download_pdf_svg"
+    ],
+    "73": [
+      "approch_1_webp"
+    ],
+    "74": [
+      "li_chevron_down_svg"
+    ],
+    "75": [
+      "arrow_left_svgrepo_com_svg"
+    ],
+    "76": [
+      "learning_that_evolves_with_you_p_500_webp"
+    ],
+    "77": [
+      "webclip_png"
+    ],
+    "78": [
+      "plus_circle_svg"
+    ],
+    "79": [
+      "know_your_weakness_p_500_webp"
+    ],
+    "80": [
+      "home_banner_p_1600_webp"
+    ],
+    "81": [
+      "detailed_analysis_webp"
+    ],
+    "82": [
+      "getvidya_featured_icon3_svg"
+    ],
+    "83": [
+      "ashish_bijarniya_png"
+    ],
+    "84": [
+      "getvidya_qr_p_800_webp"
+    ],
+    "85": [
+      "app_mobile_webp"
+    ],
+    "86": [
+      "promo_banner_webp"
+    ],
+    "87": [
+      "get_mobile_svg"
+    ],
+    "88": [
+      "telegram_svg"
+    ],
+    "89": [
+      "getvidya_mp_images2_svg"
+    ],
+    "90": [
+      "getvidya_playstore_svg"
+    ],
+    "91": [
+      "website_img_webp"
+    ],
+    "92": [
+      "tests_available_svg"
+    ],
+    "93": [
+      "start_free_upgrade_webp"
+    ],
+    "94": [
+      "favicon_png"
+    ],
+    "95": [
+      "website_img_p_1600_webp"
+    ],
+    "96": [
+      "testiomonial_carousel_arrow_svg"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06349206349206349,
+    "1": 0.05574912891986063,
+    "2": 0.047619047619047616,
+    "3": 0.07195121951219512,
+    "4": 0.1,
+    "5": 0.1,
+    "6": 0.10526315789473684,
+    "7": 0.1111111111111111,
+    "8": 0.18095238095238095,
+    "9": 0.1619047619047619,
+    "10": 0.1523809523809524,
+    "11": 0.26373626373626374,
+    "12": 0.14285714285714285,
+    "13": 0.16666666666666666,
+    "14": 0.19696969696969696,
+    "15": 0.21818181818181817,
+    "16": 0.24444444444444444,
+    "17": 0.3111111111111111,
+    "18": 0.2777777777777778,
+    "19": 0.2222222222222222,
+    "20": 0.3611111111111111,
+    "21": 0.2222222222222222,
+    "22": 0.3055555555555556,
+    "23": 0.2857142857142857,
+    "24": 0.2857142857142857,
+    "25": 0.2857142857142857,
+    "26": 0.2857142857142857,
+    "27": 0.42857142857142855,
+    "28": 0.3333333333333333,
+    "29": 0.3333333333333333,
+    "30": 0.4,
+    "31": 0.5,
+    "32": 0.5,
+    "33": 0.6666666666666666,
+    "34": 0.5,
+    "35": 0.6666666666666666,
+    "36": 0.6666666666666666,
+    "37": 0.6666666666666666,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0,
+    "95": 1.0,
+    "96": 1.0
+  },
+  "gods": [
+    {
+      "id": "lib_seo_generateseo",
+      "label": "generateSEO()",
+      "degree": 39
+    },
+    {
+      "id": "lib_seo_breadcrumbschema",
+      "label": "breadcrumbSchema()",
+      "degree": 33
+    },
+    {
+      "id": "supabase_server_createserviceclient",
+      "label": "createServiceClient()",
+      "degree": 31
+    },
+    {
+      "id": "getvidya_next_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "ui_animatein_animatein",
+      "label": "AnimateIn()",
+      "degree": 16
+    },
+    {
+      "id": "lib_seo_faqschema",
+      "label": "faqSchema()",
+      "degree": 16
+    },
+    {
+      "id": "lib_seo_reviewschema",
+      "label": "reviewSchema()",
+      "degree": 13
+    },
+    {
+      "id": "supabase_server_createclient",
+      "label": "createClient()",
+      "degree": 13
+    },
+    {
+      "id": "lib_blog_getpublishedpost",
+      "label": "getPublishedPost()",
+      "degree": 11
+    },
+    {
+      "id": "lib_seo_howtoschema",
+      "label": "howToSchema()",
+      "degree": 10
+    }
+  ],
+  "surprises": [
+    {
+      "source": "CurrentAffairsMay2026Week3()",
+      "target": "breadcrumbSchema()",
+      "source_files": [
+        "app/current-affairs/may-2026-week-3/page.tsx",
+        "lib/seo.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `CurrentAffairsMay2026Week3()` unexpectedly reaches hub `breadcrumbSchema()`"
+    },
+    {
+      "source": "AdminSidebar()",
+      "target": "clsx",
+      "source_files": [
+        "components/admin/AdminSidebar.tsx",
+        "package.json"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "Btn()",
+      "target": "clsx",
+      "source_files": [
+        "components/admin/blog/EditorToolbar.tsx",
+        "package.json"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "generateSlug()",
+      "target": "slugify",
+      "source_files": [
+        "components/admin/blog/BlogEditor.tsx",
+        "package.json"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "sitemap()",
+      "target": "getPublishedPost()",
+      "source_files": [
+        "app/sitemap.ts",
+        "lib/blog.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `sitemap()` unexpectedly reaches hub `getPublishedPost()`"
+    }
+  ],
+  "tokens": {
+    "input": 34831,
+    "output": 1188
+  }
+}

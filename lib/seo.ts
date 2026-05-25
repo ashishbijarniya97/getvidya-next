@@ -36,7 +36,7 @@ export function generateSEO({
     : `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`;
   const desc = description || SITE_CONFIG.description;
   const image = ogImage || DEFAULT_OG_IMAGE;
-  const url = canonical || BASE_URL;
+  const url = canonical ?? BASE_URL;
 
   const defaultKeywords = [
     "GetVidya",
@@ -83,7 +83,7 @@ export function generateSEO({
     description: desc,
     keywords: [...defaultKeywords, ...keywords].join(", "),
     metadataBase: new URL(BASE_URL),
-    alternates: { canonical: url },
+    ...(canonical && { alternates: { canonical } }),
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot: { index: true, follow: true } },
@@ -160,7 +160,7 @@ export const organizationSchema = {
     "https://www.youtube.com/@Get_Vidya",
     "https://www.facebook.com/profile.php?id=61552776714971",
     "https://www.linkedin.com/company/getvidya",
-    "https://play.google.com/store/apps/details?id=in.getvidya.app",
+    "https://play.google.com/store/apps/details?id=app.getvidya.prod",
   ],
   contactPoint: {
     "@type": "ContactPoint",
@@ -203,7 +203,7 @@ export const educationalAppSchema = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.7",
-    ratingCount: "2400",
+    ratingCount: 2400,
   },
   featureList: [
     "GetVidyaAI adaptive difficulty practice",
@@ -362,6 +362,50 @@ export const howToSchema = ({
   })),
   tool: [{ "@type": "HowToTool", name: "GetVidya App (Android / iOS)" }],
   supply: [{ "@type": "HowToSupply", name: "GetVidya Vidya Pass — ₹149/month" }],
+});
+
+// ── Quiz Schema — for practice topic and mock test pages ─────────────────────
+export const quizSchema = ({
+  name,
+  description,
+  url,
+  numberOfQuestions,
+  about,
+  educationalLevel = "intermediate",
+}: {
+  name: string;
+  description: string;
+  url: string;
+  numberOfQuestions?: number;
+  about?: string;
+  educationalLevel?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  name,
+  description,
+  url: `${BASE_URL}${url}`,
+  learningResourceType: "Quiz",
+  educationalLevel,
+  ...(about && { about: { "@type": "Thing", name: about } }),
+  ...(numberOfQuestions !== undefined && { numberOfQuestions }),
+  provider: {
+    "@type": "Organization",
+    name: "GetVidya",
+    sameAs: BASE_URL,
+  },
+  offers: {
+    "@type": "Offer",
+    price: "149",
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+  },
+  inLanguage: ["en", "hi"],
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+    audienceType: "Government Exam Aspirants in India",
+  },
 });
 
 // ── Local Business Schema — for city landing pages ────────────────────────────

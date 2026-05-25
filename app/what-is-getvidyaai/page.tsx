@@ -89,12 +89,57 @@ const webPageSchema = {
   about: { "@type": "Organization", name: "GetVidyaAI" },
 };
 
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "GetVidya — AI Govt Exam Prep",
+  alternateName: "GetVidyaAI",
+  applicationCategory: "EducationApplication",
+  operatingSystem: "Android, iOS",
+  url: "https://getvidya.in",
+  downloadUrl: "https://play.google.com/store/apps/details?id=app.getvidya.prod",
+  description:
+    "GetVidyaAI is India's first AI-powered government exam prep app. It adapts question difficulty to your accuracy, identifies weak subjects via a free 25-question diagnostic, and builds a personalized weekly study plan. Covers SSC CGL, UPSC, Banking, Railway, and State PSC.",
+  featureList: [
+    "GetVidyaAI adaptive difficulty practice",
+    "25-question free diagnostic assessment",
+    "Personalized weekly AI study plan",
+    "1,200+ full-length mock tests",
+    "140,000+ MCQs across 6 exam categories",
+    "Daily XP and streak gamification",
+    "Subject and topic accuracy analytics",
+  ],
+  offers: {
+    "@type": "Offer",
+    price: "149",
+    priceCurrency: "INR",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      billingIncrement: 1,
+      unitText: "MONTH",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.7",
+    ratingCount: 2400,
+    bestRating: "5",
+    worstRating: "1",
+  },
+  author: {
+    "@type": "Organization",
+    name: "Prepdot Solutions Pvt. Ltd.",
+    url: "https://getvidya.in",
+  },
+};
+
 export default function WhatIsGetVidyaAIPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
 
       <Navbar />
       <main className="pt-20">

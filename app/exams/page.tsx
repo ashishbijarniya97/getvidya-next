@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BookOpen, CheckCircle2, Layers, Target, Zap } from "lucide-react";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 export const metadata = generateSEO({
   title: "All Government Exam Mock Tests 2026 — SSC, UPSC, Banking & More",
@@ -74,7 +74,7 @@ interface HubEntry {
 
 async function fetchHub(): Promise<Record<string, HubEntry>> {
   try {
-    const res = await fetch(HUB_API, { next: { revalidate: 300 } });
+    const res = await fetch(HUB_API, { next: { revalidate: 60 } });
     if (!res.ok) return {};
     return await res.json();
   } catch {

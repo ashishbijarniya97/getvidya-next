@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, PlayCircle, Star, CheckCircle2, Zap } from "lucide-react";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 const BADGES = ["SSC CGL", "UPSC", "Banking", "Railway", "State PSC", "Defence"];
 const STATS = [
@@ -13,12 +14,15 @@ const STATS = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
-      {/* Pure CSS background decorations — no JS, no 1.4MB SVG */}
+      {/* AI Neural Network background */}
+      <AuroraBackground />
+
+      {/* Ambient glow blobs behind the neural net */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
         />
       </div>

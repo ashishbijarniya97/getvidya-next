@@ -1,0 +1,512 @@
+{
+  "/Users/ashishbijarniya/Desktop/getvidya-next/middleware.ts": {
+    "mtime": 1777911440.2043219,
+    "ast_hash": "e9bc48ed1c290c60b4ced58479f631be",
+    "semantic_hash": "e9bc48ed1c290c60b4ced58479f631be"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/vercel.json": {
+    "mtime": 1779131823.9198802,
+    "ast_hash": "cf6224d375db38fa47feb3ba6ed24f03",
+    "semantic_hash": "cf6224d375db38fa47feb3ba6ed24f03"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/next.config.js": {
+    "mtime": 1779475937.3551097,
+    "ast_hash": "a3b660ebf506bf49c11b12ab379da1ef",
+    "semantic_hash": "a3b660ebf506bf49c11b12ab379da1ef"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/next-env.d.ts": {
+    "mtime": 1777911457.7043016,
+    "ast_hash": "3cf36e94213e85dc306ec5f3f3760ecc",
+    "semantic_hash": "3cf36e94213e85dc306ec5f3f3760ecc"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/tailwind.config.ts": {
+    "mtime": 1779183223.3235419,
+    "ast_hash": "626d1f94d6bdb3daa6d9298b20995d52",
+    "semantic_hash": "626d1f94d6bdb3daa6d9298b20995d52"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/package.json": {
+    "mtime": 1779114048.9528458,
+    "ast_hash": "c0089791b74952f3b791628aa1f80573",
+    "semantic_hash": "c0089791b74952f3b791628aa1f80573"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/tsconfig.json": {
+    "mtime": 1777911233.0711472,
+    "ast_hash": "3845ba465b50728d69e9dc9c327d8a56",
+    "semantic_hash": "3845ba465b50728d69e9dc9c327d8a56"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/postcss.config.js": {
+    "mtime": 1777911223.475228,
+    "ast_hash": "8640f9b2e6475cc3f5b1ff4548925765",
+    "semantic_hash": "8640f9b2e6475cc3f5b1ff4548925765"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/types/index.ts": {
+    "mtime": 1777903766.8074627,
+    "ast_hash": "0421b091dcbbd218aa6ef8a77a8fd71f",
+    "semantic_hash": "0421b091dcbbd218aa6ef8a77a8fd71f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/robots.ts": {
+    "mtime": 1778052258.4795833,
+    "ast_hash": "e3f491e87bcf4f9ad263a1ffe0be6d46",
+    "semantic_hash": "e3f491e87bcf4f9ad263a1ffe0be6d46"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/sitemap.ts": {
+    "mtime": 1778923418.1382747,
+    "ast_hash": "af98053b97832c20b2429b33b18fc33f",
+    "semantic_hash": "af98053b97832c20b2429b33b18fc33f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/layout.tsx": {
+    "mtime": 1778343367.3560002,
+    "ast_hash": "394dc8664af4ab0268b3bee40bce691d",
+    "semantic_hash": "394dc8664af4ab0268b3bee40bce691d"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/page.tsx": {
+    "mtime": 1779197522.306299,
+    "ast_hash": "68c3b05e877fc3313d572eec4fd307a7",
+    "semantic_hash": "68c3b05e877fc3313d572eec4fd307a7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/not-found.tsx": {
+    "mtime": 1778052258.4822154,
+    "ast_hash": "dcfa06449e9507a139110ea58f85b5c2",
+    "semantic_hash": "dcfa06449e9507a139110ea58f85b5c2"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/current-affairs/page.tsx": {
+    "mtime": 1779479322.753641,
+    "ast_hash": "9ef4cb6ac4180c8b76834bcca0e7ec45",
+    "semantic_hash": "9ef4cb6ac4180c8b76834bcca0e7ec45"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/current-affairs/may-2026-week-3/page.tsx": {
+    "mtime": 1779189947.5473237,
+    "ast_hash": "7ad2b920e502bb398f4739a42cae1775",
+    "semantic_hash": "7ad2b920e502bb398f4739a42cae1775"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/contact/ContactClient.tsx": {
+    "mtime": 1778859595.3454273,
+    "ast_hash": "61bf63f32c5d3ea48acf8418455f2b94",
+    "semantic_hash": "61bf63f32c5d3ea48acf8418455f2b94"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/contact/page.tsx": {
+    "mtime": 1778859585.7230854,
+    "ast_hash": "612b82f2f976d5de2126fa6fe347c780",
+    "semantic_hash": "612b82f2f976d5de2126fa6fe347c780"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/city/[city]/page.tsx": {
+    "mtime": 1778922096.5460136,
+    "ast_hash": "cd88a770276c3234f4e237661389fa1c",
+    "semantic_hash": "cd88a770276c3234f4e237661389fa1c"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/founder-ashish-bijarniya/page.tsx": {
+    "mtime": 1778837567.709577,
+    "ast_hash": "9f6ce33a6ab7085ab00a976b0b605136",
+    "semantic_hash": "9f6ce33a6ab7085ab00a976b0b605136"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/privacy-policy/page.tsx": {
+    "mtime": 1778052258.4850273,
+    "ast_hash": "560eb39cfd3f91f47544716c3855c5f0",
+    "semantic_hash": "560eb39cfd3f91f47544716c3855c5f0"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/refund-policy/page.tsx": {
+    "mtime": 1778052258.485383,
+    "ast_hash": "1fe8c1f623da2b64203dd9d6756db364",
+    "semantic_hash": "1fe8c1f623da2b64203dd9d6756db364"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/layout.tsx": {
+    "mtime": 1778052258.5031848,
+    "ast_hash": "fa30788bacd34df6ee2a4305c0960ba4",
+    "semantic_hash": "fa30788bacd34df6ee2a4305c0960ba4"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/page.tsx": {
+    "mtime": 1778356298.1465988,
+    "ast_hash": "24f27736d67e567e23825dc4f04f8732",
+    "semantic_hash": "24f27736d67e567e23825dc4f04f8732"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/leads/page.tsx": {
+    "mtime": 1778919152.9570792,
+    "ast_hash": "1f813247835ad38c4a2240348ff49982",
+    "semantic_hash": "1f813247835ad38c4a2240348ff49982"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/content/page.tsx": {
+    "mtime": 1778052258.5090952,
+    "ast_hash": "6d2a44222cbe986e5addbda3bed81236",
+    "semantic_hash": "6d2a44222cbe986e5addbda3bed81236"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/blog/page.tsx": {
+    "mtime": 1778880847.7613316,
+    "ast_hash": "71d4b8c661f12e6bc68b7b8f0c7233c7",
+    "semantic_hash": "71d4b8c661f12e6bc68b7b8f0c7233c7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/blog/new/page.tsx": {
+    "mtime": 1778880482.209528,
+    "ast_hash": "6b65273bde7e13d7f5c8f42d493df1bb",
+    "semantic_hash": "6b65273bde7e13d7f5c8f42d493df1bb"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/blog/[id]/edit/page.tsx": {
+    "mtime": 1778880489.467154,
+    "ast_hash": "0875951a48b8e54104965786e1322196",
+    "semantic_hash": "0875951a48b8e54104965786e1322196"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/auto-questions/page.tsx": {
+    "mtime": 1779112404.0030255,
+    "ast_hash": "a0da626829065275aca4e5a37f7c8ea7",
+    "semantic_hash": "a0da626829065275aca4e5a37f7c8ea7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/(protected)/questions/page.tsx": {
+    "mtime": 1779113664.5641475,
+    "ast_hash": "0a71654cdd2497d699746dd83ee4c1b5",
+    "semantic_hash": "0a71654cdd2497d699746dd83ee4c1b5"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/login/AdminLoginClient.tsx": {
+    "mtime": 1778859921.543171,
+    "ast_hash": "fbd6fc1997ebcd237cfefa1e8915afdb",
+    "semantic_hash": "fbd6fc1997ebcd237cfefa1e8915afdb"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/admin/login/page.tsx": {
+    "mtime": 1778859925.1800797,
+    "ast_hash": "952f844fc0455139adb5a0be4cd10a85",
+    "semantic_hash": "952f844fc0455139adb5a0be4cd10a85"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/about/page.tsx": {
+    "mtime": 1778052258.486437,
+    "ast_hash": "f4b3e9f4a637f97abeeab80cc337cc0d",
+    "semantic_hash": "f4b3e9f4a637f97abeeab80cc337cc0d"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/blog/page.tsx": {
+    "mtime": 1778880717.8743863,
+    "ast_hash": "36ce439fa1e6907ff256761f30e1ee21",
+    "semantic_hash": "36ce439fa1e6907ff256761f30e1ee21"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/blog/[slug]/page.tsx": {
+    "mtime": 1779187536.4295595,
+    "ast_hash": "4485b770f2bb14659f1c316dadb5e372",
+    "semantic_hash": "4485b770f2bb14659f1c316dadb5e372"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/faqs/FAQsClient.tsx": {
+    "mtime": 1778859607.191524,
+    "ast_hash": "3a4de9b3f3a0a24c841ca01ac85b6a33",
+    "semantic_hash": "3a4de9b3f3a0a24c841ca01ac85b6a33"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/faqs/page.tsx": {
+    "mtime": 1778859627.11922,
+    "ast_hash": "f033340a4f04cc7ad431e8f9db8601be",
+    "semantic_hash": "f033340a4f04cc7ad431e8f9db8601be"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/account-delete/page.tsx": {
+    "mtime": 1778486496.450835,
+    "ast_hash": "5dee697e4506687a3512678a900e9f94",
+    "semantic_hash": "5dee697e4506687a3512678a900e9f94"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/what-is-getvidyaai/page.tsx": {
+    "mtime": 1779187757.2937744,
+    "ast_hash": "578330113114b97a54c8c0dc5bb87d6f",
+    "semantic_hash": "578330113114b97a54c8c0dc5bb87d6f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/page.tsx": {
+    "mtime": 1779194374.914164,
+    "ast_hash": "ddbe0ec28dff9539f317bfed73e0ad2a",
+    "semantic_hash": "ddbe0ec28dff9539f317bfed73e0ad2a"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-platform-a/page.tsx": {
+    "mtime": 1779190968.6175501,
+    "ast_hash": "e7780da99b0725b474ff4c7178c1ad5d",
+    "semantic_hash": "e7780da99b0725b474ff4c7178c1ad5d"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-testbook/page.tsx": {
+    "mtime": 1779477078.912548,
+    "ast_hash": "089f8cfa3c3a3da46638f4347f2da3e9",
+    "semantic_hash": "089f8cfa3c3a3da46638f4347f2da3e9"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-platform-b/page.tsx": {
+    "mtime": 1779190756.8358107,
+    "ast_hash": "d1138046d7dad8465294859d3bbe79bc",
+    "semantic_hash": "d1138046d7dad8465294859d3bbe79bc"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-platform-c/page.tsx": {
+    "mtime": 1779194529.1200871,
+    "ast_hash": "dc4780824f40c7f8fc54112e789bf8f9",
+    "semantic_hash": "dc4780824f40c7f8fc54112e789bf8f9"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-other-apps/page.tsx": {
+    "mtime": 1778923412.3234675,
+    "ast_hash": "b7420263cae0331a43672fb0bc5dfb93",
+    "semantic_hash": "b7420263cae0331a43672fb0bc5dfb93"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/compare/getvidya-vs-coaching/page.tsx": {
+    "mtime": 1778340503.652517,
+    "ast_hash": "89a28cad5e7c7948d9ca7c6653ae1e09",
+    "semantic_hash": "89a28cad5e7c7948d9ca7c6653ae1e09"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/rajasthan/page.tsx": {
+    "mtime": 1778922311.6033874,
+    "ast_hash": "d6f671f0ed9f97e9a621bd4942164de3",
+    "semantic_hash": "d6f671f0ed9f97e9a621bd4942164de3"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/terms-of-service/page.tsx": {
+    "mtime": 1778052258.4889462,
+    "ast_hash": "a60ee30e0d04f651f7c503b2b8e151a4",
+    "semantic_hash": "a60ee30e0d04f651f7c503b2b8e151a4"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/free-assessment/FreeAssessmentClient.tsx": {
+    "mtime": 1779133423.9832256,
+    "ast_hash": "24576f8d7a60f8535b3e9e36ed1728b0",
+    "semantic_hash": "24576f8d7a60f8535b3e9e36ed1728b0"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/free-assessment/page.tsx": {
+    "mtime": 1778922048.8331072,
+    "ast_hash": "4f8de79a40509a73f805bcddbb750a11",
+    "semantic_hash": "4f8de79a40509a73f805bcddbb750a11"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/leads/route.ts": {
+    "mtime": 1778346769.1415427,
+    "ast_hash": "3517f63f609d8621e2bd47d968efa66e",
+    "semantic_hash": "3517f63f609d8621e2bd47d968efa66e"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/leads/route.ts": {
+    "mtime": 1778919093.5112107,
+    "ast_hash": "78af1a34e66e0d1cdcc9d521f74e815b",
+    "semantic_hash": "78af1a34e66e0d1cdcc9d521f74e815b"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/blog/route.ts": {
+    "mtime": 1778880334.6947634,
+    "ast_hash": "206a1b02d25e703533a1915d4c71883f",
+    "semantic_hash": "206a1b02d25e703533a1915d4c71883f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/blog/[id]/route.ts": {
+    "mtime": 1778880347.1453662,
+    "ast_hash": "94156180b49fe4af454d13c34b827b5b",
+    "semantic_hash": "94156180b49fe4af454d13c34b827b5b"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/blog/upload/route.ts": {
+    "mtime": 1778880355.3870814,
+    "ast_hash": "34d1655bbb9bc2994a3e6e63ce823ce7",
+    "semantic_hash": "34d1655bbb9bc2994a3e6e63ce823ce7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/blog/revalidate/route.ts": {
+    "mtime": 1778880361.732231,
+    "ast_hash": "d60c175a51d666b5668bfa2c8f1cefc6",
+    "semantic_hash": "d60c175a51d666b5668bfa2c8f1cefc6"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/auto-questions/route.ts": {
+    "mtime": 1779115102.86199,
+    "ast_hash": "2d14a567e51b41f5845e959fc3c87d40",
+    "semantic_hash": "2d14a567e51b41f5845e959fc3c87d40"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/admin/questions/import/route.ts": {
+    "mtime": 1779110823.9851582,
+    "ast_hash": "a84d2a3614b94513cb96e870c087b08c",
+    "semantic_hash": "a84d2a3614b94513cb96e870c087b08c"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/og/route.tsx": {
+    "mtime": 1778859571.930761,
+    "ast_hash": "226f6dd06282b05c2e7a3faf11b349bc",
+    "semantic_hash": "226f6dd06282b05c2e7a3faf11b349bc"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/api/cron/auto-questions/route.ts": {
+    "mtime": 1779112365.434391,
+    "ast_hash": "82ce92bbef75cd50bfed77b18a0b669b",
+    "semantic_hash": "82ce92bbef75cd50bfed77b18a0b669b"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/exams/page.tsx": {
+    "mtime": 1779290779.6803238,
+    "ast_hash": "ae11c451a829f874ac2d9a6555560ee3",
+    "semantic_hash": "ae11c451a829f874ac2d9a6555560ee3"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/exams/[slug]/page.tsx": {
+    "mtime": 1779290782.2395852,
+    "ast_hash": "454ec9cc15c07d193b959fe82651e77c",
+    "semantic_hash": "454ec9cc15c07d193b959fe82651e77c"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/exams/upsc/prelims-strategy/page.tsx": {
+    "mtime": 1778341113.6509407,
+    "ast_hash": "d2b4897497bf800c0eca2c736a6cbada",
+    "semantic_hash": "d2b4897497bf800c0eca2c736a6cbada"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/exams/ssc-cgl/mock-tests/page.tsx": {
+    "mtime": 1778340431.166766,
+    "ast_hash": "4298048b80334a4373bd071022423715",
+    "semantic_hash": "4298048b80334a4373bd071022423715"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/exams/ssc-cgl/syllabus/page.tsx": {
+    "mtime": 1779189994.1306164,
+    "ast_hash": "181376b3fe14dffa3cdc5dfbfb603418",
+    "semantic_hash": "181376b3fe14dffa3cdc5dfbfb603418"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/ai-study-plan/page.tsx": {
+    "mtime": 1778340955.074782,
+    "ast_hash": "9e8318523e8a4efc4cdf770dca83e9ac",
+    "semantic_hash": "9e8318523e8a4efc4cdf770dca83e9ac"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/practice/[exam]/[topic]/page.tsx": {
+    "mtime": 1779114587.6168983,
+    "ast_hash": "c32eb891139daed422e335299fa35ef9",
+    "semantic_hash": "c32eb891139daed422e335299fa35ef9"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/pricing/PricingClient.tsx": {
+    "mtime": 1778837854.355572,
+    "ast_hash": "80b2620ee055abdc61a2b99435c28a9a",
+    "semantic_hash": "80b2620ee055abdc61a2b99435c28a9a"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/pricing/page.tsx": {
+    "mtime": 1778788340.6068833,
+    "ast_hash": "6bd101d0d5e1457b16d4bab069455fc9",
+    "semantic_hash": "6bd101d0d5e1457b16d4bab069455fc9"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/ugc-net-2026/page.tsx": {
+    "mtime": 1779267838.3489075,
+    "ast_hash": "90efc01f9a68ef6fd876904841bbc3f0",
+    "semantic_hash": "90efc01f9a68ef6fd876904841bbc3f0"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/app/reviews/page.tsx": {
+    "mtime": 1779189752.3500414,
+    "ast_hash": "ca1f31c3ed9440527091c3748ff0f4c4",
+    "semantic_hash": "ca1f31c3ed9440527091c3748ff0f4c4"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/supabase/schema.sql": {
+    "mtime": 1777911218.554103,
+    "ast_hash": "ab157eff20e58f71d0ff9f09dd52c764",
+    "semantic_hash": "ab157eff20e58f71d0ff9f09dd52c764"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/supabase/blog-cms-schema.sql": {
+    "mtime": 1778880293.833266,
+    "ast_hash": "240f75858ad690514f675d050c803bbb",
+    "semantic_hash": "240f75858ad690514f675d050c803bbb"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/ui/MagneticButton.tsx": {
+    "mtime": 1778052258.4903502,
+    "ast_hash": "ea3256d79f236aa22b3f3767fd116a22",
+    "semantic_hash": "ea3256d79f236aa22b3f3767fd116a22"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/ui/AnimateIn.tsx": {
+    "mtime": 1778052258.4911728,
+    "ast_hash": "cc3291725387e61974892eddc589a88c",
+    "semantic_hash": "cc3291725387e61974892eddc589a88c"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/Hero.tsx": {
+    "mtime": 1779183308.592165,
+    "ast_hash": "d5186e77a0248a3dc5cb3ce0d452e900",
+    "semantic_hash": "d5186e77a0248a3dc5cb3ce0d452e900"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/Features.tsx": {
+    "mtime": 1778052258.4933379,
+    "ast_hash": "9796359543fa0810938d26eabace971f",
+    "semantic_hash": "9796359543fa0810938d26eabace971f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/CurrentAffairs.tsx": {
+    "mtime": 1779197504.258719,
+    "ast_hash": "883b6d1377950d8123bcb446f17a696c",
+    "semantic_hash": "883b6d1377950d8123bcb446f17a696c"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/GetVidyaAI.tsx": {
+    "mtime": 1778052258.4966846,
+    "ast_hash": "519c48a44a7017d2e37001c466f47f23",
+    "semantic_hash": "519c48a44a7017d2e37001c466f47f23"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/Ticker.tsx": {
+    "mtime": 1778052258.493942,
+    "ast_hash": "fbf53913afe6062eb675695b721697d9",
+    "semantic_hash": "fbf53913afe6062eb675695b721697d9"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/Testimonials.tsx": {
+    "mtime": 1778052258.4943614,
+    "ast_hash": "22ecf4b42f08581dd3e3543ed239a65a",
+    "semantic_hash": "22ecf4b42f08581dd3e3543ed239a65a"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/ExamGrid.tsx": {
+    "mtime": 1778052258.4950113,
+    "ast_hash": "35d79a7f18956090399258ed7e09947f",
+    "semantic_hash": "35d79a7f18956090399258ed7e09947f"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/Stats.tsx": {
+    "mtime": 1778052258.495637,
+    "ast_hash": "f9060be328a36190b010118554435dab",
+    "semantic_hash": "f9060be328a36190b010118554435dab"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/home/CTA.tsx": {
+    "mtime": 1778346972.136151,
+    "ast_hash": "3af369f955788b436a40da5a607cedf7",
+    "semantic_hash": "3af369f955788b436a40da5a607cedf7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/layout/Navbar.tsx": {
+    "mtime": 1779197510.5368638,
+    "ast_hash": "fa1f6f63f476bb4672179eff5116f1ba",
+    "semantic_hash": "fa1f6f63f476bb4672179eff5116f1ba"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/layout/AnnouncementBanner.tsx": {
+    "mtime": 1778052258.4979713,
+    "ast_hash": "ed796f1245fff5ab5d6b75787b2e4209",
+    "semantic_hash": "ed796f1245fff5ab5d6b75787b2e4209"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/layout/Footer.tsx": {
+    "mtime": 1779270636.131285,
+    "ast_hash": "0746ba5cfdd232ff1a72e778223a603b",
+    "semantic_hash": "0746ba5cfdd232ff1a72e778223a603b"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/providers/SmoothScroll.tsx": {
+    "mtime": 1778052258.499375,
+    "ast_hash": "66d1b4b068f2068b5e0c34164ecf0eb1",
+    "semantic_hash": "66d1b4b068f2068b5e0c34164ecf0eb1"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/admin/AdminSidebar.tsx": {
+    "mtime": 1779112434.6359107,
+    "ast_hash": "7871c87add1511d7eec39f99ae420925",
+    "semantic_hash": "7871c87add1511d7eec39f99ae420925"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/admin/LeadChart.tsx": {
+    "mtime": 1778052258.5021598,
+    "ast_hash": "9f5cec3cf9eb5c1e1a24ae51e924fdd8",
+    "semantic_hash": "9f5cec3cf9eb5c1e1a24ae51e924fdd8"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/admin/blog/SEOSidebar.tsx": {
+    "mtime": 1778880416.5815704,
+    "ast_hash": "4407718cff777244a09d7f119368b6b0",
+    "semantic_hash": "4407718cff777244a09d7f119368b6b0"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/admin/blog/EditorToolbar.tsx": {
+    "mtime": 1779089392.2158418,
+    "ast_hash": "a0c749c27bfa0f6dd52688602eb38f35",
+    "semantic_hash": "a0c749c27bfa0f6dd52688602eb38f35"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/components/admin/blog/BlogEditor.tsx": {
+    "mtime": 1779089409.7972608,
+    "ast_hash": "77c17355ebd5b9bee23bf3f4e884fa47",
+    "semantic_hash": "77c17355ebd5b9bee23bf3f4e884fa47"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/public/.well-known/assetlinks.json": {
+    "mtime": 1779391932.3391705,
+    "ast_hash": "a9252c7524ab603ff4fa4e19901e0850",
+    "semantic_hash": "a9252c7524ab603ff4fa4e19901e0850"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/hooks/useMagnetic.ts": {
+    "mtime": 1777927002.0747662,
+    "ast_hash": "355b13d8d3e1b7f1b525968260ef5882",
+    "semantic_hash": "355b13d8d3e1b7f1b525968260ef5882"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/scripts/migrate-hashnode-to-supabase.ts": {
+    "mtime": 1778880827.3937702,
+    "ast_hash": "5ac74e9b0986232ed8794ebcdd56d181",
+    "semantic_hash": "5ac74e9b0986232ed8794ebcdd56d181"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/lib/blog.ts": {
+    "mtime": 1779002278.3838289,
+    "ast_hash": "247980bd971328dd0929c333451c7cc7",
+    "semantic_hash": "247980bd971328dd0929c333451c7cc7"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/lib/hashnode.ts": {
+    "mtime": 1778062846.4088035,
+    "ast_hash": "ba3c1ba386ef3194342fb9f7817427b6",
+    "semantic_hash": "ba3c1ba386ef3194342fb9f7817427b6"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/lib/seo.ts": {
+    "mtime": 1778921989.4274652,
+    "ast_hash": "b273139c1585e316b357b665a94f88ab",
+    "semantic_hash": "b273139c1585e316b357b665a94f88ab"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/lib/supabase/client.ts": {
+    "mtime": 1778052258.4828694,
+    "ast_hash": "5453d99289cf630306e5030428c0fc33",
+    "semantic_hash": "5453d99289cf630306e5030428c0fc33"
+  },
+  "/Users/ashishbijarniya/Desktop/getvidya-next/lib/supabase/server.ts": {
+    "mtime": 1778926934.5557408,
+    "ast_hash": "98db4bd3642e54af59ed75478b4fde6e",
+    "semantic_hash": "98db4bd3642e54af59ed75478b4fde6e"
+  }
+}
