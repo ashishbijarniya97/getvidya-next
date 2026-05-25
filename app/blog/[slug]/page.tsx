@@ -210,7 +210,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     </p>
                     <div className="bg-mint rounded-xl p-4 mb-5 text-center">
                       <div className="text-2xl font-bold text-primary-500">
-                        ₹149<span className="text-sm font-normal text-slate-500">/month</span>
+                        ₹79<span className="text-sm font-normal text-slate-500">/month</span>
                       </div>
                       <div className="text-slate-500 text-xs mt-1">Unlimited mock tests</div>
                     </div>
