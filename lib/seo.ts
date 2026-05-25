@@ -188,10 +188,10 @@ export const educationalAppSchema = {
   operatingSystem: "Android, iOS",
   offers: {
     "@type": "AggregateOffer",
-    lowPrice: "499",
-    highPrice: "149",
+    lowPrice: "79",
+    highPrice: "999",
     priceCurrency: "INR",
-    offerCount: 2,
+    offerCount: 4,
     offers: [
       {
         "@type": "Offer",
@@ -203,6 +203,20 @@ export const educationalAppSchema = {
       {
         "@type": "Offer",
         name: "Vidya Pass Monthly",
+        price: "79",
+        priceCurrency: "INR",
+        priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "MONTH" },
+      },
+      {
+        "@type": "Offer",
+        name: "Personal Mentor Annual",
+        price: "999",
+        priceCurrency: "INR",
+        priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "YEAR" },
+      },
+      {
+        "@type": "Offer",
+        name: "Personal Mentor Monthly",
         price: "149",
         priceCurrency: "INR",
         priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "MONTH" },

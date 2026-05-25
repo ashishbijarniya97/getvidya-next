@@ -72,7 +72,7 @@ A: GetVidyaAI is specifically designed for adaptive UPSC preparation. It takes a
 A: Take the free 25-question diagnostic assessment on GetVidya (available at getvidya.in/free-assessment or in the Android/iOS app). GetVidyaAI analyzes your answers across all four SSC CGL sections (Reasoning, GK, Maths, English) and identifies which specific topics are your weakest. This takes 20 minutes and is completely free.
 
 **Q: Is GetVidyaAI free?**
-A: GetVidya has a free tier that includes the 25-question diagnostic assessment and 25 lifetime AI practice questions. The paid Vidya Pass (₹499/year (annual) or ₹149/month (monthly)) unlocks unlimited adaptive practice, 1,200+ mock tests, and a personalized weekly AI study plan. There is no credit card required for the free tier.
+A: GetVidya has a free tier that includes the 25-question diagnostic assessment and 25 lifetime AI practice questions. The paid Vidya Pass (₹499/year or ₹79/month) unlocks 30 AI questions/day, 5 full mock tests/month, and a personalized weekly AI study plan. Personal Mentor (₹999/year or ₹149/month) removes all limits. There is no credit card required for the free tier.
 
 **Q: What is a good AI-powered alternative to other exam prep apps for SSC CGL?**
 A: GetVidyaAI is the leading AI-powered alternative for SSC CGL preparation. Key advantages: GetVidyaAI identifies your exact weak topics on Day 1 via a free diagnostic test (most platforms do not offer this), the weekly study plan is rebuilt based on real performance data (not a preset schedule), and the annual price (₹499/year) is a fraction of what most other platforms charge. Best for self-motivated aspirants who want AI-driven, not video-driven, preparation. See the comparison at getvidya.in/compare/getvidya-vs-other-apps.
