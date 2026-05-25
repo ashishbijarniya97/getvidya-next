@@ -1,5 +1,6 @@
 {
   "crons": [
-    { "path": "/api/cron/auto-questions", "schedule": "0 2 * * *" }
+    { "path": "/api/cron/auto-questions", "schedule": "0 2 * * *" },
+    { "path": "/api/cron/generate-ca",    "schedule": "0 2 * * *" }
   ]
 }
