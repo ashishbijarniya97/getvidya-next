@@ -1,9 +1,9 @@
 import { MetadataRoute } from "next";
 import { getPublishedPosts } from "@/lib/blog";
 import { createPublicClient } from "@/lib/supabase/server";
+import { EDITIONS as STATIC_CA_EDITIONS } from "@/app/current-affairs/_data/editions";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://getvidya.in";
-const MCQ_BATCH_SIZE = 50_000;
 
 const STATIC_LASTMOD = {
   home:    "2026-05-01",
@@ -26,38 +26,7 @@ const RAJASTHAN_TIER2 = new Set([
   "sikar", "laxmangarh", "churu", "jhunjhunu", "jodhpur", "kota", "ajmer", "bikaner",
 ]);
 
-// How many MCQ batches do we need?
-async function getMcqBatchCount(): Promise<number> {
-  try {
-    const supabase = createPublicClient();
-    const { count } = await supabase
-      .from("questions")
-      .select("*", { count: "exact", head: true })
-      .eq("is_published", true);
-    return Math.ceil((count ?? 0) / MCQ_BATCH_SIZE);
-  } catch {
-    return 0;
-  }
-}
-
-// generateSitemaps tells Next.js the full set of sitemap IDs.
-// ID 0 → static + blog + exam hubs + practice topics
-// IDs 1..N → MCQ question pages in 50K batches
-export async function generateSitemaps() {
-  const batchCount = await getMcqBatchCount();
-  return [
-    { id: 0 },
-    ...Array.from({ length: batchCount }, (_, i) => ({ id: i + 1 })),
-  ];
-}
-
-export default async function sitemap({
-  id,
-}: {
-  id: number;
-}): Promise<MetadataRoute.Sitemap> {
-  // ── Sitemap 0: static pages + exam hubs + practice topics + blog ───────────
-  if (id === 0) {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticPages: MetadataRoute.Sitemap = [
       { url: BASE_URL,                                     lastModified: STATIC_LASTMOD.home,    changeFrequency: "weekly",  priority: 1.0 },
       { url: `${BASE_URL}/what-is-getvidyaai`,             lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.95 },
@@ -121,31 +90,42 @@ export default async function sitemap({
       // don't break sitemap if DB is unreachable
     }
 
-    return [...staticPages, ...practicePages, ...cityPages, ...blogPages];
-  }
+    let caPages: MetadataRoute.Sitemap = [
+      { url: `${BASE_URL}/current-affairs`, lastModified: STATIC_LASTMOD.home, changeFrequency: "daily", priority: 0.9 },
+      ...STATIC_CA_EDITIONS.map((e) => ({
+        url: `${BASE_URL}/current-affairs/${e.slug}`,
+        lastModified: e.publishedDate,
+        changeFrequency: "weekly" as const,
+        priority: 0.85,
+      })),
+    ];
+    try {
+      const supabase = createPublicClient();
+      const { data } = await supabase
+        .from("current_affairs_editions")
+        .select("slug, published_date")
+        .eq("status", "published");
+      if (data && data.length > 0) {
+        const dbSlugs = new Set(data.map((r: { slug: string }) => r.slug));
+        caPages = [
+          { url: `${BASE_URL}/current-affairs`, lastModified: STATIC_LASTMOD.home, changeFrequency: "daily", priority: 0.9 },
+          ...data.map((r: { slug: string; published_date: string }) => ({
+            url: `${BASE_URL}/current-affairs/${r.slug}`,
+            lastModified: r.published_date,
+            changeFrequency: "weekly" as const,
+            priority: 0.85,
+          })),
+          ...STATIC_CA_EDITIONS.filter((e) => !dbSlugs.has(e.slug)).map((e) => ({
+            url: `${BASE_URL}/current-affairs/${e.slug}`,
+            lastModified: e.publishedDate,
+            changeFrequency: "weekly" as const,
+            priority: 0.85,
+          })),
+        ];
+      }
+    } catch {
+      // fall back to static CA editions
+    }
 
-  // ── Sitemaps 1..N: MCQ question pages in 50K batches ──────────────────────
-  // These pages are served at /practice/q/[id] once that route exists.
-  // For now the sitemap infrastructure is wired; routes are added in a future sprint.
-  try {
-    const supabase = createPublicClient();
-    const from = (id - 1) * MCQ_BATCH_SIZE;
-    const to = from + MCQ_BATCH_SIZE - 1;
-
-    const { data } = await supabase
-      .from("questions")
-      .select("id, updated_at")
-      .eq("is_published", true)
-      .order("id")
-      .range(from, to);
-
-    return (data ?? []).map((q) => ({
-      url: `${BASE_URL}/practice/q/${q.id}`,
-      lastModified: q.updated_at ? new Date(q.updated_at) : STATIC_LASTMOD.home,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }));
-  } catch {
-    return [];
-  }
+    return [...staticPages, ...practicePages, ...cityPages, ...blogPages, ...caPages];
 }
