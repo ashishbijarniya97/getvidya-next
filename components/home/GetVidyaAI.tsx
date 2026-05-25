@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Flame, Map, Crosshair, BarChart3, Sparkles } from "lucide-react";
+import { Brain, Flame, Map, Crosshair, BarChart3, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
 import AuroraBackground from "@/components/ui/AuroraBackground";
 
@@ -88,6 +89,14 @@ export default function GetVidyaAI() {
               India&apos;s first AI study partner built specifically for government exams.
               It learns from your performance, adapts to your pace, and builds your path to success.
             </p>
+          </StaggerItem>
+          <StaggerItem>
+            <Link
+              href="/ai-tutor"
+              className="inline-flex items-center gap-2 bg-accent text-primary-500 font-semibold px-6 py-3 rounded-2xl mt-4 hover:bg-accent/90 transition-colors"
+            >
+              Try GetVidyaAI Free <ArrowRight size={16} />
+            </Link>
           </StaggerItem>
         </StaggerContainer>
 
