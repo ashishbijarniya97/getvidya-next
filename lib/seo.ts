@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "GetVidya",
   tagline: "India's AI-Powered Govt. Exam Prep Platform",
   description:
-    "GetVidya is India's first AI-powered government exam prep platform. GetVidyaAI delivers adaptive MCQ practice, personalized weekly study plans, and deep progress insights across 1,200+ mock tests and 140,000+ questions for UPSC, SSC CGL, Banking, Railway & more. Starting at ₹149/month.",
+    "GetVidya is India's first AI-powered government exam prep platform. GetVidyaAI delivers adaptive MCQ practice, personalized weekly study plans, and deep progress insights across 1,200+ mock tests and 140,000+ questions for UPSC, SSC CGL, Banking, Railway & more. Starting at ₹499/year.",
   url: BASE_URL,
   ogImage: DEFAULT_OG_IMAGE,
   twitter: "@GetVidya",
@@ -156,6 +156,7 @@ export const organizationSchema = {
   ],
   availableLanguage: ["English", "Hindi"],
   sameAs: [
+    "https://en.wikipedia.org/wiki/GetVidya",
     "https://t.me/GetVidyaofficial",
     "https://www.youtube.com/@Get_Vidya",
     "https://www.facebook.com/profile.php?id=61552776714971",
@@ -175,11 +176,6 @@ export const websiteSchema = {
   "@type": "WebSite",
   name: "GetVidya",
   url: BASE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${BASE_URL}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export const educationalAppSchema = {
@@ -191,14 +187,27 @@ export const educationalAppSchema = {
   applicationCategory: "EducationApplication",
   operatingSystem: "Android, iOS",
   offers: {
-    "@type": "Offer",
-    price: "149",
+    "@type": "AggregateOffer",
+    lowPrice: "499",
+    highPrice: "149",
     priceCurrency: "INR",
-    priceSpecification: {
-      "@type": "UnitPriceSpecification",
-      billingIncrement: 1,
-      unitText: "MONTH",
-    },
+    offerCount: 2,
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Vidya Pass Annual",
+        price: "499",
+        priceCurrency: "INR",
+        priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "YEAR" },
+      },
+      {
+        "@type": "Offer",
+        name: "Vidya Pass Monthly",
+        price: "149",
+        priceCurrency: "INR",
+        priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "MONTH" },
+      },
+    ],
   },
   aggregateRating: {
     "@type": "AggregateRating",

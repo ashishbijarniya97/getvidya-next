@@ -7,6 +7,7 @@ import { CheckCircle2, ArrowRight, Layers, Target, Zap, Clock, BookOpen } from "
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
 import Image from "next/image";
+import { createPublicClient } from "@/lib/supabase/server";
 
 const WA  = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const APP = "https://app.getvidya.in";
@@ -222,11 +223,34 @@ function TestTierSection({
   );
 }
 
+interface RelatedPost {
+  slug: string;
+  title: string;
+  excerpt: string | null;
+}
+
+async function fetchRelatedPosts(examName: string): Promise<RelatedPost[]> {
+  try {
+    const supabase = createPublicClient();
+    const { data } = await supabase
+      .from("blog_posts")
+      .select("slug, title, excerpt")
+      .ilike("title", `%${examName}%`)
+      .limit(3);
+    return data ?? [];
+  } catch {
+    return [];
+  }
+}
+
 export default async function ExamPage({ params }: { params: { slug: string } }) {
   const exam = EXAMS[params.slug];
   if (!exam) notFound();
 
-  const hub = await fetchHubEntry(params.slug);
+  const [hub, relatedPosts] = await Promise.all([
+    fetchHubEntry(params.slug),
+    fetchRelatedPosts(exam.name),
+  ]);
   const primarySubCatId = hub?.sub_categories?.[0]?.id;
   const deepLink = appExamUrl(primarySubCatId);
 
@@ -423,6 +447,26 @@ export default async function ExamPage({ params }: { params: { slug: string } })
             </div>
           </div>
         </section>
+        {/* Related Articles */}
+        {relatedPosts.length > 0 && (
+          <section className="py-12 bg-slate-50 border-t border-slate-200">
+            <div className="container-xl max-w-4xl">
+              <h2 className="text-2xl font-bold text-primary-500 mb-6">Related Articles</h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-shadow"
+                  >
+                    <p className="font-semibold text-slate-800 text-sm leading-snug mb-1">{post.title}</p>
+                    <p className="text-slate-500 text-xs line-clamp-2">{post.excerpt}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>
