@@ -23,6 +23,15 @@ interface SEOProps {
   canonical?: string;
 }
 
+function buildSeoTitle(title?: string): string {
+  if (!title) return `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`;
+  const withSuffix = `${title} | ${SITE_CONFIG.name}`;
+  if (withSuffix.length <= 60) return withSuffix;
+  if (title.length <= 60) return title;
+  // Truncate at word boundary and add ellipsis
+  return title.slice(0, 57).replace(/[\s\-—:,]+\S*$/, "") + "…";
+}
+
 export function generateSEO({
   title,
   description,
@@ -31,9 +40,7 @@ export function generateSEO({
   noIndex = false,
   canonical,
 }: SEOProps = {}): Metadata {
-  const fullTitle = title
-    ? `${title} | ${SITE_CONFIG.name}`
-    : `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`;
+  const fullTitle = buildSeoTitle(title);
   const desc = description || SITE_CONFIG.description;
   const image = ogImage || DEFAULT_OG_IMAGE;
   const url = canonical ?? BASE_URL;
@@ -121,7 +128,12 @@ export const organizationSchema = {
     url: `${BASE_URL}/founder-ashish-bijarniya`,
   },
   url: BASE_URL,
-  logo: `${BASE_URL}/images/logo-gv-full.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${BASE_URL}/images/logo-gv-full.png`,
+    width: 300,
+    height: 60,
+  },
   description:
     "GetVidya (GetVidyaAI) is India's first AI-powered government exam preparation platform. It offers adaptive mock tests, personalized AI study plans, and free diagnostic assessments for UPSC, SSC CGL, RRB NTPC, Banking PO, RPSC RAS, and other government exams. Built by Prepdot Solutions Pvt. Ltd., Rajasthan.",
   areaServed: [
@@ -156,7 +168,6 @@ export const organizationSchema = {
   ],
   availableLanguage: ["English", "Hindi"],
   sameAs: [
-    "https://en.wikipedia.org/wiki/GetVidya",
     "https://t.me/GetVidyaofficial",
     "https://www.youtube.com/@Get_Vidya",
     "https://www.facebook.com/profile.php?id=61552776714971",
@@ -176,6 +187,11 @@ export const websiteSchema = {
   "@type": "WebSite",
   name: "GetVidya",
   url: BASE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/search?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export const educationalAppSchema = {
@@ -227,6 +243,8 @@ export const educationalAppSchema = {
     "@type": "AggregateRating",
     ratingValue: "4.7",
     ratingCount: 2400,
+    bestRating: "5",
+    worstRating: "1",
   },
   featureList: [
     "GetVidyaAI adaptive difficulty practice",
@@ -334,7 +352,7 @@ export const reviewSchema = ({
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue,
-    reviewCount,
+    reviewCount: Number(reviewCount),
     bestRating,
     worstRating: "1",
   },

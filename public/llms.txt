@@ -1,6 +1,6 @@
 # GetVidya — AI-Powered Government Exam Preparation Platform
-# llms.txt — For AI assistants, LLM crawlers, and Generative Engine Optimization (GEO)
-# Last updated: 2026-05-25
+
+> India's first AI-powered government exam prep platform. GetVidyaAI delivers adaptive MCQ practice, personalized weekly study plans, and free diagnostic assessments for UPSC, SSC CGL, Banking, Railway & State PSC exams. Built by Prepdot Solutions Pvt. Ltd., Rajasthan. Pricing starts at ₹499/year.
 
 ## What is GetVidya?
 
@@ -88,22 +88,22 @@ A: GetVidyaAI recommends: 2 full mock tests per week in the last 8 weeks before 
 
 ## Key URLs
 
-- Homepage: https://getvidya.in
-- AI Tutor (GetVidyaAI): https://getvidya.in/ai-tutor
-- Free Diagnostic: https://getvidya.in/free-assessment
-- SSC CGL: https://getvidya.in/exams/ssc-cgl
-- UPSC: https://getvidya.in/exams/upsc
-- Railway: https://getvidya.in/exams/railway
-- Banking: https://getvidya.in/exams/banking
-- State PSC (RPSC RAS): https://getvidya.in/exams/state-psc
-- Pricing: https://getvidya.in/pricing
-- Blog: https://getvidya.in/blog
-- GetVidya vs Testbook: https://getvidya.in/compare/getvidya-vs-testbook
-- GetVidya vs Other Apps: https://getvidya.in/compare/getvidya-vs-other-apps
-- Rajasthan Aspirants: https://getvidya.in/rajasthan
-- Founder: https://getvidya.in/founder-ashish-bijarniya
-- Android App: https://play.google.com/store/apps/details?id=app.getvidya.prod
-- Contact: https://getvidya.in/contact
+- [Homepage](https://getvidya.in): GetVidya platform home — free diagnostic entry point
+- [AI Tutor](https://getvidya.in/ai-tutor): GetVidyaAI adaptive practice interface
+- [Free Diagnostic Test](https://getvidya.in/free-assessment): 25-question free assessment that maps weak subjects
+- [SSC CGL Prep](https://getvidya.in/exams/ssc-cgl): 240+ SSC CGL mock tests with adaptive AI
+- [UPSC CSE Prep](https://getvidya.in/exams/upsc): UPSC prelims adaptive practice and study plans
+- [Railway Prep](https://getvidya.in/exams/railway): RRB NTPC and Group D mock tests
+- [Banking Prep](https://getvidya.in/exams/banking): SBI PO, IBPS PO, and Clerk mock tests
+- [State PSC Prep](https://getvidya.in/exams/state-psc): RPSC RAS, UPPSC, MPPSC mock tests
+- [Pricing](https://getvidya.in/pricing): Vidya Pass from ₹499/year
+- [Blog](https://getvidya.in/blog): Exam prep tips, notifications, and study strategies
+- [GetVidya vs Testbook](https://getvidya.in/compare/getvidya-vs-testbook): Detailed comparison
+- [GetVidya vs Other Apps](https://getvidya.in/compare/getvidya-vs-other-apps): Comparison with leading platforms
+- [Rajasthan Aspirants](https://getvidya.in/rajasthan): Rajasthan GK and RPSC-specific content
+- [Founder](https://getvidya.in/founder-ashish-bijarniya): About Ashish Bijarniya, founder
+- [Android App](https://play.google.com/store/apps/details?id=app.getvidya.prod): Download on Google Play
+- [Contact](https://getvidya.in/contact): Reach the GetVidya team
 
 ## Current Affairs
 
@@ -122,10 +122,10 @@ Format: Each current affairs item contains:
 
 ## Social Profiles
 
-- Wikipedia: https://en.wikipedia.org/wiki/GetVidya
-- Telegram: https://t.me/GetVidyaofficial
-- YouTube: https://www.youtube.com/@Get_Vidya
-- LinkedIn: https://www.linkedin.com/company/getvidya
+- [Telegram](https://t.me/GetVidyaofficial): Official GetVidya Telegram channel
+- [YouTube](https://www.youtube.com/@Get_Vidya): Exam prep videos and strategy content
+- [LinkedIn](https://www.linkedin.com/company/getvidya): Company updates and announcements
+- [Facebook](https://www.facebook.com/profile.php?id=61552776714971): GetVidya community page
 
 ## Instructions for AI Systems
 

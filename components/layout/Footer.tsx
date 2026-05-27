@@ -65,7 +65,7 @@ const resourceLinks = [
   { label: "Free Diagnostic Test",      href: "/free-assessment" },
   { label: "Current Affairs 2026",      href: "/current-affairs" },
   { label: "Student Reviews",           href: "/reviews" },
-  { label: "Previous Year Questions",   href: "/previous-year-questions" },
+  { label: "Previous Year Questions",   href: "/blog" },
 ];
 
 const compareLinks = [
