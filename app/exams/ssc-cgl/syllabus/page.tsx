@@ -6,7 +6,7 @@ import { CheckCircle2, ArrowRight, BookOpen, Target } from "lucide-react";
 export const metadata = generateSEO({
   title: "SSC CGL 2026 Syllabus — Tier 1 & Tier 2 Complete Topic List",
   description:
-    "Complete SSC CGL 2026 syllabus for Tier 1 and Tier 2 with topic-wise breakdown. General Intelligence, General Awareness, Quantitative Aptitude, English. Download free SSC CGL study plan with GetVidyaAI.",
+    "Complete SSC CGL 2026 syllabus for Tier 1 & Tier 2 with topic-wise breakdown. GI&R, GA, Quantitative Aptitude, English — plus a free AI study plan from GetVidyaAI.",
   keywords: [
     "SSC CGL syllabus 2026",
     "SSC CGL Tier 1 syllabus",
@@ -19,7 +19,7 @@ export const metadata = generateSEO({
     "SSC CGL reasoning syllabus",
     "SSC CGL complete syllabus PDF",
   ],
-  canonical: "/exams/ssc-cgl/syllabus",
+  canonical: "https://getvidya.in/exams/ssc-cgl/syllabus",
 });
 
 const APP_URL = "https://app.getvidya.in";

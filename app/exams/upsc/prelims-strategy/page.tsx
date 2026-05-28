@@ -6,7 +6,7 @@ import { CheckCircle2, ArrowRight, Brain, Clock, Target, Star } from "lucide-rea
 export const metadata = generateSEO({
   title: "UPSC CSE Prelims Strategy 2026 — AI-Personalized Preparation Guide",
   description:
-    "Complete UPSC CSE Prelims 2026 strategy with subject-wise approach, GS Paper 1 topics, CSAT tips, and AI-powered practice. GetVidyaAI identifies your weak areas and builds a daily study plan. ₹149/month.",
+    "UPSC CSE Prelims 2026 strategy with subject-wise approach, GS Paper 1 topics, and CSAT tips. GetVidyaAI identifies your weak areas and builds a daily study plan. ₹149/month.",
   keywords: [
     "UPSC CSE prelims strategy 2026",
     "UPSC prelims preparation plan",
@@ -19,7 +19,7 @@ export const metadata = generateSEO({
     "how to crack UPSC prelims",
     "UPSC prelims 200 marks plan",
   ],
-  canonical: "/exams/upsc/prelims-strategy",
+  canonical: "https://getvidya.in/exams/upsc/prelims-strategy",
 });
 
 const APP_URL = "https://app.getvidya.in";

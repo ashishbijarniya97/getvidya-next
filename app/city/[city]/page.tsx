@@ -162,7 +162,7 @@ export async function generateMetadata({ params }: { params: { city: string } })
       `AI study app ${data.city}`,
       `${data.examFocus[0]} preparation ${data.city}`,
     ],
-    canonical: `/city/${data.slug}`,
+    canonical: `https://getvidya.in/city/${data.slug}`,
   });
 }
 

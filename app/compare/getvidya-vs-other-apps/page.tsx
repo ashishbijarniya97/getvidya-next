@@ -19,7 +19,7 @@ export const metadata = generateSEO({
     "free diagnostic test exam app",
     "ai study plan government exam india",
   ],
-  canonical: "/compare/getvidya-vs-other-apps",
+  canonical: "https://getvidya.in/compare/getvidya-vs-other-apps",
 });
 
 const comparison = [

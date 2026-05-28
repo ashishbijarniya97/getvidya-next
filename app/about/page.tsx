@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { generateSEO } from "@/lib/seo";
+import { generateSEO, faqSchema } from "@/lib/seo";
 import { Target, Heart, Zap, Users, Brain } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
@@ -18,9 +18,36 @@ const values = [
   { icon: Users, title: "Community", desc: "50,000+ students prepare together on GetVidya. We foster peer learning through Telegram and WhatsApp communities." },
 ];
 
+const aboutFaqs = [
+  {
+    question: "What is GetVidya?",
+    answer: "GetVidya (GetVidyaAI) is India's first AI-powered government exam preparation platform, built by Prepdot Solutions Pvt. Ltd. It offers 1,200+ adaptive mock tests, 140,000+ MCQs, a free 25-question diagnostic assessment, and a personalized weekly AI study plan for UPSC, SSC CGL, Banking, Railway, State PSC, and Defence exams.",
+  },
+  {
+    question: "Who founded GetVidya?",
+    answer: "GetVidya was founded in 2023 by Ashish Bijarniya. The company, Prepdot Solutions Pvt. Ltd., is headquartered in Rajasthan, India. It was built to make AI-powered, personalized exam preparation accessible and affordable for every Indian student.",
+  },
+  {
+    question: "Is GetVidya a government-recognized platform?",
+    answer: "GetVidya is a private edtech platform built by Prepdot Solutions Pvt. Ltd. It is not affiliated with any government body. It prepares students for government examinations such as UPSC CSE, SSC CGL, Railway NTPC, Banking PO, and State PSC exams.",
+  },
+  {
+    question: "How is GetVidya different from other exam prep platforms?",
+    answer: "GetVidya's core differentiator is GetVidyaAI — an adaptive AI engine that identifies your exact weak subjects on Day 1 via a free 25-question diagnostic test, then rebuilds your study plan every 7 days based on real performance data. Most platforms offer fixed video lectures and static schedules. GetVidyaAI adapts dynamically. The annual price (₹499/year) is a fraction of competitors.",
+  },
+  {
+    question: "Where is GetVidya available?",
+    answer: "GetVidya is available on Android (Google Play Store), iOS (App Store), and web at getvidya.in. The platform supports both Hindi and English, making it accessible to students across all regions of India.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(aboutFaqs)) }}
+      />
       <Navbar />
       <main className="pt-20">
         {/* Hero */}

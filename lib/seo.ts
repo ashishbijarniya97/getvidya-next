@@ -26,9 +26,7 @@ interface SEOProps {
 function buildSeoTitle(title?: string): string {
   if (!title) return `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`;
   const withSuffix = `${title} | ${SITE_CONFIG.name}`;
-  if (withSuffix.length <= 60) return withSuffix;
-  if (title.length <= 60) return title;
-  // Truncate at word boundary and add ellipsis
+  if (withSuffix.length <= 65) return withSuffix;
   return title.slice(0, 57).replace(/[\s\-—:,]+\S*$/, "") + "…";
 }
 
@@ -118,6 +116,7 @@ export function generateSEO({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
+  "@id": `${BASE_URL}/#organization`,
   name: "GetVidya",
   alternateName: ["GetVidyaAI", "Prepdot Solutions"],
   legalName: "Prepdot Solutions Pvt. Ltd.",
@@ -185,8 +184,11 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
   name: "GetVidya",
   url: BASE_URL,
+  description: "India's first AI-powered government exam preparation platform.",
+  inLanguage: ["en-IN", "hi-IN"],
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/search?q={search_term_string}` },
@@ -452,16 +454,29 @@ export const quizSchema = ({
 // ── Local Business Schema — for city landing pages ────────────────────────────
 export const localBusinessSchema = ({
   city,
-  region = "India",
+  region = "Rajasthan",
 }: {
   city: string;
   region?: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
+  "@id": `${BASE_URL}/city/${city.toLowerCase().replace(/\s+/g, "-")}/#localbusiness`,
   name: `GetVidya — Online Exam Prep for ${city} Students`,
   description: `GetVidya provides AI-powered government exam preparation for students in ${city}, ${region}. Covers SSC CGL, UPSC, Banking, and Railway exams with adaptive mock tests and personalized study plans.`,
   url: `${BASE_URL}/city/${city.toLowerCase().replace(/\s+/g, "-")}`,
+  telephone: "+91-8114422752",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: city,
+    addressRegion: region,
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "27.8278",
+    longitude: "75.0314",
+  },
   areaServed: { "@type": "City", name: city, containedInPlace: { "@type": "State", name: region } },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -469,9 +484,10 @@ export const localBusinessSchema = ({
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Vidya Pass Pro",
-        price: "149",
+        name: "Vidya Pass",
+        price: "499",
         priceCurrency: "INR",
+        priceSpecification: { "@type": "UnitPriceSpecification", billingIncrement: 1, unitText: "YEAR" },
         description: "Unlimited access to all mock tests, AI practice, and GetVidyaAI features.",
       },
     ],

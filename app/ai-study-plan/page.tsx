@@ -18,7 +18,7 @@ export const metadata = generateSEO({
     "weekly study plan for government exam",
     "smart study plan for UPSC aspirants",
   ],
-  canonical: "/ai-study-plan",
+  canonical: "https://getvidya.in/ai-study-plan",
 });
 
 const APP_URL = "https://app.getvidya.in";

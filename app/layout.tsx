@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { generateSEO, organizationSchema, websiteSchema, educationalAppSchema } from "@/lib/seo";
+import { generateSEO, organizationSchema, websiteSchema } from "@/lib/seo";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import MobileAppBanner from "@/components/ui/MobileAppBanner";
 
@@ -31,10 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(educationalAppSchema) }}
         />
       </head>
       <body className="antialiased">

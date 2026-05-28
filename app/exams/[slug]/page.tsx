@@ -291,7 +291,7 @@ export default async function ExamPage({ params }: { params: { slug: string } })
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div>
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/15 flex items-center justify-center overflow-hidden mb-4">
-                    <Image src={exam.logo} alt={exam.name} width={80} height={80} className="rounded-2xl object-cover" />
+                    <Image src={exam.logo} alt={exam.name} width={80} height={80} className="rounded-2xl object-cover" priority />
                   </div>
                   <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{exam.name}</h1>
                   <p className="text-white/70 text-base md:text-lg mb-6">{exam.fullForm}</p>

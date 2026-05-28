@@ -18,7 +18,7 @@ export const metadata = generateSEO({
     "GetVidya review vs Testbook vs coaching",
     "should I join coaching or study online SSC",
   ],
-  canonical: "/compare/getvidya-vs-coaching",
+  canonical: "https://getvidya.in/compare/getvidya-vs-coaching",
 });
 
 const APP_URL = "https://app.getvidya.in";

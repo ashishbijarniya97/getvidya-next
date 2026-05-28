@@ -7,7 +7,7 @@ import { CheckCircle2, Zap, Brain, Clock, BarChart3, ArrowRight, Star } from "lu
 export const metadata = generateSEO({
   title: "SSC CGL AI Mock Tests 2026 — Tier 1 & Tier 2 Full Tests",
   description:
-    "Take 240+ AI-powered SSC CGL mock tests for Tier 1 & Tier 2 2026. GetVidyaAI adapts question difficulty to your level, tracks accuracy per subject, and generates a personalized study plan. Free diagnostic test included.",
+    "240+ AI-powered SSC CGL mock tests for Tier 1 & Tier 2 2026. GetVidyaAI adapts difficulty, tracks accuracy per subject, and builds your study plan. Free diagnostic included.",
   keywords: [
     "SSC CGL mock test 2026",
     "SSC CGL Tier 1 mock test",
@@ -20,7 +20,7 @@ export const metadata = generateSEO({
     "SSC CGL quantitative aptitude mock test",
     "SSC CGL reasoning practice",
   ],
-  canonical: "/exams/ssc-cgl/mock-tests",
+  canonical: "https://getvidya.in/exams/ssc-cgl/mock-tests",
 });
 
 const APP_URL = "https://app.getvidya.in";
@@ -106,7 +106,7 @@ export default function SSCMockTestsPage() {
     description: "240+ adaptive mock tests for SSC CGL Tier 1 and Tier 2, powered by GetVidyaAI. Personalized difficulty, subject analytics, and weekly study plans.",
     url: "/exams/ssc-cgl/mock-tests",
     price: "149",
-    duration: "PT3M", // self-paced
+    duration: "P3M",
     level: "Beginner to Advanced",
   });
   const reviews = reviewSchema({ itemName: "GetVidya SSC CGL Mock Test Series", ratingValue: "4.8", reviewCount: "1840" });

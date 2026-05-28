@@ -16,6 +16,7 @@ const CTA         = dynamic(() => import("@/components/home/CTA"),         { ssr
 
 export const metadata = generateSEO({
   title: "GetVidyaAI — Free AI Mock Tests for Govt Exams",
+  canonical: "https://getvidya.in",
   description:
     "India's first AI-powered govt exam prep. Free diagnostic finds weak subjects in 20 min. 1,200+ mocks, 140K+ MCQs — SSC CGL, UPSC, Railway, Banking.",
   keywords: [

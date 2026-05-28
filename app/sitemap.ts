@@ -50,6 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${BASE_URL}/compare/getvidya-vs-coaching`,   lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.85 },
       { url: `${BASE_URL}/compare/getvidya-vs-testbook`,   lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.85 },
       { url: `${BASE_URL}/compare/getvidya-vs-other-apps`, lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.85 },
+      { url: `${BASE_URL}/compare/getvidya-vs-tarkvitark`,  lastModified: "2026-05-28",           changeFrequency: "monthly", priority: 0.85 },
       { url: `${BASE_URL}/blog`,                           lastModified: STATIC_LASTMOD.home,    changeFrequency: "daily",   priority: 0.8 },
       { url: `${BASE_URL}/about`,                          lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.7 },
       { url: `${BASE_URL}/founder-ashish-bijarniya`,       lastModified: STATIC_LASTMOD.content, changeFrequency: "monthly", priority: 0.8 },
@@ -79,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     let blogPages: MetadataRoute.Sitemap = [];
     try {
-      const posts = await getPublishedPosts(200);
+      const posts = await getPublishedPosts(2000);
       blogPages = posts.map((post) => ({
         url: `${BASE_URL}/blog/${post.slug}`,
         lastModified: new Date(post.updated_at),

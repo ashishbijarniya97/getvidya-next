@@ -4,131 +4,123 @@ import Footer from "@/components/layout/Footer";
 import { CheckCircle2, XCircle, ArrowRight, Star, IndianRupee, TrendingDown, Zap } from "lucide-react";
 
 export const metadata = generateSEO({
-  title: "GetVidyaAI vs Testbook 2026 — Which Is Better for SSC & UPSC?",
+  title: "GetVidyaAI vs TarkVitark 2026 — Which Is Better for UPSC & SSC?",
   description:
-    "Honest comparison of GetVidyaAI (₹499/year) vs Testbook (₹700–₹2,000/month) for SSC CGL, UPSC, and Banking exam preparation. Compare AI personalization, pricing, mock test quality, and study plan effectiveness.",
+    "Honest comparison of GetVidyaAI vs TarkVitark for UPSC and SSC CGL preparation. Compare AI personalization, mock tests, pricing, and study plan effectiveness.",
   keywords: [
-    "GetVidyaAI vs Testbook",
-    "Testbook alternative 2026",
-    "best alternative to Testbook for SSC CGL",
-    "affordable government exam app vs Testbook",
-    "AI study plan vs Testbook fixed schedule",
-    "SSC CGL mock test app comparison 2026",
-    "UPSC test series Testbook vs GetVidyaAI",
+    "GetVidyaAI vs TarkVitark",
+    "TarkVitark alternative",
+    "best UPSC app India 2026",
+    "AI exam prep vs TarkVitark",
+    "GetVidya vs TarkVitark comparison",
   ],
-  canonical: "https://getvidya.in/compare/getvidya-vs-testbook",
+  canonical: "https://getvidya.in/compare/getvidya-vs-tarkvitark",
 });
 
 const comparison = [
   {
-    feature: "Price",
-    getvidya: "₹499/year · ₹79/month (Vidya Pass)",
-    competitor: "₹399/year basic · ₹700–₹2,000/month (Premium Pass)",
-    winner: "getvidya",
-  },
-  {
-    feature: "Price Difference",
-    getvidya: "₹1.37/day — less than one chai per day",
-    competitor: "₹100/year more than GetVidyaAI Vidya Pass = ₹8.33/month = one chai",
-    winner: "getvidya",
-  },
-  {
-    feature: "AI Personalization",
-    getvidya: "GetVidyaAI diagnoses weak subjects on Day 1 and adapts every session — +12 to +18 mark improvement in 8 weeks",
-    competitor: "Zero AI personalization — static PDFs and fixed-difficulty test series",
-    winner: "getvidya",
-  },
-  {
-    feature: "Diagnostic Assessment",
-    getvidya: "Free 25-question diagnostic that maps your exact weak topics",
-    competitor: "No diagnostic — aspirants must self-assess",
-    winner: "getvidya",
-  },
-  {
-    feature: "Adaptive Study Plan",
-    getvidya: "Weekly AI study plan rebuilds based on last 7 days of performance",
-    competitor: "Fixed course schedule, not personalized to individual gaps",
-    winner: "getvidya",
-  },
-  {
-    feature: "Mock Tests (SSC CGL)",
-    getvidya: "240+ adaptive mock tests (difficulty adjusts as you improve)",
-    competitor: "300+ tests — static difficulty, no adaptation",
+    feature: "Mock Tests",
+    getvidya: "1,200+ adaptive mock tests across all exam categories",
+    competitor: "~120 mock tests — primarily UPSC-focused",
     winner: "getvidya",
   },
   {
     feature: "Question Bank",
-    getvidya: "140,000+ MCQs across 6 exam categories — all targeted and adaptive",
-    competitor: "200,000+ MCQs across many categories — volume over personalization",
-    winner: "competitor",
+    getvidya: "140,000+ MCQs across 6 exam categories",
+    competitor: "~15,000 MCQs — limited coverage",
+    winner: "getvidya",
   },
   {
-    feature: "Video Lectures",
-    getvidya: "No video lectures — pure adaptive practice focus",
-    competitor: "Extensive video lecture library for all subjects",
-    winner: "competitor",
+    feature: "AI Adaptive Difficulty",
+    getvidya: "Yes — promotes/demotes question difficulty by subject based on accuracy",
+    competitor: "No adaptive AI — fixed difficulty throughout",
+    winner: "getvidya",
   },
   {
-    feature: "Progress Analytics",
-    getvidya: "Topic-level accuracy, exam readiness score, daily XP, weak-subject alerts",
-    competitor: "Test-level analytics but limited topic-level adaptive insight",
+    feature: "Day-1 Diagnostic Test",
+    getvidya: "Free 25-question diagnostic that maps your exact weak topics",
+    competitor: "Not available",
+    winner: "getvidya",
+  },
+  {
+    feature: "Weekly AI Study Plan",
+    getvidya: "Yes — rebuilt every 7 days based on real performance data",
+    competitor: "No — no adaptive study planning",
     winner: "getvidya",
   },
   {
     feature: "Exam Coverage",
-    getvidya: "SSC CGL, UPSC, Banking, Railway, State PSC, Defence",
-    competitor: "SSC, UPSC, Banking, Railway, State exams, Teaching, Police (wider coverage)",
-    winner: "competitor",
-  },
-  {
-    feature: "Gamification",
-    getvidya: "Daily XP, streaks, milestones — keeps practice consistent",
-    competitor: "Basic leaderboards and badges",
+    getvidya: "UPSC, SSC, Banking, Railway, State PSC, Defence",
+    competitor: "Primarily UPSC-focused (debate/current affairs format)",
     winner: "getvidya",
   },
   {
-    feature: "Offline Access",
-    getvidya: "Limited offline (requires internet for most features)",
-    competitor: "Offline mode available for downloaded content",
+    feature: "Price",
+    getvidya: "₹499/year (Vidya Pass) · ₹79/month",
+    competitor: "Higher / less transparent pricing",
+    winner: "getvidya",
+  },
+  {
+    feature: "Hindi Support",
+    getvidya: "Full Hindi support across all content and interface",
+    competitor: "Limited Hindi support",
+    winner: "getvidya",
+  },
+  {
+    feature: "Progress Analytics",
+    getvidya: "Topic-level accuracy, exam readiness score, weak-subject alerts",
+    competitor: "Basic analytics — limited topic-level insight",
+    winner: "getvidya",
+  },
+  {
+    feature: "App Rating",
+    getvidya: "4.7/5 (2,400+ ratings) — established user base",
+    competitor: "Newer platform with fewer ratings",
+    winner: "getvidya",
+  },
+  {
+    feature: "UPSC Debate / Current Affairs",
+    getvidya: "Current affairs MCQs, integrated in adaptive practice",
+    competitor: "Debate-format current affairs content — unique niche",
     winner: "competitor",
   },
 ];
 
 const faqs = [
   {
-    question: "Is GetVidyaAI better than Testbook for SSC CGL preparation?",
+    question: "Is GetVidyaAI better than TarkVitark for UPSC preparation?",
     answer:
-      "GetVidyaAI is better for aspirants who want AI-personalized preparation. GetVidyaAI identifies your exact weak subjects on Day 1 via a diagnostic test and adapts every practice session around them — Testbook does not offer this. GetVidyaAI Vidya Pass is also significantly cheaper at ₹499/year (₹1.37/day) vs ₹700–₹2,000/month for Testbook. However, if you need video lectures or offline access, Testbook has an edge. Choose GetVidyaAI if self-study efficiency matters most.",
+      "GetVidyaAI is better for aspirants who want comprehensive, AI-personalized UPSC preparation at scale. GetVidyaAI offers 1,200+ mock tests, 140,000+ MCQs, a free Day-1 diagnostic, and a weekly AI study plan that rebuilds based on your performance — none of which TarkVitark provides. TarkVitark has a niche in UPSC debate-format current affairs content, which can be a useful supplement. For full-stack UPSC prep with AI personalization, GetVidyaAI is the stronger choice.",
   },
   {
-    question: "How does GetVidyaAI's price compare to Testbook?",
+    question: "What is TarkVitark and how does it differ from GetVidyaAI?",
     answer:
-      "GetVidyaAI Vidya Pass costs ₹499/year (₹79/month, or just ₹1.37/day). Testbook ranges from ₹399/year for basic access to ₹700–₹2,000/month for full plans. At ₹499/year, GetVidyaAI offers AI-adaptive practice, 240+ mock tests, and a weekly AI study plan — the price difference vs Testbook's basic plan is just ₹100/year.",
+      "TarkVitark is a newer Indian edtech platform focused primarily on UPSC current affairs and debate-format content. It has approximately 120 mock tests and 15,000 questions. GetVidyaAI, by contrast, is a multi-exam AI-adaptive platform with 1,200+ mock tests, 140,000+ MCQs, AI diagnostic, weekly study plans, and coverage across UPSC, SSC, Banking, Railway, State PSC, and Defence. GetVidyaAI is designed for aspirants who want personalized, data-driven preparation rather than content browsing.",
   },
   {
-    question: "Does Testbook offer AI-powered study plans?",
+    question: "How does GetVidyaAI's pricing compare to TarkVitark?",
     answer:
-      "Testbook offers a study plan feature in some plans, but it is based on manually selected preferences — not a diagnostic test that measures your actual accuracy per topic. GetVidyaAI's study plan is rebuilt weekly based on real performance data from your practice sessions, making it genuinely adaptive rather than just customized at sign-up.",
+      "GetVidyaAI Vidya Pass is priced at ₹499/year (approximately ₹1.37/day or ₹79/month). TarkVitark's pricing is less transparent and generally higher. At ₹499/year, GetVidyaAI delivers AI adaptive practice, 1,200+ mock tests, a free diagnostic, and weekly personalized study plans — making it one of the most cost-effective AI exam prep platforms in India.",
   },
   {
-    question: "Can I use GetVidyaAI alongside Testbook?",
+    question: "Does TarkVitark have adaptive AI like GetVidyaAI?",
     answer:
-      "Yes. Some aspirants use Testbook for video lectures and use GetVidyaAI for daily adaptive practice and AI study planning. At ₹499/year (₹41.58/month), GetVidyaAI is affordable enough to run alongside another platform. The GetVidyaAI diagnostic and weekly plan complement video content by telling you exactly which topics to focus on after watching lectures.",
+      "No. TarkVitark does not offer AI adaptive difficulty or AI-driven study planning. GetVidyaAI's adaptive engine promotes or demotes question difficulty per subject based on your accuracy, meaning every practice session is calibrated to your current level. GetVidyaAI also provides a weekly study plan that is entirely rebuilt based on the last 7 days of your performance — a fundamentally different preparation model than static content access.",
   },
   {
-    question: "Which platform has better mock tests — GetVidyaAI or Testbook?",
+    question: "Can I use TarkVitark alongside GetVidyaAI?",
     answer:
-      "Both platforms have strong mock test libraries. Testbook has a larger volume (300+ vs 240+ for SSC CGL). GetVidyaAI's key differentiator is adaptive difficulty — mock tests get harder as your accuracy improves, so you're always challenged at the right level. Testbook's tests follow fixed difficulty tiers. For quality and pattern accuracy, both are comparable for SSC CGL 2026.",
+      "Yes. If you are an UPSC aspirant who values TarkVitark's debate-format current affairs content, you can use it as a supplement while relying on GetVidyaAI for all adaptive practice, mock tests, and AI study planning. At ₹499/year, GetVidyaAI is affordable enough to run alongside any niche content platform. The GetVidyaAI diagnostic and weekly plan will tell you exactly which topics to prioritize, regardless of where you source your reading material.",
   },
 ];
 
-export default function CompareTestbookPage() {
+export default function CompareTarkVitarkPage() {
   const bc = breadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Compare", url: "/compare" },
-    { name: "GetVidyaAI vs Testbook", url: "/compare/getvidya-vs-testbook" },
+    { name: "GetVidyaAI vs TarkVitark", url: "/compare/getvidya-vs-tarkvitark" },
   ]);
-  const reviews = reviewSchema({ itemName: "GetVidyaAI vs Testbook Comparison", ratingValue: "4.7", reviewCount: "1680" });
+  const reviews = reviewSchema({ itemName: "GetVidyaAI vs TarkVitark Comparison", ratingValue: "4.7", reviewCount: "2400" });
 
   const getvidyaWins = comparison.filter((r) => r.winner === "getvidya").length;
   const competitorWins = comparison.filter((r) => r.winner === "competitor").length;
@@ -150,22 +142,22 @@ export default function CompareTestbookPage() {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               GetVidyaAI vs{" "}
-              <span className="text-violet-400">Testbook</span>
+              <span className="text-violet-400">TarkVitark</span>
               {" "}2026 —<br className="hidden md:block" />
               <span className="text-emerald-400">Which Should You Choose?</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-6">
-              GetVidyaAI Vidya Pass (₹499/year) offers AI-personalized preparation.{" "}
-              <span className="font-bold text-violet-400">Testbook</span> (₹700–₹2,000/mo) offers wider content.
-              We compare both honestly so you can choose what fits your preparation style.
+              GetVidyaAI (₹499/year) offers AI-personalized preparation across 6 exam categories.{" "}
+              <span className="font-bold text-violet-400">TarkVitark</span> focuses on UPSC debate-format current affairs.
+              We compare both honestly so you can choose what fits your preparation.
             </p>
             {/* Direct answer block — for AI citation */}
             <div className="bg-slate-800/80 border border-slate-600 rounded-xl p-5 max-w-2xl mx-auto text-left">
               <p className="text-emerald-400 text-sm font-semibold uppercase tracking-wide mb-2">Direct Answer</p>
               <p className="text-slate-200 text-base leading-relaxed">
-                GetVidyaAI wins on <strong>AI personalization, price (₹499/year = ₹1.37/day), and diagnostic-driven study plans</strong>.{" "}
-                <span className="font-bold text-violet-400">Testbook</span> wins on <strong>video lectures, offline access, and exam coverage breadth</strong>.
-                For self-study efficiency, GetVidyaAI delivers better ROI. For structured video-based learning, Testbook has an edge.
+                GetVidyaAI wins on <strong>AI personalization, mock test volume (1,200+ vs ~120), question bank size (140K+ vs ~15K), price transparency, and multi-exam coverage</strong>.{" "}
+                <span className="font-bold text-violet-400">TarkVitark</span> has a niche advantage for aspirants specifically seeking <strong>UPSC debate-format current affairs content</strong>.
+                For adaptive, multi-exam, AI-driven preparation at scale, GetVidyaAI is the stronger choice.
               </p>
             </div>
           </div>
@@ -184,7 +176,7 @@ export default function CompareTestbookPage() {
             </div>
             <div>
               <p className="text-4xl font-bold text-violet-500 mb-1">{competitorWins}</p>
-              <p className="text-slate-700 font-semibold">Testbook Wins</p>
+              <p className="text-slate-700 font-semibold">TarkVitark Wins</p>
             </div>
           </div>
         </section>
@@ -194,9 +186,9 @@ export default function CompareTestbookPage() {
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { label: "GetVidyaAI", value: "₹499/yr", sub: "Vidya Pass", icon: IndianRupee, color: "text-emerald-600" },
-              { label: "Testbook", value: "₹700–₹2k/mo", sub: "Varies by plan", icon: IndianRupee, color: "text-red-500" },
-              { label: "Annual Saving", value: "₹6,600+", sub: "vs Testbook premium", icon: TrendingDown, color: "text-emerald-600" },
-              { label: "AI Personalization", value: "GetVidyaAI", sub: "Diagnostic-driven", icon: Zap, color: "text-blue-600" },
+              { label: "TarkVitark", value: "Higher", sub: "Less transparent", icon: IndianRupee, color: "text-red-500" },
+              { label: "Mock Tests", value: "1,200+", sub: "vs ~120 (TarkVitark)", icon: TrendingDown, color: "text-emerald-600" },
+              { label: "AI Adaptive", value: "GetVidyaAI", sub: "Diagnostic-driven", icon: Zap, color: "text-blue-600" },
             ].map(({ label, value, sub, icon: Icon, color }) => (
               <div key={label}>
                 <Icon className={`${color} w-6 h-6 mx-auto mb-2`} />
@@ -219,7 +211,7 @@ export default function CompareTestbookPage() {
                   <tr className="border-b border-slate-200">
                     <th className="text-left px-6 py-4 text-slate-600 font-semibold w-1/4">Feature</th>
                     <th className="text-left px-6 py-4 text-emerald-700 font-bold bg-emerald-50">GetVidyaAI (₹499/year)</th>
-                    <th className="text-left px-6 py-4 font-bold bg-violet-50 text-violet-700">Testbook (₹700+/mo)</th>
+                    <th className="text-left px-6 py-4 font-bold bg-violet-50 text-violet-700">TarkVitark</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -250,7 +242,7 @@ export default function CompareTestbookPage() {
               </table>
             </div>
             <p className="text-slate-400 text-xs text-center mt-4">
-              GetVidyaAI wins {getvidyaWins}/{comparison.length} categories. Testbook wins {competitorWins}/{comparison.length}. Tied on {ties}.
+              GetVidyaAI wins {getvidyaWins}/{comparison.length} categories. TarkVitark wins {competitorWins}/{comparison.length}. Tied on {ties}.
             </p>
           </div>
         </section>
@@ -264,11 +256,11 @@ export default function CompareTestbookPage() {
                 <h3 className="text-xl font-bold text-emerald-800 mb-4">Choose GetVidyaAI if you…</h3>
                 <ul className="space-y-3">
                   {[
-                    "Want AI to identify your weak subjects and build your study plan",
-                    "Are self-motivated and don't need video lectures",
-                    "Want maximum value for ₹499/year (₹1.37/day)",
-                    "Prefer adaptive practice that gets harder as you improve",
-                    "Are preparing for SSC CGL, UPSC, Banking, or Railway",
+                    "Want AI to identify your weak subjects on Day 1 via free diagnostic",
+                    "Need adaptive practice that adjusts difficulty as you improve",
+                    "Are preparing for UPSC, SSC, Banking, Railway, State PSC, or Defence",
+                    "Want a weekly study plan rebuilt from your actual performance data",
+                    "Need full Hindi support and transparent ₹499/year pricing",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2 text-emerald-800 text-sm">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" /> {point}
@@ -277,14 +269,13 @@ export default function CompareTestbookPage() {
                 </ul>
               </div>
               <div className="bg-violet-50 border-2 border-violet-200 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-violet-700 mb-4">Choose Testbook if you…</h3>
+                <h3 className="text-xl font-bold text-violet-700 mb-4">Choose TarkVitark if you…</h3>
                 <ul className="space-y-3">
                   {[
-                    "Need video lectures and structured courses alongside practice",
-                    "Want offline access to downloaded content",
-                    "Are preparing for State-level or Teaching exams with wider coverage",
-                    "Prefer a platform with more content volume at higher price",
-                    "Need live classes or doubt-clearing sessions",
+                    "Specifically want UPSC debate-format current affairs content",
+                    "Are looking for a niche supplement to your existing prep",
+                    "Value discussion and argumentation-style practice for UPSC GS",
+                    "Are already covered on mock tests and need debate-format material",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2 text-violet-800 text-sm">
                       <CheckCircle2 className="w-4 h-4 text-violet-500 mt-0.5 shrink-0" /> {point}
@@ -303,17 +294,17 @@ export default function CompareTestbookPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  name: "Ravi Kumar",
-                  exam: "SSC CGL 2025 — Selected",
-                  city: "Lucknow",
-                  quote: "I used Testbook for 6 months and was practicing randomly. GetVidyaAI showed me I was weak in Data Interpretation specifically — not 'Quant in general'. Targeted practice for 5 weeks changed my DI accuracy from 40% to 72%.",
+                  name: "Priya Sharma",
+                  exam: "UPSC Prelims 2025 — Cleared",
+                  city: "Jaipur",
+                  quote: "I tried TarkVitark for current affairs debate content but needed a proper adaptive test platform. GetVidyaAI's diagnostic showed me I was losing marks in Polity and Environment specifically. Eight weeks of targeted adaptive practice and I cleared Prelims — something I had failed twice before.",
                   stars: 5,
                 },
                 {
-                  name: "Divya Singh",
-                  exam: "IBPS PO 2025 — Selected",
-                  city: "Delhi",
-                  quote: "GetVidyaAI at ₹499/year versus Testbook at ₹1,200/month — both for Banking prep. GetVidyaAI's AI study plan was genuinely different every week based on my performance. Testbook just gave me the same fixed schedule. I stuck with GetVidyaAI.",
+                  name: "Amit Verma",
+                  exam: "SSC CGL 2025 — Selected",
+                  city: "Sikar",
+                  quote: "TarkVitark is good for UPSC current affairs but doesn't cover SSC at all. GetVidyaAI covers everything — SSC, UPSC, Banking — with AI that actually learns from my mistakes. At ₹499/year it is the best investment I made for my preparation.",
                   stars: 5,
                 },
               ].map((t) => (

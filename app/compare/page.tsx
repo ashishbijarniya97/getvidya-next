@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 export const metadata = generateSEO({
   title: "GetVidyaAI vs Other Exam Prep Platforms 2026 — Detailed Comparisons",
   description:
-    "Compare GetVidyaAI with other government exam prep platforms across pricing, AI personalization, mock test quality, and study plan effectiveness. Find the best SSC CGL, UPSC, and Banking app for you.",
+    "Compare GetVidyaAI vs other exam prep platforms on pricing, AI personalization, and mock test quality. Find the best app for SSC CGL, UPSC & Banking.",
   canonical: "https://getvidya.in/compare",
   keywords: [
     "GetVidyaAI comparison",

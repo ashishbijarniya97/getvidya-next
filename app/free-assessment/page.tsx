@@ -5,7 +5,7 @@ import FreeAssessmentClient from "./FreeAssessmentClient";
 export const metadata: Metadata = generateSEO({
   title: "Free AI Diagnostic Test for SSC CGL & UPSC — No Registration | GetVidyaAI",
   description:
-    "Take GetVidyaAI's free 25-question diagnostic test. Identify your exact weak subjects for SSC CGL, UPSC, Railway, and Banking exams in 20 minutes. No credit card, no registration required. Get your AI study plan instantly.",
+    "Take GetVidyaAI's free 25-question diagnostic test. Find your exact weak subjects for SSC CGL, UPSC, Railway & Banking in 20 min. No credit card required.",
   keywords: [
     "free ai diagnostic test",
     "free mock test without registration",
