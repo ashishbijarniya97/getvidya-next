@@ -47,6 +47,7 @@ const productSchema = {
   name: "GetVidyaAI — Adaptive Test Prep Engine",
   description:
     "GetVidyaAI is an AI-integrated test preparation platform featuring over 140,000 algorithmic multiple-choice questions for Indian competitive exams including SSC CGL, UPSC CSE, Railway NTPC, Banking PO, NDA/CDS, and RJS.",
+  image: "https://getvidya.in/images/home-banner-p-1600.webp",
   brand: { "@type": "Brand", name: "GetVidya" },
   url: "https://getvidya.in/ai-tutor",
   offers: {
@@ -55,6 +56,12 @@ const productSchema = {
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
     url: "https://getvidya.in/pricing",
+    shoppingApplicableCountries: "IN",
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "IN",
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+    },
   },
   aggregateRating: {
     "@type": "AggregateRating",
