@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
-import { Inbox, Users, FileText, TrendingUp, ArrowUpRight, Database } from "lucide-react";
+import { getInstallStats } from "@/lib/analytics/appInstalls";
+import { Inbox, Users, TrendingUp, ArrowUpRight, Database, Smartphone, Activity, CalendarClock } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -59,6 +60,13 @@ export default async function AdminDashboard() {
   const stats = await getDashboardStats(supabase);
   const recentLeads = await getRecentLeads(supabase);
   const chartData = await getLeadChartData(supabase);
+  const installStats = await getInstallStats(supabase);
+
+  const installCards = [
+    { label: "Total Installs", value: installStats.totalInstalls.toLocaleString("en-IN"), icon: Smartphone,    color: "bg-blue-50 text-blue-600" },
+    { label: "Active (7d)",    value: installStats.active7d.toLocaleString("en-IN"),      icon: Activity,      color: "bg-emerald-50 text-emerald-600" },
+    { label: "Active (30d)",   value: installStats.active30d.toLocaleString("en-IN"),     icon: CalendarClock, color: "bg-amber-50 text-amber-600" },
+  ];
 
   const cards = [
     { label: "Total Leads",    value: stats.totalLeads,                                          icon: Users,    color: "bg-blue-50 text-blue-600",   change: "All time",       href: "/admin/leads" },
@@ -90,6 +98,32 @@ export default async function AdminDashboard() {
             <div className="text-slate-500 text-sm">{label}</div>
           </div>
         ))}
+      </div>
+
+      {/* App Installs */}
+      <div className="bg-white rounded-2xl shadow-card p-6 mb-8">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="font-bold text-primary-500 text-lg">App Installs</h2>
+            <p className="text-slate-400 text-sm mt-0.5">Mobile app installs and active users</p>
+          </div>
+          <Link href="/admin/app-installs" className="flex items-center gap-1 text-teal text-sm font-medium hover:underline">
+            View details <ArrowUpRight size={15} />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {installCards.map(({ label, value, icon: Icon, color }) => (
+            <div key={label} className="flex items-center gap-4 rounded-xl border border-slate-100 p-4">
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${color}`}>
+                <Icon size={20} />
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-primary-500 leading-tight">{value}</div>
+                <div className="text-slate-500 text-sm">{label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Lead Analytics Chart */}

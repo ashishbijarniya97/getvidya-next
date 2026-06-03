@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Inbox, FileText, BookOpen,
   Star, LogOut, ChevronLeft, ChevronRight, Settings,
-  Globe, Database, Zap, Newspaper,
+  Globe, Database, Zap, Newspaper, Smartphone,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import clsx from "clsx";
@@ -15,6 +15,7 @@ import clsx from "clsx";
 const nav = [
   { label: "Dashboard",     href: "/admin",           icon: LayoutDashboard },
   { label: "Leads",         href: "/admin/leads",     icon: Inbox },
+  { label: "App Installs",  href: "/admin/app-installs", icon: Smartphone },
   { label: "Question Bank", href: "/admin/questions",      icon: Database },
   { label: "Auto-Questions", href: "/admin/auto-questions", icon: Zap },
   { label: "Site Content",  href: "/admin/content",   icon: FileText },
