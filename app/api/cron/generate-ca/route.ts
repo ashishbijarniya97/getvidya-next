@@ -1,5 +1,13 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { revalidatePath } from "next/cache";
 import { createServiceClient } from "@/lib/supabase/server";
+
+// Refresh the ISR-cached current-affairs pages so a new/just-published
+// edition appears immediately instead of waiting for the revalidate window.
+function refreshCurrentAffairs(slug: string) {
+  revalidatePath("/current-affairs");
+  revalidatePath(`/current-affairs/${slug}`);
+}
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +69,7 @@ Return ONLY valid JSON (no markdown fences, no explanation):
   ]
 }`;
 
-  const model = gemini.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = gemini.getGenerativeModel({ model: "gemini-2.5-flash" });
   const result = await model.generateContent(prompt);
   let raw = result.response.text().trim();
 
@@ -107,11 +115,21 @@ export async function GET(req: Request) {
     .maybeSingle();
 
   if (existing) {
+    // Ensure the page reflects an already-generated edition (e.g. after a
+    // status change or a cache miss) even when we skip regeneration.
+    refreshCurrentAffairs(slug);
     return Response.json({ skipped: true, slug, reason: "Edition already exists", status: existing.status });
   }
 
   // Generate content
-  const sections = await generateCAContent(today);
+  let sections: object[];
+  try {
+    sections = await generateCAContent(today);
+  } catch (e) {
+    // Surface the real cause (e.g. a deprecated model) instead of an empty 500.
+    console.error("[generate-ca] generation failed:", e);
+    return Response.json({ error: "Generation failed", detail: String(e) }, { status: 500 });
+  }
   const displayDate = formatDisplayDate(today);
   const label = `Daily — ${displayDate}`;
 
@@ -123,7 +141,7 @@ export async function GET(req: Request) {
       label,
       date_range: displayDate,
       published_date: today,
-      status: "draft",
+      status: "published",
       meta_title: `Current Affairs Today ${displayDate} — SSC CGL UPSC Banking Daily Update`,
       meta_description: `Daily current affairs ${displayDate} for SSC CGL, UPSC, IBPS PO, Railway exams. AI-curated events with exam angles — review and practice on GetVidyaAI.`,
       keywords: [`current affairs today ${displayDate}`, "daily current affairs India", "GetVidyaAI current affairs"],
@@ -139,6 +157,8 @@ export async function GET(req: Request) {
     console.error("[generate-ca] Supabase error:", error);
     return Response.json({ error: error.message }, { status: 500 });
   }
+
+  refreshCurrentAffairs(slug);
 
   return Response.json({ ok: true, slug, id: data.id, sections_count: sections.length });
 }

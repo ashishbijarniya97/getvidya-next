@@ -117,7 +117,7 @@ async function generateWithOpenAI(category: string, subject: string): Promise<st
 }
 
 async function generateWithGemini(category: string, subject: string): Promise<string> {
-  const model = gemini.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = gemini.getGenerativeModel({ model: "gemini-2.5-flash" });
   const result = await model.generateContent(buildPrompt(category, subject, 50));
   return result.response.text();
 }
