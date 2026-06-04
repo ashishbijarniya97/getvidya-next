@@ -40,32 +40,27 @@ const SECTION_STYLES: Record<string, { colorClass: string; badgeClass: string }>
   "Sports":                 { colorClass: "border-rose-400 bg-rose-50",     badgeClass: "bg-rose-100 text-rose-700" },
 };
 
-async function generateCAContent(dateISO: string): Promise<object[]> {
-  const displayDate = formatDisplayDate(dateISO);
+async function generateCAContent(): Promise<object[]> {
+  const prompt = `You are a fact-checked editor preparing current-affairs and general-awareness REVISION material for Indian government competitive exams (SSC CGL, UPSC CSE, IBPS PO, Railway RRB). This content is published to students, so every fact must be reliable.
 
-  const prompt = `You are an expert current affairs editor for Indian government competitive exam preparation (SSC CGL, UPSC CSE, IBPS PO, Railway RRB).
+Generate 5–7 high-yield revision items.
 
-Today's date: ${displayDate}
-
-Generate 5–7 current affairs items for today, covering events relevant to Indian government exams. Focus on:
-- Events that realistically could happen in India or involving India on this date
-- National policy announcements, scheme launches, appointments
-- International bilateral meets, summits, treaty signings
-- RBI/SEBI/Finance Ministry decisions, economic indicators
-- ISRO/DRDO/CSIR scientific achievements
-- Sports: national team results, international tournaments, athlete records
+STRICT ACCURACY RULES:
+- Include ONLY well-established, verifiable facts you are confident are correct.
+- Do NOT invent or speculate. Never fabricate events, dates, statistics, names, appointments, or "breaking news", and never claim something happened on a specific recent date.
+- Prefer stable, exam-relevant knowledge: flagship government schemes and their key facts, Constitution/polity provisions, important national & international organisations (HQ/role where well-known), core economic concepts (repo rate mechanics, inflation indices, budget terms), Indian geography, modern history and the freedom movement, science & technology fundamentals (ISRO/DRDO programmes, basic physics/chemistry/biology), and major established sports facts and records.
+- If you are unsure about any specific number, name, or date, omit that detail rather than guess.
 
 For each item provide:
-- "headline": concise factual headline (under 15 words)
-- "detail": 2–3 sentences with specific numbers, dates, organisations, and key facts that an exam aspirant needs to know
-- "examAngle": which exams this targets and what specific facts to memorise (e.g. "SSC CGL / Banking: repo rate, MPC vote count, basis points definition")
+- "headline": concise factual statement (under 15 words)
+- "detail": 2–3 sentences of verifiable facts an aspirant must know (definitions, key figures, significance)
+- "examAngle": which exams this targets and the exact facts to memorise (e.g. "SSC CGL / Banking: repo rate definition, who sets it, basis points")
 - "category": exactly one of: "National Affairs", "International Affairs", "Economy & Finance", "Science & Technology", "Sports"
 
 Return ONLY valid JSON (no markdown fences, no explanation):
 {
   "items": [
-    { "category": "...", "headline": "...", "detail": "...", "examAngle": "..." },
-    ...
+    { "category": "...", "headline": "...", "detail": "...", "examAngle": "..." }
   ]
 }`;
 
@@ -103,7 +98,9 @@ export async function GET(req: Request) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const today = todayIST();
+  // Optional ?date=YYYY-MM-DD lets us backfill a specific day (secret-protected).
+  const dateParam = new URL(req.url).searchParams.get("date");
+  const today = dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam) ? dateParam : todayIST();
   const slug = dailySlug(today);
   const db = createServiceClient();
 
@@ -124,7 +121,7 @@ export async function GET(req: Request) {
   // Generate content
   let sections: object[];
   try {
-    sections = await generateCAContent(today);
+    sections = await generateCAContent();
   } catch (e) {
     // Surface the real cause (e.g. a deprecated model) instead of an empty 500.
     console.error("[generate-ca] generation failed:", e);
