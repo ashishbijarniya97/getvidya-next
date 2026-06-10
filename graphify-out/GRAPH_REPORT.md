@@ -1,15 +1,16 @@
-# Graph Report - .  (2026-05-23)
+# Graph Report - getvidya-next  (2026-06-04)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 138 files · ~295,741 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 646 nodes · 880 edges · 134 communities (60 shown, 74 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 29 edges (avg confidence: 0.84)
+- 972 nodes · 1387 edges · 153 communities (74 shown, 79 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d8a21c85`
+- Built from commit: `76d0a24a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -70,6 +71,7 @@
 - [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
 - [[_COMMUNITY_Community 62|Community 62]]
+- [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_Community 69|Community 69]]
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
@@ -123,127 +125,146 @@
 - [[_COMMUNITY_Community 131|Community 131]]
 - [[_COMMUNITY_Community 132|Community 132]]
 - [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 139|Community 139]]
+- [[_COMMUNITY_Community 140|Community 140]]
+- [[_COMMUNITY_Community 141|Community 141]]
+- [[_COMMUNITY_Community 142|Community 142]]
+- [[_COMMUNITY_Community 143|Community 143]]
+- [[_COMMUNITY_Community 144|Community 144]]
+- [[_COMMUNITY_Community 145|Community 145]]
+- [[_COMMUNITY_Community 146|Community 146]]
+- [[_COMMUNITY_Community 147|Community 147]]
+- [[_COMMUNITY_Community 148|Community 148]]
+- [[_COMMUNITY_Community 149|Community 149]]
+- [[_COMMUNITY_Community 150|Community 150]]
+- [[_COMMUNITY_Community 151|Community 151]]
+- [[_COMMUNITY_Community 152|Community 152]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `generateSEO()` - 39 edges
-2. `breadcrumbSchema()` - 33 edges
-3. `createServiceClient()` - 31 edges
-4. `compilerOptions` - 16 edges
-5. `AnimateIn()` - 16 edges
-6. `faqSchema()` - 16 edges
-7. `reviewSchema()` - 13 edges
-8. `createClient()` - 13 edges
-9. `getPublishedPost()` - 11 edges
-10. `howToSchema()` - 10 edges
+1. `createServiceClient()` - 54 edges
+2. `generateSEO()` - 46 edges
+3. `breadcrumbSchema()` - 37 edges
+4. `createClient()` - 23 edges
+5. `AnimateIn()` - 19 edges
+6. `faqSchema()` - 18 edges
+7. `compilerOptions` - 16 edges
+8. `createPublicClient()` - 16 edges
+9. `reviewSchema()` - 15 edges
+10. `StaggerContainer` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `CurrentAffairsMay2026Week3()` --calls--> `breadcrumbSchema()`  [EXTRACTED]
-  app/current-affairs/may-2026-week-3/page.tsx → lib/seo.ts
-- `AdminSidebar()` --calls--> `clsx`  [INFERRED]
-  components/admin/AdminSidebar.tsx → package.json
-- `Btn()` --calls--> `clsx`  [INFERRED]
-  components/admin/blog/EditorToolbar.tsx → package.json
-- `generateSlug()` --calls--> `slugify`  [INFERRED]
-  components/admin/blog/BlogEditor.tsx → package.json
-- `sitemap()` --calls--> `getPublishedPost()`  [EXTRACTED]
-  app/sitemap.ts → lib/blog.ts
+- `EditEditionPage()` --calls--> `createServiceClient()`  [EXTRACTED]
+  app/admin/(protected)/current-affairs/[id]/edit/page.tsx → lib/supabase/server.ts
+- `BlogAdminPage()` --calls--> `createServiceClient()`  [EXTRACTED]
+  app/admin/(protected)/blog/page.tsx → lib/supabase/server.ts
+- `generateMetadata()` --calls--> `generateSEO()`  [EXTRACTED]
+  app/search/page.tsx → lib/seo.ts
+- `POST()` --calls--> `createServiceClient()`  [EXTRACTED]
+  app/api/app/install/route.ts → lib/supabase/server.ts
+- `POST()` --calls--> `createServiceClient()`  [EXTRACTED]
+  app/api/admin/current-affairs/seed/route.ts → lib/supabase/server.ts
 
-## Communities (134 total, 74 thin omitted)
+## Communities (153 total, 79 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (46): GET(), buildPrompt(), gemini, generateWithGemini(), generateWithGroq(), generateWithOpenAI(), groq, openai (+38 more)
+Cohesion: 0.15
+Nodes (8): BlogAdminPage(), EditEditionPage(), GET(), PATCH(), requireAdmin(), metadata, createClient(), POST()
 
 ### Community 1 - "Community 1"
-Cohesion: 0.05
-Nodes (39): AdminSidebar(), generateSlug(), Btn(), Props, dependencies, clsx, framer-motion, @google/generative-ai (+31 more)
+Cohesion: 0.06
+Nodes (35): dependencies, framer-motion, @google/generative-ai, @hookform/resolvers, lenis, lowlight, lucide-react, next (+27 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (32): generateMetadata(), container, item, NotFound(), quickLinks, GetVidyaAI, Testimonials, EXAMS_STATIC (+24 more)
+Cohesion: 0.05
+Nodes (43): EXAM_COVERAGE, faqPageSchema, FAQS, HOW_IT_WORKS, metadata, productSchema, STATS, TESTIMONIALS (+35 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.06
-Nodes (20): nav, FormData, LOADING_STEPS, Phase, schema, SECTIONS, STATUS_COLORS, STATUS_OPTIONS (+12 more)
+Cohesion: 0.05
+Nodes (22): nav, FormData, LOADING_STEPS, Phase, schema, metadata, SECTIONS, STATUS_COLORS (+14 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.10
-Nodes (13): CTA, CurrentAffairs, ExamGrid, Features, homeFaqs, metadata, Stats, CATEGORIES (+5 more)
+Nodes (14): CTA, CurrentAffairs, ExamGrid, Features, homeFaqs, metadata, Stats, CATEGORIES (+6 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.11
-Nodes (18): devDependencies, autoprefixer, eslint, eslint-config-next, @netlify/plugin-nextjs, postcss, tailwindcss, @types/node (+10 more)
+Cohesion: 0.06
+Nodes (33): devDependencies, autoprefixer, eslint, eslint-config-next, jest, jest-environment-node, @netlify/plugin-nextjs, postcss (+25 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.11
-Nodes (12): metadata, values, education, metadata, personSchema, roadmap, skills, socialProof (+4 more)
+Cohesion: 0.18
+Nodes (9): education, metadata, personSchema, roadmap, skills, socialProof, stats, techStack (+1 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.15
-Nodes (12): CITIES, cityFaqs(), CityPage(), generateMetadata(), metadata, generateSEO(), localBusinessSchema(), metadata (+4 more)
+Cohesion: 0.12
+Nodes (16): CITIES, cityFaqs(), CityPage(), generateMetadata(), buildSeoTitle(), generateSEO(), localBusinessSchema(), SEOProps (+8 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.16
-Nodes (12): CompareCoachingPage(), comparison, faqs, metadata, CompareTestbookPage(), comparison, faqs, metadata (+4 more)
+Cohesion: 0.10
+Nodes (24): CompareCoachingPage(), comparison, faqs, metadata, CompareOtherAppsPage(), comparison, faqs, metadata (+16 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.15
-Nodes (13): courseSchema(), faqs, highlights, metadata, sectionWeightage, SSCMockTestsPage(), testTypes, CSAT_TOPICS (+5 more)
+Cohesion: 0.29
+Nodes (6): faqs, highlights, metadata, sectionWeightage, SSCMockTestsPage(), testTypes
 
 ### Community 11 - "Community 11"
-Cohesion: 0.14
+Cohesion: 0.12
 Nodes (8): cityLinks, compareLinks, examHubLinks, legalLinks, resourceLinks, socials, LinkedIn Icon, WhatsApp Icon 1
 
 ### Community 12 - "Community 12"
-Cohesion: 0.26
-Nodes (11): generateMetadata(), CITY_SLUGS, sitemap(), BlogPage(), metadata, tagColor(), formatBlogDate(), getPublishedPost() (+3 more)
+Cohesion: 0.05
+Nodes (46): generateMetadata(), generateMetadata(), generateStaticParams(), container, item, NotFound(), quickLinks, CITY_SLUGS (+38 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.20
-Nodes (6): metadata, metadata, organizationSchema, SEOProps, SITE_CONFIG, websiteSchema
+Cohesion: 0.25
+Nodes (4): metadata, organizationSchema, websiteSchema, SmoothScroll()
 
 ### Community 14 - "Community 14"
-Cohesion: 0.20
-Nodes (10): AIStudyPlanPage(), faqs, HOW_IT_WORKS_STEPS, metadata, howToSchema(), faqs, metadata, SSCCGLSyllabusPage() (+2 more)
+Cohesion: 0.13
+Nodes (17): AIStudyPlanPage(), faqs, HOW_IT_WORKS_STEPS, metadata, courseSchema(), howToSchema(), CSAT_TOPICS, faqs (+9 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.17
-Nodes (8): bc, comparisonSchema, faqs, metadata, TESTIMONIALS, comparison, FAQS, PLANS
+Cohesion: 0.25
+Nodes (5): bc, comparisonSchema, faqs, metadata, TESTIMONIALS
 
 ### Community 16 - "Community 16"
-Cohesion: 0.22
-Nodes (9): CATEGORIES, CurrentAffairsPage(), DISPLAY_MONTHS, fetchWeeks(), metadata, MONTH_NAMES, steps, WeekRow (+1 more)
+Cohesion: 0.19
+Nodes (12): CATEGORIES, CurrentAffairsPage(), DISPLAY_MONTHS, EditionRow, fetchPublished(), fetchWeeks(), formatDate(), metadata (+4 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.24
-Nodes (8): CompareOtherAppsPage(), comparison, faqs, metadata, breadcrumbSchema(), metadata, pricingFaqs, PricingPage()
+Cohesion: 0.10
+Nodes (27): auditBillingIntegrity(), canGetQuestion(), canStartExam(), canUseAiChat(), consumeQuestion(), consumeTest(), fetchBilling(), getServiceClient() (+19 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.31
 Nodes (9): db, extractExcerpt(), fetchAllSlugs(), fetchFullPost(), HNPostFull, HNPostNode, hnQuery(), HNTag (+1 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.31
-Nodes (6): DataPoint, AdminDashboard(), getDashboardStats(), getLeadChartData(), getRecentLeads(), LeadChart
+Cohesion: 0.15
+Nodes (17): CustomTooltip(), DataPoint, LeadChart(), daysAgo(), DB, getInstallsBySource(), getInstallStats(), getRecentInstalls() (+9 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.22
-Nodes (3): navLinks, metadata, metadata
+Cohesion: 0.18
+Nodes (5): aboutFaqs, metadata, values, navLinks, metadata
 
 ### Community 21 - "Community 21"
 Cohesion: 0.36
 Nodes (8): buildQuizSchema(), DBQuestion, EXAM_SLUG_MAP, fetchQuestions(), generateMetadata(), PracticeTopicPage(), slugToLabel(), TOPIC_SLUG_MAP
 
 ### Community 22 - "Community 22"
-Cohesion: 0.25
-Nodes (8): Ashish Bijarniya, 25-Question Diagnostic Assessment, GetVidyaAI Engine, GetVidya AI-Powered Preparation Platform Info, Prepdot Solutions Pvt. Ltd., Question Bank CSV Import, GetVidya AI Question Generation Prompt, Vidya Pass Subscription
+Cohesion: 0.15
+Nodes (12): Ashish Bijarniya, 25-Question Diagnostic Assessment, GetVidyaAI Engine, AFTER GENERATION, EXAMPLE CALLS, GetVidya — AI Question Generation Prompt, HOW TO USE, PROMPT (copy everything below this line) (+4 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (5): bc, COMPARISON, faqs, metadata, TESTIMONIALS
 
 ### Community 24 - "Community 24"
@@ -251,16 +272,16 @@ Cohesion: 0.29
 Nodes (5): aggregateRatingSchema, faqSchema, metadata, PLATFORMS, REVIEWS
 
 ### Community 25 - "Community 25"
-Cohesion: 0.29
-Nodes (5): faqs, faqSchema, metadata, organizationSchema, webPageSchema
+Cohesion: 0.25
+Nodes (6): faqs, faqSchema, metadata, organizationSchema, softwareAppSchema, webPageSchema
 
 ### Community 26 - "Community 26"
 Cohesion: 0.29
 Nodes (5): FEATURES, metadata, STATS, SUBJECTS, TIMELINE
 
 ### Community 27 - "Community 27"
-Cohesion: 0.43
-Nodes (5): getAllSlugs(), getPost(), getPosts(), HashnodePost, hashnodeQuery()
+Cohesion: 0.36
+Nodes (6): getAllSlugs(), getPost(), getPosts(), HashnodePost, HashnodePostFull, hashnodeQuery()
 
 ### Community 28 - "Community 28"
 Cohesion: 0.33
@@ -271,12 +292,12 @@ Cohesion: 0.33
 Nodes (4): COMPARISONS, faqSchema, GETVIDYA_ADVANTAGES, metadata
 
 ### Community 30 - "Community 30"
-Cohesion: 0.33
-Nodes (5): EXAMS, Q, QUIZ_BY_EXAM, Step, SUBJECT_MAP
+Cohesion: 0.20
+Nodes (6): EXAMS, Q, QUIZ_BY_EXAM, Step, SUBJECT_MAP, metadata
 
 ### Community 31 - "Community 31"
-Cohesion: 0.40
-Nodes (3): FAQ_DATA, metadata, faqSchema()
+Cohesion: 0.22
+Nodes (4): faqs, FAQ_DATA, metadata, faqSchema()
 
 ### Community 33 - "Community 33"
 Cohesion: 0.50
@@ -286,29 +307,89 @@ Nodes (4): Facebook Social Icon, LinkedIn Social Icon, Social X (Twitter) Icon, 
 Cohesion: 0.67
 Nodes (3): StatCard(), stats, useCountUp()
 
+### Community 36 - "Community 36"
+Cohesion: 0.07
+Nodes (26): bookmarkButton, bookmarkSelectors, btn, capturedResponses, categorySelectors, currentUrl, endpoints, ensureEvidenceDir() (+18 more)
+
+### Community 37 - "Community 37"
+Cohesion: 0.07
+Nodes (24): authenticate(), body, connectionPoolExhaustion, correctQuestionIds, errorRate, examSessionDuration, examSlugs, isCorrectLeakDetected (+16 more)
+
 ### Community 38 - "Community 38"
 Cohesion: 0.67
 Nodes (3): GetVidya Branding Asset 3, GetVidya5 Branding, GetVidya Full Logo
 
+### Community 134 - "Community 134"
+Cohesion: 0.16
+Nodes (19): batchReadLatency, isPoolExhausted(), options, pick(), poolExhaustionErrors, pseudoUUID(), readErrors, readLatency (+11 more)
+
+### Community 135 - "Community 135"
+Cohesion: 0.18
+Nodes (15): DELETE(), GET(), GET(), POST(), triggerRevalidate(), POST(), DELETE(), GET() (+7 more)
+
+### Community 136 - "Community 136"
+Cohesion: 0.10
+Nodes (19): Before Running: Replace Credentials, Cleanup After DB Pool Test, code:bash (# Install k6 (macOS)), code:bash (# From project root), code:bash (# From project root), code:sql (DELETE FROM "UserAttempt" WHERE source = 'k6-pool-test';), code:sql (-- Check MODULE 2.2: FREE user with passActive=true), GetVidya Performance & QA Validation Matrix (+11 more)
+
+### Community 137 - "Community 137"
+Cohesion: 0.27
+Nodes (12): GET(), buildPrompt(), gemini, generateWithGemini(), generateWithGroq(), generateWithOpenAI(), groq, openai (+4 more)
+
+### Community 138 - "Community 138"
+Cohesion: 0.20
+Nodes (5): generateSlug(), Props, Props, SEOData, slugify
+
+### Community 139 - "Community 139"
+Cohesion: 0.25
+Nodes (7): parseCSV(), POST(), RawRow, VALID_CATEGORIES, VALID_OPTIONS, VALID_SOURCE_TYPES, VALID_SUBJECTS
+
+### Community 140 - "Community 140"
+Cohesion: 0.43
+Nodes (7): dailySlug(), formatDisplayDate(), gemini, generateCAContent(), GET(), SECTION_STYLES, todayIST()
+
+### Community 141 - "Community 141"
+Cohesion: 0.29
+Nodes (4): AdminSidebar(), Btn(), Props, clsx
+
+### Community 142 - "Community 142"
+Cohesion: 0.29
+Nodes (4): comparison, COMPARISON_ROWS, FAQS, PLANS
+
+### Community 143 - "Community 143"
+Cohesion: 0.29
+Nodes (6): compilerOptions, noEmit, types, exclude, extends, include
+
+### Community 144 - "Community 144"
+Cohesion: 0.33
+Nodes (4): CAItem, CASection, CATEGORY_STYLES, Edition
+
+### Community 146 - "Community 146"
+Cohesion: 0.70
+Nodes (4): DELETE(), GET(), assertAdmin(), PATCH()
+
+### Community 148 - "Community 148"
+Cohesion: 0.83
+Nodes (3): assertAdmin(), GET(), POST()
+
 ## Knowledge Gaps
-- **352 isolated node(s):** `config`, `crons`, `config`, `name`, `version` (+347 more)
+- **496 isolated node(s):** `config`, `crons`, `nextConfig`, `config`, `extends` (+491 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **74 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **79 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `Community 1` to `Community 6`?**
-  _High betweenness centrality (0.106) - this node is a cross-community bridge._
-- **Why does `generateSlug()` connect `Community 1` to `Community 0`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
-- **What connects `config`, `crons`, `config` to the rest of the system?**
-  _352 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.05789235639981909 - nodes in this community are weakly interconnected._
+- **Why does `dependencies` connect `Community 1` to `Community 138`, `Community 141`, `Community 6`?**
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Why does `slugify` connect `Community 138` to `Community 1`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+- **What connects `config`, `crons`, `nextConfig` to the rest of the system?**
+  _496 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.07084785133565621 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.052917232021709636 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.06072874493927125 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.051515151515151514 - nodes in this community are weakly interconnected._
+- **Should `Community 4` be split into smaller, more focused modules?**
+  _Cohesion score 0.10476190476190476 - nodes in this community are weakly interconnected._
