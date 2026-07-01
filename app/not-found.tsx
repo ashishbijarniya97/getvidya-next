@@ -10,7 +10,7 @@ const item = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transiti
 
 const quickLinks = [
   { label: "Free Mock Tests", desc: "Attempt SSC CGL practice tests", href: "/exams/ssc-cgl", icon: BookOpen },
-  { label: "Question Bank", desc: "1.2 lakh+ free MCQs", href: "/question-bank", icon: FileText },
+  { label: "Practice Questions", desc: "Thousands of free MCQs", href: "/practice", icon: FileText },
   { label: "Go Home", desc: "Back to the homepage", href: "/", icon: Home },
 ];
 

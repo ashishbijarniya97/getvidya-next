@@ -62,14 +62,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${BASE_URL}/refund-policy`,                  lastModified: STATIC_LASTMOD.legal,   changeFrequency: "yearly",  priority: 0.3 },
     ];
 
-    const practicePages: MetadataRoute.Sitemap = EXAM_SLUGS.flatMap((exam) =>
-      TOPIC_SLUGS.map((topic) => ({
-        url: `${BASE_URL}/practice/${exam}/${topic}`,
+    const practicePages: MetadataRoute.Sitemap = [
+      {
+        url: `${BASE_URL}/practice`,
         lastModified: STATIC_LASTMOD.home,
         changeFrequency: "weekly" as const,
         priority: 0.85,
-      }))
-    );
+      },
+      ...EXAM_SLUGS.flatMap((exam) =>
+        TOPIC_SLUGS.map((topic) => ({
+          url: `${BASE_URL}/practice/${exam}/${topic}`,
+          lastModified: STATIC_LASTMOD.home,
+          changeFrequency: "weekly" as const,
+          priority: 0.85,
+        }))
+      ),
+    ];
 
     const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
       url: `${BASE_URL}/city/${slug}`,

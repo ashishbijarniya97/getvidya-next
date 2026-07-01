@@ -259,12 +259,12 @@ export default async function PracticeTopicPage({
                 <p className="text-white/65 text-sm mb-7 max-w-md mx-auto">
                   GetVidyaAI adapts to your performance and identifies your weak areas automatically. Start free — no credit card needed.
                 </p>
-                <Link
-                  href="/signup"
+                <a
+                  href="https://app.getvidya.in/signup"
                   className="inline-flex items-center gap-2 bg-teal hover:bg-teal/90 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 text-base"
                 >
                   Practice 10,000+ Questions Free <ArrowRight size={16} />
-                </Link>
+                </a>
                 <p className="text-white/40 text-xs mt-4">Free forever · No credit card required</p>
               </div>
             </div>
