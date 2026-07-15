@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 async function requireAdmin() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  return user;
+  return getAdminUser();
 }
 
 // GET /api/admin/leads — list all leads (service role bypasses RLS)

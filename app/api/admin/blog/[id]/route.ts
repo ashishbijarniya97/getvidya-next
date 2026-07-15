@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
+import { sanitizeBlogHtml } from "@/lib/sanitize";
 
 type Params = { params: { id: string } };
 
 // GET /api/admin/blog/[id]
 export async function GET(_req: NextRequest, { params }: Params) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const db = createServiceClient();
@@ -17,8 +18,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
 // PUT /api/admin/blog/[id] — update post
 export async function PUT(request: NextRequest, { params }: Params) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
@@ -37,7 +37,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
   const becomingPublished = status === "published" && !wasPublished;
 
   const { data, error } = await db.from("blogs").update({
-    title, slug, content, content_html, excerpt,
+    title, slug, content, content_html: sanitizeBlogHtml(content_html), excerpt,
     featured_image_url, status,
     seo_title, seo_description, og_image_url,
     tags: tags ?? [],
@@ -57,8 +57,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
 
 // DELETE /api/admin/blog/[id]
 export async function DELETE(_req: NextRequest, { params }: Params) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const db = createServiceClient();

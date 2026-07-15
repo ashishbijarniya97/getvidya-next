@@ -1,11 +1,10 @@
-import { createClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 export const dynamic = "force-dynamic";
 
 // Admin-authenticated proxy to the cron generate endpoint
 export async function POST(req: Request) {
-  const sb = await createClient();
-  const { data: { user } } = await sb.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
   const origin = req.headers.get("x-forwarded-host")

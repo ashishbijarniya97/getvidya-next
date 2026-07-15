@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 // Groq (LLaMA 3.3 70B) — OpenAI-compatible, very fast
 const groq = new OpenAI({
@@ -145,8 +146,7 @@ export async function POST(req: NextRequest) {
   // Auth: cron secret OR admin session
   const cronSecret = req.headers.get("x-cron-secret");
   if (!cronSecret || cronSecret !== process.env.CRON_SECRET) {
-    const supabase = createClient();
-    const { data: { user } } = await (await supabase).auth.getUser();
+    const user = await getAdminUser();
     if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -226,8 +226,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET() {
-  const supabase = createClient();
-  const { data: { user } } = await (await supabase).auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const db = createServiceClient();

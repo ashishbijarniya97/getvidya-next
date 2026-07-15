@@ -1,12 +1,11 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 
 export const metadata = { title: "Admin — GetVidya", robots: { index: false, follow: false } };
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
 
   if (!user) redirect("/admin/login");
 

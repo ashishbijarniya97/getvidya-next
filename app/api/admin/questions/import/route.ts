@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 const VALID_CATEGORIES  = ["SSC CGL", "IB ACIO", "RJS", "Mixed"] as const;
 const VALID_SUBJECTS    = ["Math", "Reasoning", "English", "GK", "Law"] as const;
@@ -59,8 +60,7 @@ function validateRow(row: RawRow, idx: number): string | null {
 
 export async function POST(req: NextRequest) {
   // Auth check
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const contentType = req.headers.get("content-type") ?? "";

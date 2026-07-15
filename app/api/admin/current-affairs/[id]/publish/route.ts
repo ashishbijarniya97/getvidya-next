@@ -1,14 +1,14 @@
 import { NextRequest } from "next/server";
 import { revalidatePath } from "next/cache";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 export const dynamic = "force-dynamic";
 
 // POST — publish a draft edition and revalidate ISR pages
 export async function POST(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const sb = await createClient();
-    const { data: { user } } = await sb.auth.getUser();
+    const user = await getAdminUser();
     if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
     const db = createServiceClient();
@@ -46,8 +46,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
 // POST — unpublish (revert to draft)
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const sb = await createClient();
-    const { data: { user } } = await sb.auth.getUser();
+    const user = await getAdminUser();
     if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
     const db = createServiceClient();

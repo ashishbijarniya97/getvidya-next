@@ -32,6 +32,7 @@
     "@tiptap/pm": "^3.23.4",
     "@tiptap/react": "^3.23.4",
     "@tiptap/starter-kit": "^3.23.4",
+    "@types/sanitize-html": "^2.16.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.2",
     "lenis": "^1.1.14",
@@ -43,6 +44,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.1",
     "recharts": "^2.12.7",
+    "sanitize-html": "^2.17.6",
     "sharp": "^0.33.4",
     "slugify": "^1.6.9",
     "tailwind-merge": "^2.4.0",
@@ -74,7 +76,12 @@
       "**/tests/unit/**/*.test.ts"
     ],
     "transform": {
-      "^.+\\.tsx?$": ["ts-jest", { "tsconfig": "tsconfig.test.json" }]
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.test.json"
+        }
+      ]
     }
   }
 }

@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
+import { sanitizeBlogHtml } from "@/lib/sanitize";
 
 // GET /api/admin/blog — list all posts (admin only)
 export async function GET() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const db = createServiceClient();
@@ -19,8 +20,7 @@ export async function GET() {
 
 // POST /api/admin/blog — create post
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getAdminUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
   const db = createServiceClient();
   const { data, error } = await db.from("blogs").insert({
-    title, slug, content, content_html, excerpt,
+    title, slug, content, content_html: sanitizeBlogHtml(content_html), excerpt,
     featured_image_url, status: status ?? "draft",
     seo_title, seo_description, og_image_url,
     tags: tags ?? [],

@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
+  experimental: {
+    // sanitize-html pulls in ESM-only htmlparser2; keep it external instead of bundling.
+    serverComponentsExternalPackages: ["sanitize-html"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 828, 1080, 1200, 1920],

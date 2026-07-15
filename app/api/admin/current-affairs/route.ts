@@ -1,11 +1,11 @@
 import { NextRequest } from "next/server";
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 
 export const dynamic = "force-dynamic";
 
 async function assertAdmin() {
-  const sb = await createClient();
-  const { data: { user } } = await sb.auth.getUser();
+  const user = await getAdminUser();
   if (!user) throw new Error("Unauthorized");
   return user;
 }

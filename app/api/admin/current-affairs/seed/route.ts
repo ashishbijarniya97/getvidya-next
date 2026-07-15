@@ -1,4 +1,5 @@
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/server";
+import { getAdminUser } from "@/lib/auth/admin";
 import { EDITIONS } from "@/app/current-affairs/_data/editions";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +7,7 @@ export const dynamic = "force-dynamic";
 // POST — seed static editions.ts data into Supabase (one-time setup)
 export async function POST() {
   try {
-    const sb = await createClient();
-    const { data: { user } } = await sb.auth.getUser();
+    const user = await getAdminUser();
     if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
     const db = createServiceClient();

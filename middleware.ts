@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isAdminEmail } from "@/lib/auth/admin";
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
@@ -31,17 +32,20 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  // Protect /admin routes (except /admin/login)
+  const admin = isAdminEmail(user?.email);
+
+  // Protect /admin routes (except /admin/login) — a session is not enough,
+  // the email must be in the ADMIN_EMAILS allowlist.
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    if (!user) {
+    if (!admin) {
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
       return NextResponse.redirect(url);
     }
   }
 
-  // If logged-in admin tries to visit /admin/login, send to dashboard
-  if (pathname === "/admin/login" && user) {
+  // If a logged-in admin tries to visit /admin/login, send to dashboard
+  if (pathname === "/admin/login" && admin) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin";
     return NextResponse.redirect(url);
