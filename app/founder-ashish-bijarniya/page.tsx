@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/home/CTA";
@@ -318,6 +319,7 @@ const stats = [
 ];
 
 export default function FounderPage() {
+  notFound();
   return (
     <>
       <script
