@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/founder-ashish-bijarniya", "destination": "/", "permanent": false }
+  ],
   "crons": [
     { "path": "/api/cron/auto-questions", "schedule": "0 2 * * *" },
     { "path": "/api/cron/generate-ca",    "schedule": "0 2 * * *" }

@@ -8,6 +8,12 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[[redirects]]
+  from   = "/founder-ashish-bijarniya"
+  to     = "/"
+  status = 302
+  force  = true
+
 # Force HTTPS — www + http → https apex
 [[redirects]]
   from   = "http://getvidya.in/*"
