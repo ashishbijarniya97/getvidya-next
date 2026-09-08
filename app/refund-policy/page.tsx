@@ -20,7 +20,7 @@ export default function RefundPolicyPage() {
             <h2>Eligibility for Refund</h2>
             <p>We offer refunds within <strong>7 days of purchase</strong> if you have not used more than 2 mock tests from your subscription.</p>
             <h2>How to Request a Refund</h2>
-            <p>Contact us at <a href="mailto:support@getvidya.in">support@getvidya.in</a> or WhatsApp us at +91 81144 22752 with your registered email and purchase details. We process refunds within 5-7 business days.</p>
+            <p>Contact us at <a href="mailto:support@getvidya.in">support@getvidya.in</a> with your registered email and purchase details. We process refunds within 5-7 business days.</p>
             <h2>Non-Refundable Cases</h2>
             <ul>
               <li>Subscriptions used beyond 2 mock tests</li>

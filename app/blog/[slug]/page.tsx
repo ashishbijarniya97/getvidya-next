@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const WA = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
+const APP_LINK = "https://app.getvidya.in/signup";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = await getPublishedPost(params.slug);
@@ -215,7 +215,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       <div className="text-slate-500 text-xs mt-1">Unlimited mock tests</div>
                     </div>
                     <MagneticButton
-                      href={WA}
+                      href={APP_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary w-full flex items-center justify-center gap-2 text-sm mb-3"

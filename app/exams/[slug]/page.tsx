@@ -9,7 +9,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { createPublicClient } from "@/lib/supabase/server";
 
-const WA  = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
 const APP = "https://app.getvidya.in";
 const HUB_API = "https://api.getvidya.in/api/public/exams/hub";
 

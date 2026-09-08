@@ -22,8 +22,6 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 type Phase = "idle" | "loading" | "success";
 
-const WA_LINK = "https://wa.me/918114422752?text=Hello%20GetVidya%20Team,%20I%20want%20to%20know%20more%20about%20the%20mock%20tests.";
-
 const LOADING_STEPS = [
   "Encrypting your message…",
   "Connecting to our team…",
@@ -81,7 +79,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="text-slate-500 text-sm max-w-xs mx-auto mb-8"
       >
-        Our team will get back to you within 24 hours. For faster response, ping us on WhatsApp.
+        Our team will get back to you via email within 24 hours.
       </motion.p>
 
       <motion.div
@@ -90,11 +88,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="flex flex-col sm:flex-row gap-3 justify-center"
       >
-        <MagneticButton href={WA_LINK} target="_blank" rel="noopener noreferrer"
-          className="btn-primary text-sm flex items-center gap-2">
-          Chat on WhatsApp <ArrowRight size={14} />
-        </MagneticButton>
-        <button onClick={onReset} className="btn-outline text-sm">
+        <button onClick={onReset} className="btn-primary text-sm">
           Send another message
         </button>
       </motion.div>
@@ -164,7 +158,7 @@ export default function ContactClient() {
     } catch {
       clearTimeout(t1); clearTimeout(t2);
       setPhase("idle");
-      alert("Something went wrong. Please try WhatsApp instead.");
+      alert("Something went wrong. Please email support@getvidya.in.");
     }
   };
 
@@ -196,7 +190,6 @@ export default function ContactClient() {
                 <h2 className="text-3xl font-bold text-primary-500 mb-8">Reach us directly</h2>
                 <div className="space-y-4 mb-10">
                   {[
-                    { icon: MessageSquare, label: "WhatsApp", value: "+91 81144 22752", href: WA_LINK, color: "bg-green-50 text-green-600" },
                     { icon: Mail, label: "Email", value: "support@getvidya.in", href: "mailto:support@getvidya.in", color: "bg-blue-50 text-blue-600" },
                     { icon: MapPin, label: "Company", value: "Prepdot Solutions Pvt. Ltd.", href: "#", color: "bg-purple-50 text-purple-600" },
                   ].map(({ icon: Icon, label, value, href, color }) => (
@@ -217,13 +210,13 @@ export default function ContactClient() {
                 </div>
 
                 <div className="bg-mint rounded-2xl p-6">
-                  <h3 className="font-bold text-primary-500 mb-2">Fastest response?</h3>
+                  <h3 className="font-bold text-primary-500 mb-2">Need help?</h3>
                   <p className="text-slate-600 text-sm mb-5">
-                    Message us directly on WhatsApp — we typically respond within minutes.
+                    Send an email to support@getvidya.in — we typically respond within 24 hours.
                   </p>
-                  <MagneticButton href={WA_LINK} target="_blank" rel="noopener noreferrer"
+                  <MagneticButton href="mailto:support@getvidya.in"
                     className="btn-primary text-sm flex items-center gap-2">
-                    Chat on WhatsApp <ArrowRight size={14} />
+                    Email Us <ArrowRight size={14} />
                   </MagneticButton>
                 </div>
               </AnimateIn>
